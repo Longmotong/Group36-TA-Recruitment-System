@@ -232,8 +232,16 @@ Possible future enhancements include:
 
 ## Work Log
 
+### Jingwei Xu
 | Date | Member | Location/Branch | Task Description |
 | :--- | :--- | :--- | :--- |
 | 2026-03-14 | @Jingwei-Xu | Jingwei-Xu/docs_questionnaires | The questionnaire content for investigating user requirements has been uploaded |
 | 2026-03-15 | @zhangsan | zhangsan/add_namelist | 你的工作内容描述 |
 | 2026-03-18 | @lisi | lisi/ta_login_ui | 你的工作内容描述 |
+
+### Motong Long
+| Date | Member | Location/Branch | Task Description |
+| :--- | :--- | :--- | :--- |
+| 2026-03-14 | @Longmotong |  |  |
+
+
