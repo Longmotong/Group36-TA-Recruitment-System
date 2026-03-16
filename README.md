@@ -9,6 +9,24 @@ The project is implemented as a **stand-alone Java application** and developed u
 
 ---
 
+## Group Name-list
+
+* **Jingwei Xu** 
+  * QMUL ID: 231221249
+  * GitHub: [@Jingwei-Xu](https://github.com/Jingwei-Xu)
+* **Motong Long** 
+  * QMUL ID: 231222095
+  * GitHub: [@Longmotong](https://github.com/Longmotong)
+* **Zihan Guo** 
+  * QMUL ID: 231220219
+  * GitHub: [@GuoZihan429](https://github.com/GuoZihan429) 
+* **Yuxin Wang**
+  * QMUL ID: 231220770
+  * Github: [@Yuxin-Wang5](https://github.com/Yuxin-Wang5)
+* **Yifan Cao** 
+  * QMUL ID: 231220987
+  * GitHub: [@rei129482](https://github.com/rei129482)
+
 ## System Users
 
 The system supports three types of users:
@@ -220,3 +238,19 @@ Possible future enhancements include:
 - Skill gap analysis
 - Automatic workload balancing
 - Improved UI design
+
+## Work Log
+
+### Jingwei Xu
+| Date | Member | Location/Branch | Task Description |
+| :--- | :--- | :--- | :--- |
+| 2026-03-14 | @Jingwei-Xu | Jingwei-Xu/docs_questionnaires | The questionnaire content for investigating user requirements has been uploaded |
+| 2026-03-15 | @zhangsan | zhangsan/add_namelist | 你的工作内容描述 |
+| 2026-03-18 | @lisi | lisi/ta_login_ui | 你的工作内容描述 |
+
+### Motong Long
+| Date | Member | Location/Branch | Task Description |
+| :--- | :--- | :--- | :--- |
+| 2026-03-14 | @Longmotong |  |  |
+
+
