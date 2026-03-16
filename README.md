@@ -9,6 +9,15 @@ The project is implemented as a **stand-alone Java application** and developed u
 
 ---
 
+## Group Name-list
+
+* **Jingwei Xu** 
+  * QMUL ID: 231221249
+  * GitHub: [@Jingwei-Xu](https://github.com/Jingwei-Xu)
+* **李四** 
+  * 学号: 202xxxx2
+  * GitHub: [@lisi](https://github.com/lisi)
+
 ## System Users
 
 The system supports three types of users:
@@ -220,3 +229,11 @@ Possible future enhancements include:
 - Skill gap analysis
 - Automatic workload balancing
 - Improved UI design
+
+## Work Log
+
+| Date | Member | Location/Branch | Task Description |
+| :--- | :--- | :--- | :--- |
+| 2026-03-14 | @Jingwei-Xu | Jingwei-Xu/docs_questionnaires | The questionnaire content for investigating user requirements has been uploaded |
+| 2026-03-15 | @zhangsan | zhangsan/add_namelist | 你的工作内容描述 |
+| 2026-03-18 | @lisi | lisi/ta_login_ui | 你的工作内容描述 |
