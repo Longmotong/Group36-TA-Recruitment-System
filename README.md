@@ -17,6 +17,9 @@ The project is implemented as a **stand-alone Java application** and developed u
 * **Motong Long** 
   * QMUL ID: 231222095
   * GitHub: [@Longmotong](https://github.com/Longmotong)
+* **Zihan Guo** 
+  * QMUL ID: 231220219
+  * GitHub: [@GuoZihan429](https://github.com/GuoZihan429)
 
 ## System Users
 
