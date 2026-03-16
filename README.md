@@ -23,6 +23,9 @@ The project is implemented as a **stand-alone Java application** and developed u
 * **Yuxin Wang**
   * QMUL ID: 231220770
   * Github: [@Yuxin-Wang5](https://github.com/Yuxin-Wang5)
+* **Yifan Cao** 
+  * QMUL ID: 231220987
+  * GitHub: [@rei129482](https://github.com/rei129482)
 
 ## System Users
 
