@@ -14,9 +14,9 @@ The project is implemented as a **stand-alone Java application** and developed u
 * **Jingwei Xu** 
   * QMUL ID: 231221249
   * GitHub: [@Jingwei-Xu](https://github.com/Jingwei-Xu)
-* **李四** 
-  * 学号: 202xxxx2
-  * GitHub: [@lisi](https://github.com/lisi)
+* **Motong Long** 
+  * QMUL ID: 231222095
+  * GitHub: [@Longmotong](https://github.com/Longmotong)
 
 ## System Users
 
