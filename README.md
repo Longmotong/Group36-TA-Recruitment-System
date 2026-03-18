@@ -242,6 +242,10 @@ Possible future enhancements include:
 ### Motong Long
 | Date | Member | Location/Branch | Task Description |
 | :--- | :--- | :--- | :--- |
-| 2026-03-14 | @Longmotong |  |  |
+| 2026-03-16 | @Longmotong |Motong-Long/TA_prototype  |Complete the prototype design of the image version  |
+| 2026-03-17 | @Longmotong |Motong-Long/TA_prototype  |Complete the prototype by adding text workflow  |
+| 2026-03-18 | @Longmotong |data  |upload the initial version of the data storage file that the application requires |
+
+
 
 
