@@ -245,6 +245,9 @@ Possible future enhancements include:
 | 2026-03-16 | @Longmotong |Motong-Long/TA_prototype  |Complete the prototype design of the image version  |
 | 2026-03-17 | @Longmotong |Motong-Long/TA_prototype  |Complete the prototype by adding text workflow  |
 | 2026-03-18 | @Longmotong |data  |upload the initial version of the data storage file that the application requires |
+| 2026-03-20 | @Longmotong |Motong-Long/report  |complete the first version of the report writing |
+| 2026-03-20 | @Longmotong |Motong-Long/TA_prototype  |Complete the format modification of the integrated prototype design and the adjustment of the public dashboard section |
+| 2026-03-21 | @Longmotong |Motong-Long/report  |Complete the revision of the report and improve and supplement the supporting materials |
 
 
 
