@@ -1,14 +1,3 @@
 {
-  "categories": [
-    "programming",
-    "teaching",
-    "communication",
-    "other"
-  ],
-  "proficiencyLevels": [
-    "Beginner",
-    "Intermediate",
-    "Advanced",
-    "Native"
-  ]
+  "categories": ["programming", "teaching", "communication", "other"]
 }

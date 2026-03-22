@@ -1,21 +1,20 @@
 {
   "applicationId": "app_000001",
+  "userId": "u_ta_20230001",
   "studentId": "20230001",
-  "userId": "u_20230001",
   "jobId": "job_CS101_2026_spring",
 
   "jobSnapshot": {
     "title": "Introduction to Programming TA",
-    "courseCode": "CS 101",
+    "courseCode": "CS101",
     "courseName": "Introduction to Programming",
     "department": "Computer Science",
     "instructorName": "Dr. Sarah Johnson",
     "instructorEmail": "sarah.johnson@university.edu",
-    "deadline": "2026-03-25",
+    "deadline": "2026-03-25T23:59:59",
     "employmentType": "Part-time TA",
     "weeklyHours": 10,
-    "locationMode": "Hybrid",
-    "locationDetail": "On-campus + Remote"
+    "locationMode": "Hybrid"
   },
 
   "applicantSnapshot": {
@@ -25,43 +24,61 @@
     "phoneNumber": "(555) 123-4567",
     "programMajor": "Computer Science",
     "year": "3rd Year",
+    "department": "Computer Science",
     "gpa": 3.8
   },
 
   "applicationForm": {
     "relevantSkills": [
       "Python",
-      "JavaScript",
-      "Java",
-      "C++"
+      "JavaScript"
     ],
-    "relevantExperience": "Served as peer tutor for introductory programming. Helped students with lab exercises, debugging, and code explanation.",
+    "relevantExperience": "Served as peer tutor for introductory programming.",
     "availability": "Monday/Wednesday 2-5pm, Friday 10am-12pm",
-    "motivationCoverLetter": "I am interested in this TA position because I enjoyed CS101 and want to help students build a strong foundation in programming. I believe my tutoring experience and technical background make me a strong fit for this role."
+    "motivationCoverLetter": "I am interested in helping students succeed in CS101."
   },
 
   "attachments": {
     "cv": {
-      "fileName": "John_Smith_CV.pdf",
-      "filePath": "/uploads/cvs/20230001/John_Smith_CV.pdf",
-      "fileType": "pdf"
+      "originalFileName": "John_Smith_CV.pdf",
+      "storedFileName": "cv.pdf",
+      "filePath": "data/uploads/application_files/app_000001/cv.pdf",
+      "fileType": "pdf",
+      "copiedAt": "2026-03-18T10:35:00"
     },
     "supportingDocuments": [
       {
         "documentId": "doc_001",
-        "fileName": "transcript.pdf",
-        "filePath": "/uploads/supporting_docs/app_000001/transcript.pdf",
+        "originalFileName": "transcript.pdf",
+        "storedFileName": "transcript.pdf",
+        "filePath": "data/uploads/application_files/app_000001/transcript.pdf",
         "fileType": "pdf",
-        "uploadedAt": "2026-03-12T10:31:00"
+        "uploadedAt": "2026-03-18T10:35:10"
       }
     ]
   },
 
+  "workflow": {
+    "assignedMO": "u_mo_001",
+    "assignedAdmin": "u_admin_001",
+    "reviewDepartment": "Computer Science"
+  },
+
   "status": {
-    "current": "pending",
-    "label": "Pending",
-    "color": "yellow",
-    "lastUpdated": "2026-03-12T10:30:00"
+    "current": "under_review",
+    "label": "Under Review",
+    "lastUpdated": "2026-03-18T11:00:00",
+    "updatedBy": "u_mo_001"
+  },
+
+  "review": {
+    "reviewerNotes": "Strong academic record and tutoring experience.",
+    "decision": "",
+    "decisionReason": "",
+    "statusMessage": "",
+    "nextSteps": "",
+    "reviewedBy": "u_mo_001",
+    "reviewedAt": "2026-03-18T11:00:00"
   },
 
   "timeline": [
@@ -70,22 +87,24 @@
       "stepKey": "submitted",
       "stepLabel": "Application Submitted",
       "status": "completed",
-      "timestamp": "2026-03-12T10:30:00",
+      "timestamp": "2026-03-18T10:34:50",
+      "updatedBy": "u_ta_20230001",
       "note": "Application submitted successfully."
+    },
+    {
+      "timelineId": "tl_002",
+      "stepKey": "under_review",
+      "stepLabel": "Under Review",
+      "status": "completed",
+      "timestamp": "2026-03-18T11:00:00",
+      "updatedBy": "u_mo_001",
+      "note": "Application moved into review stage."
     }
   ],
 
-  "review": {
-    "reviewerNotes": "",
-    "statusMessage": "",
-    "nextSteps": "",
-    "reviewedBy": "",
-    "reviewedAt": null
-  },
-
   "meta": {
-    "submittedAt": "2026-03-12T10:30:00",
-    "updatedAt": "2026-03-12T10:30:00",
+    "submittedAt": "2026-03-18T10:34:50",
+    "updatedAt": "2026-03-18T11:00:00",
     "isDeleted": false
   }
 }

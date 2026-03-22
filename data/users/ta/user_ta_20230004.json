@@ -1,0 +1,85 @@
+{
+  "userId": "u_ta_20230004",
+  "loginId": "20230004",
+  "role": "ta",
+  "account": {
+    "username": "lucyliu",
+    "email": "lucy.liu@university.edu",
+    "passwordHash": "hashed_password_here",
+    "status": "active",
+    "lastLoginAt": "2026-03-18T11:15:00"
+  },
+  "profile": {
+    "fullName": "Lucy Liu",
+    "studentId": "20230004",
+    "year": "1st Year",
+    "programMajor": "Civil Engineering",
+    "department": "Civil Engineering",
+    "phoneNumber": "(555) 456-7890",
+    "address": "101 Birch St, City, State, ZIP",
+    "shortBio": "Eager to contribute to sustainable infrastructure development.",
+    "avatarPath": "data/uploads/avatars/u_ta_20230004.png"
+  },
+  "academic": {
+    "gpa": 3.7,
+    "completedCourses": [
+      {
+        "courseCode": "CE101",
+        "courseName": "Introduction to Civil Engineering",
+        "grade": "B"
+      },
+      {
+        "courseCode": "CE201",
+        "courseName": "Material Science",
+        "grade": "A-"
+      }
+    ]
+  },
+  "skills": {
+    "programming": [
+      { "skillId": "skill_001", "name": "Python", "proficiency": "Intermediate" }
+    ],
+    "teaching": [
+      { "skillId": "skill_002", "name": "Grading", "proficiency": "Beginner" }
+    ],
+    "communication": [
+      { "skillId": "skill_003", "name": "English", "proficiency": "Native" }
+    ],
+    "other": []
+  },
+  "cv": {
+    "uploaded": false,
+    "originalFileName": "",
+    "storedFileName": "",
+    "filePath": "",
+    "fileType": "",
+    "fileSizeKB": 0,
+    "uploadedAt": null
+  },
+  "applicationSummary": {
+    "totalApplications": 0,
+    "pending": 0,
+    "underReview": 0,
+    "accepted": 0,
+    "rejected": 0
+  },
+  "dashboard": {
+    "profileCompletion": 60
+  },
+  "permissions": {
+    "canEditOwnProfile": true,
+    "canUploadCV": true,
+    "canBrowseJobs": true,
+    "canApplyJob": true,
+    "canViewOwnApplications": true,
+    "canReviewApplication": false,
+    "canManageJob": false,
+    "canManageUsers": false
+  },
+  "meta": {
+    "createdAt": "2026-03-01T09:00:00",
+    "updatedAt": "2026-03-18T11:15:00",
+    "isDeleted": false,
+    "isActive": true
+  }
+}
