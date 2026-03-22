@@ -264,3 +264,10 @@ Possible future enhancements include:
 | Date | Member | Location/Branch | Task Description |
 | :--- | :--- | :--- | :--- |
 | 2026-03-14 | @GuoZihan429 |  |  |
+
+### Yifan Cao
+| Date | Member | Location/Branch | Task Description |
+| :--- | :--- | :--- | :--- |
+| 2026-03-17 | @rei129482 |Yifan-Cao/Admin_prototype  |Complete the first version of the interface design  |
+| 2026-03-19 | @rei129482 |Yifan-Cao/Admin_prototype  |Complete the second version of the interface design  |
+| 2026-03-19 | @rei129482 |Yifan-Cao/Admin_prototype  |Complete the final version of the prototype interface design and text description  |
