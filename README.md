@@ -262,8 +262,10 @@ Possible future enhancements include:
 
 ### Zihan Guo
 | Date | Member | Location/Branch | Task Description |
-| :--- | :--- | :--- | :--- |
-| 2026-03-14 | @GuoZihan429 |  |  |
+| 2026-03-17 | @GuoZihan429 | Zihan-Guo/MO_prototype | Complete the first version of the MO prototype |
+| 2026-03-18 | @GuoZihan429 | Zihan-Guo/MO_prototype | Improve the first version prototype and add user manual to the image |
+| 2026-03-19 | @GuoZihan429 | Zihan-Guo/MO_prototype | Integrate with another MO teammate and then design the MO dashboard |
+| 2026-03-20 | @GuoZihan429 | Zihan-Guo/MO_prototype | Refine the final version based on the questionnaire results and merge it into main |
 
 ### Yifan Cao
 | Date | Member | Location/Branch | Task Description |
