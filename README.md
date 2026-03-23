@@ -187,8 +187,27 @@ data
 
 ## Iteration Progress
 
+### Preparation
+- Reviewed the project brief and clarified the overall system scope.
+- Collected background information on recruitment systems and common applicant-tracking functions.
+- Studied the typical responsibilities of TAs in university settings.
+- Conducted observation to understand the real TA workflow in the school context.
+- Distributed questionnaires to TAs, MOs, and administrators and summarised the key findings.
+- Identified the main user roles and analysed the current recruitment process.
+- Converted the findings into user stories and organised them into the product backlog.
+- Assigned priorities and estimates to backlog items.
+- Prepared the initial prototype and basic system design.
+
 ### Iteration 1
 #### Planned goals
+- Build the basic user interface for the first working version.
+- Implement file-based data storage and handling.
+- Implement the core workflow for browsing TA jobs.
+- Implement job application submission.
+- Implement application status tracking.
+- Implement job posting for MO users.
+- Implement applicant selection.
+- Implement the function for checking overall TA workload.
 #### Completed features
 #### Issues and reflections
 
@@ -232,6 +251,7 @@ data
 
 
 
+
 ## How to Run the System
 
 1. Clone the repository
@@ -239,9 +259,9 @@ data
 git clone repository-url
 ```
 
-3. Open the project using an IDE such as **IntelliJ IDEA** or **Eclipse**
+2. Open the project using an IDE such as **IntelliJ IDEA** or **Eclipse**
 
-4. Run the main program
+3. Run the main program
 
 
 
