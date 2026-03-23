@@ -1,0 +1,74 @@
+{
+  "jobId": "job_MATH205_2026_spring",
+  "title": "Calculus I TA",
+  "course": {
+    "courseCode": "MATH205",
+    "courseName": "Calculus I",
+    "term": "Spring",
+    "year": 2026
+  },
+  "department": "Mathematics",
+  "instructor": {
+    "name": "Dr. Robert Lee",
+    "email": "robert.lee@university.edu"
+  },
+  "employment": {
+    "jobType": "TA",
+    "employmentType": "Part-time TA",
+    "weeklyHours": 10,
+    "locationMode": "Hybrid",
+    "locationDetail": "On-campus + Remote"
+  },
+  "dates": {
+    "postedAt": "2026-03-17T12:00:00",
+    "deadline": "2026-03-30T23:59:59",
+    "startDate": "2026-04-01",
+    "endDate": "2026-06-30"
+  },
+  "content": {
+    "summary": "Assist with lectures, lab sessions, and grading assignments.",
+    "description": "We are looking for a TA to assist with the delivery and grading of Calculus I lectures and problem-solving sessions.",
+    "responsibilities": [
+      "Hold office hours",
+      "Assist in grading assignments and exams",
+      "Help facilitate lab sessions",
+      "Provide support during lectures"
+    ],
+    "requirements": [
+      "Completed Calculus I (MATH205) with an A or above",
+      "Strong problem-solving and analytical skills",
+      "Good communication and teaching skills"
+    ],
+    "preferredSkills": [
+      "LaTeX",
+      "Teaching Experience",
+      "Experience with online learning platforms"
+    ]
+  },
+  "ownership": {
+    "createdBy": "u_mo_002",
+    "managedBy": ["u_mo_002"],
+    "lastEditedBy": "u_mo_002"
+  },
+  "publication": {
+    "status": "published",
+    "publishedAt": "2026-03-17T12:15:00",
+    "publishedBy": "u_mo_002"
+  },
+  "lifecycle": {
+    "status": "open",
+    "isDeleted": false,
+    "deletedAt": null,
+    "deletedBy": null
+  },
+  "stats": {
+    "applicationCount": 4,
+    "pendingCount": 2,
+    "acceptedCount": 1,
+    "rejectedCount": 1
+  },
+  "meta": {
+    "createdAt": "2026-03-17T12:00:00",
+    "updatedAt": "2026-03-18T10:00:00"
+  }
+}

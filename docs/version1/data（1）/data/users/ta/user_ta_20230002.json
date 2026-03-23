@@ -1,0 +1,86 @@
+{
+  "userId": "u_ta_20230002",
+  "loginId": "20230002",
+  "role": "ta",
+  "account": {
+    "username": "janedoe",
+    "email": "jane.doe@university.edu",
+    "passwordHash": "hashed_password_here",
+    "status": "active",
+    "lastLoginAt": "2026-03-18T10:00:00"
+  },
+  "profile": {
+    "fullName": "Jane Doe",
+    "studentId": "20230002",
+    "year": "2nd Year",
+    "programMajor": "Electrical Engineering",
+    "department": "Electrical Engineering",
+    "phoneNumber": "(555) 234-5678",
+    "address": "456 Oak St, City, State, ZIP",
+    "shortBio": "Interested in robotics and control systems.",
+    "avatarPath": "data/uploads/avatars/u_ta_20230002.png"
+  },
+  "academic": {
+    "gpa": 3.6,
+    "completedCourses": [
+      {
+        "courseCode": "EE101",
+        "courseName": "Introduction to Electrical Engineering",
+        "grade": "B+"
+      },
+      {
+        "courseCode": "EE201",
+        "courseName": "Circuit Analysis",
+        "grade": "A"
+      }
+    ]
+  },
+  "skills": {
+    "programming": [
+      { "skillId": "skill_001", "name": "Python", "proficiency": "Intermediate" },
+      { "skillId": "skill_002", "name": "C++", "proficiency": "Intermediate" }
+    ],
+    "teaching": [
+      { "skillId": "skill_003", "name": "Tutoring", "proficiency": "Beginner" }
+    ],
+    "communication": [
+      { "skillId": "skill_004", "name": "English", "proficiency": "Native" }
+    ],
+    "other": []
+  },
+  "cv": {
+    "uploaded": true,
+    "originalFileName": "Jane_Doe_CV.pdf",
+    "storedFileName": "current_cv.pdf",
+    "filePath": "data/uploads/profile_cv/20230002/current_cv.pdf",
+    "fileType": "pdf",
+    "fileSizeKB": 210,
+    "uploadedAt": "2026-03-10T10:30:00"
+  },
+  "applicationSummary": {
+    "totalApplications": 2,
+    "pending": 1,
+    "underReview": 0,
+    "accepted": 1,
+    "rejected": 0
+  },
+  "dashboard": {
+    "profileCompletion": 80
+  },
+  "permissions": {
+    "canEditOwnProfile": true,
+    "canUploadCV": true,
+    "canBrowseJobs": true,
+    "canApplyJob": true,
+    "canViewOwnApplications": true,
+    "canReviewApplication": false,
+    "canManageJob": false,
+    "canManageUsers": false
+  },
+  "meta": {
+    "createdAt": "2026-03-01T09:00:00",
+    "updatedAt": "2026-03-18T10:00:00",
+    "isDeleted": false,
+    "isActive": true
+  }
+}
