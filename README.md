@@ -26,6 +26,9 @@ The project is implemented as a **stand-alone Java application** and developed u
 * **Yifan Cao** 
   * QMUL ID: 231220987
   * GitHub: [@rei129482](https://github.com/rei129482)
+* **Yifan Lang** 
+  * QMUL ID: 221167711
+  * GitHub: [@ahuo-ahuo](https://github.com/ahuo-ahuo)
 
 ## System Users
 
@@ -244,9 +247,17 @@ Possible future enhancements include:
 ### Jingwei Xu
 | Date | Member | Location/Branch | Task Description |
 | :--- | :--- | :--- | :--- |
-| 2026-03-14 | @Jingwei-Xu | Jingwei-Xu/docs_questionnaires | The questionnaire content for investigating user requirements has been uploaded |
-| 2026-03-15 | @zhangsan | zhangsan/add_namelist | 你的工作内容描述 |
-| 2026-03-18 | @lisi | lisi/ta_login_ui | 你的工作内容描述 |
+| 2026-03-14 | @Jingwei-Xu | Jingwei-Xu/product-backlog | The questionnaire content for investigating user requirements has been uploaded |
+| 2026-03-16 | @Jingwei-Xu | Jingwei-Xu/TA_prototype | Complete the prototype design of the image version |
+| 2026-03-17 | @Jingwei-Xu | Jingwei-Xu/TA_prototype | Complete the prototype by adding text workflow |
+| 2026-03-20 | @Jingwei-Xu | Jingwei-Xu/TA_prototype | Complete and integrate the first version of the group's overall prototype document and modify the format, adjusting the overall content |
+| 2026-03-20 | @Jingwei-Xu | Jingwei-Xu/product-backlog | Integrate questionnaire results and group survey end user requirements, and complete the TA and MO sections of the Excel document |
+| 2026-03-21 | @Jingwei-Xu | Jingwei-Xu/product-backlog | Complete the Admin sections of the Excel document |
+| 2026-03-22 | @Jingwei-Xu | Jingwei-Xu/product-backlog | Update the final version of Excel document |
+
+
+
+
 
 ### Motong Long
 | Date | Member | Location/Branch | Task Description |
