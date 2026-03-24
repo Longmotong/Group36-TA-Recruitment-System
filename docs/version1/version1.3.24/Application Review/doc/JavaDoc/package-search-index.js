@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"appreview"},{"l":"appreview.data"},{"l":"appreview.model"},{"l":"appreview.service"},{"l":"appreview.ui"},{"l":"appreview.util"},{"l":"所有程序包","u":"allpackages-index.html"}];updateSearchResults();
