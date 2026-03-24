@@ -1,0 +1,31 @@
+{
+  "users": [
+    {
+      "userId": "u_ta_20230001",
+      "loginId": "20230001",
+      "role": "ta",
+      "fullName": "John Smith",
+      "email": "john.smith@university.edu",
+      "department": "Computer Science",
+      "status": "active"
+    },
+    {
+      "userId": "u_mo_001",
+      "loginId": "mo001",
+      "role": "mo",
+      "fullName": "Prof. David Park",
+      "email": "david.park@university.edu",
+      "department": "Computer Science",
+      "status": "active"
+    },
+    {
+      "userId": "u_admin_001",
+      "loginId": "admin001",
+      "role": "admin",
+      "fullName": "System Admin",
+      "email": "admin@university.edu",
+      "department": "",
+      "status": "active"
+    }
+  ]
+}
