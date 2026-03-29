@@ -1,0 +1,14 @@
+{
+  "logs": [
+    {
+      "logId": "log_000120",
+      "actorUserId": "u_mo_001",
+      "actorRole": "mo",
+      "action": "CREATE_JOB",
+      "targetType": "job",
+      "targetId": "job_CS101_2026_spring",
+      "timestamp": "2026-03-17T10:00:00",
+      "description": "MO created a new job posting."
+    }
+  ]
+}

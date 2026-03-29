@@ -1,0 +1,119 @@
+{
+  "applicationId": "app_000011",
+  "userId": "u_ta_20230002",
+  "studentId": "20230002",
+  "jobId": "job_Chem210_2026_spring",
+
+  "jobSnapshot": {
+    "title": "Chemistry Lab Assistant",
+    "courseCode": "CHEM210",
+    "courseName": "Organic Chemistry",
+    "department": "Chemistry",
+    "instructorName": "Dr. Laura Green",
+    "instructorEmail": "laura.green@university.edu",
+    "deadline": "2026-03-26T23:59:59",
+    "employmentType": "Lab TA",
+    "weeklyHours": 8,
+    "locationMode": "On-site"
+  },
+
+  "applicantSnapshot": {
+    "fullName": "Jane Doe",
+    "studentId": "20230002",
+    "email": "jane.doe@university.edu",
+    "phoneNumber": "(555) 234-5678",
+    "programMajor": "Electrical Engineering",
+    "year": "2nd Year",
+    "department": "Electrical Engineering",
+    "gpa": 3.6
+  },
+
+  "applicationForm": {
+    "relevantSkills": [
+      "Python",
+      "C++"
+    ],
+    "relevantExperience": "Engineering lab coursework has given me experience following technical procedures, organizing equipment, and documenting results accurately.",
+    "availability": "Monday/Wednesday 9-11am, Thursday 2-5pm",
+    "motivationCoverLetter": "I am interested in this position because I enjoy lab-based work and would like to support students in a structured academic environment."
+  },
+
+  "attachments": {
+    "cv": {
+      "originalFileName": "Jane_Doe_CV.pdf",
+      "storedFileName": "cv.pdf",
+      "filePath": "data/uploads/application_files/app_000011/cv.pdf",
+      "fileType": "pdf",
+      "copiedAt": "2026-03-20T09:10:00"
+    },
+    "supportingDocuments": [
+      {
+        "documentId": "doc_011_001",
+        "originalFileName": "lab_reference.pdf",
+        "storedFileName": "lab_reference.pdf",
+        "filePath": "data/uploads/application_files/app_000011/lab_reference.pdf",
+        "fileType": "pdf",
+        "uploadedAt": "2026-03-20T09:10:15"
+      }
+    ]
+  },
+
+  "workflow": {
+    "assignedMO": "u_mo_002",
+    "assignedAdmin": "u_admin_001",
+    "reviewDepartment": "Chemistry"
+  },
+
+  "status": {
+    "current": "accepted",
+    "label": "Accepted",
+    "lastUpdated": "2026-03-21T11:20:00",
+    "updatedBy": "u_mo_002"
+  },
+
+  "review": {
+    "reviewerNotes": "Applicant shows solid lab discipline and good schedule compatibility.",
+    "decision": "accepted",
+    "decisionReason": "Suitable background and availability for the lab support role.",
+    "statusMessage": "Application approved.",
+    "nextSteps": "Please complete hiring documents and attend lab safety onboarding.",
+    "reviewedBy": "u_mo_002",
+    "reviewedAt": "2026-03-21T11:20:00"
+  },
+
+  "timeline": [
+    {
+      "timelineId": "tl_011_001",
+      "stepKey": "submitted",
+      "stepLabel": "Application Submitted",
+      "status": "completed",
+      "timestamp": "2026-03-20T09:10:00",
+      "updatedBy": "u_ta_20230002",
+      "note": "Application submitted successfully."
+    },
+    {
+      "timelineId": "tl_011_002",
+      "stepKey": "under_review",
+      "stepLabel": "Under Review",
+      "status": "completed",
+      "timestamp": "2026-03-20T13:40:00",
+      "updatedBy": "u_mo_002",
+      "note": "Application moved into review stage."
+    },
+    {
+      "timelineId": "tl_011_003",
+      "stepKey": "accepted",
+      "stepLabel": "Accepted",
+      "status": "completed",
+      "timestamp": "2026-03-21T11:20:00",
+      "updatedBy": "u_mo_002",
+      "note": "Application accepted."
+    }
+  ],
+
+  "meta": {
+    "submittedAt": "2026-03-20T09:10:00",
+    "updatedAt": "2026-03-21T11:20:00",
+    "isDeleted": false
+  }
+}

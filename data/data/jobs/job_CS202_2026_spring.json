@@ -1,0 +1,77 @@
+{
+  "jobId": "job_CS202_2026_spring",
+  "title": "Data Structures TA",
+  "course": {
+    "courseCode": "CS202",
+    "courseName": "Data Structures",
+    "term": "Spring",
+    "year": 2026
+  },
+  "department": "Computer Science",
+  "instructor": {
+    "name": "Dr. Emily Carter",
+    "email": "emily.carter@university.edu"
+  },
+  "employment": {
+    "jobType": "TA",
+    "employmentType": "Part-time TA",
+    "weeklyHours": 12,
+    "locationMode": "Hybrid",
+    "locationDetail": "On-campus + Remote"
+  },
+  "dates": {
+    "postedAt": "2026-03-18T09:00:00",
+    "deadline": "2026-03-28T23:59:59",
+    "startDate": "2026-04-05",
+    "endDate": "2026-06-30"
+  },
+  "content": {
+    "summary": "Support tutorials, office hours, and assignment grading for Data Structures.",
+    "description": "We are looking for a responsible Teaching Assistant to support the Data Structures course during the Spring 2026 term.",
+    "responsibilities": [
+      "Assist with weekly tutorial sessions",
+      "Hold office hours for students",
+      "Grade programming assignments",
+      "Answer discussion board questions"
+    ],
+    "requirements": [
+      "Completed CS202 with A- or above",
+      "Strong understanding of data structures and algorithms",
+      "Good communication skills"
+    ],
+    "preferredSkills": [
+      "Java",
+      "C++",
+      "Teaching Experience"
+    ]
+  },
+  "ownership": {
+    "createdBy": "u_mo_002",
+    "managedBy": [
+      "u_mo_002"
+    ],
+    "lastEditedBy": "u_mo_002"
+  },
+  "publication": {
+    "status": "published",
+    "publishedAt": "2026-03-18T09:30:00",
+    "publishedBy": "u_mo_002"
+  },
+  "lifecycle": {
+    "status": "open",
+    "isDeleted": false,
+    "deletedAt": null,
+    "deletedBy": null,
+    "closeReason": ""
+  },
+  "stats": {
+    "applicationCount": 5,
+    "pendingCount": 2,
+    "acceptedCount": 1,
+    "rejectedCount": 2
+  },
+  "meta": {
+    "createdAt": "2026-03-18T09:00:00",
+    "updatedAt": "2026-03-19T10:15:00"
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "jobId": "job_Chem210_2026_spring",
+  "title": "Chemistry Lab Assistant",
+  "course": {
+    "courseCode": "Chem210",
+    "courseName": "Organic Chemistry",
+    "term": "Spring",
+    "year": 2026
+  },
+  "department": "Chemistry",
+  "instructor": {
+    "name": "Prof. Daniel Kim",
+    "email": "daniel.kim@university.edu"
+  },
+  "employment": {
+    "jobType": "Lab TA",
+    "employmentType": "Lab TA",
+    "weeklyHours": 9,
+    "locationMode": "Hybrid",
+    "locationDetail": "Lab + Remote"
+  },
+  "dates": {
+    "postedAt": "2026-03-08T14:00:00",
+    "deadline": "2026-03-18T23:59:59",
+    "startDate": "2026-04-02",
+    "endDate": "2026-06-18"
+  },
+  "content": {
+    "summary": "Assist students in statistics lab sessions and support grading.",
+    "description": "This position supported the Applied Statistics course by helping students during lab activities and assisting with grading tasks.",
+    "responsibilities": [
+      "Support weekly computer lab sessions",
+      "Assist with grading assignments",
+      "Help students use statistical software",
+      "Report common student issues to the instructor"
+    ],
+    "requirements": [
+      "Completed introductory statistics coursework",
+      "Experience with statistical software",
+      "Reliable communication and organization skills"
+    ],
+    "preferredSkills": [
+      "R",
+      "Python",
+      "Excel"
+    ]
+  },
+  "ownership": {
+    "createdBy": "u_mo_002",
+    "managedBy": [
+      "u_mo_002"
+    ],
+    "lastEditedBy": "u_mo_002"
+  },
+  "publication": {
+    "status": "published",
+    "publishedAt": "2026-03-08T14:20:00",
+    "publishedBy": "u_mo_002"
+  },
+  "lifecycle": {
+    "status": "closed",
+    "isDeleted": false,
+    "deletedAt": null,
+    "deletedBy": null,
+    "closeReason": "Position filled"
+  },
+  "stats": {
+    "applicationCount": 6,
+    "pendingCount": 0,
+    "acceptedCount": 1,
+    "rejectedCount": 5
+  },
+  "meta": {
+    "createdAt": "2026-03-08T14:00:00",
+    "updatedAt": "2026-03-19T16:45:00"
+  }
+}
