@@ -1,0 +1,55 @@
+{
+  "userId": "u_mo_001",
+  "loginId": "mo001",
+  "role": "mo",
+
+  "account": {
+    "username": "davidpark",
+    "email": "david.park@university.edu",
+    "password": "david123",
+    "status": "active",
+    "lastLoginAt": "2026-03-18T10:00:00"
+  },
+
+  "profile": {
+    "fullName": "Prof. David Park",
+    "staffId": "MO001",
+    "department": "Computer Science",
+    "phoneNumber": "(555) 000-1001"
+  },
+
+  "permissions": {
+    "canEditOwnProfile": true,
+    "canCreateJob": true,
+    "canEditManagedJob": true,
+    "canDeleteManagedJob": true,
+    "canPublishManagedJob": true,
+    "canViewManagedJob": true,
+    "canViewAssignedApplications": true,
+    "canReviewApplication": true,
+    "canUpdateApplicationStatus": true,
+    "canManageUsers": false,
+    "canViewAllJobs": false,
+    "canViewAllApplications": false
+  },
+
+  "scope": {
+    "departments": ["Computer Science"],
+    "managedJobIds": [
+      "job_CS101_2026_spring",
+      "job_CS201_2026_spring"
+    ]
+  },
+
+  "dashboard": {
+    "managedJobsCount": 2,
+    "pendingReviewsCount": 4
+  },
+
+  "meta": {
+    "createdAt": "2026-03-01T09:00:00",
+    "updatedAt": "2026-03-18T10:00:00",
+    "isDeleted": false,
+    "isActive": true
+  }
+}

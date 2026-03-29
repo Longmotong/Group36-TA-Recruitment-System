@@ -1,0 +1,62 @@
+{
+  "userId": "u_ta_20230005",
+  "loginId": "20230005",
+  "role": "ta",
+  "account": {
+    "username": "20230005",
+    "email": "e.rodriguez@university.eduu",
+    "password": "1234",
+    "status": "active",
+    "lastLoginAt": "2026-03-29T22:55:24.0807294"
+  },
+  "profile": {
+    "fullName": "Elena Rodriguez",
+    "studentId": "20230005",
+    "year": "1st Year",
+    "programMajor": "Computer Science",
+    "department": "",
+    "phoneNumber": "(555) 888-1122",
+    "address": "",
+    "shortBio": ""
+  },
+  "academic": {
+    "gpa": 0.0,
+    "completedCourses": []
+  },
+  "skills": {
+    "programming": [],
+    "teaching": [
+      {
+        "skillId": "skill_2_2160227721254200",
+        "name": "tutoring",
+        "proficiency": "Intermediate"
+      }
+    ],
+    "communication": [],
+    "other": [
+      {
+        "skillId": "skill_1_2160227721228399",
+        "name": "Python",
+        "proficiency": "Intermediate"
+      }
+    ]
+  },
+  "cv": {
+    "uploaded": false,
+    "fileSizeKB": 0
+  },
+  "applicationSummary": {
+    "totalApplications": 1,
+    "pending": 1,
+    "underReview": 0,
+    "accepted": 0,
+    "rejected": 0
+  },
+  "profileCompletion": 100,
+  "meta": {
+    "createdAt": "2026-03-29T22:55:24.0807294",
+    "updatedAt": "2026-03-29T22:55:24.0807294",
+    "isDeleted": false,
+    "isActive": true
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "userId": "u_ta_alicewong",
+  "loginId": "alicewong",
+  "role": "ta",
+  "account": {
+    "username": "Alice Wong",
+    "email": "alice wong@student.university.edu",
+    "password": "12341234",
+    "status": "active",
+    "lastLoginAt": "2026-03-29T21:36:02.0748592"
+  },
+  "profile": {
+    "fullName": "Alice Wong",
+    "studentId": "20220915",
+    "year": "3rd Year",
+    "programMajor": "Data Science",
+    "department": "",
+    "phoneNumber": "(555) 987-6543",
+    "address": "",
+    "shortBio": ""
+  },
+  "academic": {
+    "gpa": 0.0,
+    "completedCourses": []
+  },
+  "skills": {
+    "programming": [
+      {
+        "skillId": "skill_1_2155492170450800",
+        "name": "Python",
+        "proficiency": "Beginner"
+      }
+    ],
+    "teaching": [],
+    "communication": [],
+    "other": []
+  },
+  "cv": {
+    "uploaded": true,
+    "originalFileName": "Groups and TAs.pdf",
+    "storedFileName": "Groups and TAs.pdf",
+    "filePath": "E:\\cursor\\version1_integrate\\integrated\\data\\uploads\\profile_cv\\20220915\\Groups and TAs.pdf",
+    "uploadedAt": "2026-03-29T21:38:21.9633988",
+    "fileType": "pdf",
+    "fileSizeKB": 108
+  },
+  "applicationSummary": {
+    "totalApplications": 1,
+    "pending": 1,
+    "underReview": 0,
+    "accepted": 0,
+    "rejected": 0
+  },
+  "profileCompletion": 100,
+  "meta": {
+    "createdAt": "2026-03-29T21:36:02.0748592",
+    "updatedAt": "2026-03-29T21:36:02.0748592",
+    "isDeleted": false,
+    "isActive": true
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "jobs" : [ {
+    "jobId" : "job_CS202_2026_spring",
+    "title" : "TA for Data Structures and Algorithms",
+    "courseCode" : "CS202",
+    "department" : "Computer Science",
+    "instructorName" : "Prof. Grace Hopper",
+    "weeklyHours" : 15,
+    "deadline" : "2026-08-15",
+    "locationMode" : "Hybrid",
+    "employmentType" : "Part-time TA",
+    "status" : "open"
+  }, {
+    "jobId" : "job_CS101_2026_spring",
+    "title" : "Undergraduate Teaching Assistant for CS101",
+    "courseCode" : "CS101",
+    "department" : "Computer Science",
+    "instructorName" : "",
+    "weeklyHours" : 12,
+    "deadline" : "2026-04-12",
+    "locationMode" : "Hybrid",
+    "employmentType" : "Part-time TA",
+    "status" : "open"
+  }, {
+    "jobId" : "job_CS405_2026_spring",
+    "title" : "Graduate TA for Software Engineering Project",
+    "courseCode" : "CS405",
+    "department" : "Computer Science",
+    "instructorName" : "Dr. Margaret Hamilton",
+    "weeklyHours" : 10,
+    "deadline" : "2026-04-12",
+    "locationMode" : "Hybrid",
+    "employmentType" : "Part-time TA",
+    "status" : "open"
+  } ]
+}

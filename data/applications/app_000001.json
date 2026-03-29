@@ -1,0 +1,46 @@
+{
+  "applicationId" : "app_000001",
+  "userId" : "u_ta_20230001",
+  "studentId" : "20230001",
+  "jobId" : "job_CS101_2026_spring",
+  "jobSnapshot" : {
+    "title" : "Introduction to Programming TA",
+    "courseCode" : "CS101",
+    "courseName" : "Introduction to Programming",
+    "department" : "Computer Science",
+    "instructorName" : "Dr. Sarah Johnson",
+    "instructorEmail" : "sarah.johnson@university.edu",
+    "weeklyHours" : 10
+  },
+  "applicantSnapshot" : {
+    "fullName" : "John Smith",
+    "studentId" : "20230001",
+    "email" : "john.smith@university.edu",
+    "phoneNumber" : "(555) 123-4567",
+    "programMajor" : "Computer Science",
+    "year" : "3rd Year",
+    "department" : "Computer Science",
+    "gpa" : 3.8
+  },
+  "applicationForm" : {
+    "relevantSkills" : [ "Python", "JavaScript" ],
+    "relevantExperience" : "Served as peer tutor for introductory programming.",
+    "availability" : "Monday/Wednesday 2-5pm, Friday 10am-12pm",
+    "motivationCoverLetter" : "I am interested in helping students succeed in CS101."
+  },
+  "status" : {
+    "current" : "approved",
+    "label" : "Approved"
+  },
+  "review" : {
+    "reviewerNotes" : "Quick approved from list",
+    "decision" : "approved",
+    "decisionReason" : "",
+    "reviewedBy" : "u_mo_001",
+    "reviewedAt" : "2026-03-29T17:24:47.351207100"
+  },
+  "meta" : {
+    "submittedAt" : "2026-03-18T10:34:50",
+    "updatedAt" : "2026-03-18T11:00:00"
+  }
+}

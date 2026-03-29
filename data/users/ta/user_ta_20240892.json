@@ -1,0 +1,61 @@
+{
+  "userId": "u_ta_weili",
+  "loginId": "weili",
+  "role": "ta",
+  "account": {
+    "username": "Wei Li",
+    "email": "wei.li@university.edu",
+    "password": "12341234",
+    "status": "active",
+    "lastLoginAt": "2026-03-29T22:20:30.7545064"
+  },
+  "profile": {
+    "fullName": "Wei Li",
+    "studentId": "20240892",
+    "year": "1st Year",
+    "programMajor": "Artificial Intelligence",
+    "department": "",
+    "phoneNumber": "(555) 222-9900",
+    "address": "",
+    "shortBio": ""
+  },
+  "academic": {
+    "gpa": 0.0,
+    "completedCourses": []
+  },
+  "skills": {
+    "programming": [],
+    "teaching": [],
+    "communication": [],
+    "other": [
+      {
+        "skillId": "skill_1_2158168298017500",
+        "name": "Python",
+        "proficiency": "Intermediate"
+      }
+    ]
+  },
+  "cv": {
+    "uploaded": true,
+    "originalFileName": "Groups and TAs.pdf",
+    "storedFileName": "Groups and TAs.pdf",
+    "filePath": "E:\\cursor\\version1_integrate\\integrated\\data\\uploads\\profile_cv\\20240892\\Groups and TAs.pdf",
+    "uploadedAt": "2026-03-29T22:22:17.4857733",
+    "fileType": "pdf",
+    "fileSizeKB": 108
+  },
+  "applicationSummary": {
+    "totalApplications": 0,
+    "pending": 0,
+    "underReview": 0,
+    "accepted": 0,
+    "rejected": 0
+  },
+  "profileCompletion": 100,
+  "meta": {
+    "createdAt": "2026-03-29T22:20:30.7545064",
+    "updatedAt": "2026-03-29T22:20:30.7545064",
+    "isDeleted": false,
+    "isActive": true
+  }
+}

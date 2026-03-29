@@ -1,0 +1,61 @@
+{
+  "applicationId": "app_000005",
+  "studentId": "20220915",
+  "userId": "u_ta_alicewong",
+  "jobId": "job_CS101_2026_spring",
+  "jobSnapshot": {
+    "title": "Introduction to Programming TA",
+    "courseCode": "CS101",
+    "courseName": "Introduction to Programming",
+    "department": "Computer Science",
+    "instructorName": "Dr. Sarah Johnson",
+    "instructorEmail": "sarah.johnson@university.edu",
+    "deadline": "2026-03-25",
+    "employmentType": "Part-time TA",
+    "weeklyHours": 5,
+    "locationMode": "Hybrid"
+  },
+  "applicantSnapshot": {
+    "fullName": "Alice Wong",
+    "studentId": "20220915",
+    "email": "alice wong@student.university.edu",
+    "phoneNumber": "(555) 987-6543",
+    "programMajor": "Data Science",
+    "year": "3rd Year",
+    "gpa": 0.0
+  },
+  "applicationForm": {
+    "relevantSkills": [
+      "Python"
+    ],
+    "relevantExperience": "TA",
+    "availability": "Monday",
+    "motivationCoverLetter": "interesting"
+  },
+  "attachments": {},
+  "status": {
+    "current": "pending",
+    "label": "Pending",
+    "color": "yellow",
+    "lastUpdated": "2026-03-29T21:39:11.9331822"
+  },
+  "timeline": [
+    {
+      "timelineId": "tl_1774791551933",
+      "stepKey": "submitted",
+      "stepLabel": "Application Submitted",
+      "status": "completed",
+      "timestamp": "2026-03-29T21:39:11.9331822",
+      "note": "Application submitted successfully."
+    }
+  ],
+  "review": {
+    "statusMessage": "Your application has been submitted and is waiting for review.",
+    "nextSteps": "Please wait for further updates from the department."
+  },
+  "meta": {
+    "submittedAt": "2026-03-29T21:39:11.9331822",
+    "updatedAt": "2026-03-29T21:39:11.9331822",
+    "isDeleted": false
+  }
+}

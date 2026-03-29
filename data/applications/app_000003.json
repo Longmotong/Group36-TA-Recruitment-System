@@ -1,0 +1,46 @@
+{
+  "applicationId" : "app_000003",
+  "userId" : "u_ta_20230002",
+  "studentId" : "20230002",
+  "jobId" : "job_CS101_2026_spring",
+  "jobSnapshot" : {
+    "title" : "Introduction to Programming TA",
+    "courseCode" : "CS101",
+    "courseName" : "Introduction to Programming",
+    "department" : "Computer Science",
+    "instructorName" : "Dr. Sarah Johnson",
+    "instructorEmail" : null,
+    "weeklyHours" : 10
+  },
+  "applicantSnapshot" : {
+    "fullName" : "Jane Doe",
+    "studentId" : "20230002",
+    "email" : "jane.doe@university.edu",
+    "phoneNumber" : "(555) 234-5678",
+    "programMajor" : "Electrical Engineering",
+    "year" : "2nd Year",
+    "department" : "Electrical Engineering",
+    "gpa" : 3.6
+  },
+  "applicationForm" : {
+    "relevantSkills" : [ "Python", "JavaScript" ],
+    "relevantExperience" : "Worked as a tutor for introductory programming courses.",
+    "availability" : "Mon/Wed 3-5pm, Fri 12-2pm",
+    "motivationCoverLetter" : "I am passionate about teaching and would love to help others understand programming."
+  },
+  "status" : {
+    "current" : "rejected",
+    "label" : "Rejected"
+  },
+  "review" : {
+    "reviewerNotes" : "Quick rejected from list",
+    "decision" : "rejected",
+    "decisionReason" : "",
+    "reviewedBy" : "u_mo_001",
+    "reviewedAt" : "2026-03-29T01:06:45.887128400"
+  },
+  "meta" : {
+    "submittedAt" : "2026-03-18T10:40:00",
+    "updatedAt" : "2026-03-18T11:00:00"
+  }
+}
