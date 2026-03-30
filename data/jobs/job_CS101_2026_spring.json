@@ -1,0 +1,87 @@
+{
+  "jobId": "job_CS101_2026_spring",
+
+  "title": "Introduction to Programming TA",
+
+  "course": {
+    "courseCode": "CS101",
+    "courseName": "Introduction to Programming",
+    "term": "Spring",
+    "year": 2026
+  },
+
+  "department": "Computer Science",
+
+  "instructor": {
+    "name": "Dr. Sarah Johnson",
+    "email": "sarah.johnson@university.edu"
+  },
+
+  "employment": {
+    "jobType": "TA",
+    "employmentType": "Part-time TA",
+    "weeklyHours": 10,
+    "locationMode": "Hybrid",
+    "locationDetail": "On-campus + Remote"
+  },
+
+  "dates": {
+    "postedAt": "2026-03-17T10:00:00",
+    "deadline": "2026-03-25T23:59:59",
+    "startDate": "2026-04-01",
+    "endDate": "2026-06-30"
+  },
+
+  "content": {
+    "summary": "Assist with lab sessions and grading assignments.",
+    "description": "We are seeking a motivated and knowledgeable Teaching Assistant for Introduction to Programming.",
+    "responsibilities": [
+      "Lead weekly lab sessions",
+      "Hold office hours",
+      "Grade assignments and quizzes",
+      "Answer student questions online"
+    ],
+    "requirements": [
+      "Completed CS101 with A- or above",
+      "Strong Python skills",
+      "Good communication skills"
+    ],
+    "preferredSkills": [
+      "Python",
+      "Teaching Experience",
+      "Git/GitHub"
+    ]
+  },
+
+  "ownership": {
+    "createdBy": "u_mo_001",
+    "managedBy": ["u_mo_001"],
+    "lastEditedBy": "u_mo_001"
+  },
+
+  "publication": {
+    "status": "published",
+    "publishedAt": "2026-03-17T10:30:00",
+    "publishedBy": "u_mo_001"
+  },
+
+  "lifecycle": {
+    "status": "open",
+    "isDeleted": false,
+    "deletedAt": null,
+    "deletedBy": null,
+    "closeReason": ""
+  },
+
+  "stats": {
+    "applicationCount": 3,
+    "pendingCount": 1,
+    "acceptedCount": 1,
+    "rejectedCount": 1
+  },
+
+  "meta": {
+    "createdAt": "2026-03-17T10:00:00",
+    "updatedAt": "2026-03-18T09:00:00"
+  }
+}
