@@ -242,9 +242,6 @@ data
 
 ### Iteration 2
 #### Planned goals
-## Iteration 2
-
-### Planned goals
 - Refactor and unify the codebase structure based on the integration problems found in Iteration 1, especially reducing inconsistency between modules and standardising the use of Java Swing.
 - Improve the overall UI consistency, including window size, button style, navigation behaviour, and back-button design across different modules.
 - Fix the user-state and data-handling issues identified in Iteration 1, so that functions no longer rely on specific hard-coded user IDs and can work correctly for different users.
