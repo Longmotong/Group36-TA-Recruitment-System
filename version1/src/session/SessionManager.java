@@ -1,3 +1,4 @@
+package session;
 import model.User;
 
 public class SessionManager {
