@@ -1,0 +1,13 @@
+{
+  "logs": [
+    {
+      "logId": "log_000121",
+      "applicationId": "app_000001",
+      "changedBy": "u_mo_001",
+      "fromStatus": "pending",
+      "toStatus": "under_review",
+      "timestamp": "2026-03-18T11:00:00",
+      "reason": "Application moved into review stage."
+    }
+  ]
+}
