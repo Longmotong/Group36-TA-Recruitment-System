@@ -280,11 +280,11 @@ data
 | 2026-03-20 | @Jingwei-Xu | Jingwei-Xu/product-backlog | Integrate questionnaire results and group survey end user requirements, and complete the TA and MO sections of the Excel document |
 | 2026-03-21 | @Jingwei-Xu | Jingwei-Xu/product-backlog | Complete the Admin sections of the Excel document |
 | 2026-03-22 | @Jingwei-Xu | Jingwei-Xu/product-backlog | Update the final version of Excel document |
-| 2026-03-23 | @Jingwei-Xu | Jingwei-Xu/TA_profile_module | Update the final version of Excel document |
-| 2026-03-25 | @Jingwei-Xu | Jingwei-Xu/TA_profile_module | Update the final version of Excel document |
-| 2026-03-26 | @Jingwei-Xu | Jingwei-Xu/TA_profile_module | Update the final version of Excel document |
-| 2026-03-29 | @Jingwei-Xu | Jingwei-Xu/TA_profile_module | Update the final version of Excel document |
-| 2026-03-30 | @Jingwei-Xu | Jingwei-Xu/TA_profile_module | Update the final version of Excel document |
+| 2026-03-23 | @Jingwei-Xu | Jingwei-Xu/TA_profile_module | Design software UI interface for profile module based on prototype |
+| 2026-03-25 | @Jingwei-Xu | Jingwei-Xu/TA_profile_module | Connect various functional interfaces and ensure the implementation of each function |
+| 2026-03-26 | @Jingwei-Xu | Jingwei-Xu/TA_profile_module | Adjust the button size, position, data storage location, and other details of the interface. Refactoring the folder structure |
+| 2026-03-29 | @Jingwei-Xu | version | Integrate the login registration page, TA, MO, and admin functions to complete the software integration. And test the various functions of the integrated software, modify vulnerabilities, and ensure the smooth operation and complete functionality of software version 1 |
+| 2026-03-30 | @Jingwei-Xu | version | Refactoring the folder structure of the integrated version of version 1 |
 
 
 
