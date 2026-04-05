@@ -312,6 +312,10 @@ data
 | 2026-03-18 | @GuoZihan429 | Zihan-Guo/MO_prototype | Improve the first version prototype and add user manual to the image |
 | 2026-03-19 | @GuoZihan429 | Zihan-Guo/MO_prototype | Integrate with another MO teammate and then design the MO dashboard |
 | 2026-03-20 | @GuoZihan429 | Zihan-Guo/MO_prototype | Refine the final version based on the questionnaire results and merge it into main |
+| 2026-03-23 | @GuoZihan429 | Zihan-Guo/MO_Job_Management | Complete the initial structure design of the MO Job Management Module in Version 1, and build the dashboard page together with the basic navigation framework |
+| 2026-03-24 | @GuoZihan429 | Zihan-Guo/MO_Job_Management | Add the job detail page, create job page, and edit job page in Version 1, and update the UI design of the dashboard and related pages for better consistency |
+| 2026-03-25 | @GuoZihan429 | Zihan-Guo/MO_Job_Management | Add job detail, create job, and edit job pages in Version 1, and updates the UI design of the dashboard and related pages |
+| 2026-03-26 | @GuoZihan429 | Zihan-Guo/MO_Job_Management | Improve the business logic of the Version 1 MO module, enabling job publishing, job editing, status switching, and JSON data access and saving functions |
 
 ### Yifan Cao
 | Date | Member | Location/Branch | Task Description |
