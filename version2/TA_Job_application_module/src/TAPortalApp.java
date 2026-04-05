@@ -23,6 +23,7 @@ public class TAPortalApp extends JFrame {
     private Page_JobDetail jobDetailPage;
     private JScrollPane jobDetailScroll;
     private JScrollPane applicationStatusScroll;
+    private JScrollPane applyScroll;
     private Page_Apply applyPage;
     private Page_MyApplications myApplicationsPage;
     private Page_ApplicationStatus applicationStatusPage;
@@ -215,7 +216,8 @@ public class TAPortalApp extends JFrame {
                 showPage("applications");
             }
         });
-        mainContentPanel.add(applyPage.getPanel(), "apply");
+        applyScroll = wrapContentInScrollPane(applyPage.getPanel());
+        mainContentPanel.add(applyScroll, "apply");
         
         // My Applications Page
         myApplicationsPage = new Page_MyApplications(dataService, new Page_MyApplications.MyApplicationsCallback() {
@@ -265,6 +267,9 @@ public class TAPortalApp extends JFrame {
         }
         if ("status".equals(pageName) && applicationStatusScroll != null) {
             SwingUtilities.invokeLater(() -> applicationStatusScroll.getVerticalScrollBar().setValue(0));
+        }
+        if ("apply".equals(pageName) && applyScroll != null) {
+            SwingUtilities.invokeLater(() -> applyScroll.getVerticalScrollBar().setValue(0));
         }
         updateNavHighlight(pageName);
     }
