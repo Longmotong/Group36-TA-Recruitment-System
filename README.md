@@ -287,6 +287,8 @@ data
 | 2026-03-24 | @rei129482 |Yifan-Cao/Admin_module  |Completed the initial structure design of the admin module in version 1  |
 | 2026-03-30 | @rei129482 |Yifan-Cao/Admin_module  |Updated the detailed implementation code for TA workload and report|
 | 2026-03-31 | @rei129482 |Yifan-Cao/Admin_module  |Updated and modified the folder structure and content|
+| 2026-04-07 | @rei129482 |Yifan-Cao/Admin_module  |Updated and modified the ui design|
+| 2026-04-09 | @rei129482 |Yifan-Cao/Admin_module  |Completed the final version of the admin module in version 2|
 
 ### Yuxin Wang
 | Date | Member | Location/Branch | Task Description |
