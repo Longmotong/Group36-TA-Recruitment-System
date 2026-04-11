@@ -107,7 +107,7 @@ Functions:
 - System entry
 - Page navigation
 
-Branch:
+Branch:Yifan-Lang/Login_register
 
 ---
 
@@ -118,7 +118,7 @@ Functions:
 - Manage skill information
 - Upload CV
 
-Branch:
+Branch:Jingwei-Xu/TA_profile_module
 
 ---
 
@@ -130,7 +130,7 @@ Functions:
 - Apply for jobs
 - Check application status
 
-Branch:
+Branch:Motong-Long/TA_job_application_module
 
 ---
 
@@ -142,7 +142,7 @@ Functions:
 - Delete job postings
 - View job details
 
-Branch:
+Branch:Zihan-Guo/Mo_Job_Management
 
 ---
 
@@ -154,7 +154,7 @@ Functions:
 - Accept or reject applicants
 - Update application status
 
-Branch:
+Branch:Yuxin-Wang/Mo_application_review_module
 
 ---
 
@@ -165,7 +165,7 @@ Functions:
 - Display recruitment statistics
 - Provide entry point for AI-based recommendation and analysis
 
-Branch:
+Branch:Yifan-Cao/Admin-Module
 
 ---
 
@@ -177,12 +177,11 @@ README.md
 
 ```
 src
-├── auth
-├── ta_profile
-├── ta_application
-├── mo_job
-├── mo_review
-└── admin
+├── Admin_Module
+├── TA_Job_Application_Module
+├── profile_module
+├── Authentication_Module
+└── mosystem
 
 docs
 ├── prototype
@@ -191,10 +190,12 @@ docs
 └── Questionnaire
 
 data
-├── users.json
-├── profiles.json
-├── jobs.json
-└── applications.json
+├── users
+├── uploads
+├── system
+├── applications
+├── uploads
+└── jobs
 ```
 
 ## Iteration Progress
@@ -300,6 +301,13 @@ data
 | 2026-03-28 | @Longmotong |Motong-Long/TA_job_application_module  |Perform initial integration on the MO terminal, remove one of the dashboards, and establish initial connections |
 | 2026-03-29 | @Longmotong |Motong-Long/TA_job_application_module and data |Continue to complete the integration of the mo terminal, and establish basic connectivity with the login and registration system and also create more data examples |
 | 2026-03-30 | @Longmotong |Motong-Long/modify_readme|Summarize the issues found in integrating the mo terminal and registration/login aspects, and update the specific iteration plan in the readme |
+| 2026-4-4 | @Longmotong |Motong-Long/TA_job_application_module|Modify the TA work application module dashboard and work details page |
+| 2026-4-5 | @Longmotong |Motong-Long/TA_job_application_module|Modify the TA work application module job apply page |
+| 2026-4-6 | @Longmotong |Motong-Long/TA_job_application_module|Modify the TA work application module application detail page|
+| 2026-4-7 | @Longmotong |Motong-Long/TA_job_application_module|Modify the TA work application module overview presentation logic on dashboard |
+| 2026-4-8 | @Longmotong |Motong-Long/TA_job_application_module|add delete function of applications |
+| 2026-4-9 | @Longmotong |Motong-Long/TA_job_application_module|add draft box function|
+| 2026-4-10 | @Longmotong |Motong-Long/TA_job_application_module|Integrate the login system, TA-side functions, and admin-side functions |
 
 
 
@@ -331,9 +339,7 @@ data
 ## How to Run the System
 
 1. Clone the repository
-```
-git clone repository-url
-```
+
 
 2. Open the project using an IDE such as **IntelliJ IDEA** or **Eclipse**
 
