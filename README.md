@@ -335,6 +335,21 @@ data
 | 2026-03-25 | @Yuxin-Wang5 | Yuxin-Wang/MO_application_review_module | The dashboard page and the page/function components in the Application Review Module have been implemented, but the design shows significant differences from the prototype. |
 | 2026-03-26 | @Yuxin-Wang5 | Yuxin-Wang/MO_application_review_module | The first iteration version has implemented features such as one-click approval. However, it cannot yet automatically evaluate resumes or display working hours. |
 
+### Yifan Lang
+| Date | Member | Location/Branch | Task Description |
+| :--- | :--- | :--- | :--- |
+| 2026-03-17 | @djwcb666 | Yifan-Lang/Login_prototype | Complete the design of auth prototype |
+| 2026-03-19 | @djwcb666 | Yifan-Lang/Login_prototype | Complete the code design for the login function |
+| 2026-03-19 | @djwcb666 | Yifan-Lang/Login_prototype | Complete the code design for the register function |
+| 2026-03-19 | @djwcb666 | Yifan-Lang/Login_prototype | Design the data storage and reading/writing functions |
+| 2026-03-19 | @djwcb666 | Yifan-Lang/Login_prototype | Design the data storage and reading/writing functions |
+| 2026-03-24 | @djwcb666 | Yifan-Lang/login-register | Complete the front-end design of the login and registration pages |
+| 2026-03-26 | @djwcb666 | Yifan-Lang/login-register | Complete the design of the welcome page |
+| 2026-04-4 | @djwcb666 | Yifan-Lang/login-register | Sort out the problems existing in the front-end page |
+| 2026-04-9 | @djwcb666 | Yifan-Lang/login-register | Improve the logic of the registration interface |
+| 2026-04-10 | @djwcb666 | Yifan-Lang/login-register | Re-design all the front-end interfaces |
+
+
 ## How to Run the System
 
 1. Clone the repository
