@@ -107,7 +107,7 @@ Functions:
 - System entry
 - Page navigation
 
-Branch:Yifan-Lang/Login_register
+Branch: Yifan-Lang/Login_register
 
 ---
 
@@ -118,7 +118,7 @@ Functions:
 - Manage skill information
 - Upload CV
 
-Branch:Jingwei-Xu/TA_profile_module
+Branch: Jingwei-Xu/TA_profile_module
 
 ---
 
@@ -130,7 +130,7 @@ Functions:
 - Apply for jobs
 - Check application status
 
-Branch:Motong-Long/TA_job_application_module
+Branch: Motong-Long/TA_job_application_module
 
 ---
 
@@ -142,7 +142,7 @@ Functions:
 - Delete job postings
 - View job details
 
-Branch:Zihan-Guo/Mo_Job_Management
+Branch: Zihan-Guo/Mo_Job_Management
 
 ---
 
@@ -154,7 +154,7 @@ Functions:
 - Accept or reject applicants
 - Update application status
 
-Branch:Yuxin-Wang/Mo_application_review_module
+Branch: Yuxin-Wang/Mo_application_review_module
 
 ---
 
@@ -165,7 +165,7 @@ Functions:
 - Display recruitment statistics
 - Provide entry point for AI-based recommendation and analysis
 
-Branch:Yifan-Cao/Admin-Module
+Branch: Yifan-Cao/Admin-Module
 
 ---
 
@@ -192,9 +192,8 @@ docs
 data
 ├── users
 ├── uploads
-├── system
 ├── applications
-├── uploads
+├── index
 └── jobs
 ```
 
@@ -254,7 +253,20 @@ data
 - Add the planned support functions from the backlog, including viewing course and MO details, working-hour calculation, exporting the final hiring list, and selected AI-supported features such as skill matching and missing-skill identification.
 - Strengthen overall module integration so that the second iteration delivers a more stable, consistent, and complete working version of the system.
 #### Completed features
+- The login and registration module was further improved so that newly registered users could generate independent user files, which were then incorporated into a unified file structure for subsequent storage, management, and access.
+- The TA-side interface was refined to improve overall usability, making the interaction flow clearer and the user experience more consistent across different pages.
+- The TA application workflow was further extended by supporting both draft saving and application deletion, allowing users to manage the submission process in a more flexible and practical way.
+- The MO-side workflow was improved so that job posting and applicant-related handling became more complete and more stable than in the previous version.
+- The Admin-side module was further developed to provide stronger support for overall TA workload checking and recruitment-result management.
+- Shared data files and the overall project structure were further standardised, which improved cross-role testing coverage and provided a clearer foundation for later integration and maintenance.
 #### Issues and reflections
+- Although Version 2 was more complete than Version 1, a certain degree of inconsistency still remained across modules in terms of interface style, page layout, and interaction details.
+- Some page transitions and state-updating logic still required further refinement, and a few navigation behaviours were not yet smooth or fully coherent across the whole system.
+- Although the shared data structure had been expanded, data linkage across different modules and user roles was still not sufficiently clear in some situations.
+- On the Admin side, the workload-related function was not completed in a sufficiently effective way, mainly because the preparation for working-hour data design, workload measurement rules, and overall management logic was still inadequate at this stage.
+- While a larger number of functions had become usable in Version 2, aspects such as exception handling, edge-case testing, and fine-grained usability details still needed further improvement.
+- Overall, Version 2 mainly focused on functional extension and system integration, so the system had not yet reached the level of completeness, polish, and robustness expected of the final version.
+
 
 ### Iteration 3
 #### Planned goals
@@ -308,6 +320,7 @@ data
 | 2026-4-8 | @Longmotong |Motong-Long/TA_job_application_module|add delete function of applications |
 | 2026-4-9 | @Longmotong |Motong-Long/TA_job_application_module|add draft box function|
 | 2026-4-10 | @Longmotong |Motong-Long/TA_job_application_module|Integrate the login system, TA-side functions, and admin-side functions |
+| 2026-4-11 | @Longmotong |Motong-Long/TA_job_application_module|Integrate and debug all functions, address issues arising from integration, and unify the path for data storage |
 
 
 
@@ -339,7 +352,6 @@ data
 ## How to Run the System
 
 1. Clone the repository
-
 
 2. Open the project using an IDE such as **IntelliJ IDEA** or **Eclipse**
 
