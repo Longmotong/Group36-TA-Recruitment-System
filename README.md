@@ -286,6 +286,12 @@ data
 | 2026-03-26 | @Jingwei-Xu | Jingwei-Xu/TA_profile_module | Adjust the button size, position, data storage location, and other details of the interface. Refactoring the folder structure |
 | 2026-03-29 | @Jingwei-Xu | version | Integrate the login registration page, TA, MO, and admin functions to complete the software integration. And test the various functions of the integrated software, modify vulnerabilities, and ensure the smooth operation and complete functionality of software version 1 |
 | 2026-03-30 | @Jingwei-Xu | version | Refactoring the folder structure of the integrated version of version 1 |
+| 2026-4-3 | @Jingwei-Xu | Jingwei-Xu/TA_profile_module |Update the UI of the information filling guide interface for first-time registration and login, and add standard format restrictions for information filling |
+| 2026-4-5 | @Jingwei-Xu | Jingwei-Xu/TA_profile_module |Update the dashboard of the TA interface and unify the top navigation bar of TA |
+| 2026-4-6 | @Jingwei-Xu | Jingwei-Xu/TA_profile_module |Ensure the correct classification of skills added in the login guide interface, and add a status bar for viewing CV upload status |
+| 2026-4-8 | @Jingwei-Xu | Jingwei-Xu/TA_profile_module |Fix some known bugs in the TA profile module and optimize the overall UI |
+| 2026-4-8 | @Jingwei-Xu | reflection |Organize the issues and reflections in version 1 |
+
 
 
 
