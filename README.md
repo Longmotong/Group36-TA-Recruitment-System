@@ -353,6 +353,13 @@ data
 | 2026-03-24 | @Yuxin-Wang5 | Yuxin-Wang/MO_application_review_module | Only basic page interactions for the MO client system were implemented. |
 | 2026-03-25 | @Yuxin-Wang5 | Yuxin-Wang/MO_application_review_module | The dashboard page and the page/function components in the Application Review Module have been implemented, but the design shows significant differences from the prototype. |
 | 2026-03-26 | @Yuxin-Wang5 | Yuxin-Wang/MO_application_review_module | The first iteration version has implemented features such as one-click approval. However, it cannot yet automatically evaluate resumes or display working hours. |
+| 2026-03-31 | @Yuxin-Wang5 | Yuxin-Wang/MO_application_review_module | Replace JavaFX with Javaswing and switch from Maven-based execution to direct command-line operation. |
+| 2026-04-2 | @Yuxin-Wang5 | Yuxin-Wang/MO_application_review_module | After modifying to the Javaswing version, refine the layout to better align with the original prototype design. |
+| 2026-04-4 | @Yuxin-Wang5 | Yuxin-Wang/MO_application_review_module | Fix issues from the first iteration and consolidate reflection file. |
+| 2026-04-6 | @Yuxin-Wang5 | Yuxin-Wang/MO_application_review_module | Refine the features of the Application Review Module in its second iteration, such as AI-powered automatic scoring. |
+| 2026-04-7 | @Yuxin-Wang5 | Yuxin-Wang/MO_application_review_module | Improve the page design after the second iteration and implement missing features. |
+| 2026-04-8 | @Yuxin-Wang5 | Yuxin-Wang/MO_application_review_module | Collaborate with another student to integrate into a complete MO system. |
+| 2026-04-9 | @Yuxin-Wang5 | Yuxin-Wang/MO_application_review_module | In the integrated MO system, refine the problematic sections of the Application Review Module, such as page layout. |
 
 ### Yifan Lang
 | Date | Member | Location/Branch | Task Description |
