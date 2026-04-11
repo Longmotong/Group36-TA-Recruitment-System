@@ -329,6 +329,10 @@ data
 | 2026-03-24 | @GuoZihan429 | Zihan-Guo/MO_Job_Management | Add the job detail page, create job page, and edit job page in Version 1, and update the UI design of the dashboard and related pages for better consistency |
 | 2026-03-25 | @GuoZihan429 | Zihan-Guo/MO_Job_Management | Add job detail, create job, and edit job pages in Version 1, and updates the UI design of the dashboard and related pages |
 | 2026-03-26 | @GuoZihan429 | Zihan-Guo/MO_Job_Management | Improve the business logic of the Version 1 MO module, enabling job publishing, job editing, status switching, and JSON data access and saving functions |
+| 2026-04-06 | @GuoZihan429 | Zihan-Guo/MO_Job_Management | Review issues from the first release and revise the second-version draft accordingly; prioritize and fix critical problems (including UX and data/flow consistency); tighten layout and information structure against the prototype |
+| 2026-04-07 | @GuoZihan429 | Zihan-Guo/MO_Job_Management | Build on the second-version draft and refine main-surface action icons from user feedback so each function is easier to recognize and clearer at a glance |
+| 2026-04-08 | @GuoZihan429 | Zihan-Guo/MO_Job_Management | Ship one MO shell with a unified look; share job and application data under data/, scoped to the active MO, with live refresh |
+| 2026-04-09 | @GuoZihan429 | Zihan-Guo/MO_Job_Management | Joint-test the integrated build: walk main flows, align list/detail layout, and verify data after MO switch. Apply small UI fixes from feedback (spacing, alignment, messaging) and capture open items for later |
 
 ### Yifan Cao
 | Date | Member | Location/Branch | Task Description |
