@@ -1,0 +1,74 @@
+{
+  "applicationId": "app_000018",
+  "studentId": "2023217777",
+  "userId": "u_ta_20230016",
+  "jobId": "job_MATH205_2026_spring",
+  "jobSnapshot": {
+    "title": "Calculus I TA",
+    "courseCode": "MATH205",
+    "courseName": "Calculus I",
+    "department": "Mathematics",
+    "instructorName": "Dr. Robert Lee",
+    "instructorEmail": "robert.lee@university.edu",
+    "deadline": "2026-03-30",
+    "employmentType": "Part-time TA",
+    "weeklyHours": 10,
+    "locationMode": "Hybrid",
+    "locationDetail": ""
+  },
+  "applicantSnapshot": {
+    "fullName": "Taylor",
+    "studentId": "2023217777",
+    "email": "2023217777@bupt.cn",
+    "phoneNumber": "13245674567",
+    "programMajor": "software ehgineering",
+    "year": "2nd Year",
+    "gpa": 0.0
+  },
+  "applicationForm": {
+    "relevantSkills": [
+      "Python"
+    ],
+    "relevantExperience": "11111111",
+    "availability": "1111111111",
+    "motivationCoverLetter": "111111"
+  },
+  "attachments": {},
+  "status": {
+    "current": "cancelled",
+    "label": "Cancelled",
+    "color": "gray",
+    "lastUpdated": "2026-04-12T12:42:05.1237767"
+  },
+  "timeline": [
+    {
+      "timelineId": "tl_1775968820506",
+      "stepKey": "submitted",
+      "stepLabel": "Application Submitted",
+      "status": "completed",
+      "timestamp": "2026-04-12T12:40:20.5069722",
+      "note": "Application submitted successfully."
+    },
+    {
+      "timelineId": "tl_1775968925123",
+      "stepKey": "cancelled",
+      "stepLabel": "Application Withdrawn",
+      "status": "completed",
+      "timestamp": "2026-04-12T12:42:05.1237767",
+      "note": "Application was withdrawn by the applicant."
+    }
+  ],
+  "review": {
+    "statusMessage": "Your application has been submitted and is waiting for review.",
+    "nextSteps": "Please wait for further updates from the department."
+  },
+  "meta": {
+    "submittedAt": "2026-04-12T12:40:20.5069722",
+    "updatedAt": "2026-04-12T12:42:05.1237767",
+    "isDeleted": true
+  },
+  "workflow": {
+    "assignedMO": "u_mo_001"
+  },
+  "isDraft": false
+}

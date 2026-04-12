@@ -1,0 +1,66 @@
+{
+  "applicationId": "app_000016",
+  "studentId": "2023213322",
+  "userId": "u_ta_20230014",
+  "jobId": "job_CS101_2026_spring",
+  "jobSnapshot": {
+    "title": "Introduction to Programming TA",
+    "courseCode": "CS101",
+    "courseName": "Introduction to Programming",
+    "department": "Computer Science",
+    "instructorName": "Dr. Sarah Johnson",
+    "instructorEmail": "sarah.johnson@university.edu",
+    "deadline": "2026-03-25",
+    "employmentType": "Part-time TA",
+    "weeklyHours": 10,
+    "locationMode": "Hybrid",
+    "locationDetail": ""
+  },
+  "applicantSnapshot": {
+    "fullName": "kathy",
+    "studentId": "2023213322",
+    "email": "1111@qq.com",
+    "phoneNumber": "18986245801",
+    "programMajor": "Computer science",
+    "year": "2nd Year",
+    "gpa": 0.0
+  },
+  "applicationForm": {
+    "relevantSkills": [
+      "python"
+    ],
+    "relevantExperience": "11",
+    "availability": "11",
+    "motivationCoverLetter": "11"
+  },
+  "attachments": {},
+  "status": {
+    "current": "pending",
+    "label": "Pending",
+    "color": "yellow",
+    "lastUpdated": "2026-04-12T12:10:27.8489908"
+  },
+  "timeline": [
+    {
+      "timelineId": "tl_1775967027848",
+      "stepKey": "submitted",
+      "stepLabel": "Application Submitted",
+      "status": "completed",
+      "timestamp": "2026-04-12T12:10:27.8500047",
+      "note": "Application submitted successfully."
+    }
+  ],
+  "review": {
+    "statusMessage": "Your application has been submitted and is waiting for review.",
+    "nextSteps": "Please wait for further updates from the department."
+  },
+  "meta": {
+    "submittedAt": "2026-04-12T12:10:27.8500047",
+    "updatedAt": "2026-04-12T12:10:27.8500047",
+    "isDeleted": false
+  },
+  "workflow": {
+    "assignedMO": "u_mo_001"
+  },
+  "isDraft": false
+}

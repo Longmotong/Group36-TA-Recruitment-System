@@ -1,0 +1,49 @@
+{
+  "loginId": "mo003",
+  "role": "mo",
+  "permissions": {
+    "canCreateJob": true,
+    "canViewAssignedApplications": true,
+    "canViewManagedJob": true,
+    "canPublishManagedJob": true,
+    "canManageUsers": false,
+    "canViewAllJobs": false,
+    "canEditManagedJob": true,
+    "canEditOwnProfile": true,
+    "canDeleteManagedJob": true,
+    "canUpdateApplicationStatus": true,
+    "canViewAllApplications": false,
+    "canReviewApplication": true
+  },
+  "meta": {
+    "createdAt": "2026-04-10T23:44:44.853768200",
+    "isDeleted": false,
+    "isActive": true,
+    "updatedAt": "2026-04-10T23:44:44.853768200"
+  },
+  "profile": {
+    "phoneNumber": "",
+    "fullName": "Dr.chen",
+    "department": "",
+    "staffId": ""
+  },
+  "scope": {
+    "departments": [
+    ],
+    "managedJobIds": [
+    ]
+  },
+  "userId": "u_mo_003",
+  "account": {
+    "password": "test1234",
+    "lastLoginAt": "2026-04-10T23:44:44.853768200",
+    "email": "Dr.chen@university.edu",
+    "passwordHash": "hashed_Dr.chen",
+    "username": "Dr.chen",
+    "status": "active"
+  },
+  "dashboard": {
+    "pendingReviewsCount": 0,
+    "managedJobsCount": 0
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "applicationId": "app_000014",
+  "studentId": "2023213322",
+  "userId": "u_ta_20230014",
+  "jobId": "job_MATH205_2026_spring",
+  "jobSnapshot": {
+    "title": "Calculus I TA",
+    "courseCode": "MATH205",
+    "courseName": "Calculus I",
+    "department": "Mathematics",
+    "instructorName": "Dr. Robert Lee",
+    "instructorEmail": "robert.lee@university.edu",
+    "deadline": "2026-03-30",
+    "employmentType": "Part-time TA",
+    "weeklyHours": 10,
+    "locationMode": "Hybrid",
+    "locationDetail": ""
+  },
+  "applicantSnapshot": {
+    "fullName": "kathy",
+    "studentId": "2023213322",
+    "email": "1111@qq.com",
+    "phoneNumber": "18986245801",
+    "programMajor": "Computer science",
+    "year": "2nd Year",
+    "gpa": 0.0
+  },
+  "applicationForm": {
+    "relevantSkills": [
+      "python",
+      "teaching experience"
+    ],
+    "relevantExperience": "111",
+    "availability": "1111",
+    "motivationCoverLetter": "111"
+  },
+  "attachments": {},
+  "status": {
+    "current": "pending",
+    "label": "Pending",
+    "color": "yellow",
+    "lastUpdated": "2026-04-12T11:57:24.3272476"
+  },
+  "timeline": [
+    {
+      "timelineId": "tl_1775966244327",
+      "stepKey": "submitted",
+      "stepLabel": "Application Submitted",
+      "status": "completed",
+      "timestamp": "2026-04-12T11:57:24.3290279",
+      "note": "Application submitted successfully."
+    }
+  ],
+  "review": {
+    "statusMessage": "Your application has been submitted and is waiting for review.",
+    "nextSteps": "Please wait for further updates from the department."
+  },
+  "meta": {
+    "submittedAt": "2026-04-12T11:57:24.3290279",
+    "updatedAt": "2026-04-12T11:57:24.3290279",
+    "isDeleted": false
+  },
+  "workflow": {
+    "assignedMO": "u_mo_001"
+  },
+  "isDraft": false
+}

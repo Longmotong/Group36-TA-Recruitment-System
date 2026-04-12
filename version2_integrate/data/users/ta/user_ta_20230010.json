@@ -1,0 +1,75 @@
+{
+  "skills": {
+    "programming": [
+      {
+        "skillId": "skill_1775908921987_0",
+        "name": "Python",
+        "proficiency": "Advanced"
+      }
+    ],
+    "teaching": [],
+    "communication": [],
+    "other": []
+  },
+  "loginId": "20230010",
+  "role": "ta",
+  "cv": {
+    "uploaded": true,
+    "originalFileName": "EBU6304_GroupProjectHandout.pdf",
+    "storedFileName": "",
+    "filePath": "data\\uploads\\profile_cv\\20230010\\EBU6304_GroupProjectHandout.pdf",
+    "fileType": "",
+    "fileSizeKB": 0,
+    "uploadedAt": "2026-04-11"
+  },
+  "academic": {
+    "gpa": 0.0,
+    "completedCourses": []
+  },
+  "permissions": {
+    "canBrowseJobs": true,
+    "canApplyJob": true,
+    "canManageJob": false,
+    "canManageUsers": false,
+    "canViewOwnApplications": true,
+    "canUploadCV": true,
+    "canEditOwnProfile": true,
+    "canReviewApplication": false
+  },
+  "meta": {
+    "createdAt": "2026-04-11T19:06:30.352519400",
+    "isDeleted": false,
+    "isActive": true,
+    "updatedAt": "2026-04-11T20:02:01.990607"
+  },
+  "profile": {
+    "fullName": "Elena Rodriguez",
+    "studentId": "20230005",
+    "year": "2nd Year",
+    "programMajor": "Computer Science \u0026 Math",
+    "department": "",
+    "phoneNumber": "13211111111",
+    "address": "",
+    "shortBio": ""
+  },
+  "userId": "u_ta_20230010",
+  "account": {
+    "password": "QQ123456",
+    "lastLoginAt": "2026-04-11T19:06:30.352519400",
+    "email": "e.rodriguez@university.edu",
+    "passwordHash": "hashed_20230005",
+    "username": "20230005",
+    "status": "active"
+  },
+  "dashboard": {
+    "profileCompletion": 100,
+    "onboardingCompleted": true
+  },
+  "applicationSummary": {
+    "underReview": 0,
+    "rejected": 0,
+    "pending": 0,
+    "accepted": 0,
+    "totalApplications": 0
+  }
+}

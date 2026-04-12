@@ -1,0 +1,79 @@
+{
+  "skills": {
+    "programming": [],
+    "teaching": [],
+    "communication": [],
+    "other": [
+      {
+        "skillId": "skill_1775833889080_0",
+        "name": "Python",
+        "proficiency": "Intermediate"
+      },
+      {
+        "skillId": "skill_1775833889080_0",
+        "name": "Teaching",
+        "proficiency": "Intermediate"
+      }
+    ]
+  },
+  "loginId": "20230005",
+  "role": "ta",
+  "cv": {
+    "uploaded": true,
+    "originalFileName": "SLAMTEC_rplidar_datasheet_C1_v1.1_en.pdf",
+    "storedFileName": "",
+    "filePath": "data\\uploads\\profile_cv\\Iris\\SLAMTEC_rplidar_datasheet_C1_v1.1_en.pdf",
+    "fileType": "",
+    "fileSizeKB": 0,
+    "uploadedAt": "2026-04-10"
+  },
+  "academic": {
+    "gpa": 0.0,
+    "completedCourses": []
+  },
+  "permissions": {
+    "canBrowseJobs": true,
+    "canApplyJob": true,
+    "canManageJob": false,
+    "canManageUsers": false,
+    "canViewOwnApplications": true,
+    "canUploadCV": true,
+    "canEditOwnProfile": true,
+    "canReviewApplication": false
+  },
+  "meta": {
+    "createdAt": "2026-04-10T21:08:00.8904019",
+    "isDeleted": false,
+    "isActive": true,
+    "updatedAt": "2026-04-10T23:11:53.6909778"
+  },
+  "profile": {
+    "fullName": "Iris",
+    "studentId": "2023213322",
+    "year": "3rd Year",
+    "programMajor": "Computer science",
+    "department": "Computer science",
+    "phoneNumber": "18986245801",
+    "address": "",
+    "shortBio": ""
+  },
+  "userId": "u_ta_20230005",
+  "account": {
+    "password": "test1234",
+    "lastLoginAt": "2026-04-10T21:08:00.8884019",
+    "email": "Iris@university.edu",
+    "passwordHash": "hashed_password_here",
+    "username": "Iris",
+    "status": "active"
+  },
+  "dashboard": {
+    "profileCompletion": 100
+  },
+  "applicationSummary": {
+    "underReview": 0,
+    "rejected": 0,
+    "pending": 0,
+    "accepted": 0,
+    "totalApplications": 0
+  }
+}

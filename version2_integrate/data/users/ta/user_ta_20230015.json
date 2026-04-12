@@ -1,0 +1,81 @@
+{
+  "skills": {
+    "programming": [
+      {
+        "skillId": "skill_1775967417612_0",
+        "name": "Python",
+        "proficiency": "Intermediate"
+      }
+    ],
+    "teaching": [],
+    "communication": [
+      {
+        "skillId": "skill_1775967417612_1",
+        "name": "English",
+        "proficiency": "Intermediate"
+      }
+    ],
+    "other": []
+  },
+  "loginId": "20230015",
+  "role": "ta",
+  "cv": {
+    "uploaded": true,
+    "originalFileName": "EBU6304_GroupProjectHandout.pdf",
+    "storedFileName": "",
+    "filePath": "data\\uploads\\profile_cv\\20230015\\EBU6304_GroupProjectHandout.pdf",
+    "fileType": "",
+    "fileSizeKB": 0,
+    "uploadedAt": "2026-04-12"
+  },
+  "academic": {
+    "gpa": 0.0,
+    "completedCourses": []
+  },
+  "permissions": {
+    "canBrowseJobs": true,
+    "canApplyJob": true,
+    "canManageJob": false,
+    "canManageUsers": false,
+    "canViewOwnApplications": true,
+    "canUploadCV": true,
+    "canEditOwnProfile": true,
+    "canReviewApplication": false
+  },
+  "meta": {
+    "createdAt": "2026-04-12T12:14:57.895480",
+    "isDeleted": false,
+    "isActive": true,
+    "updatedAt": "2026-04-12T12:17:19.5443815"
+  },
+  "profile": {
+    "fullName": "Smith",
+    "studentId": "2023213633",
+    "year": "3rd Year",
+    "programMajor": "software engineering",
+    "department": "",
+    "phoneNumber": "13234232434",
+    "address": "",
+    "shortBio": ""
+  },
+  "userId": "u_ta_20230015",
+  "account": {
+    "password": "QQ123456",
+    "lastLoginAt": "2026-04-12T12:14:57.895480",
+    "email": "2023213633@bupt.cn",
+    "passwordHash": "hashed_2023213633",
+    "username": "2023213633",
+    "status": "active"
+  },
+  "dashboard": {
+    "profileCompletion": 100,
+    "onboardingCompleted": true
+  },
+  "applicationSummary": {
+    "underReview": 0,
+    "rejected": 0,
+    "pending": 0,
+    "accepted": 0,
+    "totalApplications": 0
+  }
+}

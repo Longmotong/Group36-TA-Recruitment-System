@@ -1,0 +1,74 @@
+{
+  "applicationId" : "app_000004",
+  "userId" : "u_ta_20230003",
+  "studentId" : "20230003",
+  "jobId" : "job_CS101_2026_spring",
+  "jobSnapshot" : {
+    "title" : "Introduction to Programming TA",
+    "courseCode" : "CS101",
+    "courseName" : "Introduction to Programming",
+    "department" : "Computer Science",
+    "instructorName" : "Dr. Sarah Johnson",
+    "deadline" : "2026-03-25T23:59:59",
+    "employmentType" : "Part-time TA",
+    "weeklyHours" : 10
+  },
+  "applicantSnapshot" : {
+    "fullName" : "Charlie Brown",
+    "studentId" : "20230003",
+    "email" : "charlie.brown@university.edu",
+    "phoneNumber" : "(555) 345-6789",
+    "programMajor" : "Mechanical Engineering",
+    "year" : "4th Year",
+    "department" : "Mechanical Engineering",
+    "gpa" : 3.9
+  },
+  "applicationForm" : {
+    "relevantSkills" : [ "Python", "MATLAB" ],
+    "relevantExperience" : "Peer tutor for engineering courses.",
+    "availability" : "Mon/Wed 1-3pm, Fri 2-4pm",
+    "motivationCoverLetter" : "I believe my skills in programming and teaching would make me an excellent fit for this role."
+  },
+  "attachments" : {
+    "cv" : {
+      "originalFileName" : "Charlie_Brown_CV.pdf",
+      "storedFileName" : "cv.pdf",
+      "filePath" : "data/uploads/application_files/app_000004/cv.pdf",
+      "fileType" : "pdf"
+    },
+    "supportingDocuments" : [ ]
+  },
+  "workflow" : {
+    "assignedMO" : "u_mo_001",
+    "assignedAdmin" : "u_admin_001",
+    "reviewDepartment" : "Computer Science"
+  },
+  "status" : {
+    "current" : "rejected",
+    "label" : "Rejected",
+    "lastUpdated" : "2026-04-11T22:02:15.560182100",
+    "updatedBy" : "u_mo_001"
+  },
+  "timeline" : [ {
+    "timelineId" : "tl_001",
+    "stepKey" : "submitted",
+    "stepLabel" : "Application Submitted",
+    "status" : "completed",
+    "timestamp" : "2026-03-18T10:34:50",
+    "updatedBy" : "u_ta_20230003"
+  } ],
+  "review" : {
+    "reviewerNotes" : "Quick rejected from list",
+    "decision" : "rejected",
+    "decisionReason" : "",
+    "statusMessage" : "",
+    "nextSteps" : "",
+    "reviewedBy" : "u_mo_001",
+    "reviewedAt" : "2026-04-11T22:02:15.560182100"
+  },
+  "meta" : {
+    "submittedAt" : "2026-03-18T10:34:50",
+    "updatedAt" : "2026-03-18T11:00:00",
+    "isDeleted" : false
+  }
+}

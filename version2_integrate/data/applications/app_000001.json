@@ -1,0 +1,93 @@
+{
+  "applicationId" : "app_000001",
+  "userId" : "u_ta_20230001",
+  "studentId" : "20230001",
+  "jobId" : "job_CS101_2026_spring",
+  "jobSnapshot" : {
+    "title" : "Introduction to Programming TA",
+    "courseCode" : "CS101",
+    "courseName" : "Introduction to Programming",
+    "department" : "Computer Science",
+    "instructorName" : "Dr. Sarah Johnson",
+    "instructorEmail" : "sarah.johnson@university.edu",
+    "deadline" : "2026-03-25T23:59:59",
+    "employmentType" : "Part-time TA",
+    "weeklyHours" : 10,
+    "locationMode" : "Hybrid"
+  },
+  "applicantSnapshot" : {
+    "fullName" : "John Smith",
+    "studentId" : "20230001",
+    "email" : "john.smith@university.edu",
+    "phoneNumber" : "(555) 123-4567",
+    "programMajor" : "Computer Science",
+    "year" : "3rd Year",
+    "department" : "Computer Science",
+    "gpa" : 3.8
+  },
+  "applicationForm" : {
+    "relevantSkills" : [ "Python", "JavaScript" ],
+    "relevantExperience" : "Served as peer tutor for introductory programming.",
+    "availability" : "Monday/Wednesday 2-5pm, Friday 10am-12pm",
+    "motivationCoverLetter" : "I am interested in helping students succeed in CS101."
+  },
+  "attachments" : {
+    "cv" : {
+      "originalFileName" : "John_Smith_CV.pdf",
+      "storedFileName" : "cv.pdf",
+      "filePath" : "data/uploads/application_files/app_000001/cv.pdf",
+      "fileType" : "pdf",
+      "copiedAt" : "2026-03-18T10:35:00"
+    },
+    "supportingDocuments" : [ {
+      "documentId" : "doc_001",
+      "originalFileName" : "transcript.pdf",
+      "storedFileName" : "transcript.pdf",
+      "filePath" : "data/uploads/application_files/app_000001/transcript.pdf",
+      "fileType" : "pdf",
+      "uploadedAt" : "2026-03-18T10:35:10"
+    } ]
+  },
+  "workflow" : {
+    "assignedMO" : "u_mo_001",
+    "assignedAdmin" : "u_admin_001",
+    "reviewDepartment" : "Computer Science"
+  },
+  "status" : {
+    "current" : "rejected",
+    "label" : "Rejected",
+    "lastUpdated" : "2026-04-12T11:54:05.645245800",
+    "updatedBy" : "u_mo_001"
+  },
+  "review" : {
+    "reviewerNotes" : "",
+    "decision" : "rejected",
+    "decisionReason" : "",
+    "statusMessage" : "",
+    "nextSteps" : "",
+    "reviewedBy" : "u_mo_001",
+    "reviewedAt" : "2026-04-12T11:54:05.645245800"
+  },
+  "timeline" : [ {
+    "timelineId" : "tl_001",
+    "stepKey" : "submitted",
+    "stepLabel" : "Application Submitted",
+    "status" : "completed",
+    "timestamp" : "2026-03-18T10:34:50",
+    "updatedBy" : "u_ta_20230001",
+    "note" : "Application submitted successfully."
+  }, {
+    "timelineId" : "tl_002",
+    "stepKey" : "under_review",
+    "stepLabel" : "Under Review",
+    "status" : "completed",
+    "timestamp" : "2026-03-18T11:00:00",
+    "updatedBy" : "u_mo_001",
+    "note" : "Application moved into review stage."
+  } ],
+  "meta" : {
+    "submittedAt" : "2026-03-18T10:34:50",
+    "updatedAt" : "2026-03-18T11:00:00",
+    "isDeleted" : false
+  }
+}
