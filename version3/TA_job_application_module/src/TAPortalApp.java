@@ -316,6 +316,11 @@ public class TAPortalApp extends JFrame {
         mainContentPanel.add(profilePage.getPanel(), "profile");
     }
     
+    private String getApiKey() {
+        return System.getProperty("doubao.api.key",
+            System.getenv("ARK_API_KEY") != null ? System.getenv("ARK_API_KEY") : System.getenv("DOUBao_API_KEY"));
+    }
+    
     private static JScrollPane wrapContentInScrollPane(JComponent view) {
         JScrollPane sp = new JScrollPane(view);
         sp.setBorder(BorderFactory.createEmptyBorder());
