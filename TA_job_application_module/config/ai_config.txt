@@ -1,0 +1,13 @@
+# AI Configuration
+# ============================================
+# 获取API Key: https://console.volcengine.com/ark
+# 豆包模型通过火山引擎提供API服务
+# ============================================
+
+# 在下面填写API Key（优先级最高）
+ARK_API_KEY=ark-ff1b9021-71b7-4d0a-9ec1-5755196fbab0-713eb
+
+# 或者设置环境变量:
+# Windows PowerShell: $env:ARK_API_KEY="your_api_key"
+# Windows CMD: set ARK_API_KEY=your_api_key
+# Linux/Mac: export ARK_API_KEY=your_api_key
