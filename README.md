@@ -270,8 +270,32 @@ data
 
 ### Iteration 3
 #### Planned goals
+- Further improve the overall consistency of the system and strengthen integration across modules.
+- Extend the login and registration module by supporting more complete role selection and clearer account-related interaction.
+- Improve the TA-side workflow by adding stronger data support, more practical application functions, and intelligent assistance.
+- Improve the MO-side workflow by making applicant evaluation, job-related information, and confirmation processes more complete.
+- Further develop Admin-side management support and strengthen cross-role coordination.
+- Introduce AI-supported features for different user roles to enhance usability and decision support.
+- Continue refining shared data handling, page transitions, and workflow stability.
 #### Completed features
+- The login and registration module was improved by adding admin as a selectable identity, introducing password visibility control, and providing an identity-information page for MO users.
+- On the TA side, the data folder structure was adjusted and extended, and a skill-pool mechanism was introduced to support richer applicant information.
+- AI-supported functions were added on the TA side, including CV scanning and skill-matching evaluation.
+- The TA-side workflow was further improved by adding a double-check mechanism and clearer status tracking.
+- On the MO side, a course-requirement skill pool was added to support clearer job requirements.
+- A dedicated entry was added for MO users to view CVs uploaded by TA applicants.
+- AI-supported functions were introduced on the MO side, including course-description suggestions and skill-matching evaluation.
+- The MO-side confirmation workflow was further improved through a double-check mechanism and notification support for newly recruited TAs.
+- The Admin-side module was further extended to support broader coordination and management-related functions.
+- Overall, Version 3 further strengthened module integration, shared-data handling, and the practical completeness of the system.
 #### Issues and reflections
+- Although Version 3 introduced more practical and intelligent functions, the increasing number of features also made module integration more complex.
+- The newly added AI-supported functions improved usability, but they also required more careful coordination with existing data structures and interaction flows.
+- As more role-specific functions were added, maintaining consistency across login, TA, MO, and Admin modules became more challenging.
+- The new double-check and status-tracking functions made workflows more complete, but they also required clearer state management and further testing.
+- Some management-side functions still needed more refinement, especially in terms of handling broader coordination scenarios.
+- Overall, Version 3 significantly improved the completeness of the system, but further polishing was still needed before reaching the final version standard.
+
 
 ### Iteration 4
 #### Planned goals
@@ -321,6 +345,11 @@ data
 | 2026-4-9 | @Longmotong |Motong-Long/TA_job_application_module|add draft box function|
 | 2026-4-10 | @Longmotong |Motong-Long/TA_job_application_module|Integrate the login system, TA-side functions, and admin-side functions |
 | 2026-4-11 | @Longmotong |Motong-Long/TA_job_application_module|Integrate and debug all functions, address issues arising from integration, and unify the path for data storage |
+| 2026-4-21 | @Longmotong |Motong-Long/TA_job_application_module|design and implement a double check mechanism for offers |
+| 2026-4-22 | @Longmotong |Motong-Long/TA_job_application_module|Add AI analysis of job compatibility and display of cards for the top three positions in the list interface |
+| 2026-4-23 | @Longmotong |Motong-Long/TA_job_application_module|improve the display interface for AI matching degree ranking, as well as the presentation interface for each job's AI analysis results |
+| 2026-4-27 | @Longmotong |Motong-Long/TA_job_application_module|Integrate the ta job application module into the consolidated version code |
+| 2026-4-28 | @Longmotong |Motong-Long/TA_job_application_module|Integrate the mo system and admin system into the full version |
 
 
 
