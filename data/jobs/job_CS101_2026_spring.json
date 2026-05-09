@@ -1,0 +1,276 @@
+{
+  "jobId": "job_CS101_2026_spring",
+  "title": "Introduction to Programming TA",
+  "course": {
+    "courseCode": "CS101",
+    "courseName": "Introduction to Programming",
+    "term": "Spring",
+    "year": 2026
+  },
+  "department": "Computer Science",
+  "instructor": {
+    "name": "Dr. Sarah Johnson",
+    "email": "sarah.johnson@university.edu"
+  },
+  "employment": {
+    "jobType": "TA",
+    "employmentType": "Part-time TA",
+    "weeklyHours": 10,
+    "locationMode": "Hybrid",
+    "locationDetail": ""
+  },
+  "dates": {
+    "postedAt": "2026-04-17T16:54:51",
+    "deadline": "2026-03-25T23:59:59",
+    "startDate": "2026-04-17",
+    "endDate": "2026-07-17"
+  },
+  "content": {
+    "summary": "We are seeking a motivated and knowledgeable Teaching Assistant for Introduction to Programming.",
+    "description": "We are seeking a motivated and knowledgeable Teaching Assistant for Introduction to Programming.",
+    "responsibilities": [
+      "Support teaching activities for this module"
+    ],
+    "requirements": [
+      "TA quota: 2"
+    ],
+    "preferredSkills": [
+      "Python",
+      "Teaching Experience",
+      "Git/GitHub",
+      "Java"
+    ],
+    "taSkillRequirement": {
+      "proficiencyLevels": [
+        "Beginner",
+        "Intermediate",
+        "Advanced"
+      ],
+      "skillCatalog": {
+        "technicalSkills": {
+          "programmingAndSoftwareFundamentals": [
+            "Java",
+            "Python",
+            "C/C++",
+            "SQL",
+            "Algorithms & Data Structures",
+            "Object-Oriented Programming (OOP)"
+          ],
+          "hardwareAndLogicDesign": [
+            "VHDL",
+            "Verilog",
+            "Digital Logic Design",
+            "FPGA Development & Debugging"
+          ],
+          "embeddedSystemsAndLowLevelDevelopment": [
+            "STM32 Development",
+            "FreeRTOS",
+            "Embedded C",
+            "Hardware Driver Development"
+          ]
+        },
+        "engineeringAndTools": {
+          "professionalDevelopmentAndSimulationTools": [
+            "Quartus Prime",
+            "Keil5",
+            "STM32CubeIDE",
+            "STM32CubeMX",
+            "CST Studio Suite",
+            "Matlab / Simulink",
+            "Cisco Packet Tracer"
+          ]
+        },
+        "languageAndCommunication": {
+          "crossCulturalCommunication": [
+            "English"
+          ]
+        }
+      },
+      "requiredSkills": [
+        {
+          "name": "Java",
+          "minimumProficiency": "Beginner"
+        },
+        {
+          "name": "Python",
+          "minimumProficiency": "Beginner"
+        }
+      ],
+      "customRequiredSkills": [
+        "Teaching Experience",
+        "Git/GitHub"
+      ],
+      "moSelectedSkills": [
+        {
+          "category": "technicalSkills",
+          "subcategory": "programmingAndSoftwareFundamentals",
+          "name": "Java",
+          "minimumProficiency": "Beginner"
+        },
+        {
+          "category": "technicalSkills",
+          "subcategory": "programmingAndSoftwareFundamentals",
+          "name": "Python",
+          "minimumProficiency": "Beginner"
+        }
+      ],
+      "moSkillSelectionPool": {
+        "technicalSkills": {
+          "programmingAndSoftwareFundamentals": [
+            {
+              "name": "Java",
+              "selected": true,
+              "minimumProficiency": "Beginner"
+            },
+            {
+              "name": "Python",
+              "selected": true,
+              "minimumProficiency": "Beginner"
+            },
+            {
+              "name": "C/C++",
+              "selected": false,
+              "minimumProficiency": null
+            },
+            {
+              "name": "SQL",
+              "selected": false,
+              "minimumProficiency": null
+            },
+            {
+              "name": "Algorithms & Data Structures",
+              "selected": false,
+              "minimumProficiency": null
+            },
+            {
+              "name": "Object-Oriented Programming (OOP)",
+              "selected": false,
+              "minimumProficiency": null
+            }
+          ],
+          "hardwareAndLogicDesign": [
+            {
+              "name": "VHDL",
+              "selected": false,
+              "minimumProficiency": null
+            },
+            {
+              "name": "Verilog",
+              "selected": false,
+              "minimumProficiency": null
+            },
+            {
+              "name": "Digital Logic Design",
+              "selected": false,
+              "minimumProficiency": null
+            },
+            {
+              "name": "FPGA Development & Debugging",
+              "selected": false,
+              "minimumProficiency": null
+            }
+          ],
+          "embeddedSystemsAndLowLevelDevelopment": [
+            {
+              "name": "STM32 Development",
+              "selected": false,
+              "minimumProficiency": null
+            },
+            {
+              "name": "FreeRTOS",
+              "selected": false,
+              "minimumProficiency": null
+            },
+            {
+              "name": "Embedded C",
+              "selected": false,
+              "minimumProficiency": null
+            },
+            {
+              "name": "Hardware Driver Development",
+              "selected": false,
+              "minimumProficiency": null
+            }
+          ]
+        },
+        "engineeringAndTools": {
+          "professionalDevelopmentAndSimulationTools": [
+            {
+              "name": "Quartus Prime",
+              "selected": false,
+              "minimumProficiency": null
+            },
+            {
+              "name": "Keil5",
+              "selected": false,
+              "minimumProficiency": null
+            },
+            {
+              "name": "STM32CubeIDE",
+              "selected": false,
+              "minimumProficiency": null
+            },
+            {
+              "name": "STM32CubeMX",
+              "selected": false,
+              "minimumProficiency": null
+            },
+            {
+              "name": "CST Studio Suite",
+              "selected": false,
+              "minimumProficiency": null
+            },
+            {
+              "name": "Matlab / Simulink",
+              "selected": false,
+              "minimumProficiency": null
+            },
+            {
+              "name": "Cisco Packet Tracer",
+              "selected": false,
+              "minimumProficiency": null
+            }
+          ]
+        },
+        "languageAndCommunication": {
+          "crossCulturalCommunication": [
+            {
+              "name": "English",
+              "selected": false,
+              "minimumProficiency": null
+            }
+          ]
+        }
+      }
+    }
+  },
+  "ownership": {
+    "createdBy": "u_mo_001",
+    "managedBy": [
+      "u_mo_001"
+    ],
+    "lastEditedBy": "u_mo_001"
+  },
+  "publication": {
+    "status": "published",
+    "publishedAt": "2026-04-17T16:54:51",
+    "publishedBy": "u_mo_001"
+  },
+  "lifecycle": {
+    "status": "open",
+    "isDeleted": false,
+    "deletedAt": null,
+    "deletedBy": null,
+    "closeReason": ""
+  },
+  "stats": {
+    "applicationCount": 3,
+    "pendingCount": 0,
+    "acceptedCount": 0,
+    "rejectedCount": 0
+  },
+  "meta": {
+    "createdAt": "2026-04-17T16:54:51",
+    "updatedAt": "2026-04-17T16:54:51"
+  }
+}
