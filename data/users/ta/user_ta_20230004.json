@@ -1,36 +1,37 @@
 {
-  "userId": "u_ta_20230001",
-  "loginId": "20230001",
+  "userId": "u_ta_20230004",
+  "loginId": "20230004",
   "role": "ta",
   "account": {
-    "username": "johnsmith",
-    "email": "j.taylor@university.edu",
-    "password": "test1234",
+    "username": "lucyliu",
+    "email": "lucy.liu@university.edu",
     "passwordHash": "hashed_password_here",
+    "password": "test1234",
     "status": "active",
-    "lastLoginAt": "2026-03-18T09:20:00"
+    "lastLoginAt": "2026-03-18T11:15:00"
   },
   "profile": {
-    "fullName": "John Smith",
-    "studentId": "20250033",
-    "year": "2nd Year",
-    "programMajor": "Human-Computer Interaction",
-    "department": "Computer Science",
-    "phoneNumber": "13111111111",
-    "address": "123 Main St, City, State, ZIP",
-    "shortBio": "Interested in teaching and software engineering."
+    "fullName": "Lucy Liu",
+    "studentId": "20230004",
+    "year": "1st Year",
+    "programMajor": "Civil Engineering",
+    "department": "Civil Engineering",
+    "phoneNumber": "(555) 456-7890",
+    "address": "101 Birch St, City, State, ZIP",
+    "shortBio": "Eager to contribute to sustainable infrastructure development.",
+    "avatarPath": "data/uploads/avatars/u_ta_20230004.png"
   },
   "academic": {
-    "gpa": 3.8,
+    "gpa": 3.7,
     "completedCourses": [
       {
-        "courseCode": "CS101",
-        "courseName": "Introduction to Programming",
-        "grade": "A"
+        "courseCode": "CE101",
+        "courseName": "Introduction to Civil Engineering",
+        "grade": "B"
       },
       {
-        "courseCode": "CS201",
-        "courseName": "Data Structures",
+        "courseCode": "CE201",
+        "courseName": "Material Science",
         "grade": "A-"
       }
     ]
@@ -52,7 +53,7 @@
           {
             "name": "Python",
             "selected": true,
-            "proficiency": "Advanced"
+            "proficiency": "Intermediate"
           },
           {
             "name": "C/C++",
@@ -171,23 +172,23 @@
     }
   },
   "cv": {
-    "uploaded": true,
-    "originalFileName": "John_Smith_CV.pdf",
+    "uploaded": false,
+    "originalFileName": "",
     "storedFileName": "",
-    "filePath": "data/uploads/profile_cv/20230001/current_cv.pdf",
+    "filePath": "",
     "fileType": "",
     "fileSizeKB": 0,
-    "uploadedAt": "2026-03-10T10:30:00"
+    "uploadedAt": null
   },
   "applicationSummary": {
-    "totalApplications": 3,
-    "pending": 1,
-    "underReview": 1,
-    "accepted": 1,
+    "totalApplications": 0,
+    "pending": 0,
+    "underReview": 0,
+    "accepted": 0,
     "rejected": 0
   },
   "dashboard": {
-    "profileCompletion": 85
+    "profileCompletion": 60
   },
   "permissions": {
     "canEditOwnProfile": true,
@@ -201,7 +202,7 @@
   },
   "meta": {
     "createdAt": "2026-03-01T09:00:00",
-    "updatedAt": "2026-04-11T18:36:15.7911012",
+    "updatedAt": "2026-03-18T11:15:00",
     "isDeleted": false,
     "isActive": true
   }

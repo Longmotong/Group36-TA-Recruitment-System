@@ -1,37 +1,38 @@
 {
-  "userId": "u_ta_20230001",
-  "loginId": "20230001",
+  "userId": "u_ta_20230002",
+  "loginId": "20230002",
   "role": "ta",
   "account": {
-    "username": "johnsmith",
-    "email": "j.taylor@university.edu",
+    "username": "janedoe",
+    "email": "jane.doe@university.edu",
     "password": "test1234",
     "passwordHash": "hashed_password_here",
     "status": "active",
-    "lastLoginAt": "2026-03-18T09:20:00"
+    "lastLoginAt": "2026-03-18T10:00:00"
   },
   "profile": {
-    "fullName": "John Smith",
-    "studentId": "20250033",
+    "fullName": "Jane Doe",
+    "studentId": "20230002",
     "year": "2nd Year",
-    "programMajor": "Human-Computer Interaction",
-    "department": "Computer Science",
-    "phoneNumber": "13111111111",
-    "address": "123 Main St, City, State, ZIP",
-    "shortBio": "Interested in teaching and software engineering."
+    "programMajor": "Electrical Engineering",
+    "department": "Electrical Engineering",
+    "phoneNumber": "(555) 234-5678",
+    "address": "456 Oak St, City, State, ZIP",
+    "shortBio": "Interested in robotics and control systems.",
+    "avatarPath": "data/uploads/avatars/u_ta_20230002.png"
   },
   "academic": {
-    "gpa": 3.8,
+    "gpa": 3.6,
     "completedCourses": [
       {
-        "courseCode": "CS101",
-        "courseName": "Introduction to Programming",
-        "grade": "A"
+        "courseCode": "EE101",
+        "courseName": "Introduction to Electrical Engineering",
+        "grade": "B+"
       },
       {
-        "courseCode": "CS201",
-        "courseName": "Data Structures",
-        "grade": "A-"
+        "courseCode": "EE201",
+        "courseName": "Circuit Analysis",
+        "grade": "A"
       }
     ]
   },
@@ -52,7 +53,7 @@
           {
             "name": "Python",
             "selected": true,
-            "proficiency": "Advanced"
+            "proficiency": "Intermediate"
           },
           {
             "name": "C/C++",
@@ -172,22 +173,22 @@
   },
   "cv": {
     "uploaded": true,
-    "originalFileName": "John_Smith_CV.pdf",
-    "storedFileName": "",
-    "filePath": "data/uploads/profile_cv/20230001/current_cv.pdf",
-    "fileType": "",
-    "fileSizeKB": 0,
+    "originalFileName": "Jane_Doe_CV.pdf",
+    "storedFileName": "current_cv.pdf",
+    "filePath": "data/uploads/profile_cv/20230002/current_cv.pdf",
+    "fileType": "pdf",
+    "fileSizeKB": 210,
     "uploadedAt": "2026-03-10T10:30:00"
   },
   "applicationSummary": {
-    "totalApplications": 3,
+    "totalApplications": 2,
     "pending": 1,
-    "underReview": 1,
+    "underReview": 0,
     "accepted": 1,
     "rejected": 0
   },
   "dashboard": {
-    "profileCompletion": 85
+    "profileCompletion": 80
   },
   "permissions": {
     "canEditOwnProfile": true,
@@ -201,7 +202,7 @@
   },
   "meta": {
     "createdAt": "2026-03-01T09:00:00",
-    "updatedAt": "2026-04-11T18:36:15.7911012",
+    "updatedAt": "2026-03-18T10:00:00",
     "isDeleted": false,
     "isActive": true
   }

@@ -1,5 +1,5 @@
 {
-  "applicationId": "app_000001",
+  "applicationId": "app_000002",
   "userId": "u_ta_20230001",
   "studentId": "20230001",
   "jobId": "job_CS101_2026_spring",
@@ -9,11 +9,9 @@
     "courseName": "Introduction to Programming",
     "department": "Computer Science",
     "instructorName": "Dr. Sarah Johnson",
-    "instructorEmail": "sarah.johnson@university.edu",
     "deadline": "2026-03-25T23:59:59",
     "employmentType": "Part-time TA",
-    "weeklyHours": 10,
-    "locationMode": "Hybrid"
+    "weeklyHours": 10
   },
   "applicantSnapshot": {
     "fullName": "John Smith",
@@ -28,30 +26,20 @@
   "applicationForm": {
     "relevantSkills": [
       "Python",
-      "JavaScript"
+      "C++"
     ],
-    "relevantExperience": "Served as peer tutor for introductory programming.",
-    "availability": "Monday/Wednesday 2-5pm, Friday 10am-12pm",
-    "motivationCoverLetter": "I am interested in helping students succeed in CS101."
+    "relevantExperience": "Worked as a tutor for introductory programming courses.",
+    "availability": "Mon/Wed/Fri 10am-12pm",
+    "motivationCoverLetter": "I have a passion for teaching and want to help others succeed in CS101."
   },
   "attachments": {
     "cv": {
       "originalFileName": "John_Smith_CV.pdf",
       "storedFileName": "cv.pdf",
-      "filePath": "data/uploads/application_files/app_000001/cv.pdf",
-      "fileType": "pdf",
-      "copiedAt": "2026-03-18T10:35:00"
+      "filePath": "data/uploads/application_files/app_000002/cv.pdf",
+      "fileType": "pdf"
     },
-    "supportingDocuments": [
-      {
-        "documentId": "doc_001",
-        "originalFileName": "transcript.pdf",
-        "storedFileName": "transcript.pdf",
-        "filePath": "data/uploads/application_files/app_000001/transcript.pdf",
-        "fileType": "pdf",
-        "uploadedAt": "2026-03-18T10:35:10"
-      }
-    ]
+    "supportingDocuments": []
   },
   "workflow": {
     "assignedMO": "u_mo_001",
@@ -63,7 +51,7 @@
       "moDecision": {
         "status": "rejected",
         "decidedBy": "u_mo_001",
-        "decidedAt": "2026-04-12T14:17:58.466841"
+        "decidedAt": "2026-04-11T23:36:39.402639700"
       },
       "taConfirmation": {
         "status": "not_required",
@@ -76,20 +64,8 @@
   "status": {
     "current": "rejected",
     "label": "Rejected",
-    "lastUpdated": "2026-04-12T14:17:58.466841",
+    "lastUpdated": "2026-04-11T23:36:39.402639700",
     "updatedBy": "u_mo_001"
-  },
-  "review": {
-    "reviewerNotes": "",
-    "decision": "rejected",
-    "decisionReason": "",
-    "statusMessage": "",
-    "nextSteps": "",
-    "reviewedBy": "u_mo_001",
-    "reviewedAt": "2026-04-12T14:17:58.466841",
-    "moDecision": "rejected",
-    "taConfirmationRequired": false,
-    "taConfirmationStatus": "not_required"
   },
   "timeline": [
     {
@@ -98,19 +74,21 @@
       "stepLabel": "Application Submitted",
       "status": "completed",
       "timestamp": "2026-03-18T10:34:50",
-      "updatedBy": "u_ta_20230001",
-      "note": "Application submitted successfully."
-    },
-    {
-      "timelineId": "tl_002",
-      "stepKey": "under_review",
-      "stepLabel": "Under Review",
-      "status": "completed",
-      "timestamp": "2026-03-18T11:00:00",
-      "updatedBy": "u_mo_001",
-      "note": "Application moved into review stage."
+      "updatedBy": "u_ta_20230001"
     }
   ],
+  "review": {
+    "reviewerNotes": "Quick rejected from list",
+    "decision": "rejected",
+    "decisionReason": "",
+    "statusMessage": "",
+    "nextSteps": "",
+    "reviewedBy": "u_mo_001",
+    "reviewedAt": "2026-04-11T23:36:39.402639700",
+    "moDecision": "rejected",
+    "taConfirmationRequired": false,
+    "taConfirmationStatus": "not_required"
+  },
   "meta": {
     "submittedAt": "2026-03-18T10:34:50",
     "updatedAt": "2026-03-18T11:00:00",

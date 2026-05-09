@@ -1,45 +1,40 @@
 {
-  "jobId": "job_CS101_2026_spring",
-  "title": "Introduction to Programming TA",
+  "jobId": "job_CS111_2026_spring",
+  "title": "software TA",
   "course": {
-    "courseCode": "CS101",
-    "courseName": "Introduction to Programming",
+    "courseCode": "CS111",
+    "courseName": "software engineering",
     "term": "Spring",
     "year": 2026
   },
   "department": "Computer Science",
   "instructor": {
-    "name": "Dr. Sarah Johnson",
-    "email": "sarah.johnson@university.edu"
+    "name": "",
+    "email": "mo@university.edu"
   },
   "employment": {
     "jobType": "TA",
     "employmentType": "Part-time TA",
-    "weeklyHours": 10,
+    "weeklyHours": 60,
     "locationMode": "Hybrid",
     "locationDetail": ""
   },
   "dates": {
     "postedAt": "2026-04-17T16:54:51",
-    "deadline": "2026-03-25T23:59:59",
+    "deadline": "2026-04-26T23:59:59",
     "startDate": "2026-04-17",
     "endDate": "2026-07-17"
   },
   "content": {
-    "summary": "We are seeking a motivated and knowledgeable Teaching Assistant for Introduction to Programming.",
-    "description": "We are seeking a motivated and knowledgeable Teaching Assistant for Introduction to Programming.",
+    "summary": "TA recruitment for this module.",
+    "description": "",
     "responsibilities": [
       "Support teaching activities for this module"
     ],
     "requirements": [
-      "TA quota: 2"
+      "TA quota: 5"
     ],
-    "preferredSkills": [
-      "Python",
-      "Teaching Experience",
-      "Git/GitHub",
-      "Java"
-    ],
+    "preferredSkills": [],
     "taSkillRequirement": {
       "proficiencyLevels": [
         "Beginner",
@@ -86,46 +81,21 @@
           ]
         }
       },
-      "requiredSkills": [
-        {
-          "name": "Java",
-          "minimumProficiency": "Beginner"
-        },
-        {
-          "name": "Python",
-          "minimumProficiency": "Beginner"
-        }
-      ],
-      "customRequiredSkills": [
-        "Teaching Experience",
-        "Git/GitHub"
-      ],
-      "moSelectedSkills": [
-        {
-          "category": "technicalSkills",
-          "subcategory": "programmingAndSoftwareFundamentals",
-          "name": "Java",
-          "minimumProficiency": "Beginner"
-        },
-        {
-          "category": "technicalSkills",
-          "subcategory": "programmingAndSoftwareFundamentals",
-          "name": "Python",
-          "minimumProficiency": "Beginner"
-        }
-      ],
+      "requiredSkills": [],
+      "customRequiredSkills": [],
+      "moSelectedSkills": [],
       "moSkillSelectionPool": {
         "technicalSkills": {
           "programmingAndSoftwareFundamentals": [
             {
               "name": "Java",
-              "selected": true,
-              "minimumProficiency": "Beginner"
+              "selected": false,
+              "minimumProficiency": null
             },
             {
               "name": "Python",
-              "selected": true,
-              "minimumProficiency": "Beginner"
+              "selected": false,
+              "minimumProficiency": null
             },
             {
               "name": "C/C++",
@@ -264,7 +234,7 @@
     "closeReason": ""
   },
   "stats": {
-    "applicationCount": 3,
+    "applicationCount": 0,
     "pendingCount": 0,
     "acceptedCount": 0,
     "rejectedCount": 0

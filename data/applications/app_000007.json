@@ -1,5 +1,5 @@
 {
-  "applicationId": "app_000001",
+  "applicationId": "app_000007",
   "userId": "u_ta_20230001",
   "studentId": "20230001",
   "jobId": "job_CS101_2026_spring",
@@ -28,26 +28,27 @@
   "applicationForm": {
     "relevantSkills": [
       "Python",
-      "JavaScript"
+      "JavaScript",
+      "Tutoring"
     ],
-    "relevantExperience": "Served as peer tutor for introductory programming.",
+    "relevantExperience": "Served as peer tutor for introductory programming and helped lead coding practice sessions.",
     "availability": "Monday/Wednesday 2-5pm, Friday 10am-12pm",
-    "motivationCoverLetter": "I am interested in helping students succeed in CS101."
+    "motivationCoverLetter": "I am excited to help new students build confidence in programming and succeed in CS101."
   },
   "attachments": {
     "cv": {
       "originalFileName": "John_Smith_CV.pdf",
       "storedFileName": "cv.pdf",
-      "filePath": "data/uploads/application_files/app_000001/cv.pdf",
+      "filePath": "data/uploads/application_files/app_000007/cv.pdf",
       "fileType": "pdf",
       "copiedAt": "2026-03-18T10:35:00"
     },
     "supportingDocuments": [
       {
-        "documentId": "doc_001",
+        "documentId": "doc_007_001",
         "originalFileName": "transcript.pdf",
         "storedFileName": "transcript.pdf",
-        "filePath": "data/uploads/application_files/app_000001/transcript.pdf",
+        "filePath": "data/uploads/application_files/app_000007/transcript.pdf",
         "fileType": "pdf",
         "uploadedAt": "2026-03-18T10:35:10"
       }
@@ -61,39 +62,39 @@
       "enabled": true,
       "version": 1,
       "moDecision": {
-        "status": "rejected",
+        "status": "approved",
         "decidedBy": "u_mo_001",
-        "decidedAt": "2026-04-12T14:17:58.466841"
+        "decidedAt": "2026-03-20T09:45:00"
       },
       "taConfirmation": {
-        "status": "not_required",
+        "status": "pending",
         "confirmedBy": null,
         "confirmedAt": null
       },
-      "finalStatus": "rejected_by_mo"
+      "finalStatus": "awaiting_ta_confirmation"
     }
   },
   "status": {
-    "current": "rejected",
-    "label": "Rejected",
-    "lastUpdated": "2026-04-12T14:17:58.466841",
+    "current": "awaiting_ta_confirmation",
+    "label": "Awaiting TA Confirmation",
+    "lastUpdated": "2026-03-20T09:45:00",
     "updatedBy": "u_mo_001"
   },
   "review": {
-    "reviewerNotes": "",
-    "decision": "rejected",
-    "decisionReason": "",
-    "statusMessage": "",
-    "nextSteps": "",
+    "reviewerNotes": "Excellent academic record and strong prior tutoring experience.",
+    "decision": "accepted",
+    "decisionReason": "Highly qualified candidate with strong fit for introductory teaching support.",
+    "statusMessage": "Application approved.",
+    "nextSteps": "Please confirm availability and complete onboarding paperwork.",
     "reviewedBy": "u_mo_001",
-    "reviewedAt": "2026-04-12T14:17:58.466841",
-    "moDecision": "rejected",
-    "taConfirmationRequired": false,
-    "taConfirmationStatus": "not_required"
+    "reviewedAt": "2026-03-20T09:45:00",
+    "moDecision": "approved",
+    "taConfirmationRequired": true,
+    "taConfirmationStatus": "pending"
   },
   "timeline": [
     {
-      "timelineId": "tl_001",
+      "timelineId": "tl_007_001",
       "stepKey": "submitted",
       "stepLabel": "Application Submitted",
       "status": "completed",
@@ -102,18 +103,36 @@
       "note": "Application submitted successfully."
     },
     {
-      "timelineId": "tl_002",
+      "timelineId": "tl_007_002",
       "stepKey": "under_review",
       "stepLabel": "Under Review",
       "status": "completed",
       "timestamp": "2026-03-18T11:00:00",
       "updatedBy": "u_mo_001",
       "note": "Application moved into review stage."
+    },
+    {
+      "timelineId": "tl_007_003",
+      "stepKey": "accepted",
+      "stepLabel": "Accepted",
+      "status": "completed",
+      "timestamp": "2026-03-20T09:45:00",
+      "updatedBy": "u_mo_001",
+      "note": "Application accepted."
+    },
+    {
+      "timelineId": "tl_doublecheck_004",
+      "stepKey": "ta_confirmation_pending",
+      "stepLabel": "Waiting TA Confirmation",
+      "status": "completed",
+      "timestamp": "2026-03-20T09:45:00",
+      "updatedBy": "u_mo_001",
+      "note": "MO approved the application and sent recruitment invitation. Waiting for TA confirmation."
     }
   ],
   "meta": {
     "submittedAt": "2026-03-18T10:34:50",
-    "updatedAt": "2026-03-18T11:00:00",
+    "updatedAt": "2026-03-20T09:45:00",
     "isDeleted": false
   }
 }

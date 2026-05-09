@@ -1,37 +1,38 @@
 {
-  "userId": "u_ta_20230001",
-  "loginId": "20230001",
+  "userId": "u_ta_20230003",
+  "loginId": "20230003",
   "role": "ta",
   "account": {
-    "username": "johnsmith",
-    "email": "j.taylor@university.edu",
+    "username": "charliebrown",
+    "email": "charlie.brown@university.edu",
     "password": "test1234",
     "passwordHash": "hashed_password_here",
     "status": "active",
-    "lastLoginAt": "2026-03-18T09:20:00"
+    "lastLoginAt": "2026-03-18T09:30:00"
   },
   "profile": {
-    "fullName": "John Smith",
-    "studentId": "20250033",
-    "year": "2nd Year",
-    "programMajor": "Human-Computer Interaction",
-    "department": "Computer Science",
-    "phoneNumber": "13111111111",
-    "address": "123 Main St, City, State, ZIP",
-    "shortBio": "Interested in teaching and software engineering."
+    "fullName": "Charlie Brown",
+    "studentId": "20230003",
+    "year": "4th Year",
+    "programMajor": "Mechanical Engineering",
+    "department": "Mechanical Engineering",
+    "phoneNumber": "(555) 345-6789",
+    "address": "789 Pine St, City, State, ZIP",
+    "shortBio": "Passionate about robotics and sustainable energy.",
+    "avatarPath": "data/uploads/avatars/u_ta_20230003.png"
   },
   "academic": {
-    "gpa": 3.8,
+    "gpa": 3.9,
     "completedCourses": [
       {
-        "courseCode": "CS101",
-        "courseName": "Introduction to Programming",
+        "courseCode": "ME101",
+        "courseName": "Introduction to Mechanical Engineering",
         "grade": "A"
       },
       {
-        "courseCode": "CS201",
-        "courseName": "Data Structures",
-        "grade": "A-"
+        "courseCode": "ME201",
+        "courseName": "Fluid Mechanics",
+        "grade": "A"
       }
     ]
   },
@@ -172,22 +173,22 @@
   },
   "cv": {
     "uploaded": true,
-    "originalFileName": "John_Smith_CV.pdf",
-    "storedFileName": "",
-    "filePath": "data/uploads/profile_cv/20230001/current_cv.pdf",
-    "fileType": "",
-    "fileSizeKB": 0,
+    "originalFileName": "Charlie_Brown_CV.pdf",
+    "storedFileName": "current_cv.pdf",
+    "filePath": "data/uploads/profile_cv/20230003/current_cv.pdf",
+    "fileType": "pdf",
+    "fileSizeKB": 280,
     "uploadedAt": "2026-03-10T10:30:00"
   },
   "applicationSummary": {
-    "totalApplications": 3,
-    "pending": 1,
-    "underReview": 1,
+    "totalApplications": 1,
+    "pending": 0,
+    "underReview": 0,
     "accepted": 1,
     "rejected": 0
   },
   "dashboard": {
-    "profileCompletion": 85
+    "profileCompletion": 90
   },
   "permissions": {
     "canEditOwnProfile": true,
@@ -201,7 +202,7 @@
   },
   "meta": {
     "createdAt": "2026-03-01T09:00:00",
-    "updatedAt": "2026-04-11T18:36:15.7911012",
+    "updatedAt": "2026-03-18T09:30:00",
     "isDeleted": false,
     "isActive": true
   }

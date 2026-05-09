@@ -1,23 +1,20 @@
 {
-  "userId": "u_admin_001",
-  "loginId": "admin001",
+  "userId": "u_admin_002",
+  "loginId": "admin002",
   "role": "admin",
-
   "account": {
-    "username": "systemadmin",
-    "email": "admin@university.edu",
+    "username": "superadmin",
+    "email": "superadmin@university.edu",
     "passwordHash": "hashed_password_here",
     "password": "test1234",
     "status": "active",
-    "lastLoginAt": "2026-03-18T08:30:00"
+    "lastLoginAt": "2026-03-18T12:30:00"
   },
-
   "profile": {
-    "fullName": "System Admin",
-    "staffId": "ADMIN001",
-    "phoneNumber": "(555) 000-0001"
+    "fullName": "Super Admin",
+    "staffId": "ADMIN002",
+    "phoneNumber": "(555) 000-0002"
   },
-
   "permissions": {
     "canEditOwnProfile": true,
     "canCreateJob": true,
@@ -32,16 +29,14 @@
     "canAssignMO": true,
     "canViewSystemStatistics": true
   },
-
   "dashboard": {
-    "totalUsers": 120,
-    "totalJobs": 25,
-    "totalApplications": 230
+    "totalUsers": 100,
+    "totalJobs": 20,
+    "totalApplications": 180
   },
-
   "meta": {
     "createdAt": "2026-03-01T09:00:00",
-    "updatedAt": "2026-03-18T08:30:00",
+    "updatedAt": "2026-03-18T12:30:00",
     "isDeleted": false,
     "isActive": true
   }

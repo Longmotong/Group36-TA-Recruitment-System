@@ -1,46 +1,40 @@
 {
-  "jobId": "job_CS101_2026_spring",
-  "title": "Introduction to Programming TA",
-  "course": {
-    "courseCode": "CS101",
-    "courseName": "Introduction to Programming",
-    "term": "Spring",
-    "year": 2026
+  "loginId": "mo003",
+  "role": "mo",
+  "permissions": {
+    "canCreateJob": true,
+    "canViewAssignedApplications": true,
+    "canViewManagedJob": true,
+    "canPublishManagedJob": true,
+    "canManageUsers": false,
+    "canViewAllJobs": false,
+    "canEditManagedJob": true,
+    "canEditOwnProfile": true,
+    "canDeleteManagedJob": true,
+    "canUpdateApplicationStatus": true,
+    "canViewAllApplications": false,
+    "canReviewApplication": true
   },
-  "department": "Computer Science",
-  "instructor": {
-    "name": "Dr. Sarah Johnson",
-    "email": "sarah.johnson@university.edu"
+  "meta": {
+    "createdAt": "2026-04-10T23:44:44.853768200",
+    "isDeleted": false,
+    "isActive": true,
+    "updatedAt": "2026-04-10T23:44:44.853768200"
   },
-  "employment": {
-    "jobType": "TA",
-    "employmentType": "Part-time TA",
-    "weeklyHours": 10,
-    "locationMode": "Hybrid",
-    "locationDetail": ""
-  },
-  "dates": {
-    "postedAt": "2026-04-17T16:54:51",
-    "deadline": "2026-03-25T23:59:59",
-    "startDate": "2026-04-17",
-    "endDate": "2026-07-17"
-  },
-  "content": {
-    "summary": "We are seeking a motivated and knowledgeable Teaching Assistant for Introduction to Programming.",
-    "description": "We are seeking a motivated and knowledgeable Teaching Assistant for Introduction to Programming.",
-    "responsibilities": [
-      "Support teaching activities for this module"
-    ],
-    "requirements": [
-      "TA quota: 2"
-    ],
-    "preferredSkills": [
-      "Python",
-      "Teaching Experience",
-      "Git/GitHub",
-      "Java"
-    ],
-    "taSkillRequirement": {
+  "profile": {
+    "phoneNumber": "",
+    "fullName": "Dr.chen",
+    "department": "",
+    "staffId": "",
+    "identityInformationRequired": {
+      "school": "",
+      "campusEmail": "Dr.chen@university.edu"
+    },
+    "courseInformationRequired": {
+      "courseTypes": [],
+      "teachingCampus": ""
+    },
+    "taSkillPoolCatalog": {
       "proficiencyLevels": [
         "Beginner",
         "Intermediate",
@@ -85,47 +79,26 @@
             "English"
           ]
         }
-      },
-      "requiredSkills": [
-        {
-          "name": "Java",
-          "minimumProficiency": "Beginner"
-        },
-        {
-          "name": "Python",
-          "minimumProficiency": "Beginner"
-        }
+      }
+    },
+    "jobPostingSkillTemplate": {
+      "proficiencyLevels": [
+        "Beginner",
+        "Intermediate",
+        "Advanced"
       ],
-      "customRequiredSkills": [
-        "Teaching Experience",
-        "Git/GitHub"
-      ],
-      "moSelectedSkills": [
-        {
-          "category": "technicalSkills",
-          "subcategory": "programmingAndSoftwareFundamentals",
-          "name": "Java",
-          "minimumProficiency": "Beginner"
-        },
-        {
-          "category": "technicalSkills",
-          "subcategory": "programmingAndSoftwareFundamentals",
-          "name": "Python",
-          "minimumProficiency": "Beginner"
-        }
-      ],
-      "moSkillSelectionPool": {
+      "taSkillPool": {
         "technicalSkills": {
           "programmingAndSoftwareFundamentals": [
             {
               "name": "Java",
-              "selected": true,
-              "minimumProficiency": "Beginner"
+              "selected": false,
+              "minimumProficiency": null
             },
             {
               "name": "Python",
-              "selected": true,
-              "minimumProficiency": "Beginner"
+              "selected": false,
+              "minimumProficiency": null
             },
             {
               "name": "C/C++",
@@ -241,36 +214,25 @@
             }
           ]
         }
-      }
+      },
+      "customRequiredSkills": []
     }
   },
-  "ownership": {
-    "createdBy": "u_mo_001",
-    "managedBy": [
-      "u_mo_001"
-    ],
-    "lastEditedBy": "u_mo_001"
+  "scope": {
+    "departments": [],
+    "managedJobIds": []
   },
-  "publication": {
-    "status": "published",
-    "publishedAt": "2026-04-17T16:54:51",
-    "publishedBy": "u_mo_001"
+  "userId": "u_mo_003",
+  "account": {
+    "password": "test1234",
+    "lastLoginAt": "2026-04-10T23:44:44.853768200",
+    "email": "Dr.chen@university.edu",
+    "passwordHash": "hashed_Dr.chen",
+    "username": "Dr.chen",
+    "status": "active"
   },
-  "lifecycle": {
-    "status": "open",
-    "isDeleted": false,
-    "deletedAt": null,
-    "deletedBy": null,
-    "closeReason": ""
-  },
-  "stats": {
-    "applicationCount": 3,
-    "pendingCount": 0,
-    "acceptedCount": 0,
-    "rejectedCount": 0
-  },
-  "meta": {
-    "createdAt": "2026-04-17T16:54:51",
-    "updatedAt": "2026-04-17T16:54:51"
+  "dashboard": {
+    "pendingReviewsCount": 0,
+    "managedJobsCount": 0
   }
 }

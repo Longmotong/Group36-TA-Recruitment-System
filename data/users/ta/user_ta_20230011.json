@@ -1,40 +1,4 @@
 {
-  "userId": "u_ta_20230001",
-  "loginId": "20230001",
-  "role": "ta",
-  "account": {
-    "username": "johnsmith",
-    "email": "j.taylor@university.edu",
-    "password": "test1234",
-    "passwordHash": "hashed_password_here",
-    "status": "active",
-    "lastLoginAt": "2026-03-18T09:20:00"
-  },
-  "profile": {
-    "fullName": "John Smith",
-    "studentId": "20250033",
-    "year": "2nd Year",
-    "programMajor": "Human-Computer Interaction",
-    "department": "Computer Science",
-    "phoneNumber": "13111111111",
-    "address": "123 Main St, City, State, ZIP",
-    "shortBio": "Interested in teaching and software engineering."
-  },
-  "academic": {
-    "gpa": 3.8,
-    "completedCourses": [
-      {
-        "courseCode": "CS101",
-        "courseName": "Introduction to Programming",
-        "grade": "A"
-      },
-      {
-        "courseCode": "CS201",
-        "courseName": "Data Structures",
-        "grade": "A-"
-      }
-    ]
-  },
   "skills": {
     "proficiencyLevels": [
       "Beginner",
@@ -52,7 +16,7 @@
           {
             "name": "Python",
             "selected": true,
-            "proficiency": "Advanced"
+            "proficiency": "Intermediate"
           },
           {
             "name": "C/C++",
@@ -163,46 +127,72 @@
         "crossCulturalCommunication": [
           {
             "name": "English",
-            "selected": true,
-            "proficiency": "Advanced"
+            "selected": false,
+            "proficiency": null
           }
         ]
       }
     }
   },
+  "loginId": "20230011",
+  "role": "ta",
   "cv": {
     "uploaded": true,
-    "originalFileName": "John_Smith_CV.pdf",
+    "originalFileName": "EBU6304_GroupProjectHandout.pdf",
     "storedFileName": "",
-    "filePath": "data/uploads/profile_cv/20230001/current_cv.pdf",
+    "filePath": "data\\uploads\\profile_cv\\20230011\\EBU6304_GroupProjectHandout.pdf",
     "fileType": "",
     "fileSizeKB": 0,
-    "uploadedAt": "2026-03-10T10:30:00"
+    "uploadedAt": "2026-04-11"
   },
-  "applicationSummary": {
-    "totalApplications": 3,
-    "pending": 1,
-    "underReview": 1,
-    "accepted": 1,
-    "rejected": 0
-  },
-  "dashboard": {
-    "profileCompletion": 85
+  "academic": {
+    "gpa": 0.0,
+    "completedCourses": []
   },
   "permissions": {
-    "canEditOwnProfile": true,
-    "canUploadCV": true,
     "canBrowseJobs": true,
     "canApplyJob": true,
-    "canViewOwnApplications": true,
-    "canReviewApplication": false,
     "canManageJob": false,
-    "canManageUsers": false
+    "canManageUsers": false,
+    "canViewOwnApplications": true,
+    "canUploadCV": true,
+    "canEditOwnProfile": true,
+    "canReviewApplication": false
   },
   "meta": {
-    "createdAt": "2026-03-01T09:00:00",
-    "updatedAt": "2026-04-11T18:36:15.7911012",
+    "createdAt": "2026-04-11T19:17:03.591000200",
     "isDeleted": false,
-    "isActive": true
+    "isActive": true,
+    "updatedAt": "2026-04-11T19:18:34.5656656"
+  },
+  "profile": {
+    "fullName": "Chloe Chen",
+    "studentId": "20240055",
+    "year": "2nd Year",
+    "programMajor": "Software Engineering",
+    "department": "",
+    "phoneNumber": "13332111111",
+    "address": "",
+    "shortBio": ""
+  },
+  "userId": "u_ta_20230011",
+  "account": {
+    "password": "QQ123456",
+    "lastLoginAt": "2026-04-11T19:17:03.591000200",
+    "email": "chloe.chen@university.edu",
+    "passwordHash": "hashed_20240055",
+    "username": "20240055",
+    "status": "active"
+  },
+  "dashboard": {
+    "profileCompletion": 100,
+    "onboardingCompleted": true
+  },
+  "applicationSummary": {
+    "underReview": 0,
+    "rejected": 0,
+    "pending": 0,
+    "accepted": 0,
+    "totalApplications": 0
   }
 }
