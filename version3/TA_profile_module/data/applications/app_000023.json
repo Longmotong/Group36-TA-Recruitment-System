@@ -1,0 +1,84 @@
+{
+  "applicationId": "app_000023",
+  "studentId": "2023217777",
+  "userId": "u_ta_20230016",
+  "jobId": "job_MATH205_2026_spring",
+  "jobSnapshot": {
+    "title": "Calculus I TA",
+    "courseCode": "MATH205",
+    "courseName": "Calculus I",
+    "department": "Mathematics",
+    "instructorName": "Dr. Robert Lee",
+    "instructorEmail": "robert.lee@university.edu",
+    "deadline": "2026-03-30",
+    "employmentType": "Part-time TA",
+    "weeklyHours": 10,
+    "locationMode": "Hybrid",
+    "locationDetail": ""
+  },
+  "applicantSnapshot": {
+    "fullName": "Taylor",
+    "studentId": "2023217777",
+    "email": "2023217777@bupt.cn",
+    "phoneNumber": "13245674567",
+    "programMajor": "software ehgineering",
+    "year": "2nd Year",
+    "gpa": 0.0
+  },
+  "applicationForm": {
+    "relevantSkills": [
+      "Python"
+    ],
+    "relevantExperience": "111111",
+    "availability": "11111111",
+    "motivationCoverLetter": "11111111"
+  },
+  "attachments": {},
+  "status": {
+    "current": "pending",
+    "label": "Pending",
+    "color": "yellow",
+    "lastUpdated": "2026-04-17T16:49:33.3068838"
+  },
+  "timeline": [
+    {
+      "timelineId": "tl_1776415773306",
+      "stepKey": "submitted",
+      "stepLabel": "Application Submitted",
+      "status": "completed",
+      "timestamp": "2026-04-17T16:49:33.3068838",
+      "note": "Application submitted successfully."
+    }
+  ],
+  "review": {
+    "statusMessage": "Your application has been submitted and is waiting for review.",
+    "nextSteps": "Please wait for further updates from the department.",
+    "moDecision": "pending",
+    "taConfirmationRequired": false,
+    "taConfirmationStatus": "not_required"
+  },
+  "meta": {
+    "submittedAt": "2026-04-17T16:49:33.3068838",
+    "updatedAt": "2026-04-17T16:49:33.3068838",
+    "isDeleted": false
+  },
+  "workflow": {
+    "assignedMO": "u_mo_001",
+    "doubleCheckRecruitment": {
+      "enabled": true,
+      "version": 1,
+      "moDecision": {
+        "status": "pending",
+        "decidedBy": "u_mo_001",
+        "decidedAt": null
+      },
+      "taConfirmation": {
+        "status": "not_required",
+        "confirmedBy": null,
+        "confirmedAt": null
+      },
+      "finalStatus": "waiting_mo_review"
+    }
+  },
+  "isDraft": false
+}

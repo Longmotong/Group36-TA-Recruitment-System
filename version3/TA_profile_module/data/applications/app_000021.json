@@ -1,0 +1,84 @@
+{
+  "applicationId": "app_000021",
+  "studentId": "213808",
+  "userId": "u_ta_20230017",
+  "jobId": "job_CS101_2026_spring",
+  "jobSnapshot": {
+    "title": "Introduction to Programming TA",
+    "courseCode": "CS101",
+    "courseName": "Introduction to Programming",
+    "department": "Computer Science",
+    "instructorName": "Dr. Sarah Johnson",
+    "instructorEmail": "sarah.johnson@university.edu",
+    "deadline": "2026-03-25",
+    "employmentType": "Part-time TA",
+    "weeklyHours": 10,
+    "locationMode": "Hybrid",
+    "locationDetail": ""
+  },
+  "applicantSnapshot": {
+    "fullName": "Jing",
+    "studentId": "213808",
+    "email": "213808@bupt.cn",
+    "phoneNumber": "13333333333",
+    "programMajor": "software engineeing",
+    "year": "2nd Year",
+    "gpa": 3.8
+  },
+  "applicationForm": {
+    "relevantSkills": [
+      "Python"
+    ],
+    "relevantExperience": "grading experience",
+    "availability": "Moday 10am-12pm",
+    "motivationCoverLetter": "relative educational background"
+  },
+  "attachments": {},
+  "status": {
+    "current": "pending",
+    "label": "Pending",
+    "color": "yellow",
+    "lastUpdated": "2026-04-12T14:11:16.1132532"
+  },
+  "timeline": [
+    {
+      "timelineId": "tl_1775974276113",
+      "stepKey": "submitted",
+      "stepLabel": "Application Submitted",
+      "status": "completed",
+      "timestamp": "2026-04-12T14:11:16.1132532",
+      "note": "Application submitted successfully."
+    }
+  ],
+  "review": {
+    "statusMessage": "Your application has been submitted and is waiting for review.",
+    "nextSteps": "Please wait for further updates from the department.",
+    "moDecision": "pending",
+    "taConfirmationRequired": false,
+    "taConfirmationStatus": "not_required"
+  },
+  "meta": {
+    "submittedAt": "2026-04-12T14:11:16.1132532",
+    "updatedAt": "2026-04-12T14:11:16.1132532",
+    "isDeleted": false
+  },
+  "workflow": {
+    "assignedMO": "u_mo_001",
+    "doubleCheckRecruitment": {
+      "enabled": true,
+      "version": 1,
+      "moDecision": {
+        "status": "pending",
+        "decidedBy": "u_mo_001",
+        "decidedAt": null
+      },
+      "taConfirmation": {
+        "status": "not_required",
+        "confirmedBy": null,
+        "confirmedAt": null
+      },
+      "finalStatus": "waiting_mo_review"
+    }
+  },
+  "isDraft": false
+}
