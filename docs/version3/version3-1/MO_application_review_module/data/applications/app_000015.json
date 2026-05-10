@@ -1,0 +1,85 @@
+{
+  "applicationId" : "app_000015",
+  "studentId" : "2023213322",
+  "userId" : "u_ta_20230014",
+  "jobId" : "job_SF001_2026_spring",
+  "jobSnapshot" : {
+    "title" : "software engineering",
+    "courseCode" : "SF001",
+    "courseName" : "software engineering",
+    "department" : "Computer Science",
+    "instructorName" : "",
+    "instructorEmail" : "mo@university.edu",
+    "deadline" : "2026-04-25",
+    "employmentType" : "Part-time TA",
+    "weeklyHours" : 10,
+    "locationMode" : "Hybrid",
+    "locationDetail" : ""
+  },
+  "applicantSnapshot" : {
+    "fullName" : "kathy",
+    "studentId" : "2023213322",
+    "email" : "1111@qq.com",
+    "phoneNumber" : "18986245801",
+    "programMajor" : "Computer science",
+    "year" : "2nd Year",
+    "gpa" : 0.0
+  },
+  "applicationForm" : {
+    "relevantSkills" : [ "python" ],
+    "relevantExperience" : "11",
+    "availability" : "111",
+    "motivationCoverLetter" : "111"
+  },
+  "attachments" : { },
+  "status" : {
+    "current": "offer_pending",
+    "label": "Offer Pending",
+    "color" : "yellow",
+    "lastUpdated": "2026-04-25T01:39:12.889829500",
+    "updatedBy": "u_mo_001"
+  },
+  "timeline" : [ {
+    "timelineId" : "tl_1775966430671",
+    "stepKey" : "submitted",
+    "stepLabel" : "Application Submitted",
+    "status": "approved",
+    "timestamp" : "2026-04-12T12:00:30.6714197",
+    "note" : "Application submitted successfully."
+  } ],
+  "review" : {
+    "statusMessage" : "Your application has been submitted and is waiting for review.",
+    "nextSteps" : "Please wait for further updates from the department.",
+    "moDecision" : "pending",
+    "taConfirmationRequired" : false,
+    "taConfirmationStatus" : "not_required",
+    "decision": "offer_pending",
+    "reviewerNotes": "",
+    "reviewedBy": "u_mo_001",
+    "reviewedAt": "2026-04-25T01:39:12.889829500"
+  },
+  "meta" : {
+    "submittedAt" : "2026-04-12T12:00:30.6714197",
+    "updatedAt" : "2026-04-12T12:00:30.6714197",
+    "isDeleted" : false
+  },
+  "workflow" : {
+    "assignedMO" : "u_mo_001",
+    "doubleCheckRecruitment" : {
+      "enabled" : true,
+      "version" : 1,
+      "moDecision" : {
+        "status" : "approved",
+        "decidedBy": "u_mo_001",
+        "decidedAt": "2026-04-25T01:39:12.889829500"
+      },
+      "taConfirmation" : {
+        "status" : "pending",
+        "confirmedBy" : "",
+        "confirmedAt" : null
+      },
+      "finalStatus": "offer_pending"
+    }
+  },
+  "isDraft" : false
+}
