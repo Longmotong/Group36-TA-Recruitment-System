@@ -40,7 +40,7 @@ public class RegisterPagePanel extends JPanel {
 
         JTextField user = styledField("Username");
 
-        //
+        // ===== 👇 使用带“眼睛按钮”的密码组件 =====
         JPasswordField pass = new JPasswordField();
         JPanel passPanel = createPasswordWithEye(pass, "Password");
 
@@ -53,7 +53,7 @@ public class RegisterPagePanel extends JPanel {
         hint.setAlignmentX(Component.LEFT_ALIGNMENT);
         hint.setMaximumSize(new Dimension(Integer.MAX_VALUE, 20));
 
-        JComboBox<String> role = new JComboBox<>(new String[]{"ta", "mo"});
+        JComboBox<String> role = new JComboBox<>(new String[]{"ta", "mo","admin"});
         role.setMaximumSize(new Dimension(Integer.MAX_VALUE, 40));
         role.setBackground(Color.WHITE);
         role.setOpaque(true);
@@ -158,7 +158,7 @@ public class RegisterPagePanel extends JPanel {
         return field;
     }
 
-    //
+    // ===== 👇 核心：带“眼睛按钮”的密码框 =====
     private JPanel createPasswordWithEye(JPasswordField field, String title) {
 
         JPanel panel = new JPanel(new BorderLayout());
@@ -167,7 +167,7 @@ public class RegisterPagePanel extends JPanel {
 
         field.setBorder(null); // 去掉内部边框
 
-        // 外层统一边框
+        // 外层统一边框（保持你原来的风格）
         panel.setBorder(BorderFactory.createTitledBorder(
                 new LineBorder(new Color(200, 200, 200)),
                 title
