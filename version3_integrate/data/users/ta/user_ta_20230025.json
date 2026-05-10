@@ -1,0 +1,184 @@
+{
+  "userId": "u_ta_20230025",
+  "loginId": "20230025",
+  "role": "ta",
+  "account": {
+    "username": "2023211117",
+    "email": "2023211117@bupt.cn",
+    "passwordHash": "hashed_2023211117",
+    "password": "test1234",
+    "status": "active",
+    "lastLoginAt": "2026-05-09T23:16:57.446575300"
+  },
+  "profile": {
+    "fullName": "Enola",
+    "studentId": "2023211117",
+    "year": "2nd Year",
+    "programMajor": "CS",
+    "department": "",
+    "phoneNumber": "13456870987",
+    "address": "",
+    "shortBio": ""
+  },
+  "academic": {
+    "gpa": 0.0,
+    "completedCourses": []
+  },
+  "skills": {
+    "proficiencyLevels": [
+      "Beginner",
+      "Intermediate",
+      "Advanced"
+    ],
+    "taSkillPool": {
+      "technicalSkills": {
+        "programmingAndSoftwareFundamentals": [
+          {
+            "name": "Java",
+            "selected": true,
+            "proficiency": "Intermediate"
+          },
+          {
+            "name": "Python",
+            "selected": false
+          },
+          {
+            "name": "C/C++",
+            "selected": false
+          },
+          {
+            "name": "SQL",
+            "selected": false
+          },
+          {
+            "name": "Algorithms \u0026 Data Structures",
+            "selected": false
+          },
+          {
+            "name": "Object-Oriented Programming (OOP)",
+            "selected": false
+          }
+        ],
+        "hardwareAndLogicDesign": [
+          {
+            "name": "VHDL",
+            "selected": true,
+            "proficiency": "Beginner"
+          },
+          {
+            "name": "Verilog",
+            "selected": false
+          },
+          {
+            "name": "Digital Logic Design",
+            "selected": false
+          },
+          {
+            "name": "FPGA Development \u0026 Debugging",
+            "selected": false
+          }
+        ],
+        "embeddedSystemsAndLowLevelDevelopment": [
+          {
+            "name": "STM32 Development",
+            "selected": true,
+            "proficiency": "Advanced"
+          },
+          {
+            "name": "FreeRTOS",
+            "selected": true,
+            "proficiency": "Intermediate"
+          },
+          {
+            "name": "Embedded C",
+            "selected": false
+          },
+          {
+            "name": "Hardware Driver Development",
+            "selected": false
+          }
+        ]
+      },
+      "engineeringAndTools": {
+        "professionalDevelopmentAndSimulationTools": [
+          {
+            "name": "Quartus Prime",
+            "selected": false
+          },
+          {
+            "name": "Keil5",
+            "selected": true,
+            "proficiency": "Advanced"
+          },
+          {
+            "name": "STM32CubeIDE",
+            "selected": true,
+            "proficiency": "Intermediate"
+          },
+          {
+            "name": "STM32CubeMX",
+            "selected": true,
+            "proficiency": "Advanced"
+          },
+          {
+            "name": "CST Studio Suite",
+            "selected": false
+          },
+          {
+            "name": "Matlab / Simulink",
+            "selected": false
+          },
+          {
+            "name": "Cisco Packet Tracer",
+            "selected": false
+          }
+        ]
+      },
+      "languageAndCommunication": {
+        "crossCulturalCommunication": [
+          {
+            "name": "English",
+            "selected": true,
+            "proficiency": "Advanced"
+          }
+        ]
+      }
+    }
+  },
+  "cv": {
+    "uploaded": true,
+    "originalFileName": "EBU6304_GroupProjectHandout.pdf",
+    "storedFileName": "",
+    "filePath": "data\\uploads\\profile_cv\\20230025\\EBU6304_GroupProjectHandout.pdf",
+    "fileType": "",
+    "fileSizeKB": 0,
+    "uploadedAt": "2026-05-09"
+  },
+  "applicationSummary": {
+    "totalApplications": 0,
+    "pending": 0,
+    "underReview": 0,
+    "accepted": 0,
+    "rejected": 0
+  },
+  "dashboard": {
+    "profileCompletion": 100,
+    "onboardingCompleted": true
+  },
+  "permissions": {
+    "canEditOwnProfile": true,
+    "canUploadCV": true,
+    "canBrowseJobs": true,
+    "canApplyJob": true,
+    "canViewOwnApplications": true,
+    "canReviewApplication": false,
+    "canManageJob": false,
+    "canManageUsers": false
+  },
+  "meta": {
+    "createdAt": "2026-05-09T23:16:57.446575300",
+    "updatedAt": "2026-05-09T23:21:02.7394605",
+    "isDeleted": false,
+    "isActive": true
+  }
+}
