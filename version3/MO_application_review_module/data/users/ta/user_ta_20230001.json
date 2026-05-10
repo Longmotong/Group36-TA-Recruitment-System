@@ -1,0 +1,208 @@
+{
+  "userId": "u_ta_20230001",
+  "loginId": "20230001",
+  "role": "ta",
+  "account": {
+    "username": "johnsmith",
+    "email": "j.taylor@university.edu",
+    "password": "test1234",
+    "passwordHash": "hashed_password_here",
+    "status": "active",
+    "lastLoginAt": "2026-03-18T09:20:00"
+  },
+  "profile": {
+    "fullName": "John Smith",
+    "studentId": "20250033",
+    "year": "2nd Year",
+    "programMajor": "Human-Computer Interaction",
+    "department": "Computer Science",
+    "phoneNumber": "13111111111",
+    "address": "123 Main St, City, State, ZIP",
+    "shortBio": "Interested in teaching and software engineering."
+  },
+  "academic": {
+    "gpa": 3.8,
+    "completedCourses": [
+      {
+        "courseCode": "CS101",
+        "courseName": "Introduction to Programming",
+        "grade": "A"
+      },
+      {
+        "courseCode": "CS201",
+        "courseName": "Data Structures",
+        "grade": "A-"
+      }
+    ]
+  },
+  "skills": {
+    "proficiencyLevels": [
+      "Beginner",
+      "Intermediate",
+      "Advanced"
+    ],
+    "taSkillPool": {
+      "technicalSkills": {
+        "programmingAndSoftwareFundamentals": [
+          {
+            "name": "Java",
+            "selected": false,
+            "proficiency": null
+          },
+          {
+            "name": "Python",
+            "selected": true,
+            "proficiency": "Advanced"
+          },
+          {
+            "name": "C/C++",
+            "selected": false,
+            "proficiency": null
+          },
+          {
+            "name": "SQL",
+            "selected": false,
+            "proficiency": null
+          },
+          {
+            "name": "Algorithms & Data Structures",
+            "selected": false,
+            "proficiency": null
+          },
+          {
+            "name": "Object-Oriented Programming (OOP)",
+            "selected": false,
+            "proficiency": null
+          }
+        ],
+        "hardwareAndLogicDesign": [
+          {
+            "name": "VHDL",
+            "selected": false,
+            "proficiency": null
+          },
+          {
+            "name": "Verilog",
+            "selected": false,
+            "proficiency": null
+          },
+          {
+            "name": "Digital Logic Design",
+            "selected": false,
+            "proficiency": null
+          },
+          {
+            "name": "FPGA Development & Debugging",
+            "selected": false,
+            "proficiency": null
+          }
+        ],
+        "embeddedSystemsAndLowLevelDevelopment": [
+          {
+            "name": "STM32 Development",
+            "selected": false,
+            "proficiency": null
+          },
+          {
+            "name": "FreeRTOS",
+            "selected": false,
+            "proficiency": null
+          },
+          {
+            "name": "Embedded C",
+            "selected": false,
+            "proficiency": null
+          },
+          {
+            "name": "Hardware Driver Development",
+            "selected": false,
+            "proficiency": null
+          }
+        ]
+      },
+      "engineeringAndTools": {
+        "professionalDevelopmentAndSimulationTools": [
+          {
+            "name": "Quartus Prime",
+            "selected": false,
+            "proficiency": null
+          },
+          {
+            "name": "Keil5",
+            "selected": false,
+            "proficiency": null
+          },
+          {
+            "name": "STM32CubeIDE",
+            "selected": false,
+            "proficiency": null
+          },
+          {
+            "name": "STM32CubeMX",
+            "selected": false,
+            "proficiency": null
+          },
+          {
+            "name": "CST Studio Suite",
+            "selected": false,
+            "proficiency": null
+          },
+          {
+            "name": "Matlab / Simulink",
+            "selected": false,
+            "proficiency": null
+          },
+          {
+            "name": "Cisco Packet Tracer",
+            "selected": false,
+            "proficiency": null
+          }
+        ]
+      },
+      "languageAndCommunication": {
+        "crossCulturalCommunication": [
+          {
+            "name": "English",
+            "selected": true,
+            "proficiency": "Advanced"
+          }
+        ]
+      }
+    }
+  },
+  "cv": {
+    "uploaded": true,
+    "originalFileName": "John_Smith_CV.pdf",
+    "storedFileName": "",
+    "filePath": "data/uploads/profile_cv/20230001/current_cv.pdf",
+    "fileType": "",
+    "fileSizeKB": 0,
+    "uploadedAt": "2026-03-10T10:30:00"
+  },
+  "applicationSummary": {
+    "totalApplications": 3,
+    "pending": 1,
+    "underReview": 1,
+    "accepted": 1,
+    "rejected": 0
+  },
+  "dashboard": {
+    "profileCompletion": 85
+  },
+  "permissions": {
+    "canEditOwnProfile": true,
+    "canUploadCV": true,
+    "canBrowseJobs": true,
+    "canApplyJob": true,
+    "canViewOwnApplications": true,
+    "canReviewApplication": false,
+    "canManageJob": false,
+    "canManageUsers": false
+  },
+  "meta": {
+    "createdAt": "2026-03-01T09:00:00",
+    "updatedAt": "2026-04-11T18:36:15.7911012",
+    "isDeleted": false,
+    "isActive": true
+  }
+}
