@@ -1,0 +1,58 @@
+{
+  "jobs" : [ {
+    "jobId" : "job_CS101_2026_spring",
+    "title" : "Introduction to Programming TA",
+    "courseCode" : "CS101",
+    "department" : "Computer Science",
+    "instructorName" : "Dr. Sarah Johnson",
+    "weeklyHours" : 10,
+    "deadline" : "2026-03-25",
+    "locationMode" : "Hybrid",
+    "employmentType" : "Part-time TA",
+    "status" : "open"
+  }, {
+    "jobId" : "job_CS201_2026_spring",
+    "title" : "Data Structures TA",
+    "courseCode" : "CS201",
+    "department" : "Computer Science",
+    "instructorName" : "Prof. Michael Chen",
+    "weeklyHours" : 15,
+    "deadline" : "2026-03-30",
+    "locationMode" : "On-Campus",
+    "employmentType" : "Part-time TA",
+    "status" : "closed"
+  }, {
+    "jobId" : "job_MATH205_2026_spring",
+    "title" : "Calculus I TA",
+    "courseCode" : "MATH205",
+    "department" : "Mathematics",
+    "instructorName" : "Dr. Robert Lee",
+    "weeklyHours" : 10,
+    "deadline" : "2026-03-30",
+    "locationMode" : "Hybrid",
+    "employmentType" : "Part-time TA",
+    "status" : "open"
+  }, {
+    "jobId" : "job_SF001_2026_spring",
+    "title" : "software engineering",
+    "courseCode" : "SF001",
+    "department" : "Computer Science",
+    "instructorName" : "",
+    "weeklyHours" : 10,
+    "deadline" : "2026-04-25",
+    "locationMode" : "Hybrid",
+    "employmentType" : "Part-time TA",
+    "status" : "open"
+  }, {
+    "jobId" : "job_CS111_2026_spring",
+    "title" : "software TA",
+    "courseCode" : "CS111",
+    "department" : "Computer Science",
+    "instructorName" : "",
+    "weeklyHours" : 60,
+    "deadline" : "2026-04-26",
+    "locationMode" : "Hybrid",
+    "employmentType" : "Part-time TA",
+    "status" : "open"
+  } ]
+}

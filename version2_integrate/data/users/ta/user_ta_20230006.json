@@ -1,0 +1,74 @@
+{
+  "skills": {
+    "programming": [],
+    "teaching": [],
+    "communication": [],
+    "other": [
+      {
+        "skillId": "skill_1775836319773_0",
+        "name": "Communication",
+        "proficiency": "Intermediate"
+      }
+    ]
+  },
+  "loginId": "20230006",
+  "role": "ta",
+  "cv": {
+    "uploaded": false,
+    "originalFileName": "",
+    "storedFileName": "",
+    "filePath": "",
+    "fileType": "",
+    "fileSizeKB": 0,
+    "uploadedAt": ""
+  },
+  "academic": {
+    "gpa": 0.0,
+    "completedCourses": []
+  },
+  "permissions": {
+    "canBrowseJobs": true,
+    "canApplyJob": true,
+    "canManageJob": false,
+    "canManageUsers": false,
+    "canViewOwnApplications": true,
+    "canUploadCV": true,
+    "canEditOwnProfile": true,
+    "canReviewApplication": false
+  },
+  "meta": {
+    "createdAt": "2026-04-10T23:43:12.139563800",
+    "isDeleted": false,
+    "isActive": true,
+    "updatedAt": "2026-04-10T23:52:35.5579604"
+  },
+  "profile": {
+    "fullName": "mike",
+    "studentId": "202305555",
+    "year": "3rd Year",
+    "programMajor": "computer science",
+    "department": "",
+    "phoneNumber": "18986245801",
+    "address": "",
+    "shortBio": ""
+  },
+  "userId": "u_ta_20230006",
+  "account": {
+    "password": "test1234",
+    "lastLoginAt": "2026-04-10T23:43:12.139563800",
+    "email": "111@university.edu",
+    "passwordHash": "hashed_mike",
+    "username": "mike",
+    "status": "active"
+  },
+  "dashboard": {
+    "profileCompletion": 0
+  },
+  "applicationSummary": {
+    "underReview": 0,
+    "rejected": 0,
+    "pending": 0,
+    "accepted": 0,
+    "totalApplications": 0
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "applicationId": "app_000002",
+  "studentId": "20230001",
+  "userId": "u_ta_20230001",
+  "jobId": "job_CS101_2026_spring",
+  "jobSnapshot": {
+    "title": "Introduction to Programming TA",
+    "courseCode": "CS 101",
+    "courseName": "Introduction to Programming",
+    "department": "Computer Science",
+    "instructorName": "Dr. Sarah Johnson",
+    "instructorEmail": "sarah.johnson@university.edu",
+    "deadline": "2026-03-25",
+    "employmentType": "Part-time TA",
+    "weeklyHours": 10,
+    "locationMode": "Hybrid",
+    "locationDetail": "On-campus + Remote"
+  },
+  "applicantSnapshot": {
+    "fullName": "John Smith",
+    "studentId": "20230001",
+    "email": "john.smith@university.edu",
+    "phoneNumber": "(555) 123-4567",
+    "programMajor": "Computer Science",
+    "year": "3rd Year",
+    "gpa": 3.8
+  },
+  "applicationForm": {
+    "relevantSkills": [
+      "111"
+    ],
+    "relevantExperience": "111",
+    "availability": "111",
+    "motivationCoverLetter": "111"
+  },
+  "attachments": {
+    "cv": {
+      "fileName": "EBU6304_GroupProject_Intermediate assessment.pdf",
+      "filePath": "C:\\Users\\35375\\Desktop\\software\\src\\version2\\TA_Job_application_module\\src\\..\\..\\data\\uploads\\profile_cv\\20230001\\EBU6304_GroupProject_Intermediate assessment.pdf",
+      "fileType": "pdf"
+    }
+  },
+  "status": {
+    "current": "pending",
+    "label": "Pending",
+    "color": "yellow",
+    "lastUpdated": "2026-04-04T02:19:10.2831972"
+  },
+  "timeline": [
+    {
+      "timelineId": "tl_1775240350284",
+      "stepKey": "submitted",
+      "stepLabel": "Application Submitted",
+      "status": "completed",
+      "timestamp": "2026-04-04T02:19:10.2841969",
+      "note": "Application submitted successfully."
+    }
+  ],
+  "review": {
+    "statusMessage": "Your application has been submitted and is waiting for review.",
+    "nextSteps": "Please wait for further updates from the department."
+  },
+  "meta": {
+    "submittedAt": "2026-04-04T02:19:10.2854816",
+    "updatedAt": "2026-04-04T02:19:10.2854816",
+    "isDeleted": false
+  }
+}

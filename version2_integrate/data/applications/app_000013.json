@@ -1,0 +1,69 @@
+{
+  "applicationId": "app_000013",
+  "studentId": "20250033",
+  "userId": "u_ta_20230001",
+  "jobId": "job_SF001_2026_spring",
+  "jobSnapshot": {
+    "title": "software engineering",
+    "courseCode": "SF001",
+    "courseName": "software engineering",
+    "department": "Computer Science",
+    "instructorName": "",
+    "instructorEmail": "mo@university.edu",
+    "deadline": "2026-04-25",
+    "employmentType": "Part-time TA",
+    "weeklyHours": 10,
+    "locationMode": "Hybrid",
+    "locationDetail": ""
+  },
+  "applicantSnapshot": {
+    "fullName": "John Smith",
+    "studentId": "20250033",
+    "email": "j.taylor@university.edu",
+    "phoneNumber": "13111111111",
+    "programMajor": "Human-Computer Interaction",
+    "year": "2nd Year",
+    "gpa": 3.8
+  },
+  "applicationForm": {
+    "relevantSkills": [
+      "Python",
+      "JavaScript",
+      "Tutoring",
+      "English"
+    ],
+    "relevantExperience": "111",
+    "availability": "1111",
+    "motivationCoverLetter": "11111"
+  },
+  "attachments": {},
+  "status": {
+    "current": "pending",
+    "label": "Pending",
+    "color": "yellow",
+    "lastUpdated": "2026-04-12T11:54:35.2373188"
+  },
+  "timeline": [
+    {
+      "timelineId": "tl_1775966075237",
+      "stepKey": "submitted",
+      "stepLabel": "Application Submitted",
+      "status": "completed",
+      "timestamp": "2026-04-12T11:54:35.2393406",
+      "note": "Application submitted successfully."
+    }
+  ],
+  "review": {
+    "statusMessage": "Your application has been submitted and is waiting for review.",
+    "nextSteps": "Please wait for further updates from the department."
+  },
+  "meta": {
+    "submittedAt": "2026-04-12T11:54:35.2393406",
+    "updatedAt": "2026-04-12T11:54:35.2393406",
+    "isDeleted": false
+  },
+  "workflow": {
+    "assignedMO": "u_mo_001"
+  },
+  "isDraft": false
+}

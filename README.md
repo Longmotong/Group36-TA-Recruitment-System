@@ -26,6 +26,9 @@ The project is implemented as a **stand-alone Java application** and developed u
 * **Yifan Cao** 
   * QMUL ID: 231220987
   * GitHub: [@rei129482](https://github.com/rei129482)
+* **Yifan Lang** 
+  * QMUL ID: 221167711
+  * GitHub: [@ahuo-ahuo](https://github.com/ahuo-ahuo)
 
 ## System Users
 
@@ -104,7 +107,7 @@ Functions:
 - System entry
 - Page navigation
 
-Branch:
+Branch: Yifan-Lang/Login_register
 
 ---
 
@@ -115,7 +118,7 @@ Functions:
 - Manage skill information
 - Upload CV
 
-Branch:
+Branch: Jingwei-Xu/TA_profile_module
 
 ---
 
@@ -127,7 +130,7 @@ Functions:
 - Apply for jobs
 - Check application status
 
-Branch:
+Branch: Motong-Long/TA_job_application_module
 
 ---
 
@@ -139,7 +142,7 @@ Functions:
 - Delete job postings
 - View job details
 
-Branch:
+Branch: Zihan-Guo/Mo_Job_Management
 
 ---
 
@@ -151,7 +154,7 @@ Functions:
 - Accept or reject applicants
 - Update application status
 
-Branch:
+Branch: Yuxin-Wang/Mo_application_review_module
 
 ---
 
@@ -162,7 +165,7 @@ Functions:
 - Display recruitment statistics
 - Provide entry point for AI-based recommendation and analysis
 
-Branch:
+Branch: Yifan-Cao/Admin-Module
 
 ---
 
@@ -174,79 +177,162 @@ README.md
 
 ```
 src
-├── auth
-├── ta_profile
-├── ta_application
-├── mo_job
-├── mo_review
-└── admin
+├── Admin_Module
+├── TA_Job_Application_Module
+├── profile_module
+├── Authentication_Module
+└── mosystem
 
 docs
 ├── prototype
-├── backlog
+├── product_backlog
 ├── report
-└── diagrams
+└── Questionnaire
 
 data
-├── users.json
-├── profiles.json
-├── jobs.json
-└── applications.json
+├── users
+├── uploads
+├── applications
+├── index
+└── jobs
 ```
 
-## Development Workflow
+## Iteration Progress
 
-The project follows a **feature branch workflow**.
+### Preparation（3.12-3.22）
+- Reviewed the project brief and clarified the overall system scope.
+- Collected background information on recruitment systems and common applicant-tracking functions.
+- Studied the typical responsibilities of TAs in university settings.
+- Conducted observation to understand the real TA workflow in the school context.
+- Distributed questionnaires to TAs, MOs, and administrators and summarised the key findings.
+- Identified the main user roles and analysed the current recruitment process.
+- Converted the findings into user stories and organised them into the product backlog.
+- Assigned priorities and estimates to backlog items.
+- Prepared the initial prototype and basic system design.
 
-Main branch:main
+### Iteration 1（3.23-3.29）
+#### Planned goals
+- Build the basic user interface for the first working version.
+- Implement file-based data storage and handling.
+- Implement the core workflow for browsing TA jobs.
+- Implement job application submission.
+- Implement application status tracking.
+- Implement job posting for MO users.
+- Implement applicant selection.
+- Implement the function for checking overall TA workload.
 
-Feature branches:
-feature-auth-navigation
-feature-ta-profile
-feature-ta-application
-feature-mo-job
-feature-mo-review
-feature-admin
+#### Completed features
+- Completed the first integrated version of the system and initially unified the implementation structure.
+- Implemented the basic login and registration functions, including user login, user registration, and basic entry design for different user types.
+- Implemented the core TA-side functions, including profile completion, CV upload status confirmation, job browsing, job application, and application progress tracking.
+- Implemented the core MO-side functions, including posting new jobs, viewing applications, and handling applicant-related actions.
+- Implemented the basic Admin-side functions, including overall TA workload checking and initial report-related support.
+- Updated and enriched the shared data files so that testing scenarios across different users and modules became more complete.
+- Organised the project folder structure and resource layout more clearly to support later integration and maintenance.
 
-The **main branch always contains the latest integrated and runnable version of the system**.
+#### Issues and reflections
+- The integration exposed consistency problems across modules, including mixed use of Java Swing and JavaFX, inconsistent UI sizes, and non-unified button styles.
+- Some functions only worked correctly under specific hard-coded user IDs, which showed that data handling and user-state management were not robust enough.
+- Data coverage was initially too limited, so some functions could not be fully tested until richer sample data was added.
+- The login and registration module still had validation and user-type handling issues, such as weak input checks and unclear registration rules.
+- On the TA side, some interface details and navigation behaviours were inconsistent, and application progress display still needed improvement.
+- On the MO side, job posting, application review, logout behaviour, and page jumping still had logic and integration problems.
+- On the Admin side, workload measurement rules and the reports function were not yet clear or complete.
+- Overall, Iteration 1 showed that completing individual module functions was not enough; stronger integration standards, more consistent UI design, and more reliable shared data handling were needed for later iterations.
+
+### Iteration 2（3.30-4.11）
+#### Planned goals
+- Refactor and unify the codebase structure based on the integration problems found in Iteration 1, especially reducing inconsistency between modules and standardising the use of Java Swing.
+- Improve the overall UI consistency, including window size, button style, navigation behaviour, and back-button design across different modules.
+- Fix the user-state and data-handling issues identified in Iteration 1, so that functions no longer rely on specific hard-coded user IDs and can work correctly for different users.
+- Improve input validation and user-type handling in the login and registration module, making registration rules and form checks clearer and more reliable.
+- Refine the TA-side workflow by improving profile-related pages, CV handling, application progress display, and page transitions.
+- Refine the MO-side workflow by improving job posting, applicant handling, logout behaviour, and page-jump logic.
+- Improve the Admin-side functions by clarifying workload measurement rules and further developing report-related support.
+- Expand and standardise the shared data files so that more realistic test cases can be covered across TA, MO, and Admin scenarios.
+- Add the planned support functions from the backlog, including viewing course and MO details, working-hour calculation, exporting the final hiring list, and selected AI-supported features such as skill matching and missing-skill identification.
+- Strengthen overall module integration so that the second iteration delivers a more stable, consistent, and complete working version of the system.
+#### Completed features
+- The login and registration module was further improved so that newly registered users could generate independent user files, which were then incorporated into a unified file structure for subsequent storage, management, and access.
+- The TA-side interface was refined to improve overall usability, making the interaction flow clearer and the user experience more consistent across different pages.
+- The TA application workflow was further extended by supporting both draft saving and application deletion, allowing users to manage the submission process in a more flexible and practical way.
+- The MO-side workflow was improved so that job posting and applicant-related handling became more complete and more stable than in the previous version.
+- The Admin-side module was further developed to provide stronger support for overall TA workload checking and recruitment-result management.
+- Shared data files and the overall project structure were further standardised, which improved cross-role testing coverage and provided a clearer foundation for later integration and maintenance.
+#### Issues and reflections
+- Although Version 2 was more complete than Version 1, a certain degree of inconsistency still remained across modules in terms of interface style, page layout, and interaction details.
+- Some page transitions and state-updating logic still required further refinement, and a few navigation behaviours were not yet smooth or fully coherent across the whole system.
+- Although the shared data structure had been expanded, data linkage across different modules and user roles was still not sufficiently clear in some situations.
+- On the Admin side, the workload-related function was not completed in a sufficiently effective way, mainly because the preparation for working-hour data design, workload measurement rules, and overall management logic was still inadequate at this stage.
+- While a larger number of functions had become usable in Version 2, aspects such as exception handling, edge-case testing, and fine-grained usability details still needed further improvement.
+- Overall, Version 2 mainly focused on functional extension and system integration, so the system had not yet reached the level of completeness, polish, and robustness expected of the final version.
+
+
+### Iteration 3
+#### Planned goals
+- Further improve the overall consistency of the system and strengthen integration across modules.
+- Extend the login and registration module by supporting more complete role selection and clearer account-related interaction.
+- Improve the TA-side workflow by adding stronger data support, more practical application functions, and intelligent assistance.
+- Improve the MO-side workflow by making applicant evaluation, job-related information, and confirmation processes more complete.
+- Further develop Admin-side management support and strengthen cross-role coordination.
+- Introduce AI-supported features for different user roles to enhance usability and decision support.
+- Continue refining shared data handling, page transitions, and workflow stability.
+#### Completed features
+- The login and registration module was improved by adding admin as a selectable identity, introducing password visibility control, and providing an identity-information page for MO users.
+- On the TA side, the data folder structure was adjusted and extended, and a skill-pool mechanism was introduced to support richer applicant information.
+- AI-supported functions were added on the TA side, including CV scanning and skill-matching evaluation.
+- The TA-side workflow was further improved by adding a double-check mechanism and clearer status tracking.
+- On the MO side, a course-requirement skill pool was added to support clearer job requirements.
+- A dedicated entry was added for MO users to view CVs uploaded by TA applicants.
+- AI-supported functions were introduced on the MO side, including course-description suggestions and skill-matching evaluation.
+- The MO-side confirmation workflow was further improved through a double-check mechanism and notification support for newly recruited TAs.
+- The Admin-side module was further extended to support broader coordination and management-related functions.
+- Overall, Version 3 further strengthened module integration, shared-data handling, and the practical completeness of the system.
+#### Issues and reflections
+- Although Version 3 introduced more practical and intelligent functions, the increasing number of features also made module integration more complex.
+- The newly added AI-supported functions improved usability, but they also required more careful coordination with existing data structures and interaction flows.
+- As more role-specific functions were added, maintaining consistency across login, TA, MO, and Admin modules became more challenging.
+- The new double-check and status-tracking functions made workflows more complete, but they also required clearer state management and further testing.
+- Some management-side functions still needed more refinement, especially in terms of handling broader coordination scenarios.
+- Overall, Version 3 significantly improved the completeness of the system, but further polishing was still needed before reaching the final version standard.
+
+
+### Iteration 4
+#### Planned goals
+#### Completed features
+#### Issues and reflections
 
 ---
 
-## How to Run the System
-
-1. Clone the repository
-```
-git clone repository-url
-```
-
-3. Open the project using an IDE such as **IntelliJ IDEA** or **Eclipse**
-
-4. Run the main program
-```
-MainApp.java
-```
-
-6. Follow the instructions displayed in the program.
-
----
-
-## Future Improvements
-
-Possible future enhancements include:
-
-- AI-based job recommendation
-- Skill gap analysis
-- Automatic workload balancing
-- Improved UI design
 
 ## Work Log
 
 ### Jingwei Xu
 | Date | Member | Location/Branch | Task Description |
 | :--- | :--- | :--- | :--- |
-| 2026-03-14 | @Jingwei-Xu | Jingwei-Xu/docs_questionnaires | The questionnaire content for investigating user requirements has been uploaded |
-| 2026-03-15 | @zhangsan | zhangsan/add_namelist | 你的工作内容描述 |
-| 2026-03-18 | @lisi | lisi/ta_login_ui | 你的工作内容描述 |
+| 2026-03-14 | @Jingwei-Xu | Jingwei-Xu/product-backlog | The questionnaire content for investigating user requirements has been uploaded |
+| 2026-03-16 | @Jingwei-Xu | Jingwei-Xu/TA_prototype | Complete the prototype design of the image version |
+| 2026-03-17 | @Jingwei-Xu | Jingwei-Xu/TA_prototype | Complete the prototype by adding text workflow |
+| 2026-03-20 | @Jingwei-Xu | Jingwei-Xu/TA_prototype | Complete and integrate the first version of the group's overall prototype document and modify the format, adjusting the overall content |
+| 2026-03-20 | @Jingwei-Xu | Jingwei-Xu/product-backlog | Integrate questionnaire results and group survey end user requirements, and complete the TA and MO sections of the Excel document |
+| 2026-03-21 | @Jingwei-Xu | Jingwei-Xu/product-backlog | Complete the Admin sections of the Excel document |
+| 2026-03-22 | @Jingwei-Xu | Jingwei-Xu/product-backlog | Update the final version of Excel document |
+| 2026-03-23 | @Jingwei-Xu | Jingwei-Xu/TA_profile_module | Design software UI interface for profile module based on prototype |
+| 2026-03-25 | @Jingwei-Xu | Jingwei-Xu/TA_profile_module | Connect various functional interfaces and ensure the implementation of each function |
+| 2026-03-26 | @Jingwei-Xu | Jingwei-Xu/TA_profile_module | Adjust the button size, position, data storage location, and other details of the interface. Refactoring the folder structure |
+| 2026-03-29 | @Jingwei-Xu | version | Integrate the login registration page, TA, MO, and admin functions to complete the software integration. And test the various functions of the integrated software, modify vulnerabilities, and ensure the smooth operation and complete functionality of software version 1 |
+| 2026-03-30 | @Jingwei-Xu | version | Refactoring the folder structure of the integrated version of version 1 |
+| 2026-4-3 | @Jingwei-Xu | Jingwei-Xu/TA_profile_module |Update the UI of the information filling guide interface for first-time registration and login, and add standard format restrictions for information filling |
+| 2026-4-5 | @Jingwei-Xu | Jingwei-Xu/TA_profile_module |Update the dashboard of the TA interface and unify the top navigation bar of TA |
+| 2026-4-6 | @Jingwei-Xu | Jingwei-Xu/TA_profile_module |Ensure the correct classification of skills added in the login guide interface, and add a status bar for viewing CV upload status |
+| 2026-4-8 | @Jingwei-Xu | Jingwei-Xu/TA_profile_module |Fix some known bugs in the TA profile module and optimize the overall UI |
+| 2026-4-8 | @Jingwei-Xu | reflection |Organize the issues and reflections in version 1 |
+| 2026-4-11 | @Jingwei-Xu | Jingwei-Xu/TA_profile_module |Merge the MO module with the merged TA, admin, login and registration interfaces, test the functionality of each interface, unify the overall UI style, and modify bugs |
+
+
+
+
+
 
 ### Motong Long
 | Date | Member | Location/Branch | Task Description |
@@ -257,13 +343,45 @@ Possible future enhancements include:
 | 2026-03-20 | @Longmotong |Motong-Long/report  |complete the first version of the report writing |
 | 2026-03-20 | @Longmotong |Motong-Long/TA_prototype  |Complete the format modification of the integrated prototype design and the adjustment of the public dashboard section |
 | 2026-03-21 | @Longmotong |Motong-Long/report  |Complete the revision of the report and improve and supplement the supporting materials |
+| 2026-03-22 | @Longmotong |Motong-Long/TA_job_application_module  |The initial state of the module has been created, including the work overview page, work details page, and application page |
+| 2026-03-23 | @Longmotong |Motong-Long/TA_job_application_module  |I have added a detailed page for each application, strengthened the connection between each page, and updated the UI design of the dashboard and existing pages |
+| 2026-03-24 | @Longmotong |Motong-Long/TA_job_application_module  |The specific application functions have been improved, enabling applications to actually access and save data in the data folder |
+| 2026-03-28 | @Longmotong |Motong-Long/TA_job_application_module  |Perform initial integration on the MO terminal, remove one of the dashboards, and establish initial connections |
+| 2026-03-29 | @Longmotong |Motong-Long/TA_job_application_module and data |Continue to complete the integration of the mo terminal, and establish basic connectivity with the login and registration system and also create more data examples |
+| 2026-03-30 | @Longmotong |Motong-Long/modify_readme|Summarize the issues found in integrating the mo terminal and registration/login aspects, and update the specific iteration plan in the readme |
+| 2026-4-4 | @Longmotong |Motong-Long/TA_job_application_module|Modify the TA work application module dashboard and work details page |
+| 2026-4-5 | @Longmotong |Motong-Long/TA_job_application_module|Modify the TA work application module job apply page |
+| 2026-4-6 | @Longmotong |Motong-Long/TA_job_application_module|Modify the TA work application module application detail page|
+| 2026-4-7 | @Longmotong |Motong-Long/TA_job_application_module|Modify the TA work application module overview presentation logic on dashboard |
+| 2026-4-8 | @Longmotong |Motong-Long/TA_job_application_module|add delete function of applications |
+| 2026-4-9 | @Longmotong |Motong-Long/TA_job_application_module|add draft box function|
+| 2026-4-10 | @Longmotong |Motong-Long/TA_job_application_module|Integrate the login system, TA-side functions, and admin-side functions |
+| 2026-4-11 | @Longmotong |Motong-Long/TA_job_application_module|Integrate and debug all functions, address issues arising from integration, and unify the path for data storage |
+| 2026-4-21 | @Longmotong |Motong-Long/TA_job_application_module|design and implement a double check mechanism for offers |
+| 2026-4-22 | @Longmotong |Motong-Long/TA_job_application_module|Add AI analysis of job compatibility and display of cards for the top three positions in the list interface |
+| 2026-4-23 | @Longmotong |Motong-Long/TA_job_application_module|improve the display interface for AI matching degree ranking, as well as the presentation interface for each job's AI analysis results |
+| 2026-4-27 | @Longmotong |Motong-Long/TA_job_application_module|Integrate the ta job application module into the consolidated version code |
+| 2026-4-28 | @Longmotong |Motong-Long/TA_job_application_module|Integrate the mo system and admin system into the full version |
+
+
 
 
 
 ### Zihan Guo
 | Date | Member | Location/Branch | Task Description |
 | :--- | :--- | :--- | :--- |
-| 2026-03-14 | @GuoZihan429 |  |  |
+| 2026-03-17 | @GuoZihan429 | Zihan-Guo/MO_prototype | Complete the first version of the MO prototype |
+| 2026-03-18 | @GuoZihan429 | Zihan-Guo/MO_prototype | Improve the first version prototype and add user manual to the image |
+| 2026-03-19 | @GuoZihan429 | Zihan-Guo/MO_prototype | Integrate with another MO teammate and then design the MO dashboard |
+| 2026-03-20 | @GuoZihan429 | Zihan-Guo/MO_prototype | Refine the final version based on the questionnaire results and merge it into main |
+| 2026-03-23 | @GuoZihan429 | Zihan-Guo/MO_Job_Management | Complete the initial structure design of the MO Job Management Module in Version 1, and build the dashboard page together with the basic navigation framework |
+| 2026-03-24 | @GuoZihan429 | Zihan-Guo/MO_Job_Management | Add the job detail page, create job page, and edit job page in Version 1, and update the UI design of the dashboard and related pages for better consistency |
+| 2026-03-25 | @GuoZihan429 | Zihan-Guo/MO_Job_Management | Add job detail, create job, and edit job pages in Version 1, and updates the UI design of the dashboard and related pages |
+| 2026-03-26 | @GuoZihan429 | Zihan-Guo/MO_Job_Management | Improve the business logic of the Version 1 MO module, enabling job publishing, job editing, status switching, and JSON data access and saving functions |
+| 2026-04-06 | @GuoZihan429 | Zihan-Guo/MO_Job_Management | Review issues from the first release and revise the second-version draft accordingly; prioritize and fix critical problems (including UX and data/flow consistency); tighten layout and information structure against the prototype |
+| 2026-04-07 | @GuoZihan429 | Zihan-Guo/MO_Job_Management | Build on the second-version draft and refine main-surface action icons from user feedback so each function is easier to recognize and clearer at a glance |
+| 2026-04-08 | @GuoZihan429 | Zihan-Guo/MO_Job_Management | Ship one MO shell with a unified look; share job and application data under data/, scoped to the active MO, with live refresh |
+| 2026-04-09 | @GuoZihan429 | Zihan-Guo/MO_Job_Management | Joint-test the integrated build: walk main flows, align list/detail layout, and verify data after MO switch. Apply small UI fixes from feedback (spacing, alignment, messaging) and capture open items for later |
 
 ### Yifan Cao
 | Date | Member | Location/Branch | Task Description |
@@ -271,6 +389,11 @@ Possible future enhancements include:
 | 2026-03-17 | @rei129482 |Yifan-Cao/Admin_prototype  |Complete the first version of the interface design  |
 | 2026-03-19 | @rei129482 |Yifan-Cao/Admin_prototype  |Complete the second version of the interface design  |
 | 2026-03-19 | @rei129482 |Yifan-Cao/Admin_prototype  |Complete the final version of the prototype interface design and text description  |
+| 2026-03-24 | @rei129482 |Yifan-Cao/Admin_module  |Completed the initial structure design of the admin module in version 1  |
+| 2026-03-30 | @rei129482 |Yifan-Cao/Admin_module  |Updated the detailed implementation code for TA workload and report|
+| 2026-03-31 | @rei129482 |Yifan-Cao/Admin_module  |Updated and modified the folder structure and content|
+| 2026-04-07 | @rei129482 |Yifan-Cao/Admin_module  |Updated and modified the ui design|
+| 2026-04-09 | @rei129482 |Yifan-Cao/Admin_module  |Completed the final version of the admin module in version 2|
 
 ### Yuxin Wang
 | Date | Member | Location/Branch | Task Description |
@@ -279,3 +402,48 @@ Possible future enhancements include:
 | 2026-03-18 | @Yuxin-Wang5 | Yuxin-Wang/MO_prototype | Add more comprehensive features in prototype design, including: rating TA, one-click quick review, etc. ———— prototype-version2.pdf |
 | 2026-03-19 | @Yuxin-Wang5 | Yuxin-Wang/MO_prototype | Collaborated with another MO team leader to finalize the overall design modifications for the MO system prototype, and completed the drafting and formatting adjustments of the user manual. ———— MO_Application_review_prototype.pdf |
 | 2026-03-22 | @Yuxin-Wang5 | Yuxin-Wang/modify_readme | Proofread the Application Review Module section in the "prototype.pdf" and revise the relevant parts in the readme file. |
+| 2026-03-23 | @Yuxin-Wang5 | Yuxin-Wang/MO_application_review_module | Only the Dashboard page design has been implemented. |
+| 2026-03-24 | @Yuxin-Wang5 | Yuxin-Wang/MO_application_review_module | Only basic page interactions for the MO client system were implemented. |
+| 2026-03-25 | @Yuxin-Wang5 | Yuxin-Wang/MO_application_review_module | The dashboard page and the page/function components in the Application Review Module have been implemented, but the design shows significant differences from the prototype. |
+| 2026-03-26 | @Yuxin-Wang5 | Yuxin-Wang/MO_application_review_module | The first iteration version has implemented features such as one-click approval. However, it cannot yet automatically evaluate resumes or display working hours. |
+| 2026-03-31 | @Yuxin-Wang5 | Yuxin-Wang/MO_application_review_module | Replace JavaFX with Javaswing and switch from Maven-based execution to direct command-line operation. |
+| 2026-04-2 | @Yuxin-Wang5 | Yuxin-Wang/MO_application_review_module | After modifying to the Javaswing version, refine the layout to better align with the original prototype design. |
+| 2026-04-4 | @Yuxin-Wang5 | Yuxin-Wang/MO_application_review_module | Fix issues from the first iteration and consolidate reflection file. |
+| 2026-04-6 | @Yuxin-Wang5 | Yuxin-Wang/MO_application_review_module | Refine the features of the Application Review Module in its second iteration, such as AI-powered automatic scoring. |
+| 2026-04-7 | @Yuxin-Wang5 | Yuxin-Wang/MO_application_review_module | Improve the page design after the second iteration and implement missing features. |
+| 2026-04-8 | @Yuxin-Wang5 | Yuxin-Wang/MO_application_review_module | Collaborate with another student to integrate into a complete MO system. |
+| 2026-04-9 | @Yuxin-Wang5 | Yuxin-Wang/MO_application_review_module | In the integrated MO system, refine the problematic sections of the Application Review Module, such as page layout. |
+
+### Yifan Lang
+| Date | Member | Location/Branch | Task Description |
+| :--- | :--- | :--- | :--- |
+| 2026-03-17 | @djwcb666 | Yifan-Lang/Login_prototype | Complete the design of auth prototype |
+| 2026-03-19 | @djwcb666 | Yifan-Lang/Login_prototype | Complete the code design for the login function |
+| 2026-03-19 | @djwcb666 | Yifan-Lang/Login_prototype | Complete the code design for the register function |
+| 2026-03-19 | @djwcb666 | Yifan-Lang/Login_prototype | Design the data storage and reading/writing functions |
+| 2026-03-19 | @djwcb666 | Yifan-Lang/Login_prototype | Design the data storage and reading/writing functions |
+| 2026-03-24 | @djwcb666 | Yifan-Lang/login-register | Complete the front-end design of the login and registration pages |
+| 2026-03-26 | @djwcb666 | Yifan-Lang/login-register | Complete the design of the welcome page |
+| 2026-04-4 | @djwcb666 | Yifan-Lang/login-register | Sort out the problems existing in the front-end page |
+| 2026-04-9 | @djwcb666 | Yifan-Lang/login-register | Improve the logic of the registration interface |
+| 2026-04-10 | @djwcb666 | Yifan-Lang/login-register | Re-design all the front-end interfaces |
+
+
+## How to Run the System
+
+1. Clone the repository
+
+2. Open the project using an IDE such as **IntelliJ IDEA** or **Eclipse**
+
+3. Run the main program
+
+
+
+## Future Improvements
+
+Possible future enhancements include:
+
+- AI-based job recommendation
+- Skill gap analysis
+- Automatic workload balancing
+- Improved UI design
