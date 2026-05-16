@@ -327,8 +327,12 @@ data
 | 2026-4-6 | @Jingwei-Xu | Jingwei-Xu/TA_profile_module |Ensure the correct classification of skills added in the login guide interface, and add a status bar for viewing CV upload status |
 | 2026-4-8 | @Jingwei-Xu | Jingwei-Xu/TA_profile_module |Fix some known bugs in the TA profile module and optimize the overall UI |
 | 2026-4-8 | @Jingwei-Xu | reflection |Organize the issues and reflections in version 1 |
-| 2026-4-11 | @Jingwei-Xu | Jingwei-Xu/TA_profile_module |Merge the MO module with the merged TA, admin, login and registration interfaces, test the functionality of each interface, unify the overall UI style, and modify bugs |
-
+| 2026-4-11 | @Jingwei-Xu | versiom |Merge the MO module with the merged TA, admin, login and registration interfaces, test the functionality of each interface, unify the overall UI style, and modify bugs |
+| 2026-4-12 | @Jingwei-Xu | version |Test the functionality of software version 2 and modify the corresponding bugs, then upload the final integrated version of version 2 |
+| 2026-4-17 | @Jingwei-Xu | reflection |Collect feedback and improvement suggestions from end users, and organize the reflection document for version 2 |
+| 2026-4-20 | @Jingwei-Xu | data | Add storage folders that match the new features of version 3, add TA and MO skill pools, ensure data storage paths, and ensure that new user profile data files are created in a unified format |
+| 2026-4-21 | @Jingwei-Xu | Jingwei-Xu/TA_profile_module | Redesign the proffile page UI and add a skill pool for users to choose from |
+| 2026-4-23 | @Jingwei-Xu | Jingwei-Xu/TA_profile_module | Adjust the layout of the profile module page |
 
 
 
