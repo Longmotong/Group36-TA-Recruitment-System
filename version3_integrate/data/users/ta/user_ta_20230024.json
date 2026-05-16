@@ -1,0 +1,176 @@
+{
+  "userId": "u_ta_20230024",
+  "loginId": "20230024",
+  "role": "ta",
+  "account": {
+    "username": "2023211115",
+    "email": "2023211115@bupt.cn",
+    "passwordHash": "hashed_2023211115",
+    "password": "test1234",
+    "status": "active",
+    "lastLoginAt": "2026-05-09T22:40:28.857465900"
+  },
+  "profile": {
+    "fullName": "Lee",
+    "studentId": "2023211115",
+    "year": "3rd Year",
+    "programMajor": "AI",
+    "department": "",
+    "phoneNumber": "13278908765",
+    "address": "",
+    "shortBio": ""
+  },
+  "academic": {
+    "gpa": 0.0,
+    "completedCourses": []
+  },
+  "skills": {
+    "proficiencyLevels": [
+      "Beginner",
+      "Intermediate",
+      "Advanced"
+    ],
+    "taSkillPool": {
+      "technicalSkills": {
+        "programmingAndSoftwareFundamentals": [
+          {
+            "name": "Java",
+            "selected": false
+          },
+          {
+            "name": "Python",
+            "selected": false
+          },
+          {
+            "name": "C/C++",
+            "selected": false
+          },
+          {
+            "name": "SQL",
+            "selected": false
+          },
+          {
+            "name": "Algorithms \u0026 Data Structures",
+            "selected": false
+          },
+          {
+            "name": "Object-Oriented Programming (OOP)",
+            "selected": false
+          }
+        ],
+        "hardwareAndLogicDesign": [
+          {
+            "name": "VHDL",
+            "selected": false
+          },
+          {
+            "name": "Verilog",
+            "selected": false
+          },
+          {
+            "name": "Digital Logic Design",
+            "selected": false
+          },
+          {
+            "name": "FPGA Development \u0026 Debugging",
+            "selected": false
+          }
+        ],
+        "embeddedSystemsAndLowLevelDevelopment": [
+          {
+            "name": "STM32 Development",
+            "selected": false
+          },
+          {
+            "name": "FreeRTOS",
+            "selected": false
+          },
+          {
+            "name": "Embedded C",
+            "selected": false
+          },
+          {
+            "name": "Hardware Driver Development",
+            "selected": false
+          }
+        ]
+      },
+      "engineeringAndTools": {
+        "professionalDevelopmentAndSimulationTools": [
+          {
+            "name": "Quartus Prime",
+            "selected": false
+          },
+          {
+            "name": "Keil5",
+            "selected": false
+          },
+          {
+            "name": "STM32CubeIDE",
+            "selected": false
+          },
+          {
+            "name": "STM32CubeMX",
+            "selected": false
+          },
+          {
+            "name": "CST Studio Suite",
+            "selected": false
+          },
+          {
+            "name": "Matlab / Simulink",
+            "selected": false
+          },
+          {
+            "name": "Cisco Packet Tracer",
+            "selected": false
+          }
+        ]
+      },
+      "languageAndCommunication": {
+        "crossCulturalCommunication": [
+          {
+            "name": "English",
+            "selected": false
+          }
+        ]
+      }
+    }
+  },
+  "cv": {
+    "uploaded": false,
+    "originalFileName": "",
+    "storedFileName": "",
+    "filePath": "",
+    "fileType": "",
+    "fileSizeKB": 0,
+    "uploadedAt": ""
+  },
+  "applicationSummary": {
+    "totalApplications": 0,
+    "pending": 0,
+    "underReview": 0,
+    "accepted": 0,
+    "rejected": 0
+  },
+  "dashboard": {
+    "profileCompletion": 100,
+    "onboardingCompleted": false
+  },
+  "permissions": {
+    "canEditOwnProfile": true,
+    "canUploadCV": true,
+    "canBrowseJobs": true,
+    "canApplyJob": true,
+    "canViewOwnApplications": true,
+    "canReviewApplication": false,
+    "canManageJob": false,
+    "canManageUsers": false
+  },
+  "meta": {
+    "createdAt": "2026-05-09T22:40:28.857465900",
+    "updatedAt": "2026-05-09T22:41:39.4681954",
+    "isDeleted": false,
+    "isActive": true
+  }
+}

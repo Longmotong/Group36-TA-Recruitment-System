@@ -13,7 +13,6 @@ public class RegisterPagePanel extends JPanel {
         setLayout(new BorderLayout());
         setBackground(Color.WHITE);
 
-        // ===== 全局去灰（关键）=====
         UIManager.put("ComboBox.background", Color.WHITE);
         UIManager.put("TextField.background", Color.WHITE);
 
@@ -28,10 +27,8 @@ public class RegisterPagePanel extends JPanel {
                 new EmptyBorder(30, 40, 30, 40)
         ));
 
-        // ✅ 修复标题被截断
         card.setPreferredSize(new Dimension(420, 520));
 
-        // ===== 标题 =====
         JLabel title = new JLabel("Create Account");
         title.setFont(new Font("Arial", Font.BOLD, 22));
         title.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -41,19 +38,21 @@ public class RegisterPagePanel extends JPanel {
         desc.setForeground(new Color(120, 120, 120));
         desc.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-        // ===== 输入框（嵌入标题风格）=====
         JTextField user = styledField("Username");
-        JPasswordField pass = styledPassword("Password");
-        JPasswordField confirm = styledPassword("Confirm Password");
 
-        // ===== 密码提示（修复对齐+截断）=====
+        //
+        JPasswordField pass = new JPasswordField();
+        JPanel passPanel = createPasswordWithEye(pass, "Password");
+
+        JPasswordField confirm = new JPasswordField();
+        JPanel confirmPanel = createPasswordWithEye(confirm, "Confirm Password");
+
         JLabel hint = new JLabel("At least 8 characters, including letters and numbers");
         hint.setFont(new Font("Arial", Font.PLAIN, 11));
         hint.setForeground(new Color(140, 140, 140));
         hint.setAlignmentX(Component.LEFT_ALIGNMENT);
         hint.setMaximumSize(new Dimension(Integer.MAX_VALUE, 20));
 
-        // ===== Role（完全统一风格）=====
         JComboBox<String> role = new JComboBox<>(new String[]{"ta", "mo"});
         role.setMaximumSize(new Dimension(Integer.MAX_VALUE, 40));
         role.setBackground(Color.WHITE);
@@ -63,7 +62,6 @@ public class RegisterPagePanel extends JPanel {
                 "Role"
         ));
 
-        // ===== 注册按钮 =====
         JButton register = new JButton("Register");
         register.setAlignmentX(Component.CENTER_ALIGNMENT);
         register.setBackground(Color.BLACK);
@@ -84,7 +82,6 @@ public class RegisterPagePanel extends JPanel {
                     return;
                 }
 
-                // ✅ 密码规则：>=8位 + 字母+数字
                 if (!password.matches("^(?=.*[A-Za-z])(?=.*\\d).{8,}$")) {
                     JOptionPane.showMessageDialog(this,
                             "Password must be at least 8 characters and include letters and numbers");
@@ -114,7 +111,6 @@ public class RegisterPagePanel extends JPanel {
             }
         });
 
-        // ===== 返回按钮 =====
         JButton back = new JButton("← Back to Home");
         back.setAlignmentX(Component.CENTER_ALIGNMENT);
         back.setBorderPainted(false);
@@ -131,12 +127,12 @@ public class RegisterPagePanel extends JPanel {
         card.add(user);
 
         card.add(Box.createVerticalStrut(12));
-        card.add(pass);
+        card.add(passPanel);
         card.add(Box.createVerticalStrut(4));
         card.add(hint);
 
         card.add(Box.createVerticalStrut(12));
-        card.add(confirm);
+        card.add(confirmPanel);
 
         card.add(Box.createVerticalStrut(12));
         card.add(role);
@@ -151,7 +147,7 @@ public class RegisterPagePanel extends JPanel {
         add(wrapper, BorderLayout.CENTER);
     }
 
-    // ===== 输入框（嵌入标题）=====
+    // ===== 普通输入框 =====
     private JTextField styledField(String title) {
         JTextField field = new JTextField();
         field.setMaximumSize(new Dimension(Integer.MAX_VALUE, 40));
@@ -162,13 +158,41 @@ public class RegisterPagePanel extends JPanel {
         return field;
     }
 
-    private JPasswordField styledPassword(String title) {
-        JPasswordField field = new JPasswordField();
-        field.setMaximumSize(new Dimension(Integer.MAX_VALUE, 40));
-        field.setBorder(BorderFactory.createTitledBorder(
+    //
+    private JPanel createPasswordWithEye(JPasswordField field, String title) {
+
+        JPanel panel = new JPanel(new BorderLayout());
+        panel.setMaximumSize(new Dimension(Integer.MAX_VALUE, 40));
+        panel.setBackground(Color.WHITE);
+
+        field.setBorder(null); // 去掉内部边框
+
+        // 外层统一边框
+        panel.setBorder(BorderFactory.createTitledBorder(
                 new LineBorder(new Color(200, 200, 200)),
                 title
         ));
-        return field;
+
+        // 👁 按钮
+        JButton eye = new JButton("👁");
+        eye.setFocusPainted(false);
+        eye.setBorderPainted(false);
+        eye.setContentAreaFilled(false);
+        eye.setCursor(new Cursor(Cursor.HAND_CURSOR));
+
+        char defaultEcho = field.getEchoChar();
+
+        eye.addActionListener(e -> {
+            if (field.getEchoChar() == (char) 0) {
+                field.setEchoChar(defaultEcho);
+            } else {
+                field.setEchoChar((char) 0);
+            }
+        });
+
+        panel.add(field, BorderLayout.CENTER);
+        panel.add(eye, BorderLayout.EAST);
+
+        return panel;
     }
 }

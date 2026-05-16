@@ -107,7 +107,7 @@ Functions:
 - System entry
 - Page navigation
 
-Branch:Yifan-Lang/Login_register
+Branch: Yifan-Lang/Login_register
 
 ---
 
@@ -118,7 +118,7 @@ Functions:
 - Manage skill information
 - Upload CV
 
-Branch:Jingwei-Xu/TA_profile_module
+Branch: Jingwei-Xu/TA_profile_module
 
 ---
 
@@ -130,7 +130,7 @@ Functions:
 - Apply for jobs
 - Check application status
 
-Branch:Motong-Long/TA_job_application_module
+Branch: Motong-Long/TA_job_application_module
 
 ---
 
@@ -142,7 +142,7 @@ Functions:
 - Delete job postings
 - View job details
 
-Branch:Zihan-Guo/Mo_Job_Management
+Branch: Zihan-Guo/Mo_Job_Management
 
 ---
 
@@ -154,7 +154,7 @@ Functions:
 - Accept or reject applicants
 - Update application status
 
-Branch:Yuxin-Wang/Mo_application_review_module
+Branch: Yuxin-Wang/Mo_application_review_module
 
 ---
 
@@ -165,7 +165,7 @@ Functions:
 - Display recruitment statistics
 - Provide entry point for AI-based recommendation and analysis
 
-Branch:Yifan-Cao/Admin-Module
+Branch: Yifan-Cao/Admin-Module
 
 ---
 
@@ -192,9 +192,8 @@ docs
 data
 ├── users
 ├── uploads
-├── system
 ├── applications
-├── uploads
+├── index
 └── jobs
 ```
 
@@ -241,7 +240,7 @@ data
 - On the Admin side, workload measurement rules and the reports function were not yet clear or complete.
 - Overall, Iteration 1 showed that completing individual module functions was not enough; stronger integration standards, more consistent UI design, and more reliable shared data handling were needed for later iterations.
 
-### Iteration 2
+### Iteration 2（3.30-4.11）
 #### Planned goals
 - Refactor and unify the codebase structure based on the integration problems found in Iteration 1, especially reducing inconsistency between modules and standardising the use of Java Swing.
 - Improve the overall UI consistency, including window size, button style, navigation behaviour, and back-button design across different modules.
@@ -254,12 +253,49 @@ data
 - Add the planned support functions from the backlog, including viewing course and MO details, working-hour calculation, exporting the final hiring list, and selected AI-supported features such as skill matching and missing-skill identification.
 - Strengthen overall module integration so that the second iteration delivers a more stable, consistent, and complete working version of the system.
 #### Completed features
+- The login and registration module was further improved so that newly registered users could generate independent user files, which were then incorporated into a unified file structure for subsequent storage, management, and access.
+- The TA-side interface was refined to improve overall usability, making the interaction flow clearer and the user experience more consistent across different pages.
+- The TA application workflow was further extended by supporting both draft saving and application deletion, allowing users to manage the submission process in a more flexible and practical way.
+- The MO-side workflow was improved so that job posting and applicant-related handling became more complete and more stable than in the previous version.
+- The Admin-side module was further developed to provide stronger support for overall TA workload checking and recruitment-result management.
+- Shared data files and the overall project structure were further standardised, which improved cross-role testing coverage and provided a clearer foundation for later integration and maintenance.
 #### Issues and reflections
+- Although Version 2 was more complete than Version 1, a certain degree of inconsistency still remained across modules in terms of interface style, page layout, and interaction details.
+- Some page transitions and state-updating logic still required further refinement, and a few navigation behaviours were not yet smooth or fully coherent across the whole system.
+- Although the shared data structure had been expanded, data linkage across different modules and user roles was still not sufficiently clear in some situations.
+- On the Admin side, the workload-related function was not completed in a sufficiently effective way, mainly because the preparation for working-hour data design, workload measurement rules, and overall management logic was still inadequate at this stage.
+- While a larger number of functions had become usable in Version 2, aspects such as exception handling, edge-case testing, and fine-grained usability details still needed further improvement.
+- Overall, Version 2 mainly focused on functional extension and system integration, so the system had not yet reached the level of completeness, polish, and robustness expected of the final version.
+
 
 ### Iteration 3
 #### Planned goals
+- Further improve the overall consistency of the system and strengthen integration across modules.
+- Extend the login and registration module by supporting more complete role selection and clearer account-related interaction.
+- Improve the TA-side workflow by adding stronger data support, more practical application functions, and intelligent assistance.
+- Improve the MO-side workflow by making applicant evaluation, job-related information, and confirmation processes more complete.
+- Further develop Admin-side management support and strengthen cross-role coordination.
+- Introduce AI-supported features for different user roles to enhance usability and decision support.
+- Continue refining shared data handling, page transitions, and workflow stability.
 #### Completed features
+- The login and registration module was improved by adding admin as a selectable identity, introducing password visibility control, and providing an identity-information page for MO users.
+- On the TA side, the data folder structure was adjusted and extended, and a skill-pool mechanism was introduced to support richer applicant information.
+- AI-supported functions were added on the TA side, including CV scanning and skill-matching evaluation.
+- The TA-side workflow was further improved by adding a double-check mechanism and clearer status tracking.
+- On the MO side, a course-requirement skill pool was added to support clearer job requirements.
+- A dedicated entry was added for MO users to view CVs uploaded by TA applicants.
+- AI-supported functions were introduced on the MO side, including course-description suggestions and skill-matching evaluation.
+- The MO-side confirmation workflow was further improved through a double-check mechanism and notification support for newly recruited TAs.
+- The Admin-side module was further extended to support broader coordination and management-related functions.
+- Overall, Version 3 further strengthened module integration, shared-data handling, and the practical completeness of the system.
 #### Issues and reflections
+- Although Version 3 introduced more practical and intelligent functions, the increasing number of features also made module integration more complex.
+- The newly added AI-supported functions improved usability, but they also required more careful coordination with existing data structures and interaction flows.
+- As more role-specific functions were added, maintaining consistency across login, TA, MO, and Admin modules became more challenging.
+- The new double-check and status-tracking functions made workflows more complete, but they also required clearer state management and further testing.
+- Some management-side functions still needed more refinement, especially in terms of handling broader coordination scenarios.
+- Overall, Version 3 significantly improved the completeness of the system, but further polishing was still needed before reaching the final version standard.
+
 
 ### Iteration 4
 #### Planned goals
@@ -291,6 +327,7 @@ data
 | 2026-4-6 | @Jingwei-Xu | Jingwei-Xu/TA_profile_module |Ensure the correct classification of skills added in the login guide interface, and add a status bar for viewing CV upload status |
 | 2026-4-8 | @Jingwei-Xu | Jingwei-Xu/TA_profile_module |Fix some known bugs in the TA profile module and optimize the overall UI |
 | 2026-4-8 | @Jingwei-Xu | reflection |Organize the issues and reflections in version 1 |
+| 2026-4-11 | @Jingwei-Xu | Jingwei-Xu/TA_profile_module |Merge the MO module with the merged TA, admin, login and registration interfaces, test the functionality of each interface, unify the overall UI style, and modify bugs |
 
 
 
@@ -319,6 +356,12 @@ data
 | 2026-4-8 | @Longmotong |Motong-Long/TA_job_application_module|add delete function of applications |
 | 2026-4-9 | @Longmotong |Motong-Long/TA_job_application_module|add draft box function|
 | 2026-4-10 | @Longmotong |Motong-Long/TA_job_application_module|Integrate the login system, TA-side functions, and admin-side functions |
+| 2026-4-11 | @Longmotong |Motong-Long/TA_job_application_module|Integrate and debug all functions, address issues arising from integration, and unify the path for data storage |
+| 2026-4-21 | @Longmotong |Motong-Long/TA_job_application_module|design and implement a double check mechanism for offers |
+| 2026-4-22 | @Longmotong |Motong-Long/TA_job_application_module|Add AI analysis of job compatibility and display of cards for the top three positions in the list interface |
+| 2026-4-23 | @Longmotong |Motong-Long/TA_job_application_module|improve the display interface for AI matching degree ranking, as well as the presentation interface for each job's AI analysis results |
+| 2026-4-27 | @Longmotong |Motong-Long/TA_job_application_module|Integrate the ta job application module into the consolidated version code |
+| 2026-4-28 | @Longmotong |Motong-Long/TA_job_application_module|Integrate the mo system and admin system into the full version |
 
 
 
@@ -335,6 +378,10 @@ data
 | 2026-03-24 | @GuoZihan429 | Zihan-Guo/MO_Job_Management | Add the job detail page, create job page, and edit job page in Version 1, and update the UI design of the dashboard and related pages for better consistency |
 | 2026-03-25 | @GuoZihan429 | Zihan-Guo/MO_Job_Management | Add job detail, create job, and edit job pages in Version 1, and updates the UI design of the dashboard and related pages |
 | 2026-03-26 | @GuoZihan429 | Zihan-Guo/MO_Job_Management | Improve the business logic of the Version 1 MO module, enabling job publishing, job editing, status switching, and JSON data access and saving functions |
+| 2026-04-06 | @GuoZihan429 | Zihan-Guo/MO_Job_Management | Review issues from the first release and revise the second-version draft accordingly; prioritize and fix critical problems (including UX and data/flow consistency); tighten layout and information structure against the prototype |
+| 2026-04-07 | @GuoZihan429 | Zihan-Guo/MO_Job_Management | Build on the second-version draft and refine main-surface action icons from user feedback so each function is easier to recognize and clearer at a glance |
+| 2026-04-08 | @GuoZihan429 | Zihan-Guo/MO_Job_Management | Ship one MO shell with a unified look; share job and application data under data/, scoped to the active MO, with live refresh |
+| 2026-04-09 | @GuoZihan429 | Zihan-Guo/MO_Job_Management | Joint-test the integrated build: walk main flows, align list/detail layout, and verify data after MO switch. Apply small UI fixes from feedback (spacing, alignment, messaging) and capture open items for later |
 
 ### Yifan Cao
 | Date | Member | Location/Branch | Task Description |
@@ -385,7 +432,6 @@ data
 ## How to Run the System
 
 1. Clone the repository
-
 
 2. Open the project using an IDE such as **IntelliJ IDEA** or **Eclipse**
 

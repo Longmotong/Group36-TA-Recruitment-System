@@ -1,0 +1,75 @@
+{
+  "skills": {
+    "programming": [],
+    "teaching": [],
+    "communication": [
+      {
+        "skillId": "skill_1775907476152_0",
+        "name": "English",
+        "proficiency": "Intermediate"
+      }
+    ],
+    "other": []
+  },
+  "loginId": "20230012",
+  "role": "ta",
+  "cv": {
+    "uploaded": true,
+    "originalFileName": "EBU6304_GroupProjectHandout.pdf",
+    "storedFileName": "",
+    "filePath": "data\\uploads\\profile_cv\\20230012\\EBU6304_GroupProjectHandout.pdf",
+    "fileType": "",
+    "fileSizeKB": 0,
+    "uploadedAt": "2026-04-11"
+  },
+  "academic": {
+    "gpa": 0.0,
+    "completedCourses": []
+  },
+  "permissions": {
+    "canBrowseJobs": true,
+    "canApplyJob": true,
+    "canManageJob": false,
+    "canManageUsers": false,
+    "canViewOwnApplications": true,
+    "canUploadCV": true,
+    "canEditOwnProfile": true,
+    "canReviewApplication": false
+  },
+  "meta": {
+    "createdAt": "2026-04-11T19:34:47.603649400",
+    "isDeleted": false,
+    "isActive": true,
+    "updatedAt": "2026-04-11T19:37:56.1584157"
+  },
+  "profile": {
+    "fullName": "Marcus Garcia",
+    "studentId": "20230124",
+    "year": "2nd Year",
+    "programMajor": "Mathematics",
+    "department": "",
+    "phoneNumber": "13241111111",
+    "address": "",
+    "shortBio": ""
+  },
+  "userId": "u_ta_20230012",
+  "account": {
+    "password": "QQ123456",
+    "lastLoginAt": "2026-04-11T19:34:47.603649400",
+    "email": "marcus.garcia@university.edu",
+    "passwordHash": "hashed_20230124",
+    "username": "20230124",
+    "status": "active"
+  },
+  "dashboard": {
+    "profileCompletion": 100,
+    "onboardingCompleted": true
+  },
+  "applicationSummary": {
+    "underReview": 0,
+    "rejected": 0,
+    "pending": 0,
+    "accepted": 0,
+    "totalApplications": 0
+  }
+}

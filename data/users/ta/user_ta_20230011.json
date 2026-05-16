@@ -1,0 +1,198 @@
+{
+  "skills": {
+    "proficiencyLevels": [
+      "Beginner",
+      "Intermediate",
+      "Advanced"
+    ],
+    "taSkillPool": {
+      "technicalSkills": {
+        "programmingAndSoftwareFundamentals": [
+          {
+            "name": "Java",
+            "selected": false,
+            "proficiency": null
+          },
+          {
+            "name": "Python",
+            "selected": true,
+            "proficiency": "Intermediate"
+          },
+          {
+            "name": "C/C++",
+            "selected": false,
+            "proficiency": null
+          },
+          {
+            "name": "SQL",
+            "selected": false,
+            "proficiency": null
+          },
+          {
+            "name": "Algorithms & Data Structures",
+            "selected": false,
+            "proficiency": null
+          },
+          {
+            "name": "Object-Oriented Programming (OOP)",
+            "selected": false,
+            "proficiency": null
+          }
+        ],
+        "hardwareAndLogicDesign": [
+          {
+            "name": "VHDL",
+            "selected": false,
+            "proficiency": null
+          },
+          {
+            "name": "Verilog",
+            "selected": false,
+            "proficiency": null
+          },
+          {
+            "name": "Digital Logic Design",
+            "selected": false,
+            "proficiency": null
+          },
+          {
+            "name": "FPGA Development & Debugging",
+            "selected": false,
+            "proficiency": null
+          }
+        ],
+        "embeddedSystemsAndLowLevelDevelopment": [
+          {
+            "name": "STM32 Development",
+            "selected": false,
+            "proficiency": null
+          },
+          {
+            "name": "FreeRTOS",
+            "selected": false,
+            "proficiency": null
+          },
+          {
+            "name": "Embedded C",
+            "selected": false,
+            "proficiency": null
+          },
+          {
+            "name": "Hardware Driver Development",
+            "selected": false,
+            "proficiency": null
+          }
+        ]
+      },
+      "engineeringAndTools": {
+        "professionalDevelopmentAndSimulationTools": [
+          {
+            "name": "Quartus Prime",
+            "selected": false,
+            "proficiency": null
+          },
+          {
+            "name": "Keil5",
+            "selected": false,
+            "proficiency": null
+          },
+          {
+            "name": "STM32CubeIDE",
+            "selected": false,
+            "proficiency": null
+          },
+          {
+            "name": "STM32CubeMX",
+            "selected": false,
+            "proficiency": null
+          },
+          {
+            "name": "CST Studio Suite",
+            "selected": false,
+            "proficiency": null
+          },
+          {
+            "name": "Matlab / Simulink",
+            "selected": false,
+            "proficiency": null
+          },
+          {
+            "name": "Cisco Packet Tracer",
+            "selected": false,
+            "proficiency": null
+          }
+        ]
+      },
+      "languageAndCommunication": {
+        "crossCulturalCommunication": [
+          {
+            "name": "English",
+            "selected": false,
+            "proficiency": null
+          }
+        ]
+      }
+    }
+  },
+  "loginId": "20230011",
+  "role": "ta",
+  "cv": {
+    "uploaded": true,
+    "originalFileName": "EBU6304_GroupProjectHandout.pdf",
+    "storedFileName": "",
+    "filePath": "data\\uploads\\profile_cv\\20230011\\EBU6304_GroupProjectHandout.pdf",
+    "fileType": "",
+    "fileSizeKB": 0,
+    "uploadedAt": "2026-04-11"
+  },
+  "academic": {
+    "gpa": 0.0,
+    "completedCourses": []
+  },
+  "permissions": {
+    "canBrowseJobs": true,
+    "canApplyJob": true,
+    "canManageJob": false,
+    "canManageUsers": false,
+    "canViewOwnApplications": true,
+    "canUploadCV": true,
+    "canEditOwnProfile": true,
+    "canReviewApplication": false
+  },
+  "meta": {
+    "createdAt": "2026-04-11T19:17:03.591000200",
+    "isDeleted": false,
+    "isActive": true,
+    "updatedAt": "2026-04-11T19:18:34.5656656"
+  },
+  "profile": {
+    "fullName": "Chloe Chen",
+    "studentId": "20240055",
+    "year": "2nd Year",
+    "programMajor": "Software Engineering",
+    "department": "",
+    "phoneNumber": "13332111111",
+    "address": "",
+    "shortBio": ""
+  },
+  "userId": "u_ta_20230011",
+  "account": {
+    "password": "QQ123456",
+    "lastLoginAt": "2026-04-11T19:17:03.591000200",
+    "email": "chloe.chen@university.edu",
+    "passwordHash": "hashed_20240055",
+    "username": "20240055",
+    "status": "active"
+  },
+  "dashboard": {
+    "profileCompletion": 100,
+    "onboardingCompleted": true
+  },
+  "applicationSummary": {
+    "underReview": 0,
+    "rejected": 0,
+    "pending": 0,
+    "accepted": 0,
+    "totalApplications": 0
+  }
+}

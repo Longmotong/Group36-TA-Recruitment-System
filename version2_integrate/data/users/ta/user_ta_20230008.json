@@ -1,0 +1,68 @@
+{
+  "skills": {
+    "programming": [],
+    "teaching": [],
+    "communication": [],
+    "other": []
+  },
+  "loginId": "20230008",
+  "role": "ta",
+  "cv": {
+    "uploaded": true,
+    "originalFileName": "Groups and TAs.pdf",
+    "storedFileName": "",
+    "filePath": "data\\uploads\\profile_cv\\20230008\\Groups and TAs.pdf",
+    "fileType": "",
+    "fileSizeKB": 0,
+    "uploadedAt": "2026-04-11"
+  },
+  "academic": {
+    "gpa": 0.0,
+    "completedCourses": []
+  },
+  "permissions": {
+    "canBrowseJobs": true,
+    "canApplyJob": true,
+    "canManageJob": false,
+    "canManageUsers": false,
+    "canViewOwnApplications": true,
+    "canUploadCV": true,
+    "canEditOwnProfile": true,
+    "canReviewApplication": false
+  },
+  "meta": {
+    "createdAt": "2026-04-11T16:30:29.485514500",
+    "isDeleted": false,
+    "isActive": true,
+    "updatedAt": "2026-04-11T17:45:27.3615355"
+  },
+  "profile": {
+    "fullName": "Alice Wong",
+    "studentId": "20220915",
+    "year": "2nd Year",
+    "programMajor": "Data Science",
+    "department": "",
+    "phoneNumber": "13111111111",
+    "address": "",
+    "shortBio": ""
+  },
+  "userId": "u_ta_20230008",
+  "account": {
+    "password": "QQ123456",
+    "lastLoginAt": "2026-04-11T16:30:29.485514500",
+    "email": "alice.wong@university.edu",
+    "passwordHash": "hashed_20220915",
+    "username": "20220915",
+    "status": "active"
+  },
+  "dashboard": {
+    "profileCompletion": 0
+  },
+  "applicationSummary": {
+    "underReview": 0,
+    "rejected": 0,
+    "pending": 0,
+    "accepted": 0,
+    "totalApplications": 0
+  }
+}
