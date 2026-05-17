@@ -15,7 +15,13 @@ public class UI_Constants {
     public static final Color WARNING_COLOR = new Color(245, 158, 11);
     public static final Color DANGER_COLOR = new Color(239, 68, 68);
     public static final Color INFO_COLOR = new Color(59, 130, 246);
-    
+
+    /** Offer pending — distinct from {@link #SUCCESS_COLOR} (accepted) and other status hues. */
+    public static final Color OFFER_PENDING_BADGE_BG = new Color(204, 251, 241);
+    public static final Color OFFER_PENDING_BADGE_FG = new Color(15, 118, 110);
+    public static final Color OFFER_PENDING_BADGE_BORDER = new Color(153, 246, 228);
+    public static final Color OFFER_PENDING_ACCENT = new Color(13, 148, 136);
+
     
     public static final Color BG_COLOR = new Color(248, 249, 250);
     public static final Color CARD_BG = Color.WHITE;

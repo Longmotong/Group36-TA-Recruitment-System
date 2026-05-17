@@ -1,6 +1,7 @@
 package TA_Job_Application_Module.pages.status;
 
 import TA_Job_Application_Module.model.Application;
+import TA_Job_Application_Module.model.ApplicationStatusCodes;
 import TA_Job_Application_Module.service.DataService;
 import TA_Job_Application_Module.ui.UI_Constants;
 import TA_Job_Application_Module.ui.UI_Helper;
@@ -23,6 +24,7 @@ public class Page_ApplicationStatus {
     private static final Color TIMELINE_LINE_RED = new Color(252, 165, 165);
     private static final Color TIMELINE_LINE_BLUE = new Color(147, 197, 253);
     private static final Color TIMELINE_LINE_YELLOW = new Color(253, 230, 138);
+    private static final Color TIMELINE_LINE_TEAL = new Color(94, 234, 212);
 
     public interface StatusCallback {
         void onBackToApplications();
@@ -151,6 +153,11 @@ public class Page_ApplicationStatus {
                 fg = new Color(5, 122, 85);
                 border = new Color(167, 243, 208);
             }
+            case "teal" -> {
+                bg = UI_Constants.OFFER_PENDING_BADGE_BG;
+                fg = UI_Constants.OFFER_PENDING_BADGE_FG;
+                border = UI_Constants.OFFER_PENDING_BADGE_BORDER;
+            }
             case "red" -> {
                 bg = new Color(254, 226, 226);
                 fg = new Color(185, 28, 28);
@@ -195,8 +202,9 @@ public class Page_ApplicationStatus {
         String cur = st.getCurrent();
         if (cur != null) {
             switch (cur.toLowerCase()) {
-                case "accepted":
                 case "offer_pending":
+                    return "teal";
+                case "accepted":
                     return "green";
                 case "rejected":
                     return "red";
@@ -273,6 +281,10 @@ public class Page_ApplicationStatus {
             case "green" -> {
                 statusDotColor = UI_Constants.SUCCESS_COLOR;
                 statusLineColor = UI_Constants.SUCCESS_COLOR;
+            }
+            case "teal" -> {
+                statusDotColor = UI_Constants.OFFER_PENDING_ACCENT;
+                statusLineColor = TIMELINE_LINE_TEAL;
             }
             case "red" -> {
                 statusDotColor = UI_Constants.DANGER_COLOR;
@@ -356,6 +368,7 @@ public class Page_ApplicationStatus {
         Color border;
         switch (ck) {
             case "green" -> { bg = new Color(236, 253, 245); fg = new Color(6, 95, 70); border = new Color(167, 243, 208); }
+            case "teal"  -> { bg = UI_Constants.OFFER_PENDING_BADGE_BG; fg = UI_Constants.OFFER_PENDING_BADGE_FG; border = UI_Constants.OFFER_PENDING_BADGE_BORDER; }
             case "red"   -> { bg = new Color(254, 242, 242); fg = new Color(153, 27, 27); border = new Color(252, 165, 165); }
             case "blue"  -> { bg = new Color(239, 246, 255); fg = new Color(29, 78, 216); border = new Color(147, 197, 253); }
             default      -> { bg = new Color(254, 252, 232); fg = new Color(161, 98, 7); border = new Color(253, 230, 138); }
@@ -401,6 +414,7 @@ public class Page_ApplicationStatus {
         Color accentColor;
         switch (colorKey != null ? colorKey : "yellow") {
             case "green" -> accentColor = UI_Constants.SUCCESS_COLOR;
+            case "teal"  -> accentColor = UI_Constants.OFFER_PENDING_ACCENT;
             case "red"   -> accentColor = UI_Constants.DANGER_COLOR;
             case "blue"  -> accentColor = UI_Constants.INFO_COLOR;
             default      -> accentColor = UI_Constants.WARNING_COLOR;
@@ -468,7 +482,7 @@ public class Page_ApplicationStatus {
 
     private JPanel buildOfferCard(Application app) {
         String cur = app.getStatus() != null ? app.getStatus().getCurrent() : "";
-        if (!"offer_pending".equalsIgnoreCase(cur)) {
+        if (!ApplicationStatusCodes.isOfferPending(cur)) {
             return new JPanel();
         }
 
@@ -513,21 +527,19 @@ public class Page_ApplicationStatus {
 
         JButton declineBtn = new JButton("Decline Offer");
         declineBtn.setFont(new Font("Segoe UI", Font.BOLD, 14));
-        declineBtn.setForeground(UI_Constants.TEXT_SECONDARY);
-        declineBtn.setBackground(Color.WHITE);
+        declineBtn.setForeground(Color.WHITE);
+        declineBtn.setBackground(UI_Constants.DANGER_COLOR);
         declineBtn.setOpaque(true);
         declineBtn.setFocusPainted(false);
-        declineBtn.setBorder(BorderFactory.createLineBorder(UI_Constants.BORDER_COLOR));
+        declineBtn.setBorderPainted(false);
         declineBtn.setCursor(new Cursor(Cursor.HAND_CURSOR));
         declineBtn.setBorder(new EmptyBorder(10, 20, 10, 20));
         declineBtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                declineBtn.setForeground(UI_Constants.DANGER_COLOR);
-                declineBtn.setBorder(BorderFactory.createLineBorder(UI_Constants.DANGER_COLOR));
+                declineBtn.setBackground(new Color(185, 28, 28));
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                declineBtn.setForeground(UI_Constants.TEXT_SECONDARY);
-                declineBtn.setBorder(BorderFactory.createLineBorder(UI_Constants.BORDER_COLOR));
+                declineBtn.setBackground(UI_Constants.DANGER_COLOR);
             }
         });
         declineBtn.addActionListener(e -> {

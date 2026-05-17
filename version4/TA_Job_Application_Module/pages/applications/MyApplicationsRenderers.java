@@ -50,8 +50,8 @@ public final class MyApplicationsRenderers {
             Color bg;
             Color fg;
             if (key.contains("offer") && key.contains("pending")) {
-                bg = new Color(209, 250, 229);
-                fg = new Color(5, 122, 85);
+                bg = UI_Constants.OFFER_PENDING_BADGE_BG;
+                fg = UI_Constants.OFFER_PENDING_BADGE_FG;
             } else if (key.contains("pending")) {
                 bg = new Color(254, 243, 199);
                 fg = new Color(180, 83, 9);

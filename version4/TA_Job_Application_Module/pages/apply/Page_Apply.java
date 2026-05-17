@@ -3,6 +3,7 @@ package TA_Job_Application_Module.pages.apply;
 import TA_Job_Application_Module.model.Application;
 import TA_Job_Application_Module.model.Job;
 import TA_Job_Application_Module.model.TAUser;
+import TA_Job_Application_Module.pages.jobs.JobsPortalUi;
 import TA_Job_Application_Module.service.DataService;
 import TA_Job_Application_Module.ui.UI_Constants;
 import TA_Job_Application_Module.ui.UI_Helper;
@@ -11,14 +12,14 @@ import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.io.File;
-import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-
-
-
+/**
+ * Apply form (classic centered column layout). Purple accents on titles and primary/secondary actions
+ * align with the TA portal theme ({@link JobsPortalUi}).
+ */
 public class Page_Apply {
 
     private static final int FORM_MAX_WIDTH = 880;
@@ -26,17 +27,15 @@ public class Page_Apply {
     private static final Color POSITION_HEADER_BORDER = new Color(191, 219, 254);
     private static final Color HINT_BANNER_BG = new Color(254, 252, 232);
     private static final Color HINT_BANNER_BORDER = new Color(253, 230, 138);
+    /** Main page / section titles — portal purple. */
+    private static final Color TITLE_PURPLE = JobsPortalUi.PURPLE_800;
 
     private static String getCvUploadBase() {
         String binDir = System.getProperty("user.dir");
         return binDir + File.separator + "data" + File.separator + "uploads"
-            + File.separator + "profile_cv";
+                + File.separator + "profile_cv";
     }
 
-    /**
-     * Modal message with English "OK" and centered on the application window
-     * (default JOptionPane follows system locale for the button and can align oddly).
-     */
     private static void showCenteredMessage(Component anchor, String message, String title, int messageType) {
         showCenteredMessage(anchor, message, title, messageType, "OK");
     }
@@ -107,8 +106,9 @@ public class Page_Apply {
 
         JButton backBtn = new JButton("\u2190 Back to Job Detail");
         backBtn.setFont(new Font("Segoe UI", Font.PLAIN, 14));
-        backBtn.setForeground(UI_Constants.TEXT_SECONDARY);
+        backBtn.setForeground(JobsPortalUi.PURPLE_600);
         backBtn.setContentAreaFilled(false);
+        backBtn.setBorderPainted(false);
         backBtn.setBorder(new EmptyBorder(0, 0, 8, 0));
         backBtn.setCursor(new Cursor(Cursor.HAND_CURSOR));
         backBtn.setAlignmentX(Component.LEFT_ALIGNMENT);
@@ -117,7 +117,7 @@ public class Page_Apply {
 
         JLabel pageTitle = new JLabel("Apply for Job");
         pageTitle.setFont(new Font("Segoe UI", Font.BOLD, 28));
-        pageTitle.setForeground(UI_Constants.TEXT_PRIMARY);
+        pageTitle.setForeground(TITLE_PURPLE);
         pageTitle.setAlignmentX(Component.LEFT_ALIGNMENT);
         pageTitle.setBorder(new EmptyBorder(0, 0, 20, 0));
         column.add(pageTitle);
@@ -127,8 +127,8 @@ public class Page_Apply {
         mainCard.setBackground(UI_Constants.CARD_BG);
         mainCard.setAlignmentX(Component.LEFT_ALIGNMENT);
         mainCard.setBorder(BorderFactory.createCompoundBorder(
-            BorderFactory.createLineBorder(UI_Constants.BORDER_COLOR, 1),
-            BorderFactory.createEmptyBorder(0, 0, 24, 0)
+                BorderFactory.createLineBorder(UI_Constants.BORDER_COLOR, 1),
+                BorderFactory.createEmptyBorder(0, 0, 24, 0)
         ));
         mainCard.setMaximumSize(new Dimension(Integer.MAX_VALUE, Integer.MAX_VALUE));
 
@@ -145,11 +145,11 @@ public class Page_Apply {
         hintCard.setOpaque(true);
         hintCard.setBackground(HINT_BANNER_BG);
         hintCard.setBorder(BorderFactory.createCompoundBorder(
-            BorderFactory.createLineBorder(HINT_BANNER_BORDER, 1),
-            new EmptyBorder(12, 14, 12, 14)
+                BorderFactory.createLineBorder(HINT_BANNER_BORDER, 1),
+                new EmptyBorder(12, 14, 12, 14)
         ));
         JLabel hintText = new JLabel(
-            "<html><b>Note:</b> Your profile data, skills, and CV have been pre-filled. You may edit anything before submitting.</html>");
+                "<html><b>Note:</b> Your profile data, skills, and CV have been pre-filled. You may edit anything before submitting.</html>");
         hintText.setFont(new Font("Segoe UI", Font.PLAIN, 13));
         hintText.setForeground(UI_Constants.TEXT_SECONDARY);
         hintCard.add(hintText, BorderLayout.CENTER);
@@ -165,7 +165,7 @@ public class Page_Apply {
 
         JLabel sectionTitle = new JLabel("Application Information");
         sectionTitle.setFont(new Font("Segoe UI", Font.BOLD, 18));
-        sectionTitle.setForeground(UI_Constants.TEXT_PRIMARY);
+        sectionTitle.setForeground(TITLE_PURPLE);
         sectionTitle.setAlignmentX(Component.LEFT_ALIGNMENT);
         body.add(sectionTitle);
         body.add(Box.createVerticalStrut(16));
@@ -193,26 +193,26 @@ public class Page_Apply {
 
         JTextArea skillsArea = UI_Helper.createTextArea(4);
         body.add(createLabeledArea("Relevant Skills *",
-            "e.g., Java, Python, Data Structures", skillsArea));
+                "e.g., Java, Python, Data Structures", skillsArea));
         skillsArea.setText(formatUserSkills(currentUser));
 
         body.add(Box.createVerticalStrut(14));
 
         JTextArea experienceArea = UI_Helper.createTextArea(5);
         body.add(createLabeledArea("Relevant Experience *",
-            "Describe TA/grading experience, projects, etc.", experienceArea));
+                "Describe TA/grading experience, projects, etc.", experienceArea));
 
         body.add(Box.createVerticalStrut(14));
 
         JTextArea availabilityArea = UI_Helper.createTextArea(3);
         body.add(createLabeledArea("Availability *",
-            "e.g., Monday/Wednesday 10am-12pm", availabilityArea));
+                "e.g., Monday/Wednesday 10am-12pm", availabilityArea));
 
         body.add(Box.createVerticalStrut(14));
 
         JTextArea motivationArea = UI_Helper.createTextArea(6);
         body.add(createLabeledArea("Motivation / Cover Letter *",
-            "Why this position and why you are a good fit", motivationArea));
+                "Why this position and why you are a good fit", motivationArea));
 
         body.add(Box.createVerticalStrut(20));
 
@@ -223,18 +223,11 @@ public class Page_Apply {
         body.add(resumeTitle);
         body.add(Box.createVerticalStrut(8));
 
-        // 检查用户是否已在profile中上传过CV
         TAUser.CV userCv = currentUser.getCv();
-        boolean hasExistingCv = userCv != null && userCv.isUploaded() && 
-                                userCv.getOriginalFileName() != null && 
-                                !userCv.getOriginalFileName().isEmpty();
-        
-        
-        String loginId = currentUser.getLoginId();
-        if (loginId == null || loginId.isEmpty()) {
-            loginId = currentUser.getProfile().getStudentId();
-        }
-        
+        boolean hasExistingCv = userCv != null && userCv.isUploaded() &&
+                userCv.getOriginalFileName() != null &&
+                !userCv.getOriginalFileName().isEmpty();
+
         String cvHint;
         String cvTopLine;
         boolean showGreenStyle = hasExistingCv;
@@ -245,7 +238,7 @@ public class Page_Apply {
             cvTopLine = "No CV uploaded yet";
             cvHint = "Click to upload your CV";
         }
-        
+
         JPanel resumeBox = createUploadBox(cvTopLine, cvHint, showGreenStyle);
         resumeBox.setAlignmentX(Component.LEFT_ALIGNMENT);
         resumeBox.setMaximumSize(new Dimension(Integer.MAX_VALUE, 120));
@@ -261,8 +254,8 @@ public class Page_Apply {
         body.add(Box.createVerticalStrut(8));
 
         JPanel supportBox = createUploadBox(
-            "Transcripts, certificates, or other documents",
-            "Click to upload"
+                "Transcripts, certificates, or other documents",
+                "Click to upload"
         );
         supportBox.setAlignmentX(Component.LEFT_ALIGNMENT);
         supportBox.setMaximumSize(new Dimension(Integer.MAX_VALUE, 120));
@@ -274,23 +267,12 @@ public class Page_Apply {
         btnRow.setOpaque(false);
         btnRow.setAlignmentX(Component.LEFT_ALIGNMENT);
 
-        JButton submitBtn = new JButton("Submit Application");
-        submitBtn.setFont(new Font("Segoe UI", Font.BOLD, 15));
-        submitBtn.setForeground(Color.WHITE);
-        submitBtn.setBackground(UI_Constants.DARK_BUTTON);
-        submitBtn.setOpaque(true);
-        submitBtn.setFocusPainted(false);
-        submitBtn.setBorderPainted(false);
-        submitBtn.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        submitBtn.setBorder(new EmptyBorder(12, 28, 12, 28));
-        submitBtn.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                submitBtn.setBackground(UI_Constants.DARK_BUTTON_HOVER);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                submitBtn.setBackground(UI_Constants.DARK_BUTTON);
-            }
-        });
+        JobsPortalUi.OutlinePurpleButton saveDraftBtn = JobsPortalUi.outlineButton(
+                "Save as Draft", new Font("Segoe UI", Font.BOLD, 14));
+        JobsPortalUi.PurpleGradientButton submitBtn = JobsPortalUi.gradientButton(
+                "Submit Application", new Font("Segoe UI", Font.BOLD, 15));
+        JobsPortalUi.OutlinePurpleButton cancelBtn = JobsPortalUi.outlineButton(
+                "Cancel", new Font("Segoe UI", Font.BOLD, 14));
 
         final String[] selectedCvPath = {null};
         if (hasExistingCv && userCv.getFilePath() != null && !userCv.getFilePath().isBlank()) {
@@ -298,22 +280,18 @@ public class Page_Apply {
         }
         final List<String> selectedSupportPaths = new ArrayList<>();
 
-        JButton saveDraftBtn = UI_Helper.createSecondaryButton("Save as Draft");
-        saveDraftBtn.setFont(new Font("Segoe UI", Font.BOLD, 14));
         saveDraftBtn.addActionListener(ev -> {
             Application draftApp = buildApplicationFromForm(job, fullNameField, studentIdField,
-                emailField, phoneField, programField, gpaField, skillsArea,
-                experienceArea, availabilityArea, motivationArea, selectedCvPath, selectedSupportPaths);
+                    emailField, phoneField, programField, gpaField, skillsArea,
+                    experienceArea, availabilityArea, motivationArea, selectedCvPath, selectedSupportPaths);
             draftApp.setDraft(true);
             dataService.saveDraft(draftApp, job);
             showCenteredMessage(panel,
-                "Draft saved successfully.\n\nYou can continue editing or submit later from My Applications - Drafts.",
-                "Draft Saved", JOptionPane.INFORMATION_MESSAGE);
+                    "Draft saved successfully.\n\nYou can continue editing or submit later from My Applications - Drafts.",
+                    "Draft Saved", JOptionPane.INFORMATION_MESSAGE);
             callback.onDraftSaved();
         });
 
-        JButton cancelBtn = UI_Helper.createSecondaryButton("Cancel");
-        cancelBtn.setFont(new Font("Segoe UI", Font.BOLD, 14));
         cancelBtn.addActionListener(e -> callback.onBackToJobDetail(job));
 
         btnRow.add(saveDraftBtn);
@@ -360,34 +338,34 @@ public class Page_Apply {
         submitBtn.addActionListener(e -> {
             if (dataService.hasAppliedToJob(job.getJobId())) {
                 showCenteredMessage(panel,
-                    "You have already submitted an application for this position.\n\nPlease check your application status in 'My Applications'.",
-                    "Already Applied", JOptionPane.INFORMATION_MESSAGE);
+                        "You have already submitted an application for this position.\n\nPlease check your application status in 'My Applications'.",
+                        "Already Applied", JOptionPane.INFORMATION_MESSAGE);
                 return;
             }
 
             if (fullNameField.getText().trim().isEmpty()
-                || studentIdField.getText().trim().isEmpty()
-                || emailField.getText().trim().isEmpty()
-                || phoneField.getText().trim().isEmpty()
-                || programField.getText().trim().isEmpty()
-                || skillsArea.getText().trim().isEmpty()
-                || experienceArea.getText().trim().isEmpty()
-                || availabilityArea.getText().trim().isEmpty()
-                || motivationArea.getText().trim().isEmpty()) {
+                    || studentIdField.getText().trim().isEmpty()
+                    || emailField.getText().trim().isEmpty()
+                    || phoneField.getText().trim().isEmpty()
+                    || programField.getText().trim().isEmpty()
+                    || skillsArea.getText().trim().isEmpty()
+                    || experienceArea.getText().trim().isEmpty()
+                    || availabilityArea.getText().trim().isEmpty()
+                    || motivationArea.getText().trim().isEmpty()) {
                 showCenteredMessage(panel, "Please fill in all required fields (*) before submitting.",
-                    "Missing Information", JOptionPane.WARNING_MESSAGE);
+                        "Missing Information", JOptionPane.WARNING_MESSAGE);
                 return;
             }
 
             Application app = buildApplicationFromForm(job, fullNameField, studentIdField,
-                emailField, phoneField, programField, gpaField, skillsArea,
-                experienceArea, availabilityArea, motivationArea, selectedCvPath, selectedSupportPaths);
+                    emailField, phoneField, programField, gpaField, skillsArea,
+                    experienceArea, availabilityArea, motivationArea, selectedCvPath, selectedSupportPaths);
 
             dataService.addApplication(app);
 
             showCenteredMessage(panel,
-                "Application submitted successfully!\n\nYou can track your application status in 'My Applications'.",
-                "Success", JOptionPane.INFORMATION_MESSAGE);
+                    "Application submitted successfully!\n\nYou can track your application status in 'My Applications'.",
+                    "Success", JOptionPane.INFORMATION_MESSAGE);
 
             callback.onSubmitSuccess();
         });
@@ -402,15 +380,15 @@ public class Page_Apply {
         wrap.setOpaque(true);
         wrap.setBackground(POSITION_HEADER_BG);
         wrap.setBorder(BorderFactory.createCompoundBorder(
-            BorderFactory.createMatteBorder(0, 0, 1, 0, POSITION_HEADER_BORDER),
-            new EmptyBorder(18, 24, 18, 24)
+                BorderFactory.createMatteBorder(0, 0, 1, 0, POSITION_HEADER_BORDER),
+                new EmptyBorder(18, 24, 18, 24)
         ));
         wrap.setAlignmentX(Component.LEFT_ALIGNMENT);
         wrap.setMaximumSize(new Dimension(Integer.MAX_VALUE, 200));
 
         JLabel tag = new JLabel("Position Details");
         tag.setFont(new Font("Segoe UI", Font.BOLD, 12));
-        tag.setForeground(UI_Constants.INFO_COLOR);
+        tag.setForeground(JobsPortalUi.PURPLE_600);
         tag.setAlignmentX(Component.LEFT_ALIGNMENT);
         wrap.add(tag);
         wrap.add(Box.createVerticalStrut(8));
@@ -459,14 +437,15 @@ public class Page_Apply {
             return raw;
         }
         String[] months = {"January", "February", "March", "April", "May", "June",
-            "July", "August", "September", "October", "November", "December"};
+                "July", "August", "September", "October", "November", "December"};
         try {
             int m = Integer.parseInt(p[1]);
             int d = Integer.parseInt(p[2]);
             if (m >= 1 && m <= 12) {
                 return months[m - 1] + " " + d + ", " + p[0];
             }
-        } catch (NumberFormatException ignored) { }
+        } catch (NumberFormatException ignored) {
+        }
         return raw;
     }
 
@@ -491,8 +470,8 @@ public class Page_Apply {
         JTextField field = new JTextField(value == null ? "" : value);
         field.setFont(new Font("Segoe UI", Font.PLAIN, 14));
         field.setBorder(BorderFactory.createCompoundBorder(
-            BorderFactory.createLineBorder(UI_Constants.BORDER_COLOR),
-            new EmptyBorder(8, 10, 8, 10)
+                BorderFactory.createLineBorder(UI_Constants.BORDER_COLOR),
+                new EmptyBorder(8, 10, 8, 10)
         ));
         return field;
     }
@@ -528,8 +507,8 @@ public class Page_Apply {
         wrap.add(hintLbl);
 
         area.setBorder(BorderFactory.createCompoundBorder(
-            BorderFactory.createLineBorder(UI_Constants.BORDER_COLOR),
-            new EmptyBorder(8, 10, 8, 10)
+                BorderFactory.createLineBorder(UI_Constants.BORDER_COLOR),
+                new EmptyBorder(8, 10, 8, 10)
         ));
         area.setAlignmentX(Component.LEFT_ALIGNMENT);
         wrap.add(area);
@@ -543,18 +522,18 @@ public class Page_Apply {
     private JPanel createUploadBox(String topLine, String bottomLine, boolean isUploaded) {
         JPanel box = new JPanel(new BorderLayout(12, 0));
         box.setOpaque(true);
-        
+
         if (isUploaded) {
             box.setBackground(new Color(240, 252, 240));
             box.setBorder(BorderFactory.createCompoundBorder(
-                BorderFactory.createLineBorder(new Color(198, 226, 198), 1),
-                new EmptyBorder(16, 18, 16, 18)
+                    BorderFactory.createLineBorder(new Color(198, 226, 198), 1),
+                    new EmptyBorder(16, 18, 16, 18)
             ));
         } else {
             box.setBackground(Color.WHITE);
             box.setBorder(BorderFactory.createCompoundBorder(
-                BorderFactory.createDashedBorder(UI_Constants.BORDER_COLOR, 8, 4, 2, false),
-                new EmptyBorder(16, 18, 16, 18)
+                    BorderFactory.createDashedBorder(UI_Constants.BORDER_COLOR, 8, 4, 2, false),
+                    new EmptyBorder(16, 18, 16, 18)
             ));
         }
 
@@ -575,8 +554,7 @@ public class Page_Apply {
 
         box.add(center, BorderLayout.CENTER);
 
-        JButton pick = UI_Helper.createSecondaryButton("Choose file");
-        pick.setFont(new Font("Segoe UI", Font.BOLD, 13));
+        JButton pick = JobsPortalUi.outlineButton("Choose file", new Font("Segoe UI", Font.BOLD, 13));
         box.add(pick, BorderLayout.EAST);
 
         box.putClientProperty("pickButton", pick);
@@ -584,7 +562,6 @@ public class Page_Apply {
         return box;
     }
 
-    
     private Application buildApplicationFromForm(Job job, JTextField fullNameField,
             JTextField studentIdField, JTextField emailField, JTextField phoneField,
             JTextField programField, JTextField gpaField, JTextArea skillsArea,
@@ -624,7 +601,8 @@ public class Page_Apply {
         if (gpaField != null && !gpaField.getText().trim().isEmpty()) {
             try {
                 appSnap.setGpa(Double.parseDouble(gpaField.getText().trim()));
-            } catch (NumberFormatException ignored) { }
+            } catch (NumberFormatException ignored) {
+            }
         }
         app.setApplicantSnapshot(appSnap);
 
@@ -633,9 +611,15 @@ public class Page_Apply {
             String[] skills = skillsArea.getText().split(",");
             appForm.setRelevantSkills(Arrays.stream(skills).map(String::trim).filter(s -> !s.isEmpty()).toList());
         }
-        if (experienceArea != null) appForm.setRelevantExperience(experienceArea.getText().trim());
-        if (availabilityArea != null) appForm.setAvailability(availabilityArea.getText().trim());
-        if (motivationArea != null) appForm.setMotivationCoverLetter(motivationArea.getText().trim());
+        if (experienceArea != null) {
+            appForm.setRelevantExperience(experienceArea.getText().trim());
+        }
+        if (availabilityArea != null) {
+            appForm.setAvailability(availabilityArea.getText().trim());
+        }
+        if (motivationArea != null) {
+            appForm.setMotivationCoverLetter(motivationArea.getText().trim());
+        }
         app.setApplicationForm(appForm);
 
         Application.Attachments at = ApplyAttachmentService.buildAttachments(
@@ -650,7 +634,6 @@ public class Page_Apply {
         return app;
     }
 
-    
     private void buildContentForDraft(Job job, Application draft) {
         panel.removeAll();
 
@@ -662,8 +645,9 @@ public class Page_Apply {
 
         JButton backBtn = new JButton("\u2190 Back to My Applications");
         backBtn.setFont(new Font("Segoe UI", Font.PLAIN, 14));
-        backBtn.setForeground(UI_Constants.TEXT_SECONDARY);
+        backBtn.setForeground(JobsPortalUi.PURPLE_600);
         backBtn.setContentAreaFilled(false);
+        backBtn.setBorderPainted(false);
         backBtn.setBorder(new EmptyBorder(0, 0, 8, 0));
         backBtn.setCursor(new Cursor(Cursor.HAND_CURSOR));
         backBtn.setAlignmentX(Component.LEFT_ALIGNMENT);
@@ -672,7 +656,7 @@ public class Page_Apply {
 
         JLabel pageTitle = new JLabel("Continue Editing Draft");
         pageTitle.setFont(new Font("Segoe UI", Font.BOLD, 28));
-        pageTitle.setForeground(UI_Constants.TEXT_PRIMARY);
+        pageTitle.setForeground(TITLE_PURPLE);
         pageTitle.setAlignmentX(Component.LEFT_ALIGNMENT);
         pageTitle.setBorder(new EmptyBorder(0, 0, 20, 0));
         column.add(pageTitle);
@@ -682,8 +666,8 @@ public class Page_Apply {
         mainCard.setBackground(UI_Constants.CARD_BG);
         mainCard.setAlignmentX(Component.LEFT_ALIGNMENT);
         mainCard.setBorder(BorderFactory.createCompoundBorder(
-            BorderFactory.createLineBorder(UI_Constants.BORDER_COLOR, 1),
-            BorderFactory.createEmptyBorder(0, 0, 24, 0)
+                BorderFactory.createLineBorder(UI_Constants.BORDER_COLOR, 1),
+                BorderFactory.createEmptyBorder(0, 0, 24, 0)
         ));
         mainCard.setMaximumSize(new Dimension(Integer.MAX_VALUE, Integer.MAX_VALUE));
 
@@ -696,7 +680,35 @@ public class Page_Apply {
         body.setBorder(new EmptyBorder(0, 24, 0, 24));
         body.setAlignmentX(Component.LEFT_ALIGNMENT);
 
-        
+        JPanel hintCard = new JPanel(new BorderLayout());
+        hintCard.setOpaque(true);
+        hintCard.setBackground(HINT_BANNER_BG);
+        hintCard.setBorder(BorderFactory.createCompoundBorder(
+                BorderFactory.createLineBorder(HINT_BANNER_BORDER, 1),
+                new EmptyBorder(12, 14, 12, 14)
+        ));
+        JLabel hintText = new JLabel(
+                "<html><b>Note:</b> Your profile data, skills, and CV have been pre-filled. You may edit anything before submitting.</html>");
+        hintText.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+        hintText.setForeground(UI_Constants.TEXT_SECONDARY);
+        hintCard.add(hintText, BorderLayout.CENTER);
+
+        JPanel hintRow = new JPanel(new BorderLayout());
+        hintRow.setOpaque(false);
+        hintRow.setAlignmentX(Component.LEFT_ALIGNMENT);
+        hintRow.setMaximumSize(new Dimension(Integer.MAX_VALUE, Integer.MAX_VALUE));
+        hintRow.add(hintCard, BorderLayout.CENTER);
+        body.add(hintRow);
+
+        body.add(Box.createVerticalStrut(22));
+
+        JLabel sectionTitle = new JLabel("Application Information");
+        sectionTitle.setFont(new Font("Segoe UI", Font.BOLD, 18));
+        sectionTitle.setForeground(TITLE_PURPLE);
+        sectionTitle.setAlignmentX(Component.LEFT_ALIGNMENT);
+        body.add(sectionTitle);
+        body.add(Box.createVerticalStrut(16));
+
         Application.ApplicantSnapshot snap = draft.getApplicantSnapshot();
         String fullName = snap != null && snap.getFullName() != null ? snap.getFullName() : currentUser.getProfile().getFullName();
         String studentId = snap != null && snap.getStudentId() != null ? snap.getStudentId() : currentUser.getProfile().getStudentId();
@@ -763,26 +775,16 @@ public class Page_Apply {
         body.add(resumeTitle);
         body.add(Box.createVerticalStrut(8));
 
-        
         TAUser.CV userCv = currentUser.getCv();
-        boolean hasExistingCv = userCv != null && userCv.isUploaded() && 
-                                userCv.getOriginalFileName() != null && 
-                                !userCv.getOriginalFileName().isEmpty();
-        
-        
-        String loginId = currentUser.getLoginId();
-        if (loginId == null || loginId.isEmpty()) {
-            loginId = currentUser.getProfile().getStudentId();
-        }
-        
-        
+        boolean hasExistingCv = userCv != null && userCv.isUploaded() &&
+                userCv.getOriginalFileName() != null &&
+                !userCv.getOriginalFileName().isEmpty();
+
         String draftCvFileName = null;
-        String draftCvPath = null;
         if (draft.getAttachments() != null && draft.getAttachments().getCv() != null) {
             draftCvFileName = draft.getAttachments().getCv().getOriginalFileName();
-            draftCvPath = draft.getAttachments().getCv().getFilePath();
         }
-        
+
         String cvHint;
         String cvTopLine;
         boolean showGreenStyle = (draftCvFileName != null && !draftCvFileName.isEmpty()) || hasExistingCv;
@@ -796,7 +798,7 @@ public class Page_Apply {
             cvTopLine = "No CV uploaded yet";
             cvHint = "Click to upload your CV";
         }
-        
+
         JPanel resumeBox = createUploadBox(cvTopLine, cvHint, showGreenStyle);
         resumeBox.setAlignmentX(Component.LEFT_ALIGNMENT);
         resumeBox.setMaximumSize(new Dimension(Integer.MAX_VALUE, 120));
@@ -812,7 +814,7 @@ public class Page_Apply {
         body.add(Box.createVerticalStrut(8));
 
         int prevDocs = draft.getAttachments() != null && draft.getAttachments().getSupportingDocuments() != null
-            ? draft.getAttachments().getSupportingDocuments().size() : 0;
+                ? draft.getAttachments().getSupportingDocuments().size() : 0;
         String supportHint = prevDocs > 0 ? prevDocs + " file(s) previously selected" : "Transcripts, certificates, or other documents";
         JPanel supportBox = createUploadBox("Transcripts, certificates, or other documents", supportHint);
         supportBox.setAlignmentX(Component.LEFT_ALIGNMENT);
@@ -825,44 +827,12 @@ public class Page_Apply {
         btnRow.setOpaque(false);
         btnRow.setAlignmentX(Component.LEFT_ALIGNMENT);
 
-        
-        JButton submitBtn = new JButton("Submit Application");
-        submitBtn.setFont(new Font("Segoe UI", Font.BOLD, 15));
-        submitBtn.setForeground(Color.WHITE);
-        submitBtn.setBackground(UI_Constants.DARK_BUTTON);
-        submitBtn.setOpaque(true);
-        submitBtn.setFocusPainted(false);
-        submitBtn.setBorderPainted(false);
-        submitBtn.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        submitBtn.setBorder(new EmptyBorder(12, 28, 12, 28));
-        submitBtn.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                submitBtn.setBackground(UI_Constants.DARK_BUTTON_HOVER);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                submitBtn.setBackground(UI_Constants.DARK_BUTTON);
-            }
-        });
-
-        
-        JButton saveDraftBtn = UI_Helper.createSecondaryButton("Save Draft");
-        saveDraftBtn.setFont(new Font("Segoe UI", Font.BOLD, 14));
-        saveDraftBtn.addActionListener(ev -> {
-            Application draftApp = buildApplicationFromForm(job, fullNameField, studentIdField,
-                emailField, phoneField, programField, gpaField, skillsArea,
-                experienceArea, availabilityArea, motivationArea, null, null);
-            draftApp.setDraft(true);
-            String savedId = dataService.saveDraft(draftApp, job);
-            currentDraftId = savedId;
-            showCenteredMessage(panel,
-                "Draft saved successfully.\n\nYou can continue editing or submit later from My Applications - Drafts.",
-                "Draft Saved", JOptionPane.INFORMATION_MESSAGE);
-            callback.onDraftSaved();
-        });
-
-        JButton cancelBtn = UI_Helper.createSecondaryButton("Cancel");
-        cancelBtn.setFont(new Font("Segoe UI", Font.BOLD, 14));
-        cancelBtn.addActionListener(e -> callback.onBackToJobDetail(job));
+        JobsPortalUi.OutlinePurpleButton saveDraftBtn = JobsPortalUi.outlineButton(
+                "Save Draft", new Font("Segoe UI", Font.BOLD, 14));
+        JobsPortalUi.PurpleGradientButton submitBtn = JobsPortalUi.gradientButton(
+                "Submit Application", new Font("Segoe UI", Font.BOLD, 15));
+        JobsPortalUi.OutlinePurpleButton cancelBtn = JobsPortalUi.outlineButton(
+                "Cancel", new Font("Segoe UI", Font.BOLD, 14));
 
         btnRow.add(saveDraftBtn);
         btnRow.add(submitBtn);
@@ -922,38 +892,52 @@ public class Page_Apply {
             }
         });
 
+        saveDraftBtn.addActionListener(ev -> {
+            Application draftApp = buildApplicationFromForm(job, fullNameField, studentIdField,
+                    emailField, phoneField, programField, gpaField, skillsArea,
+                    experienceArea, availabilityArea, motivationArea, null, null);
+            draftApp.setDraft(true);
+            String savedId = dataService.saveDraft(draftApp, job);
+            currentDraftId = savedId;
+            showCenteredMessage(panel,
+                    "Draft saved successfully.\n\nYou can continue editing or submit later from My Applications - Drafts.",
+                    "Draft Saved", JOptionPane.INFORMATION_MESSAGE);
+            callback.onDraftSaved();
+        });
+
+        cancelBtn.addActionListener(e -> callback.onBackToJobDetail(job));
+
         submitBtn.addActionListener(e -> {
             if (dataService.hasAppliedToJob(job.getJobId())) {
                 showCenteredMessage(panel,
-                    "You have already submitted an application for this position.",
-                    "Already Applied", JOptionPane.INFORMATION_MESSAGE);
+                        "You have already submitted an application for this position.",
+                        "Already Applied", JOptionPane.INFORMATION_MESSAGE);
                 return;
             }
 
             if (fullNameField.getText().trim().isEmpty()
-                || studentIdField.getText().trim().isEmpty()
-                || emailField.getText().trim().isEmpty()
-                || phoneField.getText().trim().isEmpty()
-                || programField.getText().trim().isEmpty()
-                || skillsArea.getText().trim().isEmpty()
-                || experienceArea.getText().trim().isEmpty()
-                || availabilityArea.getText().trim().isEmpty()
-                || motivationArea.getText().trim().isEmpty()) {
+                    || studentIdField.getText().trim().isEmpty()
+                    || emailField.getText().trim().isEmpty()
+                    || phoneField.getText().trim().isEmpty()
+                    || programField.getText().trim().isEmpty()
+                    || skillsArea.getText().trim().isEmpty()
+                    || experienceArea.getText().trim().isEmpty()
+                    || availabilityArea.getText().trim().isEmpty()
+                    || motivationArea.getText().trim().isEmpty()) {
                 showCenteredMessage(panel, "Please fill in all required fields (*) before submitting.",
-                    "Missing Information", JOptionPane.WARNING_MESSAGE);
+                        "Missing Information", JOptionPane.WARNING_MESSAGE);
                 return;
             }
 
-            
             dataService.deleteDraft(currentDraftId);
             Application app = buildApplicationFromForm(job, fullNameField, studentIdField,
-                emailField, phoneField, programField, gpaField, skillsArea,
-                experienceArea, availabilityArea, motivationArea, selectedCvPath, selectedSupportPaths);
+                    emailField, phoneField, programField, gpaField, skillsArea,
+                    experienceArea, availabilityArea, motivationArea, selectedCvPath, selectedSupportPaths);
             dataService.addApplication(app);
 
             showCenteredMessage(panel,
-                "Application submitted successfully!",
-                "Success", JOptionPane.INFORMATION_MESSAGE);
+                    "Application submitted successfully!",
+                    "Success", JOptionPane.INFORMATION_MESSAGE);
             callback.onSubmitSuccess();
         });
 
@@ -961,4 +945,3 @@ public class Page_Apply {
         panel.repaint();
     }
 }
-

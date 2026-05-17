@@ -1,6 +1,7 @@
 package TA_Job_Application_Module.service;
 
 import TA_Job_Application_Module.model.Application;
+import TA_Job_Application_Module.model.ApplicationStatusCodes;
 import TA_Job_Application_Module.model.Job;
 import TA_Job_Application_Module.model.JobMatchResult;
 import TA_Job_Application_Module.model.TAUser;
@@ -1513,7 +1514,7 @@ public class DataService {
             return false;
         }
         String cur = app.getStatus() != null ? app.getStatus().getCurrent() : "";
-        if (!"pending".equalsIgnoreCase(cur) && !"offer_pending".equalsIgnoreCase(cur)) {
+        if (!"pending".equalsIgnoreCase(cur) && !ApplicationStatusCodes.isOfferPending(cur)) {
             return false;
         }
 
@@ -1550,7 +1551,7 @@ public class DataService {
             return false;
         }
         String cur = app.getStatus() != null ? app.getStatus().getCurrent() : "";
-        if (!"offer_pending".equalsIgnoreCase(cur)) {
+        if (!ApplicationStatusCodes.isOfferPending(cur)) {
             return false;
         }
 
@@ -1595,7 +1596,7 @@ public class DataService {
             return false;
         }
         String cur = app.getStatus() != null ? app.getStatus().getCurrent() : "";
-        if (!"offer_pending".equalsIgnoreCase(cur)) {
+        if (!ApplicationStatusCodes.isOfferPending(cur)) {
             return false;
         }
 
@@ -1628,9 +1629,17 @@ public class DataService {
     }
 
     public int countApplicationsByStatus(String status) {
+        if (ApplicationStatusCodes.OFFER_PENDING.equalsIgnoreCase(status)) {
+            return (int) getUserApplications().stream()
+                    .filter(a -> {
+                        String c = a.getStatus() != null ? a.getStatus().getCurrent() : "";
+                        return ApplicationStatusCodes.isOfferPending(c);
+                    })
+                    .count();
+        }
         return (int) getUserApplications().stream()
-            .filter(a -> status.equals(a.getStatus().getCurrent()))
-            .count();
+                .filter(a -> status.equals(a.getStatus().getCurrent()))
+                .count();
     }
 
    

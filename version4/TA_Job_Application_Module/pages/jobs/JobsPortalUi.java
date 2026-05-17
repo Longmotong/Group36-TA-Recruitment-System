@@ -193,6 +193,32 @@ public final class JobsPortalUi {
         return b;
     }
 
+    /** Red gradient primary — matches footprint of {@link PurpleGradientButton} (e.g. Withdraw). */
+    public static RedGradientButton dangerGradientButton(String text, Font font) {
+        return dangerGradientButton(text, font, null);
+    }
+
+    public static RedGradientButton dangerGradientButton(String text, Font font, Icon leadingIcon) {
+        RedGradientButton b = new RedGradientButton(text, leadingIcon);
+        if (font != null) {
+            b.setFont(font);
+        }
+        return b;
+    }
+
+    private static Dimension computeGradientPillSize(Font font, String text, Icon leadingIcon, Insets pad) {
+        JLabel scratch = new JLabel();
+        FontMetrics fm = scratch.getFontMetrics(font != null ? font : scratch.getFont());
+        String t = text != null ? text : "";
+        int tw = fm.stringWidth(t);
+        int iw = leadingIcon != null ? leadingIcon.getIconWidth() : 0;
+        int ih = leadingIcon != null ? leadingIcon.getIconHeight() : 0;
+        int gap = leadingIcon != null ? 8 : 0;
+        int w = pad.left + pad.right + iw + gap + tw + 16;
+        int h = pad.top + pad.bottom + Math.max(ih, fm.getHeight()) + 2;
+        return new Dimension(Math.max(w, 96), Math.max(h, 36));
+    }
+
     /** Rose accent — pairs with purple theme; same footprint as {@link PurpleGradientButton}. */
     public static HarmonyRoseButton roseHarmonyButton(String text, Font font) {
         HarmonyRoseButton b = new HarmonyRoseButton(text);
@@ -279,7 +305,7 @@ public final class JobsPortalUi {
             int tw = textWidthPx(g2, font, t);
             int ih = leadingIcon != null ? leadingIcon.getIconHeight() : 0;
             int iw = leadingIcon != null ? leadingIcon.getIconWidth() : 0;
-            int gap = leadingIcon != null ? 7 : 0;
+            int gap = leadingIcon != null ? 8 : 0;
             int baseline = (h - fm.getHeight()) / 2 + fm.getAscent();
             int contentW = iw + gap + tw;
             int inner = w - pad.left - pad.right;
@@ -294,6 +320,101 @@ public final class JobsPortalUi {
             g2.setFont(font);
             g2.drawString(t, startX, baseline);
             g2.dispose();
+        }
+
+        @Override
+        public Dimension getPreferredSize() {
+            return computeGradientPillSize(getFont(), getText(), leadingIcon, BUTTON_CONTENT_PAD);
+        }
+
+        @Override
+        public Dimension getMinimumSize() {
+            return getPreferredSize();
+        }
+    }
+
+    /** Red gradient pill — same layout math as {@link PurpleGradientButton}. */
+    public static final class RedGradientButton extends JButton {
+        private boolean hover;
+        private final Icon leadingIcon;
+        private static final Color RED_L = new Color(248, 113, 113);
+        private static final Color RED_R = new Color(220, 38, 38);
+        private static final Color RED_L_H = new Color(220, 38, 38);
+        private static final Color RED_R_H = new Color(185, 28, 28);
+
+        public RedGradientButton(String text, Icon leadingIcon) {
+            super(text);
+            this.leadingIcon = leadingIcon;
+            setOpaque(false);
+            setContentAreaFilled(false);
+            setBorderPainted(false);
+            setFocusPainted(false);
+            setForeground(Color.WHITE);
+            setMargin(new Insets(0, 0, 0, 0));
+            setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+            setBorder(new EmptyBorder(BUTTON_CONTENT_PAD));
+            addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseEntered(MouseEvent e) {
+                    hover = true;
+                    repaint();
+                }
+
+                @Override
+                public void mouseExited(MouseEvent e) {
+                    hover = false;
+                    repaint();
+                }
+            });
+        }
+
+        @Override
+        public void setBackground(Color bg) {
+        }
+
+        @Override
+        protected void paintComponent(Graphics g) {
+            Graphics2D g2 = (Graphics2D) g.create();
+            g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+            int w = getWidth();
+            int h = getHeight();
+            Color left = hover ? RED_L_H : RED_L;
+            Color right = hover ? RED_R_H : RED_R;
+            g2.setPaint(new GradientPaint(0, 0, left, w, h, right));
+            g2.fillRoundRect(0, 0, w, h, BUTTON_ARC, BUTTON_ARC);
+
+            Insets pad = BUTTON_CONTENT_PAD;
+            Font font = getFont();
+            FontMetrics fm = g2.getFontMetrics(font);
+            String t = getText();
+            int tw = textWidthPx(g2, font, t);
+            int ih = leadingIcon != null ? leadingIcon.getIconHeight() : 0;
+            int iw = leadingIcon != null ? leadingIcon.getIconWidth() : 0;
+            int gap = leadingIcon != null ? 8 : 0;
+            int baseline = (h - fm.getHeight()) / 2 + fm.getAscent();
+            int contentW = iw + gap + tw;
+            int inner = w - pad.left - pad.right;
+            int groupStart = pad.left + Math.max(0, (inner - contentW) / 2);
+            int startX = groupStart;
+            if (leadingIcon != null) {
+                int iy = (h - ih) / 2;
+                leadingIcon.paintIcon(this, g2, startX, iy);
+                startX += iw + gap;
+            }
+            g2.setColor(getForeground());
+            g2.setFont(font);
+            g2.drawString(t, startX, baseline);
+            g2.dispose();
+        }
+
+        @Override
+        public Dimension getPreferredSize() {
+            return computeGradientPillSize(getFont(), getText(), leadingIcon, BUTTON_CONTENT_PAD);
+        }
+
+        @Override
+        public Dimension getMinimumSize() {
+            return getPreferredSize();
         }
     }
 
@@ -459,12 +580,23 @@ public final class JobsPortalUi {
             String t = getText();
             int tw = textWidthPx(g2, font, t);
             Insets pad = BUTTON_CONTENT_PAD;
+            Icon icon = getIcon();
+            int iw = icon != null ? icon.getIconWidth() : 0;
+            int ih = icon != null ? icon.getIconHeight() : 0;
+            int gap = icon != null ? 7 : 0;
             int inner = w - pad.left - pad.right;
-            int tx = pad.left + Math.max(0, (inner - tw) / 2);
+            int contentW = iw + gap + tw;
+            int groupStart = pad.left + Math.max(0, (inner - contentW) / 2);
+            int startX = groupStart;
+            if (icon != null) {
+                int iy = (h - ih) / 2;
+                icon.paintIcon(this, g2, startX, iy);
+                startX += iw + gap;
+            }
             int baseline = (h - fm.getHeight()) / 2 + fm.getAscent();
             g2.setColor(PURPLE_600);
             g2.setFont(font);
-            g2.drawString(t, tx, baseline);
+            g2.drawString(t, startX, baseline);
             g2.dispose();
         }
     }
@@ -623,6 +755,67 @@ public final class JobsPortalUi {
                 g2.setStroke(new BasicStroke(1.35f, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND));
                 g2.drawPolygon(d);
                 g2.fillOval(cx - 2, cy - 2, 5, 5);
+                g2.dispose();
+            }
+
+            @Override
+            public int getIconWidth() {
+                return size;
+            }
+
+            @Override
+            public int getIconHeight() {
+                return size;
+            }
+        };
+    }
+
+    /** Briefcase outline for “Browse Jobs” / portal chrome. */
+    public static Icon briefcaseGlyph(Color ink, int size) {
+        return new Icon() {
+            @Override
+            public void paintIcon(Component comp, Graphics g, int x, int y) {
+                Graphics2D g2 = (Graphics2D) g.create();
+                g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+                g2.setColor(ink);
+                g2.setStroke(new BasicStroke(1.45f, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND));
+                int s = size;
+                int bx = x + Math.max(3, s / 6);
+                int bw = s - 2 * (bx - x);
+                int by = y + s / 3;
+                g2.drawRoundRect(bx, by, bw, s * 2 / 5, 3, 3);
+                g2.drawLine(x + s / 2 - 3, y + s / 3, x + s / 2 + 3, y + s / 3);
+                g2.drawArc(x + s / 2 - 4, y + s / 4, 8, 6, 0, 180);
+                g2.dispose();
+            }
+
+            @Override
+            public int getIconWidth() {
+                return size;
+            }
+
+            @Override
+            public int getIconHeight() {
+                return size;
+            }
+        };
+    }
+
+    /** Simple eye icon for “View Details”. */
+    public static Icon eyeGlyph(Color ink, int size) {
+        return new Icon() {
+            @Override
+            public void paintIcon(Component comp, Graphics g, int x, int y) {
+                Graphics2D g2 = (Graphics2D) g.create();
+                g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+                g2.setColor(ink);
+                g2.setStroke(new BasicStroke(1.5f, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND));
+                int cx = x + size / 2;
+                int cy = y + size / 2;
+                int rw = size / 2 - 2;
+                int rh = size / 3;
+                g2.drawOval(cx - rw / 2, cy - rh / 2, rw, rh);
+                g2.fillOval(cx - 2, cy - 1, 4, 3);
                 g2.dispose();
             }
 

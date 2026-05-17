@@ -27,7 +27,7 @@ public class Page_Jobs {
 
     private static final String SEARCH_PLACEHOLDER =
             "Search by job title or course code...";
-    
+
     public interface JobsCallback {
         void onViewJobDetail(Job job);
         void onGoToApplications();
@@ -1101,49 +1101,61 @@ public class Page_Jobs {
         aiRankingDetailContent.repaint();
     }
 
-    // 构建统计信息栏
     private JPanel buildStatsBar() {
-        JPanel statsPanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 16, 0));
+        JPanel statsPanel = new JPanel(new GridLayout(1, 3, 16, 0));
         statsPanel.setOpaque(false);
 
         int totalJobs = allMatchResults.size();
         double avgScore = allMatchResults.stream().mapToDouble(r -> r.score).average().orElse(0);
         int highMatchCount = (int) allMatchResults.stream().filter(r -> r.score >= 70).count();
 
-        // 总职位数
-        JPanel stat1 = createStatItem("Total Jobs Analyzed", String.valueOf(totalJobs));
-        statsPanel.add(stat1);
-
-        // 平均匹配度
-        JPanel stat2 = createStatItem("Average Match", String.format("%.0f%%", avgScore));
-        statsPanel.add(stat2);
-
-        // 高匹配数
-        JPanel stat3 = createStatItem("High Match (>=70%)", String.valueOf(highMatchCount));
-        statsPanel.add(stat3);
+        statsPanel.add(createStatCard(
+                String.valueOf(totalJobs),
+                "Total Jobs Analyzed",
+                JobsPortalUi.VIOLET_100,
+                JobsPortalUi.VIOLET_200,
+                JobsPortalUi.PURPLE_700));
+        statsPanel.add(createStatCard(
+                String.format("%.0f%%", avgScore),
+                "Average Match",
+                new Color(219, 234, 254),
+                new Color(165, 180, 252),
+                new Color(67, 56, 202)));
+        statsPanel.add(createStatCard(
+                String.valueOf(highMatchCount),
+                "High Match (>=70%)",
+                new Color(220, 252, 231),
+                new Color(167, 243, 208),
+                new Color(22, 101, 52)));
 
         return statsPanel;
     }
 
-    private JPanel createStatItem(String label, String value) {
-        JPanel panel = new JPanel();
-        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
-        panel.setOpaque(false);
-        panel.setBorder(new EmptyBorder(8, 12, 8, 12));
+    /** 横向统计卡片：浅色底 + 描边，数值色与卡片色系呼应 */
+    private JPanel createStatCard(String value, String label, Color fill, Color stroke, Color valueColor) {
+        JobsPortalUi.RoundedSurface card = new JobsPortalUi.RoundedSurface(
+                14, fill, stroke, 1f, false, new BorderLayout());
+        JPanel inner = new JPanel();
+        inner.setLayout(new BoxLayout(inner, BoxLayout.Y_AXIS));
+        inner.setOpaque(false);
+        inner.setBorder(new EmptyBorder(14, 16, 14, 16));
 
         JLabel valueLabel = new JLabel(value);
-        valueLabel.setFont(new Font("Segoe UI", Font.BOLD, 20));
-        valueLabel.setForeground(new Color(99, 102, 241));
+        valueLabel.setFont(new Font("Segoe UI", Font.BOLD, 22));
+        valueLabel.setForeground(valueColor);
         valueLabel.setAlignmentX(Component.LEFT_ALIGNMENT);
-        panel.add(valueLabel);
+        inner.add(valueLabel);
+
+        inner.add(Box.createVerticalStrut(6));
 
         JLabel labelLabel = new JLabel(label);
         labelLabel.setFont(new Font("Segoe UI", Font.PLAIN, 11));
         labelLabel.setForeground(UI_Constants.TEXT_SECONDARY);
         labelLabel.setAlignmentX(Component.LEFT_ALIGNMENT);
-        panel.add(labelLabel);
+        inner.add(labelLabel);
 
-        return panel;
+        card.add(inner, BorderLayout.CENTER);
+        return card;
     }
 
     private JPanel createRankingDetailCard(JobMatchResult result, int rank) {
@@ -1156,38 +1168,34 @@ public class Page_Jobs {
         ));
         card.setMaximumSize(new Dimension(Integer.MAX_VALUE, 220));
 
-        // 顶部：排名、职位信息、匹配度百分比（醒目显示）
         JPanel topRow = new JPanel(new BorderLayout(16, 0));
         topRow.setOpaque(false);
 
-        // 排名徽章
         Color rankColor;
-        String rankLabel;
+        String rankLabelText;
         if (rank == 1) {
             rankColor = new Color(234, 179, 8);
-            rankLabel = "#1";
+            rankLabelText = "#1";
         } else if (rank == 2) {
             rankColor = new Color(156, 163, 175);
-            rankLabel = "#2";
+            rankLabelText = "#2";
         } else if (rank == 3) {
             rankColor = new Color(180, 119, 69);
-            rankLabel = "#3";
+            rankLabelText = "#3";
         } else {
             rankColor = UI_Constants.TEXT_SECONDARY;
-            rankLabel = "#" + rank;
+            rankLabelText = "#" + rank;
         }
 
-        // 排名和职位信息区域
         JPanel leftArea = new JPanel();
         leftArea.setLayout(new BoxLayout(leftArea, BoxLayout.Y_AXIS));
         leftArea.setOpaque(false);
 
-        // 排名标签
         JPanel rankBadgePanel = new JPanel();
         rankBadgePanel.setLayout(new BoxLayout(rankBadgePanel, BoxLayout.X_AXIS));
         rankBadgePanel.setOpaque(false);
 
-        JLabel rankBadge = new JLabel(rankLabel);
+        JLabel rankBadge = new JLabel(rankLabelText);
         rankBadge.setFont(new Font("Segoe UI", Font.BOLD, 32));
         rankBadge.setForeground(rankColor);
         rankBadge.setAlignmentX(Component.LEFT_ALIGNMENT);
@@ -1201,7 +1209,6 @@ public class Page_Jobs {
 
         leftArea.add(rankBadgePanel);
 
-        // 职位标题
         JLabel titleLabel = new JLabel(result.job.getTitle());
         titleLabel.setFont(new Font("Segoe UI", Font.BOLD, 18));
         titleLabel.setForeground(UI_Constants.TEXT_PRIMARY);
@@ -1209,7 +1216,6 @@ public class Page_Jobs {
         leftArea.add(Box.createVerticalStrut(8));
         leftArea.add(titleLabel);
 
-        // 职位元信息
         JLabel metaLabel = new JLabel(result.job.getCourseCode() + " • " + result.job.getDepartment() + " • " + result.job.getInstructorName());
         metaLabel.setFont(new Font("Segoe UI", Font.PLAIN, 13));
         metaLabel.setForeground(UI_Constants.TEXT_SECONDARY);
@@ -1219,7 +1225,6 @@ public class Page_Jobs {
 
         topRow.add(leftArea, BorderLayout.WEST);
 
-        // 右侧：醒目的大号匹配度百分比
         JPanel scoreArea = new JPanel();
         scoreArea.setLayout(new BoxLayout(scoreArea, BoxLayout.Y_AXIS));
         scoreArea.setOpaque(false);
@@ -1233,7 +1238,6 @@ public class Page_Jobs {
         scoreLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
         scoreArea.add(scoreLabel);
 
-        // 匹配度标签
         JLabel scoreTextLabel = new JLabel("Match Score");
         scoreTextLabel.setFont(new Font("Segoe UI", Font.BOLD, 12));
         scoreTextLabel.setForeground(UI_Constants.TEXT_SECONDARY);
@@ -1244,7 +1248,6 @@ public class Page_Jobs {
 
         card.add(topRow);
 
-        // 分隔线
         JPanel separator = new JPanel();
         separator.setBackground(new Color(229, 231, 235));
         separator.setMaximumSize(new Dimension(Integer.MAX_VALUE, 1));
@@ -1254,15 +1257,17 @@ public class Page_Jobs {
         card.add(separator);
         card.add(Box.createVerticalStrut(16));
 
-        // Summary 部分
         JPanel summaryRow = new JPanel();
         summaryRow.setLayout(new BoxLayout(summaryRow, BoxLayout.X_AXIS));
         summaryRow.setOpaque(false);
+        summaryRow.setAlignmentX(Component.LEFT_ALIGNMENT);
 
+        final int rankDetailLabelCol = 100;
         JLabel summaryTitle = new JLabel("Summary:");
         summaryTitle.setFont(new Font("Segoe UI", Font.BOLD, 13));
         summaryTitle.setForeground(UI_Constants.TEXT_PRIMARY);
-        summaryTitle.setPreferredSize(new Dimension(80, 20));
+        summaryTitle.setPreferredSize(new Dimension(rankDetailLabelCol, 20));
+        summaryTitle.setMinimumSize(new Dimension(rankDetailLabelCol, 20));
         summaryRow.add(summaryTitle);
 
         JLabel summaryText = new JLabel("<html><body style='width: 500px'>" + JobsAnalysisParser.extractBriefAnalysis(result.analysis) + "</body></html>");
@@ -1272,33 +1277,30 @@ public class Page_Jobs {
 
         card.add(summaryRow);
 
-        // Comparison 部分
         JPanel comparisonRow = new JPanel();
         comparisonRow.setLayout(new BoxLayout(comparisonRow, BoxLayout.X_AXIS));
         comparisonRow.setOpaque(false);
+        comparisonRow.setAlignmentX(Component.LEFT_ALIGNMENT);
         comparisonRow.setBorder(new EmptyBorder(12, 0, 0, 0));
 
         JLabel comparisonTitle = new JLabel("Comparison:");
         comparisonTitle.setFont(new Font("Segoe UI", Font.BOLD, 13));
         comparisonTitle.setForeground(UI_Constants.TEXT_PRIMARY);
-        comparisonTitle.setPreferredSize(new Dimension(90, 20));
+        comparisonTitle.setPreferredSize(new Dimension(rankDetailLabelCol, 20));
+        comparisonTitle.setMinimumSize(new Dimension(rankDetailLabelCol, 20));
         comparisonRow.add(comparisonTitle);
 
-        // 技能匹配
         JPanel skillMatch = createMiniProgressBar("Skills Match", 85, new Color(34, 197, 94));
         comparisonRow.add(skillMatch);
         comparisonRow.add(Box.createHorizontalStrut(24));
 
-        // GPA匹配
         JPanel gpaMatch = createMiniProgressBar("GPA Match", 75, new Color(59, 130, 246));
         comparisonRow.add(gpaMatch);
         comparisonRow.add(Box.createHorizontalStrut(24));
 
-        // 经验匹配
         JPanel expMatch = createMiniProgressBar("Experience", 60, new Color(168, 85, 247));
         comparisonRow.add(expMatch);
 
-        // 详情按钮
         JButton detailBtn = new JButton("View Detail");
         detailBtn.setFont(new Font("Segoe UI", Font.PLAIN, 11));
         detailBtn.setForeground(Color.WHITE);
@@ -1344,14 +1346,12 @@ public class Page_Jobs {
         labelText.setAlignmentX(Component.CENTER_ALIGNMENT);
         panel.add(labelText);
 
-        // 进度条背景
         JPanel barBg = new JPanel();
         barBg.setLayout(new BoxLayout(barBg, BoxLayout.X_AXIS));
         barBg.setBackground(new Color(229, 231, 235));
         barBg.setBorder(new EmptyBorder(2, 0, 2, 0));
         barBg.setMaximumSize(new Dimension(70, 10));
 
-        // 进度条前景（使用不透明背景显示颜色）
         JPanel barFill = new JPanel();
         barFill.setLayout(new BoxLayout(barFill, BoxLayout.X_AXIS));
         barFill.setBackground(color);
@@ -1364,7 +1364,6 @@ public class Page_Jobs {
 
         panel.add(barBg);
 
-        // 百分比文字（与进度条居中对齐）
         JLabel percentText = new JLabel(percentage + "%");
         percentText.setFont(new Font("Segoe UI", Font.BOLD, 10));
         percentText.setForeground(color);
@@ -1418,62 +1417,82 @@ public class Page_Jobs {
         return panel;
     }
 
+    /**
+     * 与职位列表顶栏一致：首行紫色返回链接，次行大标题 + 灰色副标题（无紫底条、无关闭键）。
+     * 子面板一律 LEFT_ALIGNMENT，避免在宽容器中水平居中。
+     */
+    private JPanel buildAiSubpageHeader(String backLabel, Runnable onBack, String pageTitle, String subtitleText) {
+        JPanel wrap = new JPanel();
+        wrap.setLayout(new BoxLayout(wrap, BoxLayout.Y_AXIS));
+        wrap.setOpaque(false);
+        wrap.setAlignmentX(Component.LEFT_ALIGNMENT);
+        wrap.setBorder(new EmptyBorder(0, 0, 16, 0));
+
+        JPanel backRow = new JPanel(new FlowLayout(FlowLayout.LEFT, 0, 0));
+        backRow.setOpaque(false);
+        backRow.setAlignmentX(Component.LEFT_ALIGNMENT);
+        JButton backBtn = new JButton(backLabel);
+        backBtn.setFont(new Font("Segoe UI", Font.BOLD, 14));
+        backBtn.setForeground(JobsPortalUi.PURPLE_600);
+        backBtn.setContentAreaFilled(false);
+        backBtn.setBorderPainted(false);
+        backBtn.setBorder(new EmptyBorder(0, 0, 14, 0));
+        backBtn.setMargin(new Insets(0, 0, 0, 0));
+        backBtn.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        backBtn.addActionListener(e -> onBack.run());
+        backRow.add(backBtn);
+        wrap.add(backRow);
+
+        JPanel titleBlock = new JPanel(new BorderLayout(0, 6));
+        titleBlock.setOpaque(false);
+        titleBlock.setAlignmentX(Component.LEFT_ALIGNMENT);
+        JLabel titleLab = new JLabel(pageTitle);
+        titleLab.setFont(new Font("Segoe UI", Font.BOLD, 30));
+        titleLab.setForeground(JobsPortalUi.PURPLE_600);
+        titleLab.setAlignmentX(Component.LEFT_ALIGNMENT);
+        titleBlock.add(titleLab, BorderLayout.NORTH);
+        JLabel subLab = new JLabel(subtitleText);
+        subLab.setFont(new Font("Segoe UI", Font.PLAIN, 15));
+        subLab.setForeground(JobsPortalUi.TEXT_GRAY_LIGHT);
+        subLab.setAlignmentX(Component.LEFT_ALIGNMENT);
+        titleBlock.add(subLab, BorderLayout.SOUTH);
+        wrap.add(titleBlock);
+
+        return wrap;
+    }
+
     private void buildAIJobDetailPanel() {
         aiJobDetailPanel = new JPanel(new BorderLayout(0, 0));
-        aiJobDetailPanel.setBackground(UI_Constants.BG_COLOR);
+        aiJobDetailPanel.setBackground(JobsPortalUi.PAGE_BG);
         aiJobDetailPanel.setVisible(false);
         aiJobDetailPanel.setPreferredSize(new Dimension(900, 600));
 
-        // 顶部导航栏 - 蓝色背景
-        JPanel navBar = new JPanel(new BorderLayout());
-        navBar.setBackground(new Color(99, 102, 241));
-        navBar.setBorder(new EmptyBorder(12, 24, 12, 24));
-        navBar.setPreferredSize(new Dimension(Integer.MAX_VALUE, 50));
-
-        JButton backBtn = new JButton("\u2190 Back to Ranking");
-        backBtn.setFont(new Font("Segoe UI", Font.BOLD, 13));
-        backBtn.setForeground(Color.WHITE);
-        backBtn.setContentAreaFilled(false);
-        backBtn.setBorderPainted(false);
-        backBtn.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        backBtn.addActionListener(e -> {
-            aiJobDetailPanel.setVisible(false);
-            if (aiRankingDetailPanel != null) {
-                aiRankingDetailPanel.setVisible(true);
-            }
-            bottomContainer.revalidate();
-            bottomContainer.repaint();
-        });
-        navBar.add(backBtn, BorderLayout.WEST);
-
-        JLabel titleLabel = new JLabel("AI Match Detail");
-        titleLabel.setFont(new Font("Segoe UI", Font.BOLD, 18));
-        titleLabel.setForeground(Color.WHITE);
-        navBar.add(titleLabel, BorderLayout.CENTER);
-
-        JButton closeBtn = new JButton("\u00d7");
-        closeBtn.setFont(new Font("Arial", Font.BOLD, 20));
-        closeBtn.setForeground(Color.WHITE);
-        closeBtn.setContentAreaFilled(false);
-        closeBtn.setBorderPainted(false);
-        closeBtn.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        closeBtn.addActionListener(e -> {
-            aiJobDetailPanel.setVisible(false);
-            hideAIRankingDetail();
-        });
-        navBar.add(closeBtn, BorderLayout.EAST);
-
-        aiJobDetailPanel.add(navBar, BorderLayout.NORTH);
+        JPanel header = buildAiSubpageHeader(
+                "\u2190 Back to Ranking",
+                () -> {
+                    aiJobDetailPanel.setVisible(false);
+                    if (aiRankingDetailPanel != null) {
+                        aiRankingDetailPanel.setVisible(true);
+                    }
+                    bottomContainer.revalidate();
+                    bottomContainer.repaint();
+                },
+                "AI Match Detail",
+                "Score breakdown, strengths, and recommendations for this position.");
+        JPanel headerAlign = new JPanel(new BorderLayout());
+        headerAlign.setOpaque(false);
+        headerAlign.add(header, BorderLayout.WEST);
+        aiJobDetailPanel.add(headerAlign, BorderLayout.NORTH);
 
         // 内容区域
         aiJobDetailContent = new JPanel();
         aiJobDetailContent.setLayout(new BoxLayout(aiJobDetailContent, BoxLayout.Y_AXIS));
-        aiJobDetailContent.setBackground(UI_Constants.BG_COLOR);
+        aiJobDetailContent.setBackground(JobsPortalUi.PAGE_BG);
         aiJobDetailContent.setBorder(new EmptyBorder(16, 48, 32, 48));
 
         aiJobDetailScrollPane = new JScrollPane(aiJobDetailContent);
         aiJobDetailScrollPane.setBorder(null);
-        aiJobDetailScrollPane.getViewport().setBackground(UI_Constants.BG_COLOR);
+        aiJobDetailScrollPane.getViewport().setBackground(JobsPortalUi.PAGE_BG);
         aiJobDetailScrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
         aiJobDetailScrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         aiJobDetailScrollPane.getVerticalScrollBar().setUnitIncrement(16);
@@ -1757,57 +1776,35 @@ public class Page_Jobs {
 
     private void buildAIRankingDetailPanel() {
         aiRankingDetailPanel = new JPanel(new BorderLayout(0, 0));
-        aiRankingDetailPanel.setBackground(UI_Constants.BG_COLOR);
+        aiRankingDetailPanel.setBackground(JobsPortalUi.PAGE_BG);
         aiRankingDetailPanel.setVisible(false);
         aiRankingDetailPanel.setPreferredSize(new Dimension(900, 600));
 
-        // 顶部导航栏 - 带蓝色背景
-        JPanel navBar = new JPanel(new BorderLayout());
-        navBar.setBackground(new Color(99, 102, 241));
-        navBar.setBorder(new EmptyBorder(16, 24, 16, 24));
-        navBar.setPreferredSize(new Dimension(Integer.MAX_VALUE, 60));
-
-        JButton backBtn = new JButton("\u2190 Back to Jobs");
-        backBtn.setFont(new Font("Segoe UI", Font.BOLD, 13));
-        backBtn.setForeground(Color.WHITE);
-        backBtn.setContentAreaFilled(false);
-        backBtn.setBorderPainted(false);
-        backBtn.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        backBtn.addActionListener(e -> hideAIRankingDetail());
-        navBar.add(backBtn, BorderLayout.WEST);
-
-        JLabel titleLabel = new JLabel("AI Match Ranking");
-        titleLabel.setFont(new Font("Segoe UI", Font.BOLD, 18));
-        titleLabel.setForeground(Color.WHITE);
-        navBar.add(titleLabel, BorderLayout.CENTER);
-
-        JButton closeBtn = new JButton("\u00d7");
-        closeBtn.setFont(new Font("Arial", Font.BOLD, 20));
-        closeBtn.setForeground(Color.WHITE);
-        closeBtn.setContentAreaFilled(false);
-        closeBtn.setBorderPainted(false);
-        closeBtn.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        closeBtn.addActionListener(e -> hideAIRankingDetail());
-        navBar.add(closeBtn, BorderLayout.EAST);
-
-        aiRankingDetailPanel.add(navBar, BorderLayout.NORTH);
+        JPanel header = buildAiSubpageHeader(
+                "\u2190 Back to Jobs",
+                this::hideAIRankingDetail,
+                "AI Match Ranking",
+                "All analyzed positions, sorted by match score.");
+        JPanel headerAlign = new JPanel(new BorderLayout());
+        headerAlign.setOpaque(false);
+        headerAlign.add(header, BorderLayout.WEST);
+        aiRankingDetailPanel.add(headerAlign, BorderLayout.NORTH);
 
         // 内容区域 - 可滚动的结果列表
         JPanel contentPanel = new JPanel();
         contentPanel.setLayout(new BoxLayout(contentPanel, BoxLayout.Y_AXIS));
-        contentPanel.setBackground(UI_Constants.BG_COLOR);
+        contentPanel.setBackground(JobsPortalUi.PAGE_BG);
         contentPanel.setBorder(new EmptyBorder(16, 24, 32, 24));
 
         JScrollPane scrollPane = new JScrollPane(contentPanel);
         scrollPane.setBorder(null);
-        scrollPane.getViewport().setBackground(UI_Constants.BG_COLOR);
+        scrollPane.getViewport().setBackground(JobsPortalUi.PAGE_BG);
         scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
         scrollPane.getVerticalScrollBar().setUnitIncrement(16);
         scrollPane.getViewport().setScrollMode(JViewport.BACKINGSTORE_SCROLL_MODE);
 
         aiRankingDetailPanel.add(scrollPane, BorderLayout.CENTER);
 
-        // 存储内容面板引用以便后续填充
         aiRankingDetailContent = contentPanel;
 
         bottomContainer.add(aiRankingDetailPanel);
@@ -2364,8 +2361,6 @@ public class Page_Jobs {
     }
     
     private JPanel createJobCard(Job job) {
-        Color titlePurple = new Color(107, 70, 193);
-
         JobsPortalUi.RoundedSurface card = new JobsPortalUi.RoundedSurface(
                 16, Color.WHITE, JobsPortalUi.VIOLET_200, 1f, true, new BorderLayout());
         card.setAlignmentX(Component.LEFT_ALIGNMENT);
@@ -2394,7 +2389,7 @@ public class Page_Jobs {
         headerRow.setAlignmentX(Component.LEFT_ALIGNMENT);
         JLabel titleLabel = new JLabel(job.getTitle());
         titleLabel.setFont(new Font("Segoe UI", Font.BOLD, 18));
-        titleLabel.setForeground(titlePurple);
+        titleLabel.setForeground(UI_Constants.TEXT_PRIMARY);
         headerRow.add(titleLabel, BorderLayout.WEST);
 
         JButton actionBtn = hasApplied

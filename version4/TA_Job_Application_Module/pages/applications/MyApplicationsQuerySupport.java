@@ -1,6 +1,7 @@
 package TA_Job_Application_Module.pages.applications;
 
 import TA_Job_Application_Module.model.Application;
+import TA_Job_Application_Module.model.ApplicationStatusCodes;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -28,7 +29,11 @@ public final class MyApplicationsQuerySupport {
     public static boolean matchesFilter(Application app, String statusKey, String queryLower) {
         if (statusKey != null) {
             String current = app.getStatus() != null ? app.getStatus().getCurrent() : "";
-            if (!statusKey.equalsIgnoreCase(current)) {
+            if (ApplicationStatusCodes.OFFER_PENDING.equalsIgnoreCase(statusKey)) {
+                if (!ApplicationStatusCodes.isOfferPending(current)) {
+                    return false;
+                }
+            } else if (!statusKey.equalsIgnoreCase(current)) {
                 return false;
             }
         }

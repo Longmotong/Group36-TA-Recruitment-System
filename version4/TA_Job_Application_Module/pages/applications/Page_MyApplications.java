@@ -1,10 +1,22 @@
 package TA_Job_Application_Module.pages.applications;
 
 import TA_Job_Application_Module.model.Application;
+import TA_Job_Application_Module.model.ApplicationStatusCodes;
+import TA_Job_Application_Module.pages.jobs.JobsPortalUi;
 import TA_Job_Application_Module.service.DataService;
 import TA_Job_Application_Module.ui.UI_Constants;
-import TA_Job_Application_Module.ui.UI_Helper;
 
+import javax.swing.*;
+import javax.swing.border.EmptyBorder;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
+import javax.swing.table.TableColumn;
+import javax.swing.table.TableColumnModel;
 import java.awt.*;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
@@ -16,41 +28,29 @@ import java.util.List;
 import java.util.Locale;
 import java.util.stream.Collectors;
 
-import javax.swing.*;
-import javax.swing.border.EmptyBorder;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
-import javax.swing.event.DocumentEvent;
-import javax.swing.event.DocumentListener;
-import javax.swing.table.DefaultTableCellRenderer;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.JTableHeader;
-import javax.swing.table.TableCellRenderer;
-import javax.swing.table.TableColumn;
-import javax.swing.table.TableColumnModel;
-
-
-
-
+/**
+ * My Applications + Drafts — purple portal header (stats, search) + classic table lists.
+ */
 public class Page_MyApplications {
 
     public interface MyApplicationsCallback {
         void onViewStatus(Application application);
+
         void onBackToHome();
+
         void onBrowseJobs();
+
         void onCancelApplication(Application application);
+
         void onEditDraft(Application application);
     }
 
     private static final String PLACEHOLDER_SEARCH = "Search by job title...";
+
     private static final int JOB_TITLE_COL_MIN_WIDTH = 200;
-   
     private static final int JOB_TITLE_COL_ABS_MIN_WIDTH = 120;
-    
     private static final int[] REST_COL_WIDTHS = {88, 172, 126, 188, 122, 76, 84};
-    
     private static final int[] REST_COL_FLOORS = {76, 140, 100, 168, 96, 72, 80};
-   
     private static final int[] DRAFT_REST_COL_WIDTHS = {100, 160, 160, 160, 100, 80};
 
     private JPanel panel;
@@ -61,23 +61,23 @@ public class Page_MyApplications {
     private JComboBox<String> statusFilterCombo;
     private JLabel totalValueLabel;
     private JLabel pendingValueLabel;
-    private JLabel underReviewValueLabel;
     private JLabel acceptedValueLabel;
     private JLabel rejectedValueLabel;
     private JLabel offerPendingAlertLabel;
+    private JPanel offerPendingAlertPanel;
     private JTabbedPane tabbedPane;
-    
+
     private JScrollPane applicationsScrollPane;
     private JTable draftsTable;
     private DefaultTableModel draftsTableModel;
+
+    private final List<Application> displayedApplications = new ArrayList<>();
     private final List<Application> displayedDrafts = new ArrayList<>();
+
+    private int[] applicationsTableFixedMins;
 
     private final DataService dataService;
     private final MyApplicationsCallback callback;
-    
-    private final List<Application> displayedApplications = new ArrayList<>();
-    
-    private int[] applicationsTableFixedMins;
 
     public Page_MyApplications(DataService dataService, MyApplicationsCallback callback) {
         this.dataService = dataService;
@@ -90,13 +90,11 @@ public class Page_MyApplications {
     }
 
     public void refreshTable() {
-        // 检查当前筛选是否会产生空结果，如果是则重置筛选条件
         String currentFilter = statusFilterCombo != null ? (String) statusFilterCombo.getSelectedItem() : "All Statuses";
         String currentSearch = searchField != null ? searchField.getText().trim() : "";
         List<Application> apps = getFilteredApplications(currentFilter, currentSearch);
 
         if (apps.isEmpty() && !"All Statuses".equals(currentFilter)) {
-            // 当前筛选条件没有结果，重置为全部显示
             if (statusFilterCombo != null) {
                 statusFilterCombo.setSelectedItem("All Statuses");
             }
@@ -110,16 +108,17 @@ public class Page_MyApplications {
 
     private List<Application> getFilteredApplications(String statusFilter, String searchText) {
         List<Application> apps = dataService.getUserApplications();
-        if (apps == null) return new ArrayList<>();
+        if (apps == null) {
+            return new ArrayList<>();
+        }
         String statusKey = MyApplicationsQuerySupport.selectedStatusFilterKey(statusFilter);
         String query = searchText == null ? "" : searchText.toLowerCase(Locale.ROOT);
 
         return apps.stream()
-            .filter(app -> MyApplicationsQuerySupport.matchesFilter(app, statusKey, query))
-            .collect(Collectors.toList());
+                .filter(app -> MyApplicationsQuerySupport.matchesFilter(app, statusKey, query))
+                .collect(Collectors.toList());
     }
 
-    
     public void selectDraftsTab() {
         if (tabbedPane == null) {
             return;
@@ -151,7 +150,6 @@ public class Page_MyApplications {
         }
     }
 
-    
     public void scheduleDraftTableWidthSync() {
         SwingUtilities.invokeLater(() -> {
             syncDraftJobTitleColumnToFillViewport();
@@ -161,12 +159,13 @@ public class Page_MyApplications {
 
     private void initPanel() {
         panel = new JPanel(new BorderLayout());
-        panel.setBackground(UI_Constants.BG_COLOR);
-        panel.setBorder(new EmptyBorder(24, 40, 32, 40));
+        panel.setBackground(JobsPortalUi.PAGE_BG);
+        panel.setBorder(new EmptyBorder(24, 48, 40, 48));
 
         northStack = new JPanel();
         northStack.setLayout(new BoxLayout(northStack, BoxLayout.Y_AXIS));
         northStack.setOpaque(false);
+        northStack.setAlignmentX(Component.LEFT_ALIGNMENT);
 
         buildBackLink();
         buildTitleRow();
@@ -178,19 +177,16 @@ public class Page_MyApplications {
         buildTabbedPane();
     }
 
-    private JPanel offerPendingAlertPanel;
-
     private void buildOfferPendingAlert() {
-        offerPendingAlertPanel = new JPanel();
-        offerPendingAlertPanel.setLayout(new BorderLayout());
+        offerPendingAlertPanel = new JPanel(new BorderLayout());
         offerPendingAlertPanel.setBackground(new Color(220, 38, 38));
         offerPendingAlertPanel.setBorder(new EmptyBorder(12, 16, 12, 16));
         offerPendingAlertPanel.setAlignmentX(Component.LEFT_ALIGNMENT);
         offerPendingAlertPanel.setVisible(false);
         offerPendingAlertPanel.setCursor(new Cursor(Cursor.HAND_CURSOR));
         offerPendingAlertPanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                // Switch to submitted tab and show offer_pending filter
                 if (tabbedPane != null && tabbedPane.getTabCount() > 0) {
                     tabbedPane.setSelectedIndex(0);
                 }
@@ -211,12 +207,13 @@ public class Page_MyApplications {
 
     public void updateOfferPendingAlert(List<Application> apps) {
         long offerPendingCount = apps.stream()
-            .filter(a -> "offer_pending".equalsIgnoreCase(
-                a.getStatus() != null ? a.getStatus().getCurrent() : ""))
-            .count();
+                .filter(a -> ApplicationStatusCodes.isOfferPending(
+                        a.getStatus() != null ? a.getStatus().getCurrent() : ""))
+                .count();
 
         if (offerPendingCount > 0) {
-            offerPendingAlertLabel.setText("  ATTENTION: You have " + offerPendingCount + " offer(s) pending your response! Click here to view.");
+            offerPendingAlertLabel.setText("  ATTENTION: You have " + offerPendingCount
+                    + " offer(s) pending your response! Click here to view.");
             offerPendingAlertPanel.setVisible(true);
         } else {
             offerPendingAlertPanel.setVisible(false);
@@ -226,7 +223,7 @@ public class Page_MyApplications {
     private void buildBackLink() {
         JButton back = new JButton("\u2190  Back to Home");
         back.setFont(new Font("Segoe UI", Font.PLAIN, 14));
-        back.setForeground(UI_Constants.TEXT_SECONDARY);
+        back.setForeground(JobsPortalUi.PURPLE_600);
         back.setContentAreaFilled(false);
         back.setBorderPainted(false);
         back.setFocusPainted(false);
@@ -235,35 +232,39 @@ public class Page_MyApplications {
         back.setHorizontalAlignment(SwingConstants.LEFT);
         back.addActionListener(e -> callback.onBackToHome());
         northStack.add(back);
-        northStack.add(Box.createVerticalStrut(16));
+        northStack.add(Box.createVerticalStrut(12));
     }
 
     private void buildTitleRow() {
         JPanel row = new JPanel(new BorderLayout(24, 0));
         row.setOpaque(false);
         row.setAlignmentX(Component.LEFT_ALIGNMENT);
-        row.setMaximumSize(new Dimension(Integer.MAX_VALUE, 80));
+        row.setMaximumSize(new Dimension(Integer.MAX_VALUE, 96));
 
         JPanel left = new JPanel();
         left.setLayout(new BoxLayout(left, BoxLayout.Y_AXIS));
         left.setOpaque(false);
 
         JLabel titleLabel = new JLabel("My Applications");
-        titleLabel.setFont(new Font("Segoe UI", Font.BOLD, 28));
-        titleLabel.setForeground(UI_Constants.TEXT_PRIMARY);
+        titleLabel.setFont(new Font("Segoe UI", Font.BOLD, 30));
+        titleLabel.setForeground(new Color(107, 70, 193));
         titleLabel.setAlignmentX(Component.LEFT_ALIGNMENT);
         left.add(titleLabel);
 
-        JLabel subtitleLabel = new JLabel("Track all your TA position applications");
+        JLabel subtitleLabel = new JLabel("Track and manage all your TA position applications");
         subtitleLabel.setFont(new Font("Segoe UI", Font.PLAIN, 15));
-        subtitleLabel.setForeground(UI_Constants.TEXT_SECONDARY);
+        subtitleLabel.setForeground(new Color(107, 114, 128));
         subtitleLabel.setBorder(new EmptyBorder(6, 0, 0, 0));
         subtitleLabel.setAlignmentX(Component.LEFT_ALIGNMENT);
         left.add(subtitleLabel);
 
         row.add(left, BorderLayout.WEST);
 
-        JButton browseBtn = UI_Helper.createOutlineButton("Browse Jobs");
+        JobsPortalUi.OutlinePurpleButton browseBtn =
+                JobsPortalUi.outlineButton("Browse Jobs", new Font("Segoe UI", Font.BOLD, 14));
+        browseBtn.setIcon(JobsPortalUi.briefcaseGlyph(JobsPortalUi.PURPLE_600, 18));
+        browseBtn.setHorizontalTextPosition(SwingConstants.RIGHT);
+        browseBtn.setIconTextGap(8);
         browseBtn.addActionListener(e -> callback.onBrowseJobs());
         JPanel east = new JPanel(new FlowLayout(FlowLayout.RIGHT, 0, 0));
         east.setOpaque(false);
@@ -271,54 +272,64 @@ public class Page_MyApplications {
         row.add(east, BorderLayout.EAST);
 
         northStack.add(row);
-        northStack.add(Box.createVerticalStrut(24));
+        northStack.add(Box.createVerticalStrut(22));
     }
 
     private void buildSummaryCards() {
-        JPanel summaryPanel = new JPanel(new GridLayout(1, 5, 14, 0));
-        summaryPanel.setOpaque(false);
-        summaryPanel.setMaximumSize(new Dimension(Integer.MAX_VALUE, 120));
-        summaryPanel.setAlignmentX(Component.LEFT_ALIGNMENT);
+        JPanel summaryRow = new JPanel(new GridLayout(1, 4, 12, 0));
+        summaryRow.setOpaque(false);
+        summaryRow.setMaximumSize(new Dimension(Integer.MAX_VALUE, 96));
+        summaryRow.setAlignmentX(Component.LEFT_ALIGNMENT);
 
         totalValueLabel = new JLabel("0");
         pendingValueLabel = new JLabel("0");
-        underReviewValueLabel = new JLabel("0");
         acceptedValueLabel = new JLabel("0");
         rejectedValueLabel = new JLabel("0");
 
-        summaryPanel.add(createStatCard("Total Applications", totalValueLabel, UI_Constants.TEXT_PRIMARY));
-        summaryPanel.add(createStatCard("Pending", pendingValueLabel, UI_Constants.WARNING_COLOR));
-        summaryPanel.add(createStatCard("Under Review", underReviewValueLabel, UI_Constants.INFO_COLOR));
-        summaryPanel.add(createStatCard("Accepted", acceptedValueLabel, UI_Constants.SUCCESS_COLOR));
-        summaryPanel.add(createStatCard("Rejected", rejectedValueLabel, UI_Constants.DANGER_COLOR));
+        Color totalLabel = new Color(107, 114, 128);
+        Color totalValue = new Color(17, 24, 39);
+        Color amberInk = new Color(161, 98, 7);
+        Color greenInk = new Color(22, 101, 52);
+        Color redInk = new Color(185, 28, 28);
 
-        northStack.add(summaryPanel);
-        northStack.add(Box.createVerticalStrut(20));
+        int iconPx = 20;
+
+        summaryRow.add(ApplicationsCards.summaryStatTile(
+                ApplicationsCards.documentStackIcon(JobsPortalUi.PURPLE_600, iconPx),
+                JobsPortalUi.VIOLET_100,
+                JobsPortalUi.VIOLET_200,
+                "TOTAL APPLICATIONS",
+                totalValueLabel,
+                totalLabel,
+                totalValue));
+        summaryRow.add(ApplicationsCards.summaryStatTile(
+                JobsPortalUi.clockGlyph(amberInk, iconPx),
+                new Color(254, 249, 195),
+                new Color(253, 230, 138),
+                "PENDING",
+                pendingValueLabel,
+                amberInk,
+                amberInk));
+        summaryRow.add(ApplicationsCards.summaryStatTile(
+                ApplicationsCards.checkCircleIcon(greenInk, iconPx),
+                new Color(209, 250, 229),
+                new Color(167, 243, 208),
+                "ACCEPTED",
+                acceptedValueLabel,
+                greenInk,
+                greenInk));
+        summaryRow.add(ApplicationsCards.summaryStatTile(
+                ApplicationsCards.xCircleIcon(redInk, iconPx),
+                new Color(254, 226, 226),
+                new Color(252, 165, 165),
+                "REJECTED",
+                rejectedValueLabel,
+                redInk,
+                redInk));
+
+        northStack.add(summaryRow);
+        northStack.add(Box.createVerticalStrut(22));
         updateSummaryCards();
-    }
-
-    private JPanel createStatCard(String label, JLabel valueLabel, Color valueColor) {
-        JPanel card = UI_Helper.createCard();
-        card.setLayout(new BoxLayout(card, BoxLayout.Y_AXIS));
-        card.setBackground(UI_Constants.CARD_BG);
-        card.setBorder(BorderFactory.createCompoundBorder(
-            BorderFactory.createLineBorder(UI_Constants.BORDER_COLOR),
-            new EmptyBorder(18, 20, 18, 20)
-        ));
-
-        JLabel top = new JLabel(label);
-        top.setFont(new Font("Segoe UI", Font.PLAIN, 13));
-        top.setForeground(UI_Constants.TEXT_SECONDARY);
-        top.setAlignmentX(Component.LEFT_ALIGNMENT);
-        card.add(top);
-        card.add(Box.createVerticalStrut(8));
-
-        valueLabel.setFont(new Font("Segoe UI", Font.BOLD, 32));
-        valueLabel.setForeground(valueColor);
-        valueLabel.setAlignmentX(Component.LEFT_ALIGNMENT);
-        card.add(valueLabel);
-
-        return card;
     }
 
     private void updateSummaryCards() {
@@ -331,75 +342,74 @@ public class Page_MyApplications {
 
         totalValueLabel.setText(String.valueOf(total));
         pendingValueLabel.setText(String.valueOf(pending));
-        underReviewValueLabel.setText(String.valueOf(under));
         acceptedValueLabel.setText(String.valueOf(offerPending + accepted));
         rejectedValueLabel.setText(String.valueOf(rejected));
     }
 
     private void buildSearchFilterBar() {
-        JPanel bar = new JPanel(new BorderLayout(16, 0));
-        bar.setOpaque(false);
-        bar.setMaximumSize(new Dimension(Integer.MAX_VALUE, 48));
-        bar.setAlignmentX(Component.LEFT_ALIGNMENT);
-
         searchField = new JTextField();
         searchField.setFont(new Font("Segoe UI", Font.PLAIN, 14));
-        searchField.setBorder(BorderFactory.createCompoundBorder(
-            BorderFactory.createLineBorder(UI_Constants.BORDER_COLOR),
-            new EmptyBorder(10, 14, 10, 14)
-        ));
-        searchField.getDocument().addDocumentListener(new DocumentListener() {
-            @Override
-            public void insertUpdate(DocumentEvent e) {
-                if (tableModel != null) applyFiltersAndFillTable();
-            }
-
-            @Override
-            public void removeUpdate(DocumentEvent e) {
-                if (tableModel != null) applyFiltersAndFillTable();
-            }
-
-            @Override
-            public void changedUpdate(DocumentEvent e) {
-                if (tableModel != null) applyFiltersAndFillTable();
-            }
-        });
-        installSearchPlaceholder();
-
-        JPanel searchWrap = new JPanel(new BorderLayout());
-        searchWrap.setOpaque(false);
-        bar.add(searchWrap, BorderLayout.CENTER);
-        searchWrap.add(searchField, BorderLayout.CENTER);
+        searchField.setOpaque(false);
 
         String[] statuses = {"All Statuses", "Pending", "Under Review", "Offer Pending", "Accepted", "Rejected"};
         statusFilterCombo = new JComboBox<>(statuses);
         statusFilterCombo.setFont(new Font("Segoe UI", Font.PLAIN, 14));
-        statusFilterCombo.setBorder(BorderFactory.createLineBorder(UI_Constants.BORDER_COLOR));
-        statusFilterCombo.addActionListener(e -> applyFiltersAndFillTable());
+        statusFilterCombo.setOpaque(false);
+        statusFilterCombo.addActionListener(e -> {
+            if (tableModel != null) {
+                applyFiltersAndFillTable();
+            }
+        });
         Dimension comboSize = statusFilterCombo.getPreferredSize();
-        statusFilterCombo.setPreferredSize(new Dimension(Math.max(160, comboSize.width), 40));
-        bar.add(statusFilterCombo, BorderLayout.EAST);
+        statusFilterCombo.setPreferredSize(new Dimension(Math.max(180, comboSize.width), 40));
 
-        northStack.add(bar);
-        northStack.add(Box.createVerticalStrut(16));
+        searchField.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                if (tableModel != null) {
+                    applyFiltersAndFillTable();
+                }
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                if (tableModel != null) {
+                    applyFiltersAndFillTable();
+                }
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                if (tableModel != null) {
+                    applyFiltersAndFillTable();
+                }
+            }
+        });
+        installSearchPlaceholder();
+
+        JPanel strip = ApplicationsCards.wrapSearchFilterStrip(searchField, statusFilterCombo);
+        strip.setAlignmentX(Component.LEFT_ALIGNMENT);
+        strip.setMaximumSize(new Dimension(Integer.MAX_VALUE, strip.getPreferredSize().height));
+        northStack.add(strip);
+        northStack.add(Box.createVerticalStrut(18));
     }
 
     private void installSearchPlaceholder() {
-        searchField.setForeground(UI_Constants.TEXT_SECONDARY);
+        searchField.setForeground(new Color(107, 114, 128));
         searchField.setText(PLACEHOLDER_SEARCH);
         searchField.addFocusListener(new java.awt.event.FocusAdapter() {
             @Override
             public void focusGained(java.awt.event.FocusEvent e) {
                 if (PLACEHOLDER_SEARCH.equals(searchField.getText())) {
                     searchField.setText("");
-                    searchField.setForeground(UI_Constants.TEXT_PRIMARY);
+                    searchField.setForeground(new Color(17, 24, 39));
                 }
             }
 
             @Override
             public void focusLost(java.awt.event.FocusEvent e) {
                 if (searchField.getText().isEmpty()) {
-                    searchField.setForeground(UI_Constants.TEXT_SECONDARY);
+                    searchField.setForeground(new Color(107, 114, 128));
                     searchField.setText(PLACEHOLDER_SEARCH);
                 }
             }
@@ -415,6 +425,9 @@ public class Page_MyApplications {
     }
 
     private String selectedStatusFilterKey() {
+        if (statusFilterCombo == null) {
+            return null;
+        }
         Object sel = statusFilterCombo.getSelectedItem();
         return MyApplicationsQuerySupport.selectedStatusFilterKey(sel);
     }
@@ -422,30 +435,33 @@ public class Page_MyApplications {
     private void buildTabbedPane() {
         tabbedPane = new JTabbedPane(JTabbedPane.TOP);
         tabbedPane.setFont(new Font("Segoe UI", Font.PLAIN, 14));
-        tabbedPane.setBackground(UI_Constants.BG_COLOR);
-        tabbedPane.setBorder(BorderFactory.createEmptyBorder());
+        tabbedPane.setBackground(JobsPortalUi.PAGE_BG);
+        tabbedPane.setBorder(BorderFactory.createEmptyBorder(8, 0, 0, 0));
 
         JPanel applicationsTab = new JPanel(new BorderLayout());
-        applicationsTab.setBackground(UI_Constants.BG_COLOR);
+        applicationsTab.setOpaque(false);
+        applicationsTab.setBackground(JobsPortalUi.PAGE_BG);
         buildTable();
         applicationsTab.add(applicationsTable.getTableHeader(), BorderLayout.NORTH);
         applicationsTab.add(applicationsScrollPane, BorderLayout.CENTER);
 
         JPanel draftsTab = new JPanel(new BorderLayout());
-        draftsTab.setBackground(UI_Constants.BG_COLOR);
+        draftsTab.setOpaque(false);
+        draftsTab.setBackground(JobsPortalUi.PAGE_BG);
         buildDraftsTable();
         JScrollPane draftsScroll = new JScrollPane(draftsTable);
         draftsScroll.setBorder(BorderFactory.createCompoundBorder(
-            BorderFactory.createLineBorder(UI_Constants.BORDER_COLOR),
-            BorderFactory.createEmptyBorder(0, 0, 0, 0)
-        ));
+                BorderFactory.createLineBorder(UI_Constants.BORDER_COLOR),
+                BorderFactory.createEmptyBorder(0, 0, 0, 0)));
         draftsScroll.getViewport().setBackground(UI_Constants.CARD_BG);
+        draftsScroll.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         draftsScroll.getViewport().addComponentListener(new ComponentAdapter() {
             @Override
             public void componentResized(ComponentEvent e) {
                 syncDraftJobTitleColumnToFillViewport();
             }
         });
+
         draftsTab.add(draftsScroll, BorderLayout.CENTER);
 
         tabbedPane.addTab("Applications", applicationsTab);
@@ -580,12 +596,11 @@ public class Page_MyApplications {
                     UIManager.put("OptionPane.yesButtonText", "Yes");
                     UIManager.put("OptionPane.noButtonText", "No");
                     int confirm = JOptionPane.showConfirmDialog(
-                        panel,
-                        "Are you sure you want to withdraw this application?\nThis action cannot be undone.",
-                        "Confirm Withdrawal",
-                        JOptionPane.YES_NO_OPTION,
-                        JOptionPane.WARNING_MESSAGE
-                    );
+                            panel,
+                            "Are you sure you want to withdraw this application?\nThis action cannot be undone.",
+                            "Confirm Withdrawal",
+                            JOptionPane.YES_NO_OPTION,
+                            JOptionPane.WARNING_MESSAGE);
                     if (confirm == JOptionPane.YES_OPTION) {
                         callback.onCancelApplication(app);
                     }
@@ -595,9 +610,8 @@ public class Page_MyApplications {
 
         applicationsScrollPane = new JScrollPane(applicationsTable);
         applicationsScrollPane.setBorder(BorderFactory.createCompoundBorder(
-            BorderFactory.createLineBorder(UI_Constants.BORDER_COLOR),
-            BorderFactory.createEmptyBorder(0, 0, 0, 0)
-        ));
+                BorderFactory.createLineBorder(UI_Constants.BORDER_COLOR),
+                BorderFactory.createEmptyBorder(0, 0, 0, 0)));
         applicationsScrollPane.getViewport().setBackground(UI_Constants.CARD_BG);
         applicationsScrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         applicationsScrollPane.getViewport().addComponentListener(new ComponentAdapter() {
@@ -673,9 +687,7 @@ public class Page_MyApplications {
         if (available >= fixedNominal + JOB_TITLE_COL_MIN_WIDTH) {
             titleW = available - fixedNominal;
             titleW = Math.max(titleW, JOB_TITLE_COL_MIN_WIDTH);
-            for (int i = 0; i < REST_COL_WIDTHS.length; i++) {
-                applied[i] = REST_COL_WIDTHS[i];
-            }
+            System.arraycopy(REST_COL_WIDTHS, 0, applied, 0, REST_COL_WIDTHS.length);
         } else {
             int budgetForFixed = available - JOB_TITLE_COL_MIN_WIDTH;
             if (budgetForFixed < floorsSum) {
@@ -752,7 +764,6 @@ public class Page_MyApplications {
         }
     }
 
-    
     private void syncDraftJobTitleColumnToFillViewport() {
         if (draftsTable == null) {
             return;
@@ -808,6 +819,9 @@ public class Page_MyApplications {
     }
 
     private void applyFiltersAndFillTable() {
+        if (tableModel == null) {
+            return;
+        }
         displayedApplications.clear();
         tableModel.setRowCount(0);
 
@@ -844,14 +858,14 @@ public class Page_MyApplications {
             String curStatus = app.getStatus() != null ? app.getStatus().getCurrent() : "";
             boolean canCancel = "pending".equalsIgnoreCase(curStatus);
             Object[] row = {
-                app.getJobSnapshot() != null ? app.getJobSnapshot().getTitle() : "",
-                app.getJobSnapshot() != null ? app.getJobSnapshot().getCourseCode() : "",
-                app.getJobSnapshot() != null ? app.getJobSnapshot().getDepartment() : "",
-                submitted,
-                statusLabel,
-                lastUp,
-                "view",
-                canCancel ? "withdraw" : ""
+                    app.getJobSnapshot() != null ? app.getJobSnapshot().getTitle() : "",
+                    app.getJobSnapshot() != null ? app.getJobSnapshot().getCourseCode() : "",
+                    app.getJobSnapshot() != null ? app.getJobSnapshot().getDepartment() : "",
+                    submitted,
+                    statusLabel,
+                    lastUp,
+                    "view",
+                    canCancel ? "withdraw" : ""
             };
             tableModel.addRow(row);
         }
@@ -888,7 +902,6 @@ public class Page_MyApplications {
         return fm.stringWidth(text == null ? "" : text);
     }
 
- 
     private static String ellipsizeToWidth(String full, FontMetrics fm, int maxPx) {
         if (full == null || full.isEmpty()) {
             return "";
@@ -975,14 +988,20 @@ public class Page_MyApplications {
         draftsTable.addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
-                if (!SwingUtilities.isLeftMouseButton(e)) return;
+                if (!SwingUtilities.isLeftMouseButton(e)) {
+                    return;
+                }
                 Point p = e.getPoint();
                 int viewRow = draftsTable.rowAtPoint(p);
                 int viewCol = draftsTable.columnAtPoint(p);
-                if (viewRow < 0 || viewCol < 0) return;
+                if (viewRow < 0 || viewCol < 0) {
+                    return;
+                }
                 int modelCol = draftsTable.convertColumnIndexToModel(viewCol);
                 int modelRow = draftsTable.convertRowIndexToModel(viewRow);
-                if (modelRow < 0 || modelRow >= displayedDrafts.size()) return;
+                if (modelRow < 0 || modelRow >= displayedDrafts.size()) {
+                    return;
+                }
                 if (modelCol == 5) {
                     callback.onEditDraft(displayedDrafts.get(modelRow));
                 } else if (modelCol == 6) {
@@ -990,8 +1009,8 @@ public class Page_MyApplications {
                     UIManager.put("OptionPane.yesButtonText", "Yes");
                     UIManager.put("OptionPane.noButtonText", "No");
                     int confirm = JOptionPane.showConfirmDialog(panel,
-                        "Delete this draft?\n\nJob: " + (draft.getJobSnapshot() != null ? draft.getJobSnapshot().getTitle() : ""),
-                        "Confirm Delete", JOptionPane.YES_NO_OPTION);
+                            "Delete this draft?\n\nJob: " + (draft.getJobSnapshot() != null ? draft.getJobSnapshot().getTitle() : ""),
+                            "Confirm Delete", JOptionPane.YES_NO_OPTION);
                     if (confirm == JOptionPane.YES_OPTION) {
                         dataService.deleteDraft(draft.getApplicationId());
                         refreshDraftsTable();
@@ -1002,7 +1021,9 @@ public class Page_MyApplications {
     }
 
     private void refreshDraftsTable() {
-        if (draftsTableModel == null) return;
+        if (draftsTableModel == null) {
+            return;
+        }
         draftsTableModel.setRowCount(0);
         displayedDrafts.clear();
 
@@ -1017,15 +1038,14 @@ public class Page_MyApplications {
             draftsTableModel.addRow(new Object[]{title, course, dept, saved, updated, "Edit", "Delete"});
         }
 
-    
         int draftCount = dataService.getDrafts().size();
-        for (int i = 0; i < tabbedPane.getTabCount(); i++) {
-            if (tabbedPane.getTitleAt(i) != null && tabbedPane.getTitleAt(i).startsWith("Drafts")) {
-                tabbedPane.setTitleAt(i, "Drafts" + (draftCount > 0 ? " (" + draftCount + ")" : ""));
+        if (tabbedPane != null) {
+            for (int i = 0; i < tabbedPane.getTabCount(); i++) {
+                if (tabbedPane.getTitleAt(i) != null && tabbedPane.getTitleAt(i).startsWith("Drafts")) {
+                    tabbedPane.setTitleAt(i, "Drafts" + (draftCount > 0 ? " (" + draftCount + ")" : ""));
+                }
             }
         }
         SwingUtilities.invokeLater(this::syncDraftJobTitleColumnToFillViewport);
     }
-
 }
-
