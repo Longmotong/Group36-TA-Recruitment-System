@@ -423,11 +423,6 @@ data
 
 ## Future Improvements
 
----
-
-```md
-## Future Improvements
-
 Although the final version already supports the main TA recruitment workflow, there is still room for further improvement.
 
 - Further improve the overall UI design and make the interaction style more consistent across all modules.
