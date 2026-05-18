@@ -411,6 +411,7 @@ data
 | 2026-04-09 | @rei129482 |Yifan-Cao/Admin_module  |Completed the final version of the admin module in version 2|
 | 2026-05-10 | @rei129482 |Yifan-Cao/Admin_module  |Optimized the workload calculation method, fixed the issue of data path reading, and upgraded the system to Version 3|
 | 2026-05-18 | @rei129482 |Yifan-Cao/Admin_module  |Access data from the AI analysis system to generate evaluation reports, further optimize the UI, and update the system to Version 4|
+
 ### Yuxin Wang
 | Date | Member | Location/Branch | Task Description |
 | :--- | :--- | :--- | :--- |
@@ -429,6 +430,16 @@ data
 | 2026-04-7 | @Yuxin-Wang5 | Yuxin-Wang/MO_application_review_module | Improve the page design after the second iteration and implement missing features. |
 | 2026-04-8 | @Yuxin-Wang5 | Yuxin-Wang/MO_application_review_module | Collaborate with another student to integrate into a complete MO system. |
 | 2026-04-9 | @Yuxin-Wang5 | Yuxin-Wang/MO_application_review_module | In the integrated MO system, refine the problematic sections of the Application Review Module, such as page layout. |
+| 2026-04-17 | @Yuxin-Wang5 | Yuxin-Wang/MO_application_review_module | The direction for improving the MO system after confirmation. |
+| 2026-04-23 | @Yuxin-Wang5 | Yuxin-Wang/MO_application_review_module | Add and modify the skill pool. |
+| 2026-04-26 | @Yuxin-Wang5 | Yuxin-Wang/MO_application_review_module | Add the feature to sort by descending or ascending order based on AI-generated scores. |
+| 2026-04-27 | @Yuxin-Wang5 | Yuxin-Wang/MO_application_review_module | Add the MO-TA bidirectional confirmation feature. |
+| 2026-04-29 | @Yuxin-Wang5 | Yuxin-Wang/MO_application_review_module | Allow MO to view TA's CV. |
+| 2026-05-11 | @Yuxin-Wang5 | Yuxin-Wang/MO_application_review_module | Fix the incomplete navigation bar display and font sinking issues caused by the overall UI change. |
+| 2026-05-14 | @Yuxin-Wang5 | Yuxin-Wang/MO_application_review_module | Fix skill and design mismatches caused by changes to the skill pool. |
+| 2026-05-15 | @Yuxin-Wang5 | Yuxin-Wang/MO_application_review_module | Optimize the automatic scoring algorithm. |
+| 2026-05-18 | @Yuxin-Wang5 | Yuxin-Wang/MO_application_review_module | Add features such as AI-powered automatic skill detection for missing skills. |
+5.3-5.18
 
 ### Yifan Lang
 | Date | Member | Location/Branch | Task Description |
