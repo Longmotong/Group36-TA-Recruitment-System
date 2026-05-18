@@ -409,7 +409,8 @@ data
 | 2026-03-31 | @rei129482 |Yifan-Cao/Admin_module  |Updated and modified the folder structure and content|
 | 2026-04-07 | @rei129482 |Yifan-Cao/Admin_module  |Updated and modified the ui design|
 | 2026-04-09 | @rei129482 |Yifan-Cao/Admin_module  |Completed the final version of the admin module in version 2|
-
+| 2026-05-10 | @rei129482 |Yifan-Cao/Admin_module  |Optimized the workload calculation method, fixed the issue of data path reading, and upgraded the system to Version 3|
+| 2026-05-18 | @rei129482 |Yifan-Cao/Admin_module  |Access data from the AI analysis system to generate evaluation reports, further optimize the UI, and update the system to Version 4|
 ### Yuxin Wang
 | Date | Member | Location/Branch | Task Description |
 | :--- | :--- | :--- | :--- |
