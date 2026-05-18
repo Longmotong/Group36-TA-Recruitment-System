@@ -83,7 +83,6 @@ System
 │
 ├── TA Module
 │   ├── Profile Management
-│   ├── CV Upload
 │   └── Job Application
 │
 ├── MO Module
@@ -268,7 +267,7 @@ data
 - Overall, Version 2 mainly focused on functional extension and system integration, so the system had not yet reached the level of completeness, polish, and robustness expected of the final version.
 
 
-### Iteration 3
+### Iteration 3（4.13-5.2）
 #### Planned goals
 - Further improve the overall consistency of the system and strengthen integration across modules.
 - Extend the login and registration module by supporting more complete role selection and clearer account-related interaction.
@@ -297,10 +296,21 @@ data
 - Overall, Version 3 significantly improved the completeness of the system, but further polishing was still needed before reaching the final version standard.
 
 
-### Iteration 4
+### Iteration 4（5.3-5.18）
 #### Planned goals
+- Further refine the overall UI design and improve consistency across all modules.
+- Continue optimising page layout, button style, and navigation flow to provide a smoother user experience.
+- Further improve the AI-supported functions on the TA, MO, and Admin sides.
+- Strengthen the practical interaction between users and the Admin module.
+- Add more management-side control and approval logic to make the system more suitable for real coordination scenarios.
+- Continue improving overall system stability and the completeness of cross-module workflows.
 #### Completed features
-#### Issues and reflections
+- The overall UI design was further refined, with improved interface consistency, clearer layouts, and more polished interaction details across different modules.
+- The AI-supported functions introduced in the previous version were further improved and integrated more closely into the workflows of TA, MO, and Admin users.
+- The Admin-side interaction was extended by adding a registration-approval mechanism. Newly registered admin users can now enter an approval process before gaining access to the system.
+- A status-based approval logic was introduced for admin accounts, allowing the system to distinguish between pending, approved, and rejected states.
+- The Admin module was improved so that it could read applicant information and update approval status more directly, making management-side interaction more practical.
+- Overall workflow coordination between modules was further improved, making the system more complete and closer to a realistic multi-role recruitment platform.
 
 ---
 
@@ -362,6 +372,11 @@ data
 | 2026-4-23 | @Longmotong |Motong-Long/TA_job_application_module|improve the display interface for AI matching degree ranking, as well as the presentation interface for each job's AI analysis results |
 | 2026-4-27 | @Longmotong |Motong-Long/TA_job_application_module|Integrate the ta job application module into the consolidated version code |
 | 2026-4-28 | @Longmotong |Motong-Long/TA_job_application_module|Integrate the mo system and admin system into the full version |
+| 2026-5-7 | @Longmotong |Motong-Long/TA_job_application_module|Update the UI design of the work list interface |
+| 2026-5-8 | @Longmotong |Motong-Long/TA_job_application_module|Update the UI design of the job detail interface |
+| 2026-5-9 | @Longmotong |Motong-Long/TA_job_application_module|Update the UI design of the two ai result interfaces |
+| 2026-5-10 | @Longmotong |Motong-Long/TA_job_application_module|Update the UI design of the apply and my application interfaces |
+| 2026-5-18 | @Longmotong |Motong-Long/TA_job_application_module|Fix issues such as the display button still being present |
 
 
 
@@ -431,19 +446,42 @@ data
 
 ## How to Run the System
 
-1. Clone the repository
+## How to Run the System
 
-2. Open the project using an IDE such as **IntelliJ IDEA** or **Eclipse**
+1. Go to the **Releases** section of this repository and download the required version of the system.
 
-3. Run the main program
+2. Extract the release package to a local folder.  
+   Please keep the `.jar` file, data files, and related resource folders in the same structure as provided in the release package.
+
+3. Make sure that **Java** is installed on your computer.
+
+4. Open a terminal (or command prompt), navigate to the folder containing the `.jar` file, and run the system with:
+
+   ```bash
+   java -jar <version_file>.jar
+
+ 5. For different releases, replace <version_file> with the corresponding file name.
+
+    ```bash
+    java -jar version1_integrate.jar
+    java -jar version2_integrate.jar
+    java -jar version3_integrate.jar
+    java -jar version4_integrate.jar
+    
+ 6. After launching, the system window should open automatically. You can then log in with the available test accounts and data included in the release package.
 
 
 
 ## Future Improvements
 
-Possible future enhancements include:
+Although the final version already supports the main TA recruitment workflow, there is still room for further improvement.
 
-- AI-based job recommendation
-- Skill gap analysis
-- Automatic workload balancing
-- Improved UI design
+- Further improve the overall UI design and make the interaction style more consistent across all modules.
+- Continue refining cross-module navigation and state updates to make the user experience smoother.
+- Strengthen data handling and file management so that the system can support more stable and scalable usage.
+- Improve exception handling and validation in different workflows, especially for edge cases and invalid input.
+- Refine the Admin-side workload management logic by introducing clearer working-hour rules and more complete allocation support.
+- Further enhance the AI-supported functions so that their outputs become more accurate, interpretable, and practically useful.
+- Add more detailed communication and notification mechanisms between TA, MO, and Admin users.
+- Improve testing coverage with richer datasets and more realistic multi-user scenarios.
+- If the system is extended in the future, it could also be migrated from simple file-based storage to a more robust database-backed architecture.
