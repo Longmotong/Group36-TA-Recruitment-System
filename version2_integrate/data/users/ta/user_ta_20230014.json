@@ -1,0 +1,75 @@
+{
+  "skills": {
+    "programming": [
+      {
+        "skillId": "skill_1775921634996_0",
+        "name": "python",
+        "proficiency": "Beginner"
+      }
+    ],
+    "teaching": [],
+    "communication": [],
+    "other": []
+  },
+  "loginId": "20230014",
+  "role": "ta",
+  "cv": {
+    "uploaded": true,
+    "originalFileName": "LR001_SLAMTEC_rplidar_SC series_protocol_v2.8_en.pdf",
+    "storedFileName": "",
+    "filePath": "data\\uploads\\profile_cv\\20230014\\LR001_SLAMTEC_rplidar_SC series_protocol_v2.8_en.pdf",
+    "fileType": "",
+    "fileSizeKB": 0,
+    "uploadedAt": "2026-04-11"
+  },
+  "academic": {
+    "gpa": 0.0,
+    "completedCourses": []
+  },
+  "permissions": {
+    "canBrowseJobs": true,
+    "canApplyJob": true,
+    "canManageJob": false,
+    "canManageUsers": false,
+    "canViewOwnApplications": true,
+    "canUploadCV": true,
+    "canEditOwnProfile": true,
+    "canReviewApplication": false
+  },
+  "meta": {
+    "createdAt": "2026-04-11T23:32:34.724217800",
+    "isDeleted": false,
+    "isActive": true,
+    "updatedAt": "2026-04-11T23:34:11.6970361"
+  },
+  "profile": {
+    "fullName": "kathy",
+    "studentId": "2023213322",
+    "year": "2nd Year",
+    "programMajor": "Computer science",
+    "department": "",
+    "phoneNumber": "18986245801",
+    "address": "",
+    "shortBio": ""
+  },
+  "userId": "u_ta_20230014",
+  "account": {
+    "password": "test1234",
+    "lastLoginAt": "2026-04-11T23:32:34.724217800",
+    "email": "1111@qq.com",
+    "passwordHash": "hashed_kathy",
+    "username": "kathy",
+    "status": "active"
+  },
+  "dashboard": {
+    "profileCompletion": 100,
+    "onboardingCompleted": true
+  },
+  "applicationSummary": {
+    "underReview": 0,
+    "rejected": 0,
+    "pending": 0,
+    "accepted": 0,
+    "totalApplications": 0
+  }
+}

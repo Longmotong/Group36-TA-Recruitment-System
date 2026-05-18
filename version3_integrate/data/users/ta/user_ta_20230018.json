@@ -1,0 +1,184 @@
+{
+  "skills": {
+    "proficiencyLevels": [
+      "Beginner",
+      "Intermediate",
+      "Advanced"
+    ],
+    "taSkillPool": {
+      "technicalSkills": {
+        "programmingAndSoftwareFundamentals": [
+          {
+            "name": "Java",
+            "selected": true,
+            "proficiency": "Intermediate"
+          },
+          {
+            "name": "Python",
+            "selected": false
+          },
+          {
+            "name": "C/C++",
+            "selected": false
+          },
+          {
+            "name": "SQL",
+            "selected": false
+          },
+          {
+            "name": "Algorithms \u0026 Data Structures",
+            "selected": false
+          },
+          {
+            "name": "Object-Oriented Programming (OOP)",
+            "selected": false
+          }
+        ],
+        "hardwareAndLogicDesign": [
+          {
+            "name": "VHDL",
+            "selected": false
+          },
+          {
+            "name": "Verilog",
+            "selected": false
+          },
+          {
+            "name": "Digital Logic Design",
+            "selected": false
+          },
+          {
+            "name": "FPGA Development \u0026 Debugging",
+            "selected": true,
+            "proficiency": "Advanced"
+          }
+        ],
+        "embeddedSystemsAndLowLevelDevelopment": [
+          {
+            "name": "STM32 Development",
+            "selected": true,
+            "proficiency": "Intermediate"
+          },
+          {
+            "name": "FreeRTOS",
+            "selected": true,
+            "proficiency": "Intermediate"
+          },
+          {
+            "name": "Embedded C",
+            "selected": false
+          },
+          {
+            "name": "Hardware Driver Development",
+            "selected": false
+          }
+        ]
+      },
+      "engineeringAndTools": {
+        "professionalDevelopmentAndSimulationTools": [
+          {
+            "name": "Quartus Prime",
+            "selected": false
+          },
+          {
+            "name": "Keil5",
+            "selected": true,
+            "proficiency": "Intermediate"
+          },
+          {
+            "name": "STM32CubeIDE",
+            "selected": true,
+            "proficiency": "Intermediate"
+          },
+          {
+            "name": "STM32CubeMX",
+            "selected": true,
+            "proficiency": "Intermediate"
+          },
+          {
+            "name": "CST Studio Suite",
+            "selected": false
+          },
+          {
+            "name": "Matlab / Simulink",
+            "selected": false
+          },
+          {
+            "name": "Cisco Packet Tracer",
+            "selected": false
+          }
+        ]
+      },
+      "languageAndCommunication": {
+        "crossCulturalCommunication": [
+          {
+            "name": "English",
+            "selected": true,
+            "proficiency": "Advanced"
+          }
+        ]
+      }
+    }
+  },
+  "loginId": "20230018",
+  "role": "ta",
+  "cv": {
+    "uploaded": false,
+    "originalFileName": "",
+    "storedFileName": "",
+    "filePath": "",
+    "fileType": "",
+    "fileSizeKB": 0,
+    "uploadedAt": ""
+  },
+  "academic": {
+    "gpa": 0.0,
+    "completedCourses": []
+  },
+  "permissions": {
+    "canBrowseJobs": true,
+    "canApplyJob": true,
+    "canManageJob": false,
+    "canManageUsers": false,
+    "canViewOwnApplications": true,
+    "canUploadCV": true,
+    "canEditOwnProfile": true,
+    "canReviewApplication": false
+  },
+  "meta": {
+    "createdAt": "2026-04-20T22:39:01.627698800",
+    "isDeleted": false,
+    "isActive": true,
+    "updatedAt": "2026-05-09T17:26:07.5279476"
+  },
+  "profile": {
+    "fullName": "Sasha",
+    "studentId": "2023218888",
+    "year": "3rd Year",
+    "programMajor": "AI",
+    "department": "",
+    "phoneNumber": "13245674567",
+    "address": "",
+    "shortBio": ""
+  },
+  "userId": "u_ta_20230018",
+  "account": {
+    "password": "test1234",
+    "lastLoginAt": "2026-04-20T22:39:01.627698800",
+    "email": "2023218888@bupt.cn",
+    "passwordHash": "hashed_2023218888",
+    "username": "2023218888",
+    "status": "active"
+  },
+  "dashboard": {
+    "profileCompletion": 100,
+    "onboardingCompleted": true
+  },
+  "applicationSummary": {
+    "underReview": 0,
+    "rejected": 0,
+    "pending": 0,
+    "accepted": 0,
+    "totalApplications": 0
+  }
+}

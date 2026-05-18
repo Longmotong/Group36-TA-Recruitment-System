@@ -1,0 +1,75 @@
+{
+  "skills": {
+    "programming": [
+      {
+        "skillId": "skill_1775968794776_0",
+        "name": "Python",
+        "proficiency": "Beginner"
+      }
+    ],
+    "teaching": [],
+    "communication": [],
+    "other": []
+  },
+  "loginId": "20230016",
+  "role": "ta",
+  "cv": {
+    "uploaded": true,
+    "originalFileName": "EBU6304_GroupProjectHandout.pdf",
+    "storedFileName": "",
+    "filePath": "data\\uploads\\profile_cv\\20230016\\EBU6304_GroupProjectHandout.pdf",
+    "fileType": "",
+    "fileSizeKB": 0,
+    "uploadedAt": "2026-04-12"
+  },
+  "academic": {
+    "gpa": 0.0,
+    "completedCourses": []
+  },
+  "permissions": {
+    "canBrowseJobs": true,
+    "canApplyJob": true,
+    "canManageJob": false,
+    "canManageUsers": false,
+    "canViewOwnApplications": true,
+    "canUploadCV": true,
+    "canEditOwnProfile": true,
+    "canReviewApplication": false
+  },
+  "meta": {
+    "createdAt": "2026-04-12T12:38:10.374522300",
+    "isDeleted": false,
+    "isActive": true,
+    "updatedAt": "2026-04-12T12:39:54.7767467"
+  },
+  "profile": {
+    "fullName": "Taylor",
+    "studentId": "2023217777",
+    "year": "2nd Year",
+    "programMajor": "software ehgineering",
+    "department": "",
+    "phoneNumber": "13245674567",
+    "address": "",
+    "shortBio": ""
+  },
+  "userId": "u_ta_20230016",
+  "account": {
+    "password": "test1234",
+    "lastLoginAt": "2026-04-12T12:38:10.374522300",
+    "email": "2023217777@bupt.cn",
+    "passwordHash": "hashed_2023217777",
+    "username": "2023217777",
+    "status": "active"
+  },
+  "dashboard": {
+    "profileCompletion": 100,
+    "onboardingCompleted": true
+  },
+  "applicationSummary": {
+    "underReview": 0,
+    "rejected": 0,
+    "pending": 0,
+    "accepted": 0,
+    "totalApplications": 0
+  }
+}

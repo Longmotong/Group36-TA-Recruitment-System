@@ -1,0 +1,87 @@
+{
+  "userId": "u_ta_20230003",
+  "loginId": "20230003",
+  "role": "ta",
+  "account": {
+    "username": "charliebrown",
+    "email": "charlie.brown@university.edu",
+    "password": "test1234",
+    "passwordHash": "hashed_password_here",
+    "status": "active",
+    "lastLoginAt": "2026-03-18T09:30:00"
+  },
+  "profile": {
+    "fullName": "Charlie Brown",
+    "studentId": "20230003",
+    "year": "4th Year",
+    "programMajor": "Mechanical Engineering",
+    "department": "Mechanical Engineering",
+    "phoneNumber": "(555) 345-6789",
+    "address": "789 Pine St, City, State, ZIP",
+    "shortBio": "Passionate about robotics and sustainable energy.",
+    "avatarPath": "data/uploads/avatars/u_ta_20230003.png"
+  },
+  "academic": {
+    "gpa": 3.9,
+    "completedCourses": [
+      {
+        "courseCode": "ME101",
+        "courseName": "Introduction to Mechanical Engineering",
+        "grade": "A"
+      },
+      {
+        "courseCode": "ME201",
+        "courseName": "Fluid Mechanics",
+        "grade": "A"
+      }
+    ]
+  },
+  "skills": {
+    "programming": [
+      { "skillId": "skill_001", "name": "Python", "proficiency": "Advanced" },
+      { "skillId": "skill_002", "name": "MATLAB", "proficiency": "Intermediate" }
+    ],
+    "teaching": [
+      { "skillId": "skill_003", "name": "Teaching Assistant", "proficiency": "Advanced" }
+    ],
+    "communication": [
+      { "skillId": "skill_004", "name": "English", "proficiency": "Native" }
+    ],
+    "other": []
+  },
+  "cv": {
+    "uploaded": true,
+    "originalFileName": "Charlie_Brown_CV.pdf",
+    "storedFileName": "current_cv.pdf",
+    "filePath": "data/uploads/profile_cv/20230003/current_cv.pdf",
+    "fileType": "pdf",
+    "fileSizeKB": 280,
+    "uploadedAt": "2026-03-10T10:30:00"
+  },
+  "applicationSummary": {
+    "totalApplications": 1,
+    "pending": 0,
+    "underReview": 0,
+    "accepted": 1,
+    "rejected": 0
+  },
+  "dashboard": {
+    "profileCompletion": 90
+  },
+  "permissions": {
+    "canEditOwnProfile": true,
+    "canUploadCV": true,
+    "canBrowseJobs": true,
+    "canApplyJob": true,
+    "canViewOwnApplications": true,
+    "canReviewApplication": false,
+    "canManageJob": false,
+    "canManageUsers": false
+  },
+  "meta": {
+    "createdAt": "2026-03-01T09:00:00",
+    "updatedAt": "2026-03-18T09:30:00",
+    "isDeleted": false,
+    "isActive": true
+  }
+}

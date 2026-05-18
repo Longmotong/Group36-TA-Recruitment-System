@@ -1,0 +1,6 @@
+{
+  "moJobs" : {
+    "u_mo_001" : [ "job_CS101_2026_spring", "job_CS201_2026_spring", "job_SF001_2026_spring", "job_CS111_2026_spring" ],
+    "u_mo_002" : [ "job_MATH205_2026_spring" ]
+  }
+}
