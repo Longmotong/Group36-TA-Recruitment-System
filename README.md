@@ -439,7 +439,6 @@ data
 | 2026-05-14 | @Yuxin-Wang5 | Yuxin-Wang/MO_application_review_module | Fix skill and design mismatches caused by changes to the skill pool. |
 | 2026-05-15 | @Yuxin-Wang5 | Yuxin-Wang/MO_application_review_module | Optimize the automatic scoring algorithm. |
 | 2026-05-18 | @Yuxin-Wang5 | Yuxin-Wang/MO_application_review_module | Add features such as AI-powered automatic skill detection for missing skills. |
-5.3-5.18
 
 ### Yifan Lang
 | Date | Member | Location/Branch | Task Description |
