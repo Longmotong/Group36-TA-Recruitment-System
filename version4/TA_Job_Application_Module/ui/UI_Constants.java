@@ -7,8 +7,9 @@ import java.awt.Color;
 public class UI_Constants {
     
     
-    public static final Color PRIMARY_COLOR = new Color(79, 70, 229);
-    public static final Color PRIMARY_HOVER = new Color(67, 56, 202);
+    /** Soft-Neo accent ≈ #8C7CF0 (JobsPortalUi.ACCENT_SOFT). */
+    public static final Color PRIMARY_COLOR = new Color(140, 124, 240);
+    public static final Color PRIMARY_HOVER = new Color(122, 108, 214);
     
     
     public static final Color SUCCESS_COLOR = new Color(16, 185, 129);

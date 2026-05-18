@@ -11,6 +11,10 @@ import TA_Job_Application_Module.ui.UI_Helper;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
+import java.awt.geom.Arc2D;
+import java.awt.geom.Ellipse2D;
+import java.awt.geom.Line2D;
+import java.awt.geom.RoundRectangle2D;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -23,12 +27,22 @@ import java.util.List;
 public class Page_Apply {
 
     private static final int FORM_MAX_WIDTH = 880;
-    private static final Color POSITION_HEADER_BG = new Color(239, 246, 255);
-    private static final Color POSITION_HEADER_BORDER = new Color(191, 219, 254);
-    private static final Color HINT_BANNER_BG = new Color(254, 252, 232);
-    private static final Color HINT_BANNER_BORDER = new Color(253, 230, 138);
+    private static final Color POSITION_HEADER_BG = new Color(0xF8F5FF);
+    private static final Color POSITION_HEADER_BORDER = new Color(0xDED4FF);
+    private static final Color HINT_BANNER_BG = new Color(0xFFFBEB);
+    private static final Color HINT_BANNER_BORDER = new Color(0xFDE68A);
     /** Main page / section titles — portal purple. */
     private static final Color TITLE_PURPLE = JobsPortalUi.PURPLE_800;
+    private static final Color DARK_TEXT = new Color(0x111033);
+    private static final Color MUTED_TEXT = new Color(0x667085);
+    private static final Color SOFT_BG_TOP = new Color(0xFDFCFF);
+    private static final Color SOFT_BG_BOTTOM = new Color(0xF8F6FF);
+    private static final Color CARD_BORDER = new Color(0xDED4FF);
+    private static final Color LAVENDER_TILE = new Color(0xF3EEFF);
+    private static final Color INPUT_BORDER = new Color(0xDDE3EE);
+    private static final Color GREEN_BG = new Color(0xECFDF5);
+    private static final Color GREEN_BORDER = new Color(0xA7F3D0);
+    private static final Color GREEN_TEXT = new Color(0x15803D);
 
     private static String getCvUploadBase() {
         String binDir = System.getProperty("user.dir");
@@ -51,6 +65,26 @@ public class Page_Apply {
         dialog.setLocationRelativeTo(owner);
         dialog.setVisible(true);
         dialog.dispose();
+    }
+
+    /**
+     * Prefer the enclosing application window so {@link JFileChooser} centers on the TA portal,
+     * not on a detached screen corner.
+     */
+    private static Component fileChooserParent(Component anchor) {
+        if (anchor == null) {
+            return JOptionPane.getRootFrame();
+        }
+        Window w = SwingUtilities.getWindowAncestor(anchor);
+        if (w != null) {
+            return w;
+        }
+        Window active = KeyboardFocusManager.getCurrentKeyboardFocusManager().getActiveWindow();
+        if (active != null) {
+            return active;
+        }
+        Frame f = JOptionPane.getFrameForComponent(anchor);
+        return f != null ? f : JOptionPane.getRootFrame();
     }
 
     public interface ApplyCallback {
@@ -89,10 +123,31 @@ public class Page_Apply {
     }
 
     private void initPanel() {
-        panel = new JPanel();
+        panel = new JPanel() {
+            @Override
+            protected void paintComponent(Graphics g) {
+                super.paintComponent(g);
+                Graphics2D g2 = (Graphics2D) g.create();
+                g2.setRenderingHint(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
+                g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+                g2.setPaint(new GradientPaint(0, 0, SOFT_BG_TOP, 0, getHeight(), SOFT_BG_BOTTOM));
+                g2.fillRect(0, 0, getWidth(), getHeight());
+
+                // Decorative dotted pattern, visually consistent with the portal jobs pages.
+                g2.setColor(new Color(109, 77, 235, 18));
+                int startX = Math.max(0, getWidth() - 260);
+                for (int x = startX; x < getWidth() - 18; x += 10) {
+                    for (int y = 0; y < 170; y += 10) {
+                        g2.fillOval(x, y, 2, 2);
+                    }
+                }
+                g2.dispose();
+            }
+        };
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
-        panel.setBackground(UI_Constants.BG_COLOR);
-        panel.setBorder(new EmptyBorder(16, 48, 40, 48));
+        panel.setOpaque(true);
+        panel.setBackground(JobsPortalUi.PAGE_BG);
+        panel.setBorder(new EmptyBorder(18, 48, 40, 48));
     }
 
     private void buildContent(Job job) {
@@ -104,32 +159,16 @@ public class Page_Apply {
         column.setAlignmentX(Component.CENTER_ALIGNMENT);
         column.setMaximumSize(new Dimension(FORM_MAX_WIDTH, Integer.MAX_VALUE));
 
-        JButton backBtn = new JButton("\u2190 Back to Job Detail");
-        backBtn.setFont(new Font("Segoe UI", Font.PLAIN, 14));
-        backBtn.setForeground(JobsPortalUi.PURPLE_600);
-        backBtn.setContentAreaFilled(false);
-        backBtn.setBorderPainted(false);
-        backBtn.setBorder(new EmptyBorder(0, 0, 8, 0));
-        backBtn.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        backBtn.setAlignmentX(Component.LEFT_ALIGNMENT);
-        backBtn.addActionListener(e -> callback.onBackToJobDetail(job));
-        column.add(backBtn);
+        column.add(buildPageHeader(
+                "\u2190  Back to Job Detail",
+                "Apply for Job",
+                "Please fill out the application form below",
+                () -> callback.onBackToJobDetail(job)));
 
-        JLabel pageTitle = new JLabel("Apply for Job");
-        pageTitle.setFont(new Font("Segoe UI", Font.BOLD, 28));
-        pageTitle.setForeground(TITLE_PURPLE);
-        pageTitle.setAlignmentX(Component.LEFT_ALIGNMENT);
-        pageTitle.setBorder(new EmptyBorder(0, 0, 20, 0));
-        column.add(pageTitle);
-
-        JPanel mainCard = new JPanel();
+        JPanel mainCard = new SoftCardPanel(22, Color.WHITE, CARD_BORDER, true);
         mainCard.setLayout(new BoxLayout(mainCard, BoxLayout.Y_AXIS));
-        mainCard.setBackground(UI_Constants.CARD_BG);
         mainCard.setAlignmentX(Component.LEFT_ALIGNMENT);
-        mainCard.setBorder(BorderFactory.createCompoundBorder(
-                BorderFactory.createLineBorder(UI_Constants.BORDER_COLOR, 1),
-                BorderFactory.createEmptyBorder(0, 0, 24, 0)
-        ));
+        mainCard.setBorder(new EmptyBorder(0, 0, 24, 0));
         mainCard.setMaximumSize(new Dimension(Integer.MAX_VALUE, Integer.MAX_VALUE));
 
         mainCard.add(buildPositionHeader(job));
@@ -141,33 +180,11 @@ public class Page_Apply {
         body.setBorder(new EmptyBorder(0, 24, 0, 24));
         body.setAlignmentX(Component.LEFT_ALIGNMENT);
 
-        JPanel hintCard = new JPanel(new BorderLayout());
-        hintCard.setOpaque(true);
-        hintCard.setBackground(HINT_BANNER_BG);
-        hintCard.setBorder(BorderFactory.createCompoundBorder(
-                BorderFactory.createLineBorder(HINT_BANNER_BORDER, 1),
-                new EmptyBorder(12, 14, 12, 14)
-        ));
-        JLabel hintText = new JLabel(
-                "<html><b>Note:</b> Your profile data, skills, and CV have been pre-filled. You may edit anything before submitting.</html>");
-        hintText.setFont(new Font("Segoe UI", Font.PLAIN, 13));
-        hintText.setForeground(UI_Constants.TEXT_SECONDARY);
-        hintCard.add(hintText, BorderLayout.CENTER);
-
-        JPanel hintRow = new JPanel(new BorderLayout());
-        hintRow.setOpaque(false);
-        hintRow.setAlignmentX(Component.LEFT_ALIGNMENT);
-        hintRow.setMaximumSize(new Dimension(Integer.MAX_VALUE, Integer.MAX_VALUE));
-        hintRow.add(hintCard, BorderLayout.CENTER);
-        body.add(hintRow);
+        body.add(createHintBanner());
 
         body.add(Box.createVerticalStrut(22));
 
-        JLabel sectionTitle = new JLabel("Application Information");
-        sectionTitle.setFont(new Font("Segoe UI", Font.BOLD, 18));
-        sectionTitle.setForeground(TITLE_PURPLE);
-        sectionTitle.setAlignmentX(Component.LEFT_ALIGNMENT);
-        body.add(sectionTitle);
+        body.add(sectionTitle("Application Information", miniIcon(JobsPortalUi.PURPLE_600, 18, "clipboard")));
         body.add(Box.createVerticalStrut(16));
 
         JTextField fullNameField = createEditableField(currentUser.getProfile().getFullName());
@@ -180,7 +197,7 @@ public class Page_Apply {
         JPanel grid = new JPanel(new GridLayout(3, 2, 20, 16));
         grid.setOpaque(false);
         grid.setAlignmentX(Component.LEFT_ALIGNMENT);
-        grid.setMaximumSize(new Dimension(Integer.MAX_VALUE, 220));
+        grid.setMaximumSize(new Dimension(Integer.MAX_VALUE, 240));
         grid.add(createFieldPanel("Full Name *", fullNameField));
         grid.add(createFieldPanel("Student ID *", studentIdField));
         grid.add(createFieldPanel("Email *", emailField));
@@ -244,23 +261,6 @@ public class Page_Apply {
         resumeBox.setMaximumSize(new Dimension(Integer.MAX_VALUE, 120));
         body.add(resumeBox);
 
-        body.add(Box.createVerticalStrut(16));
-
-        JLabel supportTitle = new JLabel("Supporting Documents (Optional)");
-        supportTitle.setFont(new Font("Segoe UI", Font.BOLD, 13));
-        supportTitle.setForeground(UI_Constants.TEXT_SECONDARY);
-        supportTitle.setAlignmentX(Component.LEFT_ALIGNMENT);
-        body.add(supportTitle);
-        body.add(Box.createVerticalStrut(8));
-
-        JPanel supportBox = createUploadBox(
-                "Transcripts, certificates, or other documents",
-                "Click to upload"
-        );
-        supportBox.setAlignmentX(Component.LEFT_ALIGNMENT);
-        supportBox.setMaximumSize(new Dimension(Integer.MAX_VALUE, 120));
-        body.add(supportBox);
-
         body.add(Box.createVerticalStrut(28));
 
         JPanel btnRow = new JPanel(new FlowLayout(FlowLayout.LEFT, 12, 0));
@@ -270,7 +270,7 @@ public class Page_Apply {
         JobsPortalUi.OutlinePurpleButton saveDraftBtn = JobsPortalUi.outlineButton(
                 "Save as Draft", new Font("Segoe UI", Font.BOLD, 14));
         JobsPortalUi.PurpleGradientButton submitBtn = JobsPortalUi.gradientButton(
-                "Submit Application", new Font("Segoe UI", Font.BOLD, 15));
+                "Submit Application", new Font("Segoe UI", Font.BOLD, 15), miniIcon(Color.WHITE, 16, "send"));
         JobsPortalUi.OutlinePurpleButton cancelBtn = JobsPortalUi.outlineButton(
                 "Cancel", new Font("Segoe UI", Font.BOLD, 14));
 
@@ -278,12 +278,11 @@ public class Page_Apply {
         if (hasExistingCv && userCv.getFilePath() != null && !userCv.getFilePath().isBlank()) {
             selectedCvPath[0] = userCv.getFilePath();
         }
-        final List<String> selectedSupportPaths = new ArrayList<>();
 
         saveDraftBtn.addActionListener(ev -> {
             Application draftApp = buildApplicationFromForm(job, fullNameField, studentIdField,
                     emailField, phoneField, programField, gpaField, skillsArea,
-                    experienceArea, availabilityArea, motivationArea, selectedCvPath, selectedSupportPaths);
+                    experienceArea, availabilityArea, motivationArea, selectedCvPath);
             draftApp.setDraft(true);
             dataService.saveDraft(draftApp, job);
             showCenteredMessage(panel,
@@ -308,30 +307,12 @@ public class Page_Apply {
         JLabel resumeHintLbl = (JLabel) resumeBox.getClientProperty("hintLabel");
         resumePickBtn.addActionListener(ev -> {
             JFileChooser chooser = new JFileChooser();
-            int res = chooser.showOpenDialog(panel);
+            int res = chooser.showOpenDialog(fileChooserParent(panel));
             if (res == JFileChooser.APPROVE_OPTION) {
                 File f = chooser.getSelectedFile();
                 selectedCvPath[0] = f.getAbsolutePath();
                 resumeHintLbl.setText(f.getName() + " (selected)");
                 resumeHintLbl.setForeground(UI_Constants.SUCCESS_COLOR);
-            }
-        });
-
-        JButton supportPickBtn = (JButton) supportBox.getClientProperty("pickButton");
-        JLabel supportHintLbl = (JLabel) supportBox.getClientProperty("hintLabel");
-        supportPickBtn.addActionListener(ev -> {
-            JFileChooser chooser = new JFileChooser();
-            chooser.setMultiSelectionEnabled(true);
-            int res = chooser.showOpenDialog(panel);
-            if (res == JFileChooser.APPROVE_OPTION) {
-                selectedSupportPaths.clear();
-                File[] files = chooser.getSelectedFiles();
-                if (files != null && files.length > 0) {
-                    for (File f : files) {
-                        selectedSupportPaths.add(f.getAbsolutePath());
-                    }
-                    supportHintLbl.setText(files.length + " file(s) selected");
-                }
             }
         });
 
@@ -359,7 +340,7 @@ public class Page_Apply {
 
             Application app = buildApplicationFromForm(job, fullNameField, studentIdField,
                     emailField, phoneField, programField, gpaField, skillsArea,
-                    experienceArea, availabilityArea, motivationArea, selectedCvPath, selectedSupportPaths);
+                    experienceArea, availabilityArea, motivationArea, selectedCvPath);
 
             dataService.addApplication(app);
 
@@ -375,39 +356,70 @@ public class Page_Apply {
     }
 
     private JPanel buildPositionHeader(Job job) {
-        JPanel wrap = new JPanel();
-        wrap.setLayout(new BoxLayout(wrap, BoxLayout.Y_AXIS));
-        wrap.setOpaque(true);
-        wrap.setBackground(POSITION_HEADER_BG);
-        wrap.setBorder(BorderFactory.createCompoundBorder(
-                BorderFactory.createMatteBorder(0, 0, 1, 0, POSITION_HEADER_BORDER),
-                new EmptyBorder(18, 24, 18, 24)
-        ));
+        JPanel wrap = new JPanel(new BorderLayout(20, 0)) {
+            @Override
+            protected void paintComponent(Graphics g) {
+                Graphics2D g2 = (Graphics2D) g.create();
+                g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+                int w = getWidth();
+                int h = getHeight();
+                g2.setPaint(new GradientPaint(0, 0, POSITION_HEADER_BG, w, h, Color.WHITE));
+                g2.fillRoundRect(0, 0, w, h, 18, 18);
+                g2.setColor(POSITION_HEADER_BORDER);
+                g2.setStroke(new BasicStroke(1f));
+                g2.drawRoundRect(0, 0, w - 1, h - 1, 18, 18);
+                g2.dispose();
+                super.paintComponent(g);
+            }
+        };
+        wrap.setOpaque(false);
+        wrap.setBorder(new EmptyBorder(18, 22, 18, 22));
         wrap.setAlignmentX(Component.LEFT_ALIGNMENT);
-        wrap.setMaximumSize(new Dimension(Integer.MAX_VALUE, 200));
+        wrap.setMaximumSize(new Dimension(Integer.MAX_VALUE, 160));
+
+        JLabel icon = new JLabel(miniIcon(JobsPortalUi.PURPLE_600, 28, "briefcase"));
+        JPanel iconTile = JobsPortalUi.wrapRoundedInner(icon, 34,
+                new Color(0xEEE8FF), new Color(0xE2D8FF), 1f, false,
+                new Insets(16, 16, 16, 16));
+        iconTile.setPreferredSize(new Dimension(72, 72));
+        iconTile.setMinimumSize(new Dimension(72, 72));
+        iconTile.setMaximumSize(new Dimension(72, 72));
+        wrap.add(iconTile, BorderLayout.WEST);
+
+        JPanel textCol = new JPanel();
+        textCol.setLayout(new BoxLayout(textCol, BoxLayout.Y_AXIS));
+        textCol.setOpaque(false);
 
         JLabel tag = new JLabel("Position Details");
         tag.setFont(new Font("Segoe UI", Font.BOLD, 12));
-        tag.setForeground(JobsPortalUi.PURPLE_600);
+        tag.setForeground(JobsPortalUi.PURPLE_700);
         tag.setAlignmentX(Component.LEFT_ALIGNMENT);
-        wrap.add(tag);
-        wrap.add(Box.createVerticalStrut(8));
+        textCol.add(tag);
+        textCol.add(Box.createVerticalStrut(8));
 
         JLabel jt = new JLabel(job.getTitle());
-        jt.setFont(new Font("Segoe UI", Font.BOLD, 20));
-        jt.setForeground(UI_Constants.TEXT_PRIMARY);
+        jt.setFont(new Font("Segoe UI", Font.BOLD, 22));
+        jt.setForeground(DARK_TEXT);
         jt.setAlignmentX(Component.LEFT_ALIGNMENT);
-        wrap.add(jt);
-        wrap.add(Box.createVerticalStrut(10));
+        textCol.add(jt);
+        textCol.add(Box.createVerticalStrut(10));
 
         String courseLine = job.getCourseCode();
         if (job.getCourse() != null && job.getCourse().getCourseName() != null) {
-            courseLine = courseLine + " \u2014 " + job.getCourse().getCourseName();
+            courseLine = courseLine + "  —  " + job.getCourse().getCourseName();
         }
-        addMetaLine(wrap, "Course", courseLine);
-        addMetaLine(wrap, "Instructor", job.getInstructorName());
-        addMetaLine(wrap, "Application Deadline", formatDeadlinePretty(job.getDeadlineDisplay()));
 
+        JPanel meta = new JPanel(new FlowLayout(FlowLayout.LEFT, 0, 0));
+        meta.setOpaque(false);
+        meta.setAlignmentX(Component.LEFT_ALIGNMENT);
+        meta.add(metaChip("Course", courseLine));
+        meta.add(metaSeparator());
+        meta.add(metaChip("Instructor", job.getInstructorName()));
+        meta.add(metaSeparator());
+        meta.add(metaChip("Application Deadline", formatDeadlinePretty(job.getDeadlineDisplay())));
+        textCol.add(meta);
+
+        wrap.add(textCol, BorderLayout.CENTER);
         return wrap;
     }
 
@@ -467,51 +479,65 @@ public class Page_Apply {
     }
 
     private JTextField createEditableField(String value) {
-        JTextField field = new JTextField(value == null ? "" : value);
+        JTextField field = new RoundedTextField(value == null ? "" : value);
         field.setFont(new Font("Segoe UI", Font.PLAIN, 14));
-        field.setBorder(BorderFactory.createCompoundBorder(
-                BorderFactory.createLineBorder(UI_Constants.BORDER_COLOR),
-                new EmptyBorder(8, 10, 8, 10)
-        ));
+        field.setForeground(DARK_TEXT);
+        field.setCaretColor(JobsPortalUi.PURPLE_600);
+        field.setBorder(new EmptyBorder(9, 12, 9, 12));
         return field;
     }
 
     private JPanel createFieldPanel(String label, JTextField field) {
-        JPanel p = new JPanel(new BorderLayout());
+        JPanel p = new JPanel(new BorderLayout(0, 6));
         p.setOpaque(false);
-        JLabel lbl = new JLabel("<html><b>" + label + "</b></html>");
-        lbl.setFont(new Font("Segoe UI", Font.PLAIN, 12));
-        lbl.setForeground(UI_Constants.TEXT_SECONDARY);
+        JLabel lbl = new JLabel(label);
+        lbl.setFont(new Font("Segoe UI", Font.BOLD, 12));
+        lbl.setForeground(MUTED_TEXT);
         p.add(lbl, BorderLayout.NORTH);
-        p.add(field, BorderLayout.CENTER);
+
+        JPanel row = new JPanel(new BorderLayout(10, 0));
+        row.setOpaque(false);
+        row.add(formIconTile(fieldIconForLabel(label)), BorderLayout.WEST);
+        row.add(field, BorderLayout.CENTER);
+        p.add(row, BorderLayout.CENTER);
         return p;
     }
 
     private JPanel createLabeledArea(String label, String hint, JTextArea area) {
-        JPanel wrap = new JPanel();
+        JPanel wrap = new JPanel(new BorderLayout(12, 0));
         wrap.setOpaque(false);
-        wrap.setLayout(new BoxLayout(wrap, BoxLayout.Y_AXIS));
         wrap.setAlignmentX(Component.LEFT_ALIGNMENT);
 
-        JLabel lbl = new JLabel("<html><b>" + label + "</b></html>");
-        lbl.setFont(new Font("Segoe UI", Font.PLAIN, 12));
-        lbl.setForeground(UI_Constants.TEXT_SECONDARY);
+        wrap.add(formIconTile(fieldIconForLabel(label)), BorderLayout.WEST);
+
+        JPanel content = new JPanel();
+        content.setOpaque(false);
+        content.setLayout(new BoxLayout(content, BoxLayout.Y_AXIS));
+
+        JLabel lbl = new JLabel(label);
+        lbl.setFont(new Font("Segoe UI", Font.BOLD, 12));
+        lbl.setForeground(MUTED_TEXT);
         lbl.setAlignmentX(Component.LEFT_ALIGNMENT);
-        wrap.add(lbl);
+        content.add(lbl);
 
         JLabel hintLbl = new JLabel(hint);
         hintLbl.setFont(new Font("Segoe UI", Font.PLAIN, 12));
-        hintLbl.setForeground(new Color(156, 163, 175));
+        hintLbl.setForeground(new Color(148, 163, 184));
         hintLbl.setAlignmentX(Component.LEFT_ALIGNMENT);
         hintLbl.setBorder(new EmptyBorder(2, 0, 6, 0));
-        wrap.add(hintLbl);
+        content.add(hintLbl);
 
-        area.setBorder(BorderFactory.createCompoundBorder(
-                BorderFactory.createLineBorder(UI_Constants.BORDER_COLOR),
-                new EmptyBorder(8, 10, 8, 10)
-        ));
-        area.setAlignmentX(Component.LEFT_ALIGNMENT);
-        wrap.add(area);
+        area.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+        area.setForeground(DARK_TEXT);
+        area.setCaretColor(JobsPortalUi.PURPLE_600);
+        area.setOpaque(false);
+        area.setBorder(new EmptyBorder(10, 12, 10, 12));
+        JPanel areaShell = JobsPortalUi.wrapRoundedInner(area, 12, Color.WHITE, INPUT_BORDER, 1f, false,
+                new Insets(0, 0, 0, 0));
+        areaShell.setAlignmentX(Component.LEFT_ALIGNMENT);
+        content.add(areaShell);
+
+        wrap.add(content, BorderLayout.CENTER);
         return wrap;
     }
 
@@ -520,39 +546,53 @@ public class Page_Apply {
     }
 
     private JPanel createUploadBox(String topLine, String bottomLine, boolean isUploaded) {
-        JPanel box = new JPanel(new BorderLayout(12, 0));
-        box.setOpaque(true);
+        JPanel box = new JPanel(new BorderLayout(12, 0)) {
+            @Override
+            protected void paintComponent(Graphics g) {
+                Graphics2D g2 = (Graphics2D) g.create();
+                g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+                int w = getWidth();
+                int h = getHeight();
+                Color bg = isUploaded ? GREEN_BG : Color.WHITE;
+                Color border = isUploaded ? GREEN_BORDER : CARD_BORDER;
+                g2.setColor(bg);
+                g2.fillRoundRect(0, 0, w - 1, h - 1, 14, 14);
+                g2.setColor(border);
+                if (isUploaded) {
+                    g2.setStroke(new BasicStroke(1.2f));
+                } else {
+                    g2.setStroke(new BasicStroke(1.4f, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND, 0, new float[]{8f, 6f}, 0));
+                }
+                g2.drawRoundRect(0, 0, w - 1, h - 1, 14, 14);
+                g2.dispose();
+                super.paintComponent(g);
+            }
+        };
+        box.setOpaque(false);
+        box.setBorder(new EmptyBorder(16, 18, 16, 18));
 
-        if (isUploaded) {
-            box.setBackground(new Color(240, 252, 240));
-            box.setBorder(BorderFactory.createCompoundBorder(
-                    BorderFactory.createLineBorder(new Color(198, 226, 198), 1),
-                    new EmptyBorder(16, 18, 16, 18)
-            ));
-        } else {
-            box.setBackground(Color.WHITE);
-            box.setBorder(BorderFactory.createCompoundBorder(
-                    BorderFactory.createDashedBorder(UI_Constants.BORDER_COLOR, 8, 4, 2, false),
-                    new EmptyBorder(16, 18, 16, 18)
-            ));
-        }
+        JPanel left = new JPanel(new BorderLayout(12, 0));
+        left.setOpaque(false);
+        left.add(formIconTile(miniIcon(isUploaded ? GREEN_TEXT : JobsPortalUi.PURPLE_600, 18,
+                isUploaded ? "file-check" : "folder")), BorderLayout.WEST);
 
         JPanel center = new JPanel();
         center.setOpaque(false);
         center.setLayout(new BoxLayout(center, BoxLayout.Y_AXIS));
 
-        JLabel hint = new JLabel("<html>" + topLine + "</html>");
-        hint.setFont(new Font("Segoe UI", Font.PLAIN, 13));
-        hint.setForeground(isUploaded ? new Color(34, 139, 34) : UI_Constants.TEXT_PRIMARY);
+        JLabel hint = new JLabel("<html>" + escapeHtml(topLine) + "</html>");
+        hint.setFont(new Font("Segoe UI", Font.BOLD, 13));
+        hint.setForeground(isUploaded ? GREEN_TEXT : DARK_TEXT);
         center.add(hint);
 
         JLabel action = new JLabel(bottomLine);
         action.setFont(new Font("Segoe UI", Font.PLAIN, 12));
-        action.setForeground(isUploaded ? new Color(76, 142, 60) : UI_Constants.TEXT_SECONDARY);
+        action.setForeground(isUploaded ? new Color(21, 128, 61) : MUTED_TEXT);
         action.setBorder(new EmptyBorder(6, 0, 0, 0));
         center.add(action);
+        left.add(center, BorderLayout.CENTER);
 
-        box.add(center, BorderLayout.CENTER);
+        box.add(left, BorderLayout.CENTER);
 
         JButton pick = JobsPortalUi.outlineButton("Choose file", new Font("Segoe UI", Font.BOLD, 13));
         box.add(pick, BorderLayout.EAST);
@@ -566,7 +606,7 @@ public class Page_Apply {
             JTextField studentIdField, JTextField emailField, JTextField phoneField,
             JTextField programField, JTextField gpaField, JTextArea skillsArea,
             JTextArea experienceArea, JTextArea availabilityArea, JTextArea motivationArea,
-            String[] selectedCvPath, List<String> selectedSupportPaths) {
+            String[] selectedCvPath) {
         Application app = new Application();
 
         Application.JobSnapshot jobSnap = new Application.JobSnapshot();
@@ -627,7 +667,7 @@ public class Page_Apply {
                 dataService,
                 getCvUploadBase(),
                 selectedCvPath,
-                selectedSupportPaths
+                List.of()
         );
         app.setAttachments(at);
         app.setJobId(job.getJobId());
@@ -643,32 +683,16 @@ public class Page_Apply {
         column.setAlignmentX(Component.CENTER_ALIGNMENT);
         column.setMaximumSize(new Dimension(FORM_MAX_WIDTH, Integer.MAX_VALUE));
 
-        JButton backBtn = new JButton("\u2190 Back to My Applications");
-        backBtn.setFont(new Font("Segoe UI", Font.PLAIN, 14));
-        backBtn.setForeground(JobsPortalUi.PURPLE_600);
-        backBtn.setContentAreaFilled(false);
-        backBtn.setBorderPainted(false);
-        backBtn.setBorder(new EmptyBorder(0, 0, 8, 0));
-        backBtn.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        backBtn.setAlignmentX(Component.LEFT_ALIGNMENT);
-        backBtn.addActionListener(e -> callback.onBackToJobDetail(job));
-        column.add(backBtn);
+        column.add(buildPageHeader(
+                "\u2190  Back to My Applications",
+                "Continue Editing Draft",
+                "Review and complete your saved TA application",
+                () -> callback.onBackToJobDetail(job)));
 
-        JLabel pageTitle = new JLabel("Continue Editing Draft");
-        pageTitle.setFont(new Font("Segoe UI", Font.BOLD, 28));
-        pageTitle.setForeground(TITLE_PURPLE);
-        pageTitle.setAlignmentX(Component.LEFT_ALIGNMENT);
-        pageTitle.setBorder(new EmptyBorder(0, 0, 20, 0));
-        column.add(pageTitle);
-
-        JPanel mainCard = new JPanel();
+        JPanel mainCard = new SoftCardPanel(22, Color.WHITE, CARD_BORDER, true);
         mainCard.setLayout(new BoxLayout(mainCard, BoxLayout.Y_AXIS));
-        mainCard.setBackground(UI_Constants.CARD_BG);
         mainCard.setAlignmentX(Component.LEFT_ALIGNMENT);
-        mainCard.setBorder(BorderFactory.createCompoundBorder(
-                BorderFactory.createLineBorder(UI_Constants.BORDER_COLOR, 1),
-                BorderFactory.createEmptyBorder(0, 0, 24, 0)
-        ));
+        mainCard.setBorder(new EmptyBorder(0, 0, 24, 0));
         mainCard.setMaximumSize(new Dimension(Integer.MAX_VALUE, Integer.MAX_VALUE));
 
         mainCard.add(buildPositionHeader(job));
@@ -680,33 +704,11 @@ public class Page_Apply {
         body.setBorder(new EmptyBorder(0, 24, 0, 24));
         body.setAlignmentX(Component.LEFT_ALIGNMENT);
 
-        JPanel hintCard = new JPanel(new BorderLayout());
-        hintCard.setOpaque(true);
-        hintCard.setBackground(HINT_BANNER_BG);
-        hintCard.setBorder(BorderFactory.createCompoundBorder(
-                BorderFactory.createLineBorder(HINT_BANNER_BORDER, 1),
-                new EmptyBorder(12, 14, 12, 14)
-        ));
-        JLabel hintText = new JLabel(
-                "<html><b>Note:</b> Your profile data, skills, and CV have been pre-filled. You may edit anything before submitting.</html>");
-        hintText.setFont(new Font("Segoe UI", Font.PLAIN, 13));
-        hintText.setForeground(UI_Constants.TEXT_SECONDARY);
-        hintCard.add(hintText, BorderLayout.CENTER);
-
-        JPanel hintRow = new JPanel(new BorderLayout());
-        hintRow.setOpaque(false);
-        hintRow.setAlignmentX(Component.LEFT_ALIGNMENT);
-        hintRow.setMaximumSize(new Dimension(Integer.MAX_VALUE, Integer.MAX_VALUE));
-        hintRow.add(hintCard, BorderLayout.CENTER);
-        body.add(hintRow);
+        body.add(createHintBanner());
 
         body.add(Box.createVerticalStrut(22));
 
-        JLabel sectionTitle = new JLabel("Application Information");
-        sectionTitle.setFont(new Font("Segoe UI", Font.BOLD, 18));
-        sectionTitle.setForeground(TITLE_PURPLE);
-        sectionTitle.setAlignmentX(Component.LEFT_ALIGNMENT);
-        body.add(sectionTitle);
+        body.add(sectionTitle("Application Information", miniIcon(JobsPortalUi.PURPLE_600, 18, "clipboard")));
         body.add(Box.createVerticalStrut(16));
 
         Application.ApplicantSnapshot snap = draft.getApplicantSnapshot();
@@ -727,7 +729,7 @@ public class Page_Apply {
         JPanel grid = new JPanel(new GridLayout(3, 2, 20, 16));
         grid.setOpaque(false);
         grid.setAlignmentX(Component.LEFT_ALIGNMENT);
-        grid.setMaximumSize(new Dimension(Integer.MAX_VALUE, 220));
+        grid.setMaximumSize(new Dimension(Integer.MAX_VALUE, 240));
         grid.add(createFieldPanel("Full Name *", fullNameField));
         grid.add(createFieldPanel("Student ID *", studentIdField));
         grid.add(createFieldPanel("Email *", emailField));
@@ -804,23 +806,6 @@ public class Page_Apply {
         resumeBox.setMaximumSize(new Dimension(Integer.MAX_VALUE, 120));
         body.add(resumeBox);
 
-        body.add(Box.createVerticalStrut(16));
-
-        JLabel supportTitle = new JLabel("Supporting Documents (Optional)");
-        supportTitle.setFont(new Font("Segoe UI", Font.BOLD, 13));
-        supportTitle.setForeground(UI_Constants.TEXT_SECONDARY);
-        supportTitle.setAlignmentX(Component.LEFT_ALIGNMENT);
-        body.add(supportTitle);
-        body.add(Box.createVerticalStrut(8));
-
-        int prevDocs = draft.getAttachments() != null && draft.getAttachments().getSupportingDocuments() != null
-                ? draft.getAttachments().getSupportingDocuments().size() : 0;
-        String supportHint = prevDocs > 0 ? prevDocs + " file(s) previously selected" : "Transcripts, certificates, or other documents";
-        JPanel supportBox = createUploadBox("Transcripts, certificates, or other documents", supportHint);
-        supportBox.setAlignmentX(Component.LEFT_ALIGNMENT);
-        supportBox.setMaximumSize(new Dimension(Integer.MAX_VALUE, 120));
-        body.add(supportBox);
-
         body.add(Box.createVerticalStrut(28));
 
         JPanel btnRow = new JPanel(new FlowLayout(FlowLayout.LEFT, 12, 0));
@@ -830,7 +815,7 @@ public class Page_Apply {
         JobsPortalUi.OutlinePurpleButton saveDraftBtn = JobsPortalUi.outlineButton(
                 "Save Draft", new Font("Segoe UI", Font.BOLD, 14));
         JobsPortalUi.PurpleGradientButton submitBtn = JobsPortalUi.gradientButton(
-                "Submit Application", new Font("Segoe UI", Font.BOLD, 15));
+                "Submit Application", new Font("Segoe UI", Font.BOLD, 15), miniIcon(Color.WHITE, 16, "send"));
         JobsPortalUi.OutlinePurpleButton cancelBtn = JobsPortalUi.outlineButton(
                 "Cancel", new Font("Segoe UI", Font.BOLD, 14));
 
@@ -844,14 +829,8 @@ public class Page_Apply {
         panel.add(column);
 
         final String[] selectedCvPath = {null};
-        final List<String> selectedSupportPaths = new ArrayList<>();
         if (draft.getAttachments() != null && draft.getAttachments().getCv() != null) {
             selectedCvPath[0] = draft.getAttachments().getCv().getFilePath();
-        }
-        if (draft.getAttachments() != null && draft.getAttachments().getSupportingDocuments() != null) {
-            for (Application.Document doc : draft.getAttachments().getSupportingDocuments()) {
-                selectedSupportPaths.add(doc.getFilePath());
-            }
         }
 
         JButton resumePickBtn = (JButton) resumeBox.getClientProperty("pickButton");
@@ -862,7 +841,7 @@ public class Page_Apply {
         }
         resumePickBtn.addActionListener(ev -> {
             JFileChooser chooser = new JFileChooser();
-            int res = chooser.showOpenDialog(panel);
+            int res = chooser.showOpenDialog(fileChooserParent(panel));
             if (res == JFileChooser.APPROVE_OPTION) {
                 File f = chooser.getSelectedFile();
                 selectedCvPath[0] = f.getAbsolutePath();
@@ -871,31 +850,10 @@ public class Page_Apply {
             }
         });
 
-        JButton supportPickBtn = (JButton) supportBox.getClientProperty("pickButton");
-        JLabel supportHintLbl = (JLabel) supportBox.getClientProperty("hintLabel");
-        if (prevDocs > 0) {
-            supportHintLbl.setText(prevDocs + " file(s) selected");
-        }
-        supportPickBtn.addActionListener(ev -> {
-            JFileChooser chooser = new JFileChooser();
-            chooser.setMultiSelectionEnabled(true);
-            int res = chooser.showOpenDialog(panel);
-            if (res == JFileChooser.APPROVE_OPTION) {
-                selectedSupportPaths.clear();
-                File[] files = chooser.getSelectedFiles();
-                if (files != null && files.length > 0) {
-                    for (File f : files) {
-                        selectedSupportPaths.add(f.getAbsolutePath());
-                    }
-                    supportHintLbl.setText(files.length + " file(s) selected");
-                }
-            }
-        });
-
         saveDraftBtn.addActionListener(ev -> {
             Application draftApp = buildApplicationFromForm(job, fullNameField, studentIdField,
                     emailField, phoneField, programField, gpaField, skillsArea,
-                    experienceArea, availabilityArea, motivationArea, null, null);
+                    experienceArea, availabilityArea, motivationArea, null);
             draftApp.setDraft(true);
             String savedId = dataService.saveDraft(draftApp, job);
             currentDraftId = savedId;
@@ -932,7 +890,7 @@ public class Page_Apply {
             dataService.deleteDraft(currentDraftId);
             Application app = buildApplicationFromForm(job, fullNameField, studentIdField,
                     emailField, phoneField, programField, gpaField, skillsArea,
-                    experienceArea, availabilityArea, motivationArea, selectedCvPath, selectedSupportPaths);
+                    experienceArea, availabilityArea, motivationArea, selectedCvPath);
             dataService.addApplication(app);
 
             showCenteredMessage(panel,
@@ -944,4 +902,337 @@ public class Page_Apply {
         panel.revalidate();
         panel.repaint();
     }
+
+    private JPanel buildPageHeader(String backText, String title, String subtitle, Runnable onBack) {
+        JPanel header = new JPanel();
+        header.setLayout(new BoxLayout(header, BoxLayout.Y_AXIS));
+        header.setOpaque(false);
+        header.setAlignmentX(Component.LEFT_ALIGNMENT);
+        header.setBorder(new EmptyBorder(0, 0, 22, 0));
+
+        JButton backBtn = new JButton(backText);
+        backBtn.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+        backBtn.setForeground(JobsPortalUi.PURPLE_600);
+        backBtn.setContentAreaFilled(false);
+        backBtn.setBorderPainted(false);
+        backBtn.setFocusPainted(false);
+        backBtn.setBorder(new EmptyBorder(0, 0, 12, 0));
+        backBtn.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        backBtn.setAlignmentX(Component.LEFT_ALIGNMENT);
+        backBtn.addActionListener(e -> onBack.run());
+        header.add(backBtn);
+
+        JPanel titleRow = new JPanel(new BorderLayout(18, 0));
+        titleRow.setOpaque(false);
+        titleRow.setAlignmentX(Component.LEFT_ALIGNMENT);
+
+        JLabel icon = new JLabel(miniIcon(JobsPortalUi.PURPLE_600, 24, "clipboard"));
+        JPanel iconTile = JobsPortalUi.wrapRoundedInner(icon, 18, LAVENDER_TILE, CARD_BORDER, 1f, false,
+                new Insets(12, 12, 12, 12));
+        iconTile.setPreferredSize(new Dimension(56, 56));
+        iconTile.setMinimumSize(new Dimension(56, 56));
+        iconTile.setMaximumSize(new Dimension(56, 56));
+        titleRow.add(iconTile, BorderLayout.WEST);
+
+        JPanel textCol = new JPanel();
+        textCol.setLayout(new BoxLayout(textCol, BoxLayout.Y_AXIS));
+        textCol.setOpaque(false);
+        JLabel titleLabel = new JLabel(title);
+        titleLabel.setFont(new Font("Segoe UI", Font.BOLD, 32));
+        titleLabel.setForeground(DARK_TEXT);
+        titleLabel.setAlignmentX(Component.LEFT_ALIGNMENT);
+        textCol.add(titleLabel);
+        textCol.add(Box.createVerticalStrut(6));
+        JLabel subtitleLabel = new JLabel(subtitle);
+        subtitleLabel.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+        subtitleLabel.setForeground(MUTED_TEXT);
+        subtitleLabel.setAlignmentX(Component.LEFT_ALIGNMENT);
+        textCol.add(subtitleLabel);
+        titleRow.add(textCol, BorderLayout.CENTER);
+
+        header.add(titleRow);
+        return header;
+    }
+
+    private JPanel createHintBanner() {
+        JPanel hintCard = new JPanel(new BorderLayout(10, 0)) {
+            @Override
+            protected void paintComponent(Graphics g) {
+                Graphics2D g2 = (Graphics2D) g.create();
+                g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+                g2.setColor(HINT_BANNER_BG);
+                g2.fillRoundRect(0, 0, getWidth() - 1, getHeight() - 1, 12, 12);
+                g2.setColor(HINT_BANNER_BORDER);
+                g2.drawRoundRect(0, 0, getWidth() - 1, getHeight() - 1, 12, 12);
+                g2.dispose();
+                super.paintComponent(g);
+            }
+        };
+        hintCard.setOpaque(false);
+        hintCard.setBorder(new EmptyBorder(12, 14, 12, 14));
+        hintCard.setAlignmentX(Component.LEFT_ALIGNMENT);
+        hintCard.add(new JLabel(miniIcon(new Color(0xD97706), 18, "info")), BorderLayout.WEST);
+        JLabel hintText = new JLabel(
+                "<html><b>Note:</b> Your profile data, skills, and CV have been pre-filled. You may edit anything before submitting.</html>");
+        hintText.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+        hintText.setForeground(MUTED_TEXT);
+        hintCard.add(hintText, BorderLayout.CENTER);
+        return hintCard;
+    }
+
+    private JPanel sectionTitle(String title, Icon icon) {
+        JPanel row = new JPanel();
+        row.setLayout(new BoxLayout(row, BoxLayout.X_AXIS));
+        row.setOpaque(false);
+        row.setAlignmentX(Component.LEFT_ALIGNMENT);
+
+        JPanel bar = new JPanel();
+        bar.setBackground(JobsPortalUi.PURPLE_600);
+        Dimension barSize = new Dimension(4, 24);
+        bar.setPreferredSize(barSize);
+        bar.setMinimumSize(barSize);
+        bar.setMaximumSize(new Dimension(4, 26));
+        row.add(bar);
+        row.add(Box.createHorizontalStrut(10));
+        row.add(new JLabel(icon));
+        row.add(Box.createHorizontalStrut(8));
+
+        JLabel label = new JLabel(title);
+        label.setFont(new Font("Segoe UI", Font.BOLD, 18));
+        label.setForeground(TITLE_PURPLE);
+        label.setAlignmentY(Component.CENTER_ALIGNMENT);
+        row.add(label);
+        row.add(Box.createHorizontalGlue());
+        return row;
+    }
+
+    private JPanel formIconTile(Icon icon) {
+        JLabel iconLabel = new JLabel(icon);
+        JPanel tile = JobsPortalUi.wrapRoundedInner(iconLabel, 10,
+                new Color(0xF5F0FF), new Color(0xE5DAFF), 1f, false,
+                new Insets(10, 10, 10, 10));
+        tile.setPreferredSize(new Dimension(42, 42));
+        tile.setMinimumSize(new Dimension(42, 42));
+        tile.setMaximumSize(new Dimension(42, 42));
+        return tile;
+    }
+
+    private Icon fieldIconForLabel(String label) {
+        String s = label == null ? "" : label.toLowerCase();
+        if (s.contains("name")) return miniIcon(JobsPortalUi.PURPLE_600, 18, "person");
+        if (s.contains("student")) return miniIcon(JobsPortalUi.PURPLE_600, 18, "id");
+        if (s.contains("email")) return miniIcon(JobsPortalUi.PURPLE_600, 18, "mail");
+        if (s.contains("phone")) return miniIcon(JobsPortalUi.PURPLE_600, 18, "phone");
+        if (s.contains("program")) return miniIcon(JobsPortalUi.PURPLE_600, 18, "cap");
+        if (s.contains("gpa")) return miniIcon(JobsPortalUi.PURPLE_600, 18, "chart");
+        if (s.contains("skill")) return miniIcon(JobsPortalUi.PURPLE_600, 18, "pin");
+        if (s.contains("experience")) return miniIcon(JobsPortalUi.PURPLE_600, 18, "briefcase");
+        if (s.contains("availability")) return miniIcon(JobsPortalUi.PURPLE_600, 18, "clock");
+        if (s.contains("motivation")) return miniIcon(JobsPortalUi.PURPLE_600, 18, "edit");
+        return miniIcon(JobsPortalUi.PURPLE_600, 18, "clipboard");
+    }
+
+    private Component metaSeparator() {
+        JLabel sep = new JLabel("  |  ");
+        sep.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+        sep.setForeground(new Color(0xB8A8F8));
+        return sep;
+    }
+
+    private JPanel metaChip(String label, String value) {
+        JPanel p = new JPanel(new FlowLayout(FlowLayout.LEFT, 0, 0));
+        p.setOpaque(false);
+        JLabel l = new JLabel(label + ": ");
+        l.setFont(new Font("Segoe UI", Font.BOLD, 13));
+        l.setForeground(JobsPortalUi.PURPLE_700);
+        JLabel v = new JLabel(value == null || value.isBlank() ? "—" : value);
+        v.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+        v.setForeground(MUTED_TEXT);
+        p.add(l);
+        p.add(v);
+        return p;
+    }
+
+    private Icon miniIcon(Color ink, int size, String kind) {
+        return new Icon() {
+            @Override
+            public void paintIcon(Component c, Graphics g, int x, int y) {
+                Graphics2D g2 = (Graphics2D) g.create();
+                g2.translate(x, y);
+                g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+                g2.setRenderingHint(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
+                g2.setRenderingHint(RenderingHints.KEY_STROKE_CONTROL, RenderingHints.VALUE_STROKE_PURE);
+                g2.setColor(ink);
+                float sw = Math.max(1.55f, size * 0.11f);
+                g2.setStroke(new BasicStroke(sw, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND));
+                int s = size;
+                int cx = s / 2;
+                int cy = s / 2;
+                switch (kind) {
+                    case "person" -> {
+                        // 按画布比例绘制，避免原先 8×8 头像 + 细弧在 18px 下发糊
+                        float cxf = s / 2f;
+                        float headR = s * 0.24f;
+                        float headCy = s * 0.32f;
+                        g2.draw(new Ellipse2D.Float(cxf - headR, headCy - headR, headR * 2f, headR * 2f));
+                        float aw = s * 0.82f;
+                        float ah = s * 0.48f;
+                        float ax = cxf - aw / 2f;
+                        float ay = s * 0.52f;
+                        g2.draw(new Arc2D.Float(ax, ay, aw, ah, 210, 125, Arc2D.OPEN));
+                    }
+                    case "id" -> {
+                        g2.drawRoundRect(3, 4, s - 6, s - 8, 3, 3);
+                        g2.drawOval(6, 7, 4, 4);
+                        g2.drawLine(12, 8, s - 5, 8);
+                        g2.drawLine(6, 14, s - 5, 14);
+                    }
+                    case "mail" -> {
+                        g2.drawRoundRect(3, 5, s - 6, s - 10, 3, 3);
+                        g2.drawLine(4, 6, cx, cy + 1);
+                        g2.drawLine(cx, cy + 1, s - 4, 6);
+                    }
+                    case "phone" -> {
+                        // 圆角矩形「手机」轮廓，比双弧翻盖示意更易辨认
+                        float cxf = s / 2f;
+                        float bw = s * 0.46f;
+                        float bh = s * 0.72f;
+                        float x0 = cxf - bw / 2f;
+                        float y0 = s * 0.12f;
+                        float corner = Math.max(2f, s * 0.13f);
+                        g2.draw(new RoundRectangle2D.Float(x0, y0, bw, bh, corner, corner));
+                        float earHalf = s * 0.11f;
+                        float earY = y0 + s * 0.10f;
+                        g2.draw(new Line2D.Float(cxf - earHalf, earY, cxf + earHalf, earY));
+                        float homeR = s * 0.055f;
+                        g2.draw(new Ellipse2D.Float(cxf - homeR, y0 + bh - s * 0.15f, homeR * 2f, homeR * 2f));
+                    }
+                    case "cap" -> {
+                        Polygon cap = new Polygon();
+                        cap.addPoint(2, 7); cap.addPoint(cx, 3); cap.addPoint(s - 2, 7); cap.addPoint(cx, 11);
+                        g2.drawPolygon(cap);
+                        g2.drawLine(6, 10, 6, 14);
+                        g2.drawLine(6, 14, s - 6, 14);
+                        g2.drawLine(s - 6, 10, s - 6, 14);
+                    }
+                    case "chart" -> {
+                        g2.drawLine(4, s - 4, s - 4, s - 4);
+                        g2.drawLine(5, s - 5, 8, s - 9);
+                        g2.drawLine(8, s - 9, 11, s - 7);
+                        g2.drawLine(11, s - 7, s - 4, 5);
+                    }
+                    case "pin" -> {
+                        g2.drawOval(cx - 5, 3, 10, 10);
+                        g2.fillOval(cx - 2, 7, 4, 4);
+                        g2.drawLine(cx, 13, cx, s - 3);
+                    }
+                    case "briefcase" -> {
+                        g2.drawRoundRect(3, 6, s - 6, s - 8, 3, 3);
+                        g2.drawLine(cx - 4, 6, cx - 4, 4);
+                        g2.drawLine(cx + 4, 6, cx + 4, 4);
+                        g2.drawLine(cx - 4, 4, cx + 4, 4);
+                    }
+                    case "clock" -> {
+                        g2.drawOval(3, 3, s - 6, s - 6);
+                        g2.drawLine(cx, cy, cx, 6);
+                        g2.drawLine(cx, cy, s - 6, cy);
+                    }
+                    case "edit" -> {
+                        g2.drawLine(5, s - 5, s - 5, 5);
+                        g2.drawLine(s - 7, 3, s - 3, 7);
+                        g2.drawLine(4, s - 4, 8, s - 5);
+                    }
+                    case "file-check" -> {
+                        g2.drawRoundRect(4, 3, s - 8, s - 6, 2, 2);
+                        g2.drawLine(7, cy, cx - 1, cy + 4);
+                        g2.drawLine(cx - 1, cy + 4, s - 6, 7);
+                    }
+                    case "folder" -> {
+                        g2.drawRoundRect(3, 6, s - 6, s - 8, 3, 3);
+                        g2.drawLine(4, 7, 8, 4);
+                        g2.drawLine(8, 4, 12, 4);
+                        g2.drawLine(12, 4, 14, 6);
+                    }
+                    case "info" -> {
+                        g2.drawOval(3, 3, s - 6, s - 6);
+                        g2.drawLine(cx, 8, cx, s - 5);
+                        g2.fillOval(cx - 1, 5, 3, 3);
+                    }
+                    case "send" -> {
+                        Polygon p = new Polygon();
+                        p.addPoint(3, 4); p.addPoint(s - 3, cx); p.addPoint(3, s - 4); p.addPoint(6, cx);
+                        g2.drawPolygon(p);
+                        g2.drawLine(6, cx, s - 3, cx);
+                    }
+                    default -> {
+                        g2.drawRoundRect(4, 3, s - 8, s - 6, 2, 2);
+                        g2.drawLine(7, 7, s - 7, 7);
+                        g2.drawLine(7, 11, s - 7, 11);
+                    }
+                }
+                g2.dispose();
+            }
+
+            @Override public int getIconWidth() { return size; }
+            @Override public int getIconHeight() { return size; }
+        };
+    }
+
+    private static final class RoundedTextField extends JTextField {
+        RoundedTextField(String text) {
+            super(text);
+            setOpaque(false);
+        }
+
+        @Override
+        protected void paintComponent(Graphics g) {
+            Graphics2D g2 = (Graphics2D) g.create();
+            g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+            g2.setColor(Color.WHITE);
+            g2.fillRoundRect(0, 0, getWidth() - 1, getHeight() - 1, 12, 12);
+            g2.setColor(INPUT_BORDER);
+            g2.drawRoundRect(0, 0, getWidth() - 1, getHeight() - 1, 12, 12);
+            g2.dispose();
+            super.paintComponent(g);
+        }
+    }
+
+    private static final class SoftCardPanel extends JPanel {
+        private final int arc;
+        private final Color fill;
+        private final Color border;
+        private final boolean shadow;
+
+        SoftCardPanel(int arc, Color fill, Color border, boolean shadow) {
+            this.arc = arc;
+            this.fill = fill;
+            this.border = border;
+            this.shadow = shadow;
+            setOpaque(false);
+        }
+
+        @Override
+        protected void paintComponent(Graphics g) {
+            Graphics2D g2 = (Graphics2D) g.create();
+            g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+            int w = getWidth();
+            int h = getHeight();
+            if (shadow) {
+                g2.setColor(new Color(79, 53, 217, 14));
+                g2.fillRoundRect(2, 5, w - 5, h - 7, arc, arc);
+                g2.setColor(new Color(17, 16, 51, 7));
+                g2.fillRoundRect(1, 3, w - 3, h - 5, arc, arc);
+            }
+            g2.setColor(fill);
+            g2.fillRoundRect(0, 0, w - 3, h - 4, arc, arc);
+            if (border != null) {
+                g2.setColor(border);
+                g2.setStroke(new BasicStroke(1f));
+                g2.drawRoundRect(0, 0, w - 4, h - 5, arc, arc);
+            }
+            g2.dispose();
+            super.paintComponent(g);
+        }
+    }
+
 }

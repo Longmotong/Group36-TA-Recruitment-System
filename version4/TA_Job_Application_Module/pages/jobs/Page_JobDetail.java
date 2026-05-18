@@ -34,9 +34,13 @@ public class Page_JobDetail {
     private static final int SUMMARY_APPLY_BTN_MAX_W = 228;
     private static final int MAIN_SUMMARY_GAP = 28;
     private static final int PURPLE_BAR = 4;
-    private static final Color TITLE_PURPLE = new Color(107, 70, 193);
-    private static final Color TITLE_BLACK = new Color(17, 24, 39);
+    private static final Color TITLE_BLACK = new Color(17, 16, 51);
     private static final Color BODY_GRAY = new Color(55, 65, 81);
+    private static final Color SOFT_CARD_BG = Color.WHITE;
+    private static final Color SOFT_BORDER = JobsPortalUi.LIGHT_PURPLE_BORDER;
+    private static final Color PRIMARY_PURPLE = JobsPortalUi.PRIMARY_PURPLE;
+    private static final Color DEEP_PURPLE = JobsPortalUi.DEEP_PURPLE;
+    private static final Color MUTED_TEXT = JobsPortalUi.MUTED_TEXT;
 
     private JPanel panel;
     private final JobDetailCallback callback;
@@ -67,26 +71,37 @@ public class Page_JobDetail {
         boolean hasApplied = dataService != null && dataService.hasAppliedToJob(job.getJobId());
 
         JButton backBtn = new JButton("\u2190  Back to Job Listings");
-        backBtn.setFont(new Font("Segoe UI", Font.PLAIN, 14));
-        backBtn.setForeground(JobsPortalUi.PURPLE_600);
+        backBtn.setFont(new Font("Segoe UI", Font.BOLD, 14));
+        backBtn.setForeground(PRIMARY_PURPLE);
         backBtn.setContentAreaFilled(false);
         backBtn.setBorderPainted(false);
         backBtn.setFocusPainted(false);
         backBtn.setCursor(new Cursor(Cursor.HAND_CURSOR));
         backBtn.setAlignmentX(Component.LEFT_ALIGNMENT);
+        backBtn.setBorder(new EmptyBorder(0, 0, 12, 0));
         backBtn.addActionListener(e -> callback.onBackToJobs());
 
         JLabel pageTitle = new JLabel("Position Details");
-        pageTitle.setFont(new Font("Segoe UI", Font.BOLD, 32));
-        pageTitle.setForeground(TITLE_PURPLE);
+        pageTitle.setFont(new Font("Segoe UI", Font.BOLD, 36));
+        pageTitle.setForeground(TITLE_BLACK);
         pageTitle.setAlignmentX(Component.LEFT_ALIGNMENT);
-        pageTitle.setBorder(new EmptyBorder(6, 0, 8, 0));
+        pageTitle.setBorder(new EmptyBorder(4, 0, 6, 0));
+
+        JPanel titleUnderline = new JPanel();
+        titleUnderline.setOpaque(true);
+        titleUnderline.setBackground(PRIMARY_PURPLE);
+        Dimension underlineSize = new Dimension(70, 4);
+        titleUnderline.setPreferredSize(underlineSize);
+        titleUnderline.setMinimumSize(underlineSize);
+        titleUnderline.setMaximumSize(underlineSize);
+        titleUnderline.setAlignmentX(Component.LEFT_ALIGNMENT);
 
         JPanel northStack = new JPanel();
         northStack.setLayout(new BoxLayout(northStack, BoxLayout.Y_AXIS));
         northStack.setOpaque(false);
         northStack.add(backBtn);
         northStack.add(pageTitle);
+        northStack.add(titleUnderline);
         northStack.setBorder(new EmptyBorder(0, 0, 20, 0));
 
         JPanel leftCol = new JPanel();
@@ -144,7 +159,7 @@ public class Page_JobDetail {
         inner.setOpaque(false);
         /** Default JPanel alignmentX is 0.5 — would center every row in the card (title looks “偏右”). */
         inner.setAlignmentX(Component.LEFT_ALIGNMENT);
-        inner.setBorder(new EmptyBorder(CARD_PAD_TOP, CARD_PAD_LEFT, CARD_PAD_BOTTOM, CARD_PAD_RIGHT));
+        inner.setBorder(new EmptyBorder(CARD_PAD_TOP + 4, CARD_PAD_LEFT + 8, CARD_PAD_BOTTOM + 4, CARD_PAD_RIGHT + 8));
 
         boolean hasApplied = dataService != null && dataService.hasAppliedToJob(job.getJobId());
         if (hasApplied) {
@@ -287,21 +302,31 @@ public class Page_JobDetail {
     }
 
     private JPanel buildMetaBlock(Icon icon, String capsLabel, String value) {
-        JPanel block = new JPanel(new BorderLayout(12, 0));
+        JPanel block = new JPanel(new BorderLayout(14, 0));
         block.setOpaque(false);
-        block.add(new JLabel(icon), BorderLayout.WEST);
+
+        JPanel iconTile = JobsPortalUi.wrapRoundedInner(new JLabel(icon), 14, JobsPortalUi.LAVENDER,
+                null, 0f, false, new Insets(8, 8, 8, 8));
+        iconTile.setPreferredSize(new Dimension(48, 48));
+        iconTile.setMinimumSize(new Dimension(48, 48));
+        iconTile.setMaximumSize(new Dimension(48, 48));
+        block.add(iconTile, BorderLayout.WEST);
+
         JPanel text = new JPanel();
         text.setLayout(new BoxLayout(text, BoxLayout.Y_AXIS));
         text.setOpaque(false);
+
         JLabel l = new JLabel(capsLabel);
         l.setFont(new Font("Segoe UI", Font.PLAIN, 12));
-        l.setForeground(new Color(107, 114, 128));
+        l.setForeground(MUTED_TEXT);
         l.setAlignmentX(Component.LEFT_ALIGNMENT);
+
         JTextArea v = createWrappingTextArea(value == null ? "" : value,
                 new Font("Segoe UI", Font.BOLD, 15), TITLE_BLACK);
         v.setAlignmentX(Component.LEFT_ALIGNMENT);
+
         text.add(l);
-        text.add(Box.createVerticalStrut(2));
+        text.add(Box.createVerticalStrut(3));
         text.add(v);
         block.add(text, BorderLayout.CENTER);
         return block;
@@ -320,7 +345,7 @@ public class Page_JobDetail {
         String esc = escapeHtmlLite(job.getTitle() != null ? job.getTitle() : "");
         title.setText(String.format(
                 "<html><body style='margin:0;padding:0'>"
-                        + "<div style='width:%dpx;text-align:left;font-family:Segoe UI;font-size:19px;font-weight:bold;color:rgb(%d,%d,%d)'>%s</div>"
+                        + "<div style='width:%dpx;text-align:left;font-family:Segoe UI;font-size:22px;font-weight:bold;color:rgb(%d,%d,%d)'>%s</div>"
                         + "</body></html>",
                 textW, TITLE_BLACK.getRed(), TITLE_BLACK.getGreen(), TITLE_BLACK.getBlue(), esc));
     }
@@ -393,31 +418,112 @@ public class Page_JobDetail {
         return wrapDetailCard(padded);
     }
 
-    /** Purple bar + title on one row, left-aligned (avoids BorderLayout.CENTER stretching title away from the margin). */
+    /** Purple icon tile + accent bar + title on one row, left-aligned. */
     private JPanel portalSectionTitle(String title) {
         JPanel row = new JPanel();
         row.setLayout(new BoxLayout(row, BoxLayout.X_AXIS));
         row.setOpaque(false);
         row.setAlignmentX(Component.LEFT_ALIGNMENT);
 
+        JPanel iconTile = JobsPortalUi.wrapRoundedInner(new JLabel(sectionIcon(title, PRIMARY_PURPLE, 20)),
+                12, JobsPortalUi.LAVENDER, null, 0f, false, new Insets(7, 7, 7, 7));
+        iconTile.setPreferredSize(new Dimension(38, 38));
+        iconTile.setMinimumSize(new Dimension(38, 38));
+        iconTile.setMaximumSize(new Dimension(38, 38));
+        iconTile.setAlignmentY(Component.CENTER_ALIGNMENT);
+
         JPanel bar = new JPanel();
         bar.setOpaque(true);
-        bar.setBackground(JobsPortalUi.PURPLE_600);
-        Dimension barSz = new Dimension(PURPLE_BAR, 22);
+        bar.setBackground(PRIMARY_PURPLE);
+        Dimension barSz = new Dimension(PURPLE_BAR, 26);
         bar.setPreferredSize(barSz);
         bar.setMinimumSize(barSz);
         bar.setMaximumSize(new Dimension(PURPLE_BAR, 28));
+        bar.setAlignmentY(Component.CENTER_ALIGNMENT);
 
         JLabel lab = new JLabel(title);
-        lab.setFont(new Font("Segoe UI", Font.BOLD, 17));
+        lab.setFont(new Font("Segoe UI", Font.BOLD, 18));
         lab.setForeground(TITLE_BLACK);
         lab.setAlignmentY(Component.CENTER_ALIGNMENT);
 
+        row.add(iconTile);
+        row.add(Box.createHorizontalStrut(12));
         row.add(bar);
         row.add(Box.createHorizontalStrut(10));
         row.add(lab);
         row.add(Box.createHorizontalGlue());
         return row;
+    }
+
+    private static Icon sectionIcon(String title, Color ink, int size) {
+        String t = title == null ? "" : title.toLowerCase();
+        if (t.contains("respons")) {
+            return simpleLineIcon(ink, size, (g2, s) -> {
+                g2.drawRoundRect(4, 4, s - 8, s - 7, 3, 3);
+                g2.drawLine(7, 9, 10, 12);
+                g2.drawLine(10, 12, s - 7, 7);
+                g2.drawLine(7, s - 7, s - 7, s - 7);
+            });
+        }
+        if (t.contains("require")) {
+            return simpleLineIcon(ink, size, (g2, s) -> {
+                g2.drawRoundRect(5, 3, s - 10, s - 5, 3, 3);
+                g2.drawLine(8, 8, s - 8, 8);
+                g2.drawLine(8, 12, s - 8, 12);
+                g2.drawLine(8, 16, s - 11, 16);
+            });
+        }
+        if (t.contains("skill")) {
+            return simpleLineIcon(ink, size, (g2, s) -> {
+                Polygon star = new Polygon();
+                star.addPoint(s / 2, 3);
+                star.addPoint(s / 2 + 3, s / 2 - 2);
+                star.addPoint(s - 3, s / 2 - 2);
+                star.addPoint(s / 2 + 4, s / 2 + 2);
+                star.addPoint(s / 2 + 6, s - 3);
+                star.addPoint(s / 2, s / 2 + 5);
+                star.addPoint(s / 2 - 6, s - 3);
+                star.addPoint(s / 2 - 4, s / 2 + 2);
+                star.addPoint(3, s / 2 - 2);
+                star.addPoint(s / 2 - 3, s / 2 - 2);
+                g2.drawPolygon(star);
+            });
+        }
+        return simpleLineIcon(ink, size, (g2, s) -> {
+            g2.drawRoundRect(5, 3, s - 10, s - 5, 3, 3);
+            g2.drawLine(9, 8, s - 8, 8);
+            g2.drawLine(9, 12, s - 8, 12);
+            g2.drawLine(9, 16, s - 11, 16);
+        });
+    }
+
+    private interface SimpleIconPainter {
+        void paint(Graphics2D g2, int size);
+    }
+
+    private static Icon simpleLineIcon(Color ink, int size, SimpleIconPainter painter) {
+        return new Icon() {
+            @Override
+            public void paintIcon(Component c, Graphics g, int x, int y) {
+                Graphics2D g2 = (Graphics2D) g.create();
+                g2.translate(x, y);
+                g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+                g2.setColor(ink);
+                g2.setStroke(new BasicStroke(1.8f, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND));
+                painter.paint(g2, size);
+                g2.dispose();
+            }
+
+            @Override
+            public int getIconWidth() {
+                return size;
+            }
+
+            @Override
+            public int getIconHeight() {
+                return size;
+            }
+        };
     }
 
     private JPanel buildBulletSectionCardPortal(String heading, List<String> items) {
@@ -501,9 +607,9 @@ public class Page_JobDetail {
         JLabel pill = new JLabel(skill);
         pill.setFont(new Font("Segoe UI", Font.PLAIN, 12));
         pill.setForeground(JobsPortalUi.PURPLE_600);
-        return JobsPortalUi.wrapRoundedInnerHug(pill, 8,
-                JobsPortalUi.VIOLET_50, JobsPortalUi.VIOLET_200, 1f, false,
-                new Insets(6, 12, 6, 12));
+        return JobsPortalUi.wrapRoundedInnerHug(pill, 9,
+                new Color(253, 252, 255), SOFT_BORDER, 1f, false,
+                new Insets(7, 14, 7, 14));
     }
 
     private JPanel buildSummaryRail(Job job, boolean hasApplied) {
@@ -512,28 +618,29 @@ public class Page_JobDetail {
         padded.setOpaque(false);
         padded.setBorder(new EmptyBorder(CARD_PAD_TOP, CARD_PAD_LEFT, CARD_PAD_BOTTOM, CARD_PAD_RIGHT));
 
+        int railInner = SUMMARY_WIDTH - CARD_PAD_LEFT - CARD_PAD_RIGHT;
+        int blockW = Math.min(SUMMARY_APPLY_BTN_MAX_W, Math.max(200, railInner));
+
         JPanel titleInner = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 0));
         titleInner.setOpaque(false);
-        titleInner.add(new JLabel(JobsPortalUi.sparkleIcon(JobsPortalUi.PURPLE_600, 22)));
+        titleInner.setAlignmentX(Component.CENTER_ALIGNMENT);
+        titleInner.add(new JLabel(JobsPortalUi.sparkleIcon(PRIMARY_PURPLE, 22)));
         JLabel summaryTitle = new JLabel("Position Summary");
-        summaryTitle.setFont(new Font("Segoe UI", Font.BOLD, 21));
+        summaryTitle.setFont(new Font("Segoe UI", Font.BOLD, 22));
         summaryTitle.setForeground(TITLE_BLACK);
         titleInner.add(summaryTitle);
-        JPanel titleWrap = new JPanel(new BorderLayout());
-        titleWrap.setOpaque(false);
-        titleWrap.add(titleInner, BorderLayout.CENTER);
-        padded.add(titleWrap);
-        padded.add(Box.createVerticalStrut(6));
+        padded.add(titleInner);
+        padded.add(Box.createVerticalStrut(18));
 
-        padded.add(summaryTintRow(new Color(245, 243, 255),
+        padded.add(centerSummaryRailRow(summaryTintRow(new Color(245, 243, 255),
                 circleGlyphIcon(JobsPortalUi.VIOLET_100, JobsPortalUi.PURPLE_600, 26,
                         Page_JobDetail::paintBriefcaseGlyph),
                 JobsPortalUi.PURPLE_600,
                 "Employment Type",
-                nz(job.getEmploymentType())));
+                nz(job.getEmploymentType())), blockW, 90));
 
-        padded.add(Box.createVerticalStrut(8));
-        padded.add(summaryTintRow(new Color(239, 246, 255),
+        padded.add(Box.createVerticalStrut(12));
+        padded.add(centerSummaryRailRow(summaryTintRow(new Color(239, 246, 255),
                 circleGlyphIcon(new Color(219, 234, 254), new Color(37, 99, 235), 26,
                         (g2, ix, iy, s) -> {
                             int cx = ix + s / 2;
@@ -544,10 +651,10 @@ public class Page_JobDetail {
                         }),
                 new Color(37, 99, 235),
                 "Weekly Hours",
-                nz(job.getWeeklyHoursDisplay())));
+                nz(job.getWeeklyHoursDisplay())), blockW, 90));
 
-        padded.add(Box.createVerticalStrut(8));
-        padded.add(summaryTintRow(new Color(254, 242, 242),
+        padded.add(Box.createVerticalStrut(12));
+        padded.add(centerSummaryRailRow(summaryTintRow(new Color(254, 242, 242),
                 circleGlyphIcon(new Color(254, 226, 226), new Color(220, 38, 38), 26,
                         (g2, ix, iy, s) -> {
                             g2.drawRoundRect(ix + 5, iy + 6, s - 10, s - 11, 3, 3);
@@ -557,10 +664,10 @@ public class Page_JobDetail {
                         }),
                 new Color(220, 38, 38),
                 "Application Deadline",
-                nz(formatDeadline(job.getDeadlineDisplay()))));
+                nz(formatDeadline(job.getDeadlineDisplay()))), blockW, 90));
 
-        padded.add(Box.createVerticalStrut(8));
-        padded.add(summaryTintRow(new Color(240, 253, 244),
+        padded.add(Box.createVerticalStrut(12));
+        padded.add(centerSummaryRailRow(summaryTintRow(new Color(240, 253, 244),
                 circleGlyphIcon(new Color(209, 250, 229), new Color(22, 163, 74), 26,
                         (g2, ix, iy, s) -> {
                             int cx = ix + s / 2;
@@ -574,7 +681,7 @@ public class Page_JobDetail {
                         }),
                 new Color(22, 163, 74),
                 "Location / Mode",
-                nz(buildLocationSummary(job))));
+                nz(buildLocationSummary(job))), blockW, 90));
 
         padded.add(Box.createVerticalStrut(20));
         padded.add(Box.createVerticalGlue());
@@ -587,14 +694,14 @@ public class Page_JobDetail {
             applyBtn = JobsPortalUi.gradientButton("Apply Now   \u2192", new Font("Segoe UI", Font.BOLD, 15), null);
             applyBtn.addActionListener(e -> callback.onApply(job));
         }
-        int railInner = SUMMARY_WIDTH - CARD_PAD_LEFT - CARD_PAD_RIGHT - 8;
-        int btnW = Math.min(SUMMARY_APPLY_BTN_MAX_W, Math.max(160, railInner - 8));
+        int btnW = blockW;
         int btnH = applyBtn.getPreferredSize().height;
         applyBtn.setPreferredSize(new Dimension(btnW, btnH));
         applyBtn.setMinimumSize(new Dimension(btnW, btnH));
         applyBtn.setMaximumSize(new Dimension(btnW, btnH));
         JPanel applyStrip = new JPanel(new FlowLayout(FlowLayout.CENTER, 0, 0));
         applyStrip.setOpaque(false);
+        applyStrip.setAlignmentX(Component.CENTER_ALIGNMENT);
         applyStrip.add(applyBtn);
         padded.add(applyStrip);
 
@@ -603,6 +710,18 @@ public class Page_JobDetail {
         card.setPreferredSize(new Dimension(SUMMARY_WIDTH, Math.max(nat.height, 420)));
         card.setMaximumSize(new Dimension(SUMMARY_WIDTH, Integer.MAX_VALUE));
         return card;
+    }
+
+    /** 在侧栏内水平居中：固定宽度色块 / 按钮与标题对齐 */
+    private JPanel centerSummaryRailRow(JComponent inner, int width, int height) {
+        JPanel holder = new JPanel(new FlowLayout(FlowLayout.CENTER, 0, 0));
+        holder.setOpaque(false);
+        holder.setAlignmentX(Component.CENTER_ALIGNMENT);
+        inner.setPreferredSize(new Dimension(width, height));
+        inner.setMaximumSize(new Dimension(width, height));
+        inner.setMinimumSize(new Dimension(Math.min(width, 180), Math.min(height, 72)));
+        holder.add(inner);
+        return holder;
     }
 
     private static void paintBriefcaseGlyph(Graphics2D g2, int ix, int iy, int s) {
@@ -621,47 +740,49 @@ public class Page_JobDetail {
                 Graphics2D g2 = (Graphics2D) g.create();
                 g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
                 g2.setColor(bg);
-                g2.fillRoundRect(0, 0, getWidth(), getHeight(), 12, 12);
+                g2.fillRoundRect(0, 0, getWidth(), getHeight(), 14, 14);
                 g2.dispose();
                 super.paintComponent(g);
             }
         };
         row.setOpaque(false);
-        row.setLayout(new GridBagLayout());
-        row.setBorder(new EmptyBorder(8, 12, 8, 12));
+        row.setLayout(new BorderLayout(14, 0));
+        row.setBorder(new EmptyBorder(14, 16, 14, 16));
+        row.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-        JPanel labelLine = new JPanel(new FlowLayout(FlowLayout.CENTER, 6, 0));
-        labelLine.setOpaque(false);
-        labelLine.add(new JLabel(icon));
+        JPanel iconWrap = new JPanel(new GridBagLayout());
+        iconWrap.setOpaque(false);
+        iconWrap.setPreferredSize(new Dimension(42, 42));
+        iconWrap.add(new JLabel(icon));
+        row.add(iconWrap, BorderLayout.WEST);
+
+        JPanel text = new JPanel();
+        text.setLayout(new BoxLayout(text, BoxLayout.Y_AXIS));
+        text.setOpaque(false);
+
         JLabel lab = new JLabel(label);
         lab.setFont(new Font("Segoe UI", Font.PLAIN, 14));
         lab.setForeground(labelColor);
-        labelLine.add(lab);
+        lab.setAlignmentX(Component.LEFT_ALIGNMENT);
 
         JLabel val = new JLabel(value);
         val.setFont(new Font("Segoe UI", Font.BOLD, 18));
         val.setForeground(TITLE_BLACK);
-        JPanel valLine = new JPanel(new FlowLayout(FlowLayout.CENTER, 0, 0));
-        valLine.setOpaque(false);
-        valLine.add(val);
+        val.setAlignmentX(Component.LEFT_ALIGNMENT);
 
-        GridBagConstraints gbc = new GridBagConstraints();
-        gbc.gridx = 0;
-        gbc.gridy = 0;
-        gbc.weightx = 1;
-        gbc.anchor = GridBagConstraints.CENTER;
-        gbc.insets = new Insets(0, 0, 6, 0);
-        row.add(labelLine, gbc);
-
-        gbc.gridy = 1;
-        gbc.insets = new Insets(0, 0, 0, 0);
-        row.add(valLine, gbc);
+        text.add(Box.createVerticalGlue());
+        text.add(lab);
+        text.add(Box.createVerticalStrut(5));
+        text.add(val);
+        text.add(Box.createVerticalGlue());
+        row.add(text, BorderLayout.CENTER);
         return row;
     }
 
+
     private JPanel wrapDetailCard(JComponent inner) {
         JobsPortalUi.RoundedSurface rs = new JobsPortalUi.RoundedSurface(
-                CARD_ARC, Color.WHITE, JobsPortalUi.VIOLET_200, 1f, true, new BorderLayout());
+                CARD_ARC + 2, SOFT_CARD_BG, SOFT_BORDER, 1f, true, new BorderLayout());
         rs.add(inner, BorderLayout.CENTER);
         JPanel wrap = new JPanel(new BorderLayout());
         wrap.setOpaque(false);
@@ -748,8 +869,32 @@ public class Page_JobDetail {
         JobDetailRootPanel() {
             super();
             setLayout(new BorderLayout(0, 0));
+            setOpaque(true);
             setBackground(JobsPortalUi.PAGE_BG);
             setBorder(new EmptyBorder(28, 48, 40, 48));
+        }
+
+        @Override
+        protected void paintComponent(Graphics g) {
+            super.paintComponent(g);
+            Graphics2D g2 = (Graphics2D) g.create();
+            g2.setRenderingHint(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
+            g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+
+            GradientPaint bg = new GradientPaint(
+                    0, 0, new Color(253, 252, 255),
+                    0, getHeight(), new Color(248, 246, 255));
+            g2.setPaint(bg);
+            g2.fillRect(0, 0, getWidth(), getHeight());
+
+            g2.setColor(new Color(109, 77, 235, 18));
+            int startX = Math.max(0, getWidth() - 230);
+            for (int x = startX; x < getWidth() - 18; x += 10) {
+                for (int y = 0; y < 150; y += 10) {
+                    g2.fillOval(x, y, 2, 2);
+                }
+            }
+            g2.dispose();
         }
 
         @Override

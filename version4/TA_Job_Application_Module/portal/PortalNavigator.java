@@ -44,6 +44,9 @@ public class PortalNavigator {
             jobsPage.restoreAIState();
         }
         cardLayout.show(mainContentPanel, pageName);
+        if (PortalRoutes.JOBS.equals(pageName)) {
+            SwingUtilities.invokeLater(() -> jobsPage.scrollJobsAndAiRankingToTop());
+        }
         if (PortalRoutes.JOB_DETAIL.equals(pageName) && jobDetailScroll != null) {
             SwingUtilities.invokeLater(() -> jobDetailScroll.getVerticalScrollBar().setValue(0));
         }

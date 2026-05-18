@@ -76,6 +76,43 @@ public final class JobsAnalysisParser {
         return result.isEmpty() ? "Tap to view full analysis" : result;
     }
 
+    /**
+     * 排名卡片摘要：优先 JSON 中的 {@code summary} 句段，否则退回 {@link #extractBriefAnalysis(String)}；
+     * 空白压成空格，并按 {@code maxChars} 截断以便约两行内展示。
+     */
+    public static String extractRankingSummaryPreview(String analysis, int maxChars) {
+        if (analysis == null || analysis.trim().isEmpty()) {
+            return "\u2014";
+        }
+        String raw = analysis.trim();
+        String text = null;
+        try {
+            JsonObject root = JsonParser.parseString(raw).getAsJsonObject();
+            if (root.has("summary") && !root.get("summary").isJsonNull()) {
+                text = root.get("summary").getAsString();
+            }
+        } catch (Exception ignored) {
+        }
+        if (text == null || text.isEmpty()) {
+            Matcher sm = Pattern.compile("\"summary\"\\s*:\\s*\"((?:[^\"\\\\]|\\\\.)*)\"").matcher(raw);
+            if (sm.find()) {
+                text = sm.group(1).replace("\\\"", "\"").replace("\\n", " ").replace("\\r", " ");
+            }
+        }
+        if (text == null || text.isEmpty()) {
+            text = extractBriefAnalysis(analysis);
+        }
+        if (text != null && text.startsWith("{") && text.contains("\"matchScore\"")) {
+            text = "See score breakdown and sections below for details.";
+        }
+        text = text.replaceAll("\\s+", " ").trim();
+        // maxChars <= 0：不截断（用于详情页大段 summary）
+        if (maxChars > 0 && text.length() > maxChars) {
+            text = text.substring(0, Math.max(0, maxChars - 1)) + "\u2026";
+        }
+        return text.isEmpty() ? "\u2014" : text;
+    }
+
     private static String[] extractJsonArray(String analysis, String fieldName) {
         if (analysis == null || analysis.isEmpty()) {
             return new String[0];

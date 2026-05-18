@@ -14,7 +14,6 @@ import java.util.Locale;
  */
 public final class ApplicationsCards {
 
-    private static final Color TITLE_PURPLE = new Color(107, 70, 193);
     private static final Color LABEL_GREY = new Color(107, 114, 128);
     private static final Color VALUE_BLACK = new Color(17, 24, 39);
 
@@ -188,7 +187,7 @@ public final class ApplicationsCards {
         header.setAlignmentX(Component.LEFT_ALIGNMENT);
         JLabel titleL = new JLabel(title);
         titleL.setFont(new Font("Segoe UI", Font.BOLD, 16));
-        titleL.setForeground(TITLE_PURPLE);
+        titleL.setForeground(JobsPortalUi.PURPLE_600);
         header.add(titleL, BorderLayout.WEST);
 
         JPanel actionCol = new JPanel();
@@ -268,7 +267,7 @@ public final class ApplicationsCards {
         header.setOpaque(false);
         JLabel titleL = new JLabel(title);
         titleL.setFont(new Font("Segoe UI", Font.BOLD, 16));
-        titleL.setForeground(TITLE_PURPLE);
+        titleL.setForeground(JobsPortalUi.PURPLE_600);
         header.add(titleL, BorderLayout.WEST);
 
         JPanel actionCol = new JPanel();

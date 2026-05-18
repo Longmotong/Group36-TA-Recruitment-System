@@ -135,13 +135,13 @@ public class DataService {
                 if (skObj != null && skObj.has("taSkillPool")) {
                     taSk = parseNewSkillsFormat(skObj);
                 } else {
-                    // Legacy format
-                TAUser.Skills legacySkills = new TAUser.Skills();
-                legacySkills.setProgramming(parseSkills(skObj, "programming"));
-                legacySkills.setTeaching(parseSkills(skObj, "teaching"));
-                legacySkills.setCommunication(parseSkills(skObj, "communication"));
-                legacySkills.setOther(parseSkills(skObj, "other"));
-                taSk = legacySkills;
+                    // Legacy format: JSON uses programming/teaching/communication/other arrays.
+                    // TAUser.Skills#setProgramming etc. are no-ops — skills must live on taSkillPool.
+                    taSk = legacyFlatSkillsToSkills(
+                            parseSkills(skObj, "programming"),
+                            parseSkills(skObj, "teaching"),
+                            parseSkills(skObj, "communication"),
+                            parseSkills(skObj, "other"));
                 }
                 user.setSkills(taSk);
 
@@ -228,6 +228,62 @@ public class DataService {
         return list;
     }
 
+    /**
+     * Converts legacy {@code skills.{programming,teaching,communication,other}} arrays into
+     * {@link TAUser.Skills#getTaSkillPool()} so getters, profile UI, and
+     * {@link #saveUserToFile(TAUser)} (which serializes from the pool) stay consistent.
+     */
+    private static TAUser.Skills legacyFlatSkillsToSkills(
+            List<TAUser.Skill> programming,
+            List<TAUser.Skill> teaching,
+            List<TAUser.Skill> communication,
+            List<TAUser.Skill> other) {
+        TAUser.Skills skills = new TAUser.Skills();
+        TAUser.TaSkillPool pool = new TAUser.TaSkillPool();
+
+        TAUser.TechnicalSkillPool tech = new TAUser.TechnicalSkillPool();
+        tech.setProgrammingAndSoftwareFundamentals(skillsToSelectedItems(programming));
+        tech.setHardwareAndLogicDesign(new ArrayList<>());
+        tech.setEmbeddedSystemsAndLowLevelDevelopment(new ArrayList<>());
+        pool.setTechnicalSkills(tech);
+
+        TAUser.EngineeringToolPool eng = new TAUser.EngineeringToolPool();
+        eng.setProfessionalDevelopmentAndSimulationTools(skillsToSelectedItems(other));
+        pool.setEngineeringAndTools(eng);
+
+        TAUser.LanguagePool lang = new TAUser.LanguagePool();
+        List<TAUser.SkillItem> langItems = new ArrayList<>();
+        langItems.addAll(skillsToSelectedItems(communication));
+        langItems.addAll(skillsToSelectedItems(teaching));
+        lang.setCrossCulturalCommunication(langItems);
+        pool.setLanguageAndCommunication(lang);
+
+        skills.setTaSkillPool(pool);
+        return skills;
+    }
+
+    private static List<TAUser.SkillItem> skillsToSelectedItems(List<TAUser.Skill> source) {
+        List<TAUser.SkillItem> out = new ArrayList<>();
+        if (source == null) {
+            return out;
+        }
+        for (TAUser.Skill s : source) {
+            if (s == null) {
+                continue;
+            }
+            String name = s.getName();
+            if (name == null || name.isBlank()) {
+                continue;
+            }
+            TAUser.SkillItem it = new TAUser.SkillItem();
+            it.setName(name.trim());
+            it.setSelected(true);
+            it.setProficiency(s.getProficiency());
+            out.add(it);
+        }
+        return out;
+    }
+
     private static TAUser.Skills parseNewSkillsFormat(com.google.gson.JsonObject skObj) {
         TAUser.Skills skills = new TAUser.Skills();
         
@@ -298,11 +354,88 @@ public class DataService {
             com.google.gson.JsonObject o = e.getAsJsonObject();
             TAUser.SkillItem item = new TAUser.SkillItem();
             item.setName(getStr(o, "name", ""));
-            item.setSelected(getBool(o, "selected", false));
-            item.setProficiency(getStr(o, "proficiency", null));
+            boolean explicitSel = getBool(o, "selected", false);
+            String prof = (o.has("proficiency") && !o.get("proficiency").isJsonNull())
+                    ? o.get("proficiency").getAsString()
+                    : "";
+            item.setProficiency(prof.isBlank() ? null : prof);
+            // Older hand-edited files may omit "selected" when proficiency is set.
+            item.setSelected(explicitSel || !prof.isBlank());
             items.add(item);
         }
         return items;
+    }
+
+    private static com.google.gson.JsonArray skillItemsToJsonArray(List<TAUser.SkillItem> items) {
+        com.google.gson.JsonArray arr = new com.google.gson.JsonArray();
+        if (items == null) {
+            return arr;
+        }
+        for (TAUser.SkillItem it : items) {
+            if (it == null) {
+                continue;
+            }
+            com.google.gson.JsonObject jo = new com.google.gson.JsonObject();
+            jo.addProperty("name", it.getName() != null ? it.getName() : "");
+            jo.addProperty("selected", it.isSelected());
+            String prof = it.getProficiency();
+            if (prof != null && !prof.isBlank()) {
+                jo.addProperty("proficiency", prof);
+            } else {
+                jo.add("proficiency", com.google.gson.JsonNull.INSTANCE);
+            }
+            arr.add(jo);
+        }
+        return arr;
+    }
+
+    private static com.google.gson.JsonObject technicalSkillPoolToJson(TAUser.TechnicalSkillPool tech) {
+        com.google.gson.JsonObject t = new com.google.gson.JsonObject();
+        if (tech == null) {
+            return t;
+        }
+        t.add("programmingAndSoftwareFundamentals",
+                skillItemsToJsonArray(tech.getProgrammingAndSoftwareFundamentals()));
+        t.add("hardwareAndLogicDesign", skillItemsToJsonArray(tech.getHardwareAndLogicDesign()));
+        t.add("embeddedSystemsAndLowLevelDevelopment",
+                skillItemsToJsonArray(tech.getEmbeddedSystemsAndLowLevelDevelopment()));
+        return t;
+    }
+
+    private static com.google.gson.JsonObject engineeringToolPoolToJson(TAUser.EngineeringToolPool eng) {
+        com.google.gson.JsonObject o = new com.google.gson.JsonObject();
+        if (eng == null) {
+            return o;
+        }
+        o.add("professionalDevelopmentAndSimulationTools",
+                skillItemsToJsonArray(eng.getProfessionalDevelopmentAndSimulationTools()));
+        return o;
+    }
+
+    private static com.google.gson.JsonObject languagePoolToJson(TAUser.LanguagePool lang) {
+        com.google.gson.JsonObject o = new com.google.gson.JsonObject();
+        if (lang == null) {
+            return o;
+        }
+        o.add("crossCulturalCommunication", skillItemsToJsonArray(lang.getCrossCulturalCommunication()));
+        return o;
+    }
+
+    private static com.google.gson.JsonObject taSkillPoolToJsonObject(TAUser.TaSkillPool pool) {
+        com.google.gson.JsonObject o = new com.google.gson.JsonObject();
+        if (pool == null) {
+            return o;
+        }
+        if (pool.getTechnicalSkills() != null) {
+            o.add("technicalSkills", technicalSkillPoolToJson(pool.getTechnicalSkills()));
+        }
+        if (pool.getEngineeringAndTools() != null) {
+            o.add("engineeringAndTools", engineeringToolPoolToJson(pool.getEngineeringAndTools()));
+        }
+        if (pool.getLanguageAndCommunication() != null) {
+            o.add("languageAndCommunication", languagePoolToJson(pool.getLanguageAndCommunication()));
+        }
+        return o;
     }
 
     
@@ -1368,6 +1501,18 @@ public class DataService {
             
             if (user.getSkills() != null) {
                 com.google.gson.JsonObject skObj = new com.google.gson.JsonObject();
+                if (user.getSkills().getProficiencyLevels() != null
+                        && !user.getSkills().getProficiencyLevels().isEmpty()) {
+                    com.google.gson.JsonArray lev = new com.google.gson.JsonArray();
+                    for (String lv : user.getSkills().getProficiencyLevels()) {
+                        lev.add(lv);
+                    }
+                    skObj.add("proficiencyLevels", lev);
+                }
+                if (user.getSkills().getTaSkillPool() != null) {
+                    skObj.add("taSkillPool", taSkillPoolToJsonObject(user.getSkills().getTaSkillPool()));
+                }
+                // Legacy arrays (selected-only) for older readers; load path prefers taSkillPool when present.
                 skObj.add("programming", skillsToArray(user.getSkills().getProgramming()));
                 skObj.add("teaching", skillsToArray(user.getSkills().getTeaching()));
                 skObj.add("communication", skillsToArray(user.getSkills().getCommunication()));
