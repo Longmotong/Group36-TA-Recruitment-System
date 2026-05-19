@@ -396,11 +396,17 @@ data
 | 2026-04-06 | @GuoZihan429 | Zihan-Guo/MO_Job_Management | Review issues from the first release and revise the second-version draft accordingly; prioritize and fix critical problems (including UX and data/flow consistency); tighten layout and information structure against the prototype |
 | 2026-04-07 | @GuoZihan429 | Zihan-Guo/MO_Job_Management | Build on the second-version draft and refine main-surface action icons from user feedback so each function is easier to recognize and clearer at a glance |
 | 2026-04-08 | @GuoZihan429 | Zihan-Guo/MO_Job_Management | Ship one MO shell with a unified look; share job and application data under data/, scoped to the active MO, with live refresh |
+| 2026-04-08 | @GuoZihan429 | reflection |Optimize the organization of issues and reflections identified in version 1 |
 | 2026-04-09 | @GuoZihan429 | Zihan-Guo/MO_Job_Management | Joint-test the integrated build: walk main flows, align list/detail layout, and verify data after MO switch. Apply small UI fixes from feedback (spacing, alignment, messaging) and capture open items for later |
-| 2026-04-22 | @GuoZihan429 | Zihan-Guo/MO_Job_Management | Resolve legacy issues found during version 2 integration and reorganized the source code structure for easier maintenance |
+| 2026-04-22 | @GuoZihan429 | Zihan-Guo/MO_Job_Management | Resolve legacy issues found during version 2 integration and reorganize the source code structure for easier maintenance |
 | 2026-04-24 | @GuoZihan429 | Zihan-Guo/MO_Job_Management | Update the three key metrics on the MO dashboard to improve accuracy and readability of core business data |
-
-
+| 2026-04-25 | @GuoZihan429 | Zihan-Guo/MO_Job_Management | Add AI-assisted job description generation and a skill pool on job creation to support TA–role matching |
+| 2026-04-27 | @GuoZihan429 | Zihan-Guo/MO_Job_Management | Fix draft and cache security issues and add dropdown guidance to improve usability and user flow |
+| 2026-04-28 | @GuoZihan429 | Zihan-Guo/MO_Job_Management | Implement filters on My Jobs so MO users can quickly find positions that meet their criteria |
+| 2026-05-12 | @GuoZihan429 | Zihan-Guo/MO_Job_Management | Rework the Application Review list so the header, KPI cards, filters, and table match the TA portal’s purple styling for a consistent look across modules |
+| 2026-05-14 | @GuoZihan429 | Zihan-Guo/MO_Job_Management | Improve the application detail and review layouts and skills or match-score display, and fix proficiency scoring when profile data is missing and review controls to reflect saved status |
+| 2026-05-18 | @GuoZihan429 | Zihan-Guo/MO_Job_Management | Update My Jobs and Applicants with revised KPI styling, clearer filters and table layout, better job-title display, and remove internal Job ID from the Applicants summary |
+| 2026-05-19 | @GuoZihan429 | Zihan-Guo/MO_Job_Management | Consolidate shared MO theme and UI styling, standardize English copy across MO screens, and remove unused code from earlier refactors |
 
 ### Yifan Cao
 | Date | Member | Location/Branch | Task Description |
