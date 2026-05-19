@@ -1,0 +1,238 @@
+{
+  "loginId": "mo003",
+  "role": "mo",
+  "permissions": {
+    "canCreateJob": true,
+    "canViewAssignedApplications": true,
+    "canViewManagedJob": true,
+    "canPublishManagedJob": true,
+    "canManageUsers": false,
+    "canViewAllJobs": false,
+    "canEditManagedJob": true,
+    "canEditOwnProfile": true,
+    "canDeleteManagedJob": true,
+    "canUpdateApplicationStatus": true,
+    "canViewAllApplications": false,
+    "canReviewApplication": true
+  },
+  "meta": {
+    "createdAt": "2026-04-10T23:44:44.853768200",
+    "isDeleted": false,
+    "isActive": true,
+    "updatedAt": "2026-04-10T23:44:44.853768200"
+  },
+  "profile": {
+    "phoneNumber": "",
+    "fullName": "Dr.chen",
+    "department": "",
+    "staffId": "",
+    "identityInformationRequired": {
+      "school": "",
+      "campusEmail": "Dr.chen@university.edu"
+    },
+    "courseInformationRequired": {
+      "courseTypes": [],
+      "teachingCampus": ""
+    },
+    "taSkillPoolCatalog": {
+      "proficiencyLevels": [
+        "Beginner",
+        "Intermediate",
+        "Advanced"
+      ],
+      "skillCatalog": {
+        "technicalSkills": {
+          "programmingAndSoftwareFundamentals": [
+            "Java",
+            "Python",
+            "C/C++",
+            "SQL",
+            "Algorithms & Data Structures",
+            "Object-Oriented Programming (OOP)"
+          ],
+          "hardwareAndLogicDesign": [
+            "VHDL",
+            "Verilog",
+            "Digital Logic Design",
+            "FPGA Development & Debugging"
+          ],
+          "embeddedSystemsAndLowLevelDevelopment": [
+            "STM32 Development",
+            "FreeRTOS",
+            "Embedded C",
+            "Hardware Driver Development"
+          ]
+        },
+        "engineeringAndTools": {
+          "professionalDevelopmentAndSimulationTools": [
+            "Quartus Prime",
+            "Keil5",
+            "STM32CubeIDE",
+            "STM32CubeMX",
+            "CST Studio Suite",
+            "Matlab / Simulink",
+            "Cisco Packet Tracer"
+          ]
+        },
+        "languageAndCommunication": {
+          "crossCulturalCommunication": [
+            "English"
+          ]
+        }
+      }
+    },
+    "jobPostingSkillTemplate": {
+      "proficiencyLevels": [
+        "Beginner",
+        "Intermediate",
+        "Advanced"
+      ],
+      "taSkillPool": {
+        "technicalSkills": {
+          "programmingAndSoftwareFundamentals": [
+            {
+              "name": "Java",
+              "selected": false,
+              "minimumProficiency": null
+            },
+            {
+              "name": "Python",
+              "selected": false,
+              "minimumProficiency": null
+            },
+            {
+              "name": "C/C++",
+              "selected": false,
+              "minimumProficiency": null
+            },
+            {
+              "name": "SQL",
+              "selected": false,
+              "minimumProficiency": null
+            },
+            {
+              "name": "Algorithms & Data Structures",
+              "selected": false,
+              "minimumProficiency": null
+            },
+            {
+              "name": "Object-Oriented Programming (OOP)",
+              "selected": false,
+              "minimumProficiency": null
+            }
+          ],
+          "hardwareAndLogicDesign": [
+            {
+              "name": "VHDL",
+              "selected": false,
+              "minimumProficiency": null
+            },
+            {
+              "name": "Verilog",
+              "selected": false,
+              "minimumProficiency": null
+            },
+            {
+              "name": "Digital Logic Design",
+              "selected": false,
+              "minimumProficiency": null
+            },
+            {
+              "name": "FPGA Development & Debugging",
+              "selected": false,
+              "minimumProficiency": null
+            }
+          ],
+          "embeddedSystemsAndLowLevelDevelopment": [
+            {
+              "name": "STM32 Development",
+              "selected": false,
+              "minimumProficiency": null
+            },
+            {
+              "name": "FreeRTOS",
+              "selected": false,
+              "minimumProficiency": null
+            },
+            {
+              "name": "Embedded C",
+              "selected": false,
+              "minimumProficiency": null
+            },
+            {
+              "name": "Hardware Driver Development",
+              "selected": false,
+              "minimumProficiency": null
+            }
+          ]
+        },
+        "engineeringAndTools": {
+          "professionalDevelopmentAndSimulationTools": [
+            {
+              "name": "Quartus Prime",
+              "selected": false,
+              "minimumProficiency": null
+            },
+            {
+              "name": "Keil5",
+              "selected": false,
+              "minimumProficiency": null
+            },
+            {
+              "name": "STM32CubeIDE",
+              "selected": false,
+              "minimumProficiency": null
+            },
+            {
+              "name": "STM32CubeMX",
+              "selected": false,
+              "minimumProficiency": null
+            },
+            {
+              "name": "CST Studio Suite",
+              "selected": false,
+              "minimumProficiency": null
+            },
+            {
+              "name": "Matlab / Simulink",
+              "selected": false,
+              "minimumProficiency": null
+            },
+            {
+              "name": "Cisco Packet Tracer",
+              "selected": false,
+              "minimumProficiency": null
+            }
+          ]
+        },
+        "languageAndCommunication": {
+          "crossCulturalCommunication": [
+            {
+              "name": "English",
+              "selected": false,
+              "minimumProficiency": null
+            }
+          ]
+        }
+      },
+      "customRequiredSkills": []
+    }
+  },
+  "scope": {
+    "departments": [],
+    "managedJobIds": []
+  },
+  "userId": "u_mo_003",
+  "account": {
+    "password": "test1234",
+    "lastLoginAt": "2026-04-10T23:44:44.853768200",
+    "email": "Dr.chen@university.edu",
+    "passwordHash": "hashed_Dr.chen",
+    "username": "Dr.chen",
+    "status": "active"
+  },
+  "dashboard": {
+    "pendingReviewsCount": 0,
+    "managedJobsCount": 0
+  }
+}

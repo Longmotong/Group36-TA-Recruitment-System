@@ -1,0 +1,119 @@
+{
+  "applicationId": "app_000008",
+  "userId": "u_ta_20230001",
+  "studentId": "20230001",
+  "jobId": "job_MATH205_2026_spring",
+
+  "jobSnapshot": {
+    "title": "Linear Algebra TA",
+    "courseCode": "MATH205",
+    "courseName": "Linear Algebra",
+    "department": "Mathematics",
+    "instructorName": "Dr. Rebecca White",
+    "instructorEmail": "rebecca.white@university.edu",
+    "deadline": "2026-03-24T23:59:59",
+    "employmentType": "Part-time TA",
+    "weeklyHours": 10,
+    "locationMode": "On-site"
+  },
+
+  "applicantSnapshot": {
+    "fullName": "John Smith",
+    "studentId": "20230001",
+    "email": "john.smith@university.edu",
+    "phoneNumber": "(555) 123-4567",
+    "programMajor": "Computer Science",
+    "year": "3rd Year",
+    "department": "Computer Science",
+    "gpa": 3.8
+  },
+
+  "applicationForm": {
+    "relevantSkills": [
+      "Python",
+      "English"
+    ],
+    "relevantExperience": "Completed math-intensive coursework and assisted classmates with problem-solving sessions.",
+    "availability": "Tuesday 1-4pm, Thursday 9am-12pm",
+    "motivationCoverLetter": "I am interested in this role because linear algebra is important to my academic background and I would like to support students in the course."
+  },
+
+  "attachments": {
+    "cv": {
+      "originalFileName": "John_Smith_CV.pdf",
+      "storedFileName": "cv.pdf",
+      "filePath": "data/uploads/application_files/app_000008/cv.pdf",
+      "fileType": "pdf",
+      "copiedAt": "2026-03-19T14:00:00"
+    },
+    "supportingDocuments": [
+      {
+        "documentId": "doc_008_001",
+        "originalFileName": "statement.pdf",
+        "storedFileName": "statement.pdf",
+        "filePath": "data/uploads/application_files/app_000008/statement.pdf",
+        "fileType": "pdf",
+        "uploadedAt": "2026-03-19T14:00:12"
+      }
+    ]
+  },
+
+  "workflow": {
+    "assignedMO": "u_mo_002",
+    "assignedAdmin": "u_admin_001",
+    "reviewDepartment": "Mathematics"
+  },
+
+  "status": {
+    "current": "rejected",
+    "label": "Rejected",
+    "lastUpdated": "2026-03-21T08:50:00",
+    "updatedBy": "u_mo_002"
+  },
+
+  "review": {
+    "reviewerNotes": "Applicant is strong overall but not the closest academic match for this mathematics-focused position.",
+    "decision": "rejected",
+    "decisionReason": "Another candidate with more directly relevant mathematics coursework was selected.",
+    "statusMessage": "Application not selected.",
+    "nextSteps": "You may apply for other open positions.",
+    "reviewedBy": "u_mo_001",
+    "reviewedAt": "2026-03-21T08:50:00"
+  },
+
+  "timeline": [
+    {
+      "timelineId": "tl_008_001",
+      "stepKey": "submitted",
+      "stepLabel": "Application Submitted",
+      "status": "completed",
+      "timestamp": "2026-03-19T14:00:00",
+      "updatedBy": "u_ta_20230001",
+      "note": "Application submitted successfully."
+    },
+    {
+      "timelineId": "tl_008_002",
+      "stepKey": "under_review",
+      "stepLabel": "Under Review",
+      "status": "completed",
+      "timestamp": "2026-03-20T10:10:00",
+      "updatedBy": "u_mo_001",
+      "note": "Application moved into review stage."
+    },
+    {
+      "timelineId": "tl_008_003",
+      "stepKey": "rejected",
+      "stepLabel": "Rejected",
+      "status": "completed",
+      "timestamp": "2026-03-21T08:50:00",
+      "updatedBy": "u_mo_001",
+      "note": "Application rejected after review."
+    }
+  ],
+
+  "meta": {
+    "submittedAt": "2026-03-19T14:00:00",
+    "updatedAt": "2026-03-21T08:50:00",
+    "isDeleted": false
+  }
+}

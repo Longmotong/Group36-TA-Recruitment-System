@@ -1,0 +1,75 @@
+{
+  "skills": {
+    "programming": [
+      {
+        "skillId": "skill_1775909066546_0",
+        "name": "Python",
+        "proficiency": "Intermediate"
+      }
+    ],
+    "teaching": [],
+    "communication": [],
+    "other": []
+  },
+  "loginId": "20230013",
+  "role": "ta",
+  "cv": {
+    "uploaded": true,
+    "originalFileName": "EBU6304_GroupProjectHandout.pdf",
+    "storedFileName": "",
+    "filePath": "data\\uploads\\profile_cv\\20230013\\EBU6304_GroupProjectHandout.pdf",
+    "fileType": "",
+    "fileSizeKB": 0,
+    "uploadedAt": "2026-04-11"
+  },
+  "academic": {
+    "gpa": 0.0,
+    "completedCourses": []
+  },
+  "permissions": {
+    "canBrowseJobs": true,
+    "canApplyJob": true,
+    "canManageJob": false,
+    "canManageUsers": false,
+    "canViewOwnApplications": true,
+    "canUploadCV": true,
+    "canEditOwnProfile": true,
+    "canReviewApplication": false
+  },
+  "meta": {
+    "createdAt": "2026-04-11T20:02:51.233654400",
+    "isDeleted": false,
+    "isActive": true,
+    "updatedAt": "2026-04-11T20:04:41.2603318"
+  },
+  "profile": {
+    "fullName": "Alice",
+    "studentId": "20230004",
+    "year": "2nd Year",
+    "programMajor": "Computer Science",
+    "department": "",
+    "phoneNumber": "13423452345",
+    "address": "",
+    "shortBio": ""
+  },
+  "userId": "u_ta_20230013",
+  "account": {
+    "password": "QQ123456",
+    "lastLoginAt": "2026-04-11T20:02:51.233654400",
+    "email": "ali@university.edu",
+    "passwordHash": "hashed_20230004",
+    "username": "20230004",
+    "status": "active"
+  },
+  "dashboard": {
+    "profileCompletion": 100,
+    "onboardingCompleted": true
+  },
+  "applicationSummary": {
+    "underReview": 0,
+    "rejected": 0,
+    "pending": 0,
+    "accepted": 0,
+    "totalApplications": 0
+  }
+}

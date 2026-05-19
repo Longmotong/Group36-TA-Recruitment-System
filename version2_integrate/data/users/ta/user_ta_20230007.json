@@ -1,0 +1,74 @@
+{
+  "skills": {
+    "other": [
+    ],
+    "teaching": [
+    ],
+    "communication": [
+    ],
+    "programming": [
+    ]
+  },
+  "loginId": "20230007",
+  "role": "ta",
+  "cv": {
+    "originalFileName": "",
+    "filePath": "",
+    "uploaded": false,
+    "storedFileName": "",
+    "uploadedAt": "",
+    "fileType": "",
+    "fileSizeKB": 0
+  },
+  "academic": {
+    "completedCourses": [
+    ],
+    "gpa": 0.0
+  },
+  "permissions": {
+    "canBrowseJobs": true,
+    "canApplyJob": true,
+    "canManageJob": false,
+    "canManageUsers": false,
+    "canViewOwnApplications": true,
+    "canUploadCV": true,
+    "canEditOwnProfile": true,
+    "canReviewApplication": false
+  },
+  "meta": {
+    "createdAt": "2026-04-11T00:06:42.768441400",
+    "isDeleted": false,
+    "isActive": true,
+    "updatedAt": "2026-04-11T00:06:42.768441400"
+  },
+  "profile": {
+    "studentId": "20230007",
+    "phoneNumber": "",
+    "address": "",
+    "year": "",
+    "avatarPath": "",
+    "fullName": "Mary",
+    "shortBio": "",
+    "programMajor": "",
+    "department": ""
+  },
+  "userId": "u_ta_20230007",
+  "account": {
+    "password": "test1234",
+    "lastLoginAt": "2026-04-11T00:06:42.768441400",
+    "email": "Mary@university.edu",
+    "passwordHash": "hashed_Mary",
+    "username": "Mary",
+    "status": "active"
+  },
+  "dashboard": {
+    "profileCompletion": 0
+  },
+  "applicationSummary": {
+    "underReview": 0,
+    "rejected": 0,
+    "pending": 0,
+    "accepted": 0,
+    "totalApplications": 0
+  }
+}

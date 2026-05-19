@@ -1,0 +1,110 @@
+{
+  "applicationId": "app_000006",
+  "userId": "u_ta_20230001",
+  "studentId": "20230001",
+  "jobId": "job_CS240_2026_spring",
+
+  "jobSnapshot": {
+    "title": "Computer Systems Grader",
+    "courseCode": "CS240",
+    "courseName": "Computer Systems",
+    "department": "Computer Science",
+    "instructorName": "Prof. Michael Lee",
+    "instructorEmail": "michael.lee@university.edu",
+    "deadline": "2026-03-30T23:59:59",
+    "employmentType": "Part-time Grader",
+    "weeklyHours": 8,
+    "locationMode": "Remote"
+  },
+
+  "applicantSnapshot": {
+    "fullName": "John Smith",
+    "studentId": "20230001",
+    "email": "john.smith@university.edu",
+    "phoneNumber": "(555) 123-4567",
+    "programMajor": "Computer Science",
+    "year": "3rd Year",
+    "department": "Computer Science",
+    "gpa": 3.8
+  },
+
+  "applicationForm": {
+    "relevantSkills": [
+      "Python",
+      "JavaScript"
+    ],
+    "relevantExperience": "Worked on systems programming labs and helped classmates debug Linux environment issues.",
+    "availability": "Tuesday/Thursday 3-6pm, Friday 9-11am",
+    "motivationCoverLetter": "I am interested in the grader role because I enjoy evaluating technical work carefully and providing helpful feedback to students."
+  },
+
+  "attachments": {
+    "cv": {
+      "originalFileName": "John_Smith_CV.pdf",
+      "storedFileName": "cv.pdf",
+      "filePath": "data/uploads/application_files/app_000006/cv.pdf",
+      "fileType": "pdf",
+      "copiedAt": "2026-03-19T10:05:00"
+    },
+    "supportingDocuments": [
+      {
+        "documentId": "doc_006_001",
+        "originalFileName": "systems_project_summary.pdf",
+        "storedFileName": "systems_project_summary.pdf",
+        "filePath": "data/uploads/application_files/app_000006/systems_project_summary.pdf",
+        "fileType": "pdf",
+        "uploadedAt": "2026-03-19T10:05:12"
+      }
+    ]
+  },
+
+  "workflow": {
+    "assignedMO": "u_mo_002",
+    "assignedAdmin": "u_admin_001",
+    "reviewDepartment": "Computer Science"
+  },
+
+  "status": {
+    "current": "under_review",
+    "label": "Under Review",
+    "lastUpdated": "2026-03-19T13:20:00",
+    "updatedBy": "u_mo_002"
+  },
+
+  "review": {
+    "reviewerNotes": "Strong GPA and relevant CS background. Reviewing fit for grading workload.",
+    "decision": "",
+    "decisionReason": "",
+    "statusMessage": "Application is being reviewed by the hiring office.",
+    "nextSteps": "Await instructor feedback.",
+    "reviewedBy": "u_mo_002",
+    "reviewedAt": "2026-03-19T13:20:00"
+  },
+
+  "timeline": [
+    {
+      "timelineId": "tl_006_001",
+      "stepKey": "submitted",
+      "stepLabel": "Application Submitted",
+      "status": "completed",
+      "timestamp": "2026-03-19T10:05:00",
+      "updatedBy": "u_ta_20230001",
+      "note": "Application submitted successfully."
+    },
+    {
+      "timelineId": "tl_006_002",
+      "stepKey": "under_review",
+      "stepLabel": "Under Review",
+      "status": "completed",
+      "timestamp": "2026-03-19T13:20:00",
+      "updatedBy": "u_mo_002",
+      "note": "Application moved into review stage."
+    }
+  ],
+
+  "meta": {
+    "submittedAt": "2026-03-19T10:05:00",
+    "updatedAt": "2026-03-19T13:20:00",
+    "isDeleted": false
+  }
+}
