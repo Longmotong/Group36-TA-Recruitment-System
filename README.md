@@ -355,16 +355,16 @@ data
 | 2026-4-9 | @Longmotong |Motong-Long/TA_job_application_module|add draft box function|
 | 2026-4-10 | @Longmotong |Motong-Long/TA_job_application_module|Integrate the login system, TA-side functions, and admin-side functions |
 | 2026-4-11 | @Longmotong |Motong-Long/TA_job_application_module|Integrate and debug all functions, address issues arising from integration, and unify the path for data storage |
-| 2026-4-21 | @Longmotong |Motong-Long/TA_job_application_module|design and implement a double check mechanism for offers |
-| 2026-4-22 | @Longmotong |Motong-Long/TA_job_application_module|Add AI analysis of job compatibility and display of cards for the top three positions in the list interface |
-| 2026-4-23 | @Longmotong |Motong-Long/TA_job_application_module|improve the display interface for AI matching degree ranking, as well as the presentation interface for each job's AI analysis results |
-| 2026-4-27 | @Longmotong |Motong-Long/TA_job_application_module|Integrate the ta job application module into the consolidated version code |
+| 2026-4-15 | @Longmotong |Motong-Long/TA_job_application_module|design and implement a double check mechanism for offers |
+| 2026-4-17 | @Longmotong |Motong-Long/TA_job_application_module|Add AI analysis of job compatibility and display of cards for the top three positions in the list interface |
+| 2026-4-19 | @Longmotong |Motong-Long/TA_job_application_module|improve the display interface for AI matching degree ranking, as well as the presentation interface for each job's AI analysis results |
+| 2026-4-25 | @Longmotong |Motong-Long/TA_job_application_module|Integrate the ta job application module into the consolidated version code |
 | 2026-4-28 | @Longmotong |Motong-Long/TA_job_application_module|Integrate the mo system and admin system into the full version |
-| 2026-5-7 | @Longmotong |Motong-Long/TA_job_application_module|Update the UI design of the work list interface |
-| 2026-5-8 | @Longmotong |Motong-Long/TA_job_application_module|Update the UI design of the job detail interface |
-| 2026-5-9 | @Longmotong |Motong-Long/TA_job_application_module|Update the UI design of the two ai result interfaces |
-| 2026-5-10 | @Longmotong |Motong-Long/TA_job_application_module|Update the UI design of the apply and my application interfaces |
-| 2026-5-18 | @Longmotong |Motong-Long/TA_job_application_module|Fix issues such as the display button still being present |
+| 2026-5-6| @Longmotong |Motong-Long/TA_job_application_module|Update the UI design of the work list interface |
+| 2026-5-10 | @Longmotong |Motong-Long/TA_job_application_module|Update the UI design of the job detail interface |
+| 2026-5-13 | @Longmotong |Motong-Long/TA_job_application_module|Update the UI design of the two ai result interfaces |
+| 2026-5-15 | @Longmotong |Motong-Long/TA_job_application_module|Update the UI design of the apply and my application interfaces |
+| 2026-5-17 | @Longmotong |Motong-Long/TA_job_application_module|Fix issues such as the display button still being present |
 
 
 
