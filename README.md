@@ -397,6 +397,10 @@ data
 | 2026-04-07 | @GuoZihan429 | Zihan-Guo/MO_Job_Management | Build on the second-version draft and refine main-surface action icons from user feedback so each function is easier to recognize and clearer at a glance |
 | 2026-04-08 | @GuoZihan429 | Zihan-Guo/MO_Job_Management | Ship one MO shell with a unified look; share job and application data under data/, scoped to the active MO, with live refresh |
 | 2026-04-09 | @GuoZihan429 | Zihan-Guo/MO_Job_Management | Joint-test the integrated build: walk main flows, align list/detail layout, and verify data after MO switch. Apply small UI fixes from feedback (spacing, alignment, messaging) and capture open items for later |
+| 2026-04-22 | @GuoZihan429 | Zihan-Guo/MO_Job_Management | Resolve legacy issues found during version 2 integration and reorganized the source code structure for easier maintenance |
+| 2026-04-24 | @GuoZihan429 | Zihan-Guo/MO_Job_Management | Update the three key metrics on the MO dashboard to improve accuracy and readability of core business data |
+
+
 
 ### Yifan Cao
 | Date | Member | Location/Branch | Task Description |
